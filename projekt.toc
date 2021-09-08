@@ -15,36 +15,36 @@
 \contentsline {subsection}{\numberline {2.3.1}Architecture}{21}{subsection.2.3.1}%
 \contentsline {section}{\numberline {2.4}Strimzi system tests}{23}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Architecture}{24}{subsection.2.4.1}%
-\contentsline {chapter}{\numberline {3}Theory of paralelization}{26}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Amdahl's \& Gustafson's law}{26}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Dependencies}{26}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Race conditions, mutual exclusion, synchronization}{26}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Fine-grained, coarse-grained, and embarrassing parallelism}{26}{section.3.4}%
-\contentsline {section}{\numberline {3.5}JUnit5 paralelization}{26}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Proposal of parallel approach}{27}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Possible approaches}{27}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Architecture changes}{27}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Method wide paralelization}{27}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Class wide paralelization}{27}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Algorithms}{27}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Implementation}{28}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Resource Manager paralell approach}{28}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Parallel annotations}{28}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Method wide paralelization}{28}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Class wide paralelization}{28}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Complications during implementation}{28}{section.5.5}%
-\contentsline {chapter}{\numberline {6}Experimental evaluation}{29}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Experimental setup}{29}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Results}{29}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Evaluation of the obtained results}{29}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Future work}{30}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Conclusion}{31}{chapter.8}%
-\contentsline {chapter}{Bibliography}{32}{chapter*.3}%
-\contentsline {chapter}{\numberline {A}How to use this template}{34}{appendix.A}%
-\contentsline {paragraph}{Pay attention to page numbering!}{35}{section*.5}%
-\contentsline {chapter}{\numberline {B}Writing english texts}{39}{appendix.B}%
-\contentsline {paragraph}{Common erros in words}{42}{section*.16}%
-\contentsline {chapter}{\numberline {C}Checklist}{43}{appendix.C}%
-\contentsline {chapter}{\numberline {D}\LaTeX {} for beginners}{47}{appendix.D}%
-\contentsline {chapter}{\numberline {E}Examples of bibliographic citations}{50}{appendix.E}%
+\contentsline {chapter}{\numberline {3}Theory of paralelization}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Amdahl's \& Gustafson's law}{25}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Dependencies}{25}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Race conditions, mutual exclusion, synchronization}{25}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Fine-grained, coarse-grained, and embarrassing parallelism}{25}{section.3.4}%
+\contentsline {section}{\numberline {3.5}JUnit5 paralelization}{25}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Proposal of parallel approach}{26}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Possible approaches}{26}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Architecture changes}{26}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Method wide paralelization}{26}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Class wide paralelization}{26}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Algorithms}{26}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Implementation}{27}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Resource Manager paralell approach}{27}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Parallel annotations}{27}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Method wide paralelization}{27}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Class wide paralelization}{27}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Complications during implementation}{27}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Experimental evaluation}{28}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Experimental setup}{28}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Results}{28}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Evaluation of the obtained results}{28}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Future work}{29}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusion}{30}{chapter.8}%
+\contentsline {chapter}{Bibliography}{31}{chapter*.3}%
+\contentsline {chapter}{\numberline {A}How to use this template}{33}{appendix.A}%
+\contentsline {paragraph}{Pay attention to page numbering!}{34}{section*.5}%
+\contentsline {chapter}{\numberline {B}Writing english texts}{38}{appendix.B}%
+\contentsline {paragraph}{Common erros in words}{41}{section*.16}%
+\contentsline {chapter}{\numberline {C}Checklist}{42}{appendix.C}%
+\contentsline {chapter}{\numberline {D}\LaTeX {} for beginners}{46}{appendix.D}%
+\contentsline {chapter}{\numberline {E}Examples of bibliographic citations}{49}{appendix.E}%
 \contentsfinish 
