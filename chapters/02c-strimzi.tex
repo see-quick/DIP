@@ -28,26 +28,26 @@ One can then be understood as a superset of the Deployment controller, which, li
 
 Figure \ref{03:strimzi:fig:crds} illustrates the mentioned Custom Resource and Custom Resource Definitions. Kafka Custom Resource Definition (Figure \ref{03:strimzi:fig:crds} \---\ right side) shows several essential parts:
 \begin{itemize}[itemsep=1mm, parsep=0pt]
-    \item \textbf{labels:app:strimzi}  \---\ every Kafka Custom Resource contains in Kubernetes contains this label, and with that, it is easier to find these resources
-    \item \textbf{spec:names:kind:Kafka} \---\ In this attribute, we specify how the Custom Resource type will be uniquely named. In this case, Custom Resource is labelled with Kafka name.
-    \item \textbf{spec:scope:Namespaced} \---\ type of environment scope. It distinguishes between Custom Resource, which works multi-namespace or single-namespace. Because Kafka Custom resource is set to Namespaced (single-namespace), it can work in one namespace. On the other hand, we also know the Custom Resource, which can have the scope set to Cluster (multi-namespace), which means that they will observe all the namespaces that the Kubernetes cluster has. 
-    \item \textbf{spec:schema} \---\ this is the whole declaration of the Custom Resource Definition. In the child nodes, we can see what types the individual attributes must comply with and what the restrictions are on the given types. For example, the attribute \emph{replicas} we have a restriction that it must be set to at least one and similarly for other attributes. For imagination, the current version of Strimzi 0.25.0 Kafka Custom Resource Definition consists of 7000 lines of code.
+    \item \textbf{labels.app.strimzi}  \---\ every Kafka Custom Resource contains in Kubernetes contains this label, and with that, it is easier to find these resources
+    \item \textbf{spec.names.kind.Kafka} \---\ In this attribute, we specify how the Custom Resource type will be uniquely named. In this case, Custom Resource is labelled with Kafka name.
+    \item \textbf{spec.scope.Namespaced} \---\ type of environment scope. It distinguishes between Custom Resource, which works multi-namespace or single-namespace. Because Kafka Custom resource is set to Namespaced (single-namespace), it can work in one namespace. On the other hand, we also know the Custom Resource, which can have the scope set to Cluster (multi-namespace), which means that they will observe all the namespaces that the Kubernetes cluster has.
+    \item \textbf{spec.schema} \---\ this is the whole declaration of the Custom Resource Definition. In the child nodes, we can see what types the individual attributes must comply with and what the restrictions are on the given types. For example, the attribute \emph{replicas} we have a restriction that it must be set to at least one and similarly for other attributes. For imagination, the current version of Strimzi 0.25.0 Kafka Custom Resource Definition consists of 7000 lines of code.
 \end{itemize}
 
 On the other hand, we have Kafka Custom Resource (Figure \ref{03:strimzi:fig:crds} - left side), which includes some parts worth mentioning:
 \begin{itemize}[itemsep=1mm, parsep=0pt]
   \item \textbf{apiVersion} \---\ This is the REST API offered by the Custom Resource Definition. The prefix must also match the value found in Kafka, Custom Resource Definition in spec: group. 
-  \item \textbf{metadata: name} \---\ Custom Resource name,
-  \item \textbf{spec:kafka:version} \---\ version of Kafka to be used,
-  \item \textbf{spec:kafka:replicas} \---\ number of Kafka Pods to be installed,
-  \item \textbf{spec:kafka:listeners} \---\ types of listeners to be supported by a given Kafka instance. In this case, we see two types, one with plain communication listening on port 9092. Furthermore, a second listener will use encrypted communication using TLS technology and listen on port 9093.
-  \item  \textbf{spec:kafka:config} \---\ these are additional configuration features that are added to Kafka,
-  \item  \textbf{spec:kafka:storage} \cite{strimziStorageBlogPost} \---\ the type of storage that Kafka will have. We know two types that Kubernetes has been supporting for a long time. In our case, it is ephemeral storage. This is usually a directory somewhere in the operating system on our Kubernetes node. It works the same as the temporal directory. There are also risks associated with this, when the Kubernetes node may crash, and the data stored in the given storage will be lost. The same thing will happen if we get a running Pod that will use ephemeral storage. In case of a restart, together with the new Pod, empty storage will be created, not containing the previous data. The second type of storage is Persistent, which eliminates these risks. 
-  \item \textbf{spec:zookeeper:replicas} \---\ number of Zookeeper Pods to be installed,
-  \item \textbf{spec:entityOperator} \---\ instance of Entity Operator with default configuration.,
+  \item \textbf{metadata. name} \---\ Custom Resource name,
+  \item \textbf{spec.kafka.version} \---\ version of Kafka to be used,
+  \item \textbf{spec.kafka.replicas} \---\ number of Kafka Pods to be installed,
+  \item \textbf{spec.kafka.listeners} \---\ types of listeners to be supported by a given Kafka instance. In this case, we see two types, one with plain communication listening on port 9092. Furthermore, a second listener will use encrypted communication using TLS technology and listen on port 9093.
+  \item  \textbf{spec.kafka.config} \---\ these are additional configuration features that are added to Kafka,
+  \item  \textbf{spec.kafka.storage} \cite{strimziStorageBlogPost} \---\ the type of storage that Kafka will have. We know two types that Kubernetes has been supporting for a long time. In our case, it is ephemeral storage. This is usually a directory somewhere in the operating system on our Kubernetes node. It works the same as the temporal directory. There are also risks associated with this, when the Kubernetes node may crash, and the data stored in the given storage will be lost. The same thing will happen if we get a running Pod that will use ephemeral storage. In case of a restart, together with the new Pod, empty storage will be created, not containing the previous data. The second type of storage is Persistent, which eliminates these risks.
+  \item \textbf{spec.zookeeper.replicas} \---\ number of Zookeeper Pods to be installed,
+  \item \textbf{spec.entityOperator} \---\ instance of Entity Operator with default configuration.,
 \end{itemize}
 
-\subsection*{Architecture}
+\subsection{Architecture}
 
 Strimzi architecture consists of two larger units, where the first unit is Kafka architecture and other components with which it communicates. The second unit is the Operators architecture, consisting of a Cluster Operator, an Entity Operator, a Topic Operator and a User Operator. These Operators then have control loops, which control the already defined Custom Resources, such as Kafka User, Kafka Topic, Kafka and Kafka Connect.
 
@@ -75,69 +75,6 @@ but simultaneously in Kafka itself. Also, imagine another scenario where one cha
 
 The User Operator is responsible for the Kafka User Resource, which specifies authentication and authorization for individual components. It can be, for example, the Producer that can not change data in a Topic with a particular name or prefix name. In other words, we can define read, read and write rules for Topics. In addition, we can create different types of Kafka Users, which support authentication such as TLS or SCRAM-SHA. Nevertheless, if we use SCRAM-SHA authentication, we must also configure one of the Kafka Broker listeners. Noteworthy, when one creates Kafka Custom Resource, then immediately User Operator creates associated Secret with the credentials. These credentials are then submitted to the Consumer or Producer configuration. Credentials ensure that the Producer or Consumer can connect to Kafka Broker and send or receive messages. In authorization, several components can also be used, such as ACLs (access control lists). For more complex rules, there is support for the Keycloak or Hydra authorization server. Another exciting feature is User quotas, ensuring that one client will never control the entire Kafka Broker, and the total load will be limited.
 
-\subsection*{Deep inside Strimzi TODO}
+%\subsection{Deep inside Strimzi TODO: decide if this is needed...}
 
-ROLLLING UPDATE a ROLLBACK mechanizmus zmenit a popisat ako to funguje. Co to je referencovat z Kuberernetes. Kedy sa vykonava v pripade Strimzi. Algorihmus jebnut a hotovo. To iste s Rollbackom.
-
-
-\section{Strimzi system tests}
-\label{02:sec:strimzisystemtests}
-
-\subsection*{Motivation}
-
-\subsection*{Čo všetko sa testuje...}
-
-RollingUpdate, CruiseControl, Keycloak a podobne...tieto vsetky casti popísať. Zároveň popísať RBAC, FEATURE GATES a podobne...
-
-\subsection*{Architecture}
-
-Each resource has his own creation method which is not good practice. For instance Kafka resources has default instance predefined like this:
-
-\begin{itemize}[itemsep=1mm, parsep=0pt]
-    \item also add here some diagram, which will show communication between components
-    \item another diagram how it is called (relation between templates, user, creation and deletion methods), resource manager and so on...
-\end{itemize}
-
-\begin{verbatim}
-private static KafkaBuilder defaultKafka(
-            Kafka kafka, 
-            String name, 
-            int kafkaReplicas, 
-            int zookeeperReplicas) {
-    return new KafkaBuilder(kafka)
-        .withNewMetadata()
-            .withName(name)
-            .withNamespace(ResourceManager.kubeClient().getNamespace())
-        .endMetadata()
-        .editSpec()
-            .editKafka()
-                .withVersion(Environment.ST_KAFKA_VERSION)
-                .withReplicas(kafkaReplicas)
-            .endKafka()
-            .editZookeeper()
-            .endZookeeper()
-            .editEntityOperator()
-            .endEntityOperator()
-\end{verbatim}
-
-\begin{algorithm}[H]
-\label{01:alg:dsds}
-\caption{Sequential algorithm for creation all resources inside \emph{Resource manager}}
-
-    \begin{algorithmic}[1]
-        \State start\_here
-    \end{algorithmic}
-\end{algorithm}
-
-
-\begin{algorithm}[H]
-\label{01:alg:dsdsd+}
-\caption{Sequential algorithm for deletion all resources inside \emph{Resource manager}}
-
-    \begin{algorithmic}[1]
-        \State start\_here
-    \end{algorithmic}
-\end{algorithm}
-
-
-\subsection*{Implementation}
+%ROLLLING UPDATE a ROLLBACK mechanizmus zmenit a popisat ako to funguje. Co to je referencovat z Kuberernetes. Kedy sa vykonava v pripade Strimzi. Algorihmus jebnut a hotovo. To iste s Rollbackom.

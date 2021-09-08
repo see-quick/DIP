@@ -5,7 +5,7 @@ This section explains and defines the basics of the Apache Kafka system. The des
 
 Apache Kafka is a event streaming platform that offers many features like high performance, distribution, commit log service\footnote{\textbf{Commit log} 
 ---\ is a type of data structure that stores ordered sequences of events.}, and more. It publishes and subscribes to record streams that are similar to a message queue or enterprise messaging system. Additionally, it stores record streams in a robust, fault-tolerant way. Kafka also creates real-time data flows that reliably capture data transferred between systems or applications. This technology is widely used by many big companies like LinkedIn, Spotify, Netflix, and Uber.
-\subsection*{Motivation \cite{02-bachelor-thesis}} 
+\subsection{Motivation \cite{02-bachelor-thesis}}
 \label{kafka:motivation}
 
 In the past, companies had applications or systems that share many data. Moreover, the application was able to provide some valuable information to another application. So, there was one source system and one target system. But what about adding some more source and target systems? Assume an example where one has five source systems and five target systems. Each source system needs something from each particular target system. 
@@ -21,7 +21,7 @@ In the past, companies had applications or systems that share many data. Moreove
 
 Therefore has twenty-five links, which is not effective i.e \ref{fig:withoutAndWithBroker} (quadratic complexity). That is why Kafka was invented. Let illustrate the same example with ten systems and Kafka in the middle serving as Middleware\footnote{\textbf{Middleware} \---\ Software, that acts as the middle man between two systems and guarantees interoperability between them.}, which is placed in the middle of these systems. In that case, each source system is bind to the Kafka broker, and all data are delivered by a single link. You can see the updated system in the Figure \ref{fig:withoutAndWithBroker}.
 
-\subsection*{Fundamental concepts}
+\subsection{Fundamental concepts}
 
 In this subsection, we describe fundamental concepts of Apache Kafka such as Producer, Consumer, Kafka broker, Kafka cluster and so on. The description is based on the \emph{Real-Time Data and StreamProcessing at Scale} \cite{apacheKafkaDefinitiveGuide} and partially \cite{kafkaDocumentation}. 
 
@@ -58,7 +58,7 @@ In this subsection, we describe fundamental concepts of Apache Kafka such as Pro
     \end{figure}
 \end{enumerate}
 
-\subsection*{Kafka Streams}
+\subsection{Kafka Streams}
 
 It is a stream processing tool created by the Kafka community that does not suffers from the low level of the Consumer API and Producer API. These client APIs are very flexible, and the user can create the data processing logic he wants. However, there is a payoff, and it is writing many lines of code. Unfortunately, we cannot classify these APIs into stream processing APIs because they do not contain primitives that would classify them there, such as \emph{Local} and \emph{Fault-tolerant} state and a set of transformers that work with data (a transformer is an operator that transforms data).
 
@@ -101,7 +101,7 @@ Kafka Streams is thus a set of libraries that offer developers incredible power 
 \end{itemize}
 We have many such types of applications. However, what brings together all the examples is real-time data processing.	
 
-\subsection*{Kafka Connect}
+\subsection{Kafka Connect}
 
 One of the most critical questions that every data engineer is asking: "\emph{How to move data from Kafka to datastore or vice versa?}". At the same time, create data pipelines that connect several systems, for instance, by selecting data from Twitter and then sending it to Elasticsearch or other external storage. Of course, Kafka will play a middleware role in this data transfer. We can answer the previous question very quickly and solve the data integration problem thanks to the Kafka Connect component.
 

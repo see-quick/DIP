@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.5)  7 SEP 2021 09:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.5)  8 SEP 2021 18:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -780,7 +780,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.34 ...}How to use this template}{33}{appendix.A}
+l.43 ...}How to use this template}{33}{appendix.A}
                                                   % [1
 
 
@@ -1056,6 +1056,11 @@ Overfull \hbox (52.30908pt too wide) in paragraph at lines 71--72
  [][] 
  []
 
+) (./chapters/02d-strimzi-system-tests.tex
+
+LaTeX Warning: Reference `02d-strimzi-algorithm' on page 22 undefined on input 
+line 6.
+
 [22] [23 <./obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch
 .pdf>]) (./chapters/03-theory-of-paralellization.tex [24]
 Chapter 3.
@@ -1102,7 +1107,7 @@ Appendix D.
 [46
 
 ]
-<obrazky-figures/placeholder.pdf, id=1027, 151.87993pt x 85.31876pt>
+<obrazky-figures/placeholder.pdf, id=1030, 151.87993pt x 85.31876pt>
 File: obrazky-figures/placeholder.pdf Graphic file (type pdf)
 <use obrazky-figures/placeholder.pdf>
 Package pdftex.def Info: obrazky-figures/placeholder.pdf  used on input line 43
@@ -1128,7 +1133,7 @@ File: obrazky-figures/placeholder.pdf Graphic file (type pdf)
 Package pdftex.def Info: obrazky-figures/placeholder.pdf  used on input line 43
 4.
 (pdftex.def)             Requested size: 103.798pt x 58.31018pt.
-<obrazky-figures/keep-calm.png, id=1028, 602.25pt x 702.625pt>
+<obrazky-figures/keep-calm.png, id=1031, 602.25pt x 702.625pt>
 File: obrazky-figures/keep-calm.png Graphic file (type png)
 <use obrazky-figures/keep-calm.png>
 Package pdftex.def Info: obrazky-figures/keep-calm.png  used on input line 444.
@@ -1211,27 +1216,27 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 823--824
 \tf@ptc=\write5
 \openout5 = `projekt.ptc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 357.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 358.
  [58]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 357.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 358.
  (./projekt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 357.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 357.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 358.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 358.
 Package rerunfilecheck Info: File `projekt.out' has not changed.
-(rerunfilecheck)             Checksum: 85BF6EEB6716681346AED929E7F79168;5888.
+(rerunfilecheck)             Checksum: BB83879856FB82B02039350B8E449AAE;5887.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16861 strings out of 480608
- 255387 string characters out of 5903630
+ 16867 strings out of 480608
+ 255620 string characters out of 5903630
  561072 words of memory out of 5000000
- 32019 multiletter control sequences out of 15000+600000
+ 32022 multiletter control sequences out of 15000+600000
  636042 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,15n,42p,1769b,600s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,15n,42p,1956b,598s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2020/
 texmf-dist/fonts/enc/dvips/opensans/a_jg4h6q.enc}</usr/local/texlive/2020/texmf
@@ -1255,10 +1260,10 @@ public/lm/lmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lm
 ri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><
 /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/
 texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on projekt.pdf (62 pages, 2903244 bytes).
+Output written on projekt.pdf (62 pages, 2906764 bytes).
 PDF statistics:
- 1248 PDF objects out of 1440 (max. 8388607)
- 1054 compressed objects within 11 object streams
+ 1251 PDF objects out of 1440 (max. 8388607)
+ 1057 compressed objects within 11 object streams
  252 named destinations out of 1000 (max. 500000)
  425 words of extra memory for PDF output out of 10000 (max. 10000000)
 
