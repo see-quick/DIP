@@ -1231,6 +1231,8 @@ Management}{\@fit@EN}%
   \usepackage{ae}
 \fi
 
+
+
 %--------------------------------------------------------
 % Oprava pro Čechy a Slováky -- vyžaduje aktuální balíčky!
 % Fix for CZECH and SLOVAK -- needs up to date packages!
@@ -1352,7 +1354,6 @@ Management}{\@fit@EN}%
 
 \newcommand{\phony}[1]{\textcolor{gray}{#1}}
 \newcommand{\blind}[1]{\textcolor{gray}{\Blindtext[#1]}}
-
 
 % Sloupec zarovnaný vlevo s pevnou šířkou
 % Left aligned column with a fixed width
