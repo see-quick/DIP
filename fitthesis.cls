@@ -1206,6 +1206,7 @@ Management}{\@fit@EN}%
   {\endlist}
 \makeatother
 
+\newtheorem{definition}{Definition}
 
 % Balíčky
 % Packages
@@ -1344,6 +1345,7 @@ Management}{\@fit@EN}%
 }
 
 %END Jan Pluskal (ipluskal) listings
+
 
 
 % Příkazy pro TODO (3 alternativy - lze zvolit preferovanou)

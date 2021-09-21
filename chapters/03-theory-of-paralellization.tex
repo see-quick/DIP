@@ -1,63 +1,95 @@
 \chapter{Theory of paralelization}
 
-... nejaka dlha rozprava o paralelizacii vseobecne
+This chapter describes the fundamental theory of parallelization (i.e., Amdahl's law, Race condition, Mutual Exclusion, Synchronization, Threads, Processes). We will then transfer to the Java programming language and show how these primitives are implemented. Finally, we describe the extension of the JUnit5 framework, which allows thread parallelization, and explain what it offers. This chapter is based on the following books.
+
+In the past, computers did not have an operating system. They could only execute one program at a time from start to end. The programmers of the time were as respected as the virtuoso in music and the arts. Writing such programs has been highly challenging. This problem was solved by developing operating systems that can run several processes (programs). 
+Processes use the so-called variant of coarse-grained communication. 
+Coarse-grained communication includes primitives such as sockets, signals, semaphores, shared memory, and files. This variant allows them to communicate with each other using signals, files or shared memory.  These processes were virtually von Neumann computers, which contained their own memory space that included instructions and data. Subsequently, the processes executed these instructions according to the semantics of the assembly language. The last part was a set of I/O operations to communicate with each other. If we connect all the parts, we will have a model called Sequential. This model is used by most of today's programming languages.  Specifically, the sequential programming model is very intuitive because it creates a sequence of operations that follow each other, thus making the expected result. However, this model has its limitations on performance and time consumption on certain tasks. During the twentieth century, technological advances brought a regular increase in the clock's speed, so that the software really "accelerated" itself over time. However, this scenario is not repeated in the twenty-first century. Today's advances in technology bring about a regular increase in parallelism, but only a slight increase in clock speeds. The use of this parallelism is one of the outstanding challenges of modern informatics.
+
 \section{Amdahl's law}
-\section{Dependencies}
-\section{Race conditions, mutual exclusion, synchronization}
-\section{Concurrent Objects}
-\section{Fine-grained, coarse-grained, and embarrassing parallelism}
+
+If we imagine ourselves as a team that would like to migrate from a single-processor program to a multi-processor program, it would be perfect to be sure that if we embark on the parallelization of such a system, it will pay off. Moreover, many people live in a bubble, where they think that if we build a multi-processor program from a one-processor program and run it on 3-cores, the overall acceleration will be three times. This is an illusion, and we will never get such a result. The main problem is due to the division of labour which is not uniform for all parts. For clarity, we will illustrate with an example. Imagine that one has to construct a home table. In this case, it is a sequential approach. However, adding four identical tables (so there will be five) will take five times more time for one. Suppose four friends come to help him (we assume they are just as skilled and start simultaneously). The acceleration for such identical tables will be five times. Nevertheless, everything gets complicated if the tables are not the same. For example, the second table will be more complicated to build and will take more time than the others. Furthermore, the first will be smaller, and thus the total time will be lower. This implies that the acceleration will not be close to 5-times, but it will probably be almost 3-times. This kind of analysis is crucial for concurrent computation, and thanks to Mr Amdahl, we have a formula for such calculation. It is called Amdahl's law, which can be seen in Equation \eqref{eqn:einstein}.
+\begin{equation}
+    \label{eqn:einstein}
+    S = \frac{1}{1 - p + \frac{p}{n}}
+    \tag{1}
+\end{equation}
+The formula defines the acceleration \emph{S}, which depends on the quantities \emph{n} and \emph{p}. \emph{n} is a non-zero positive number that represents the number of concurrent processors performing the same job. \emph{p} is a non-zero positive number that defines how much work is done in parallel. The sequential part that cannot be parallelized is  defined as the difference between the total work and the work that can be parallelized (\emph{1 - p)}. The parallel component is expressed as the ratio of the parallel part and the number of competitors by the processor (\emph{p / n}). So if we sum up these two parts, we get the total time performed by parallel computation (\emph{1 - p + p / n}). Finally, we have to put the ratio between the sequential (single-processor) time and the parallel time, and we get already mentioned Equation \ref{eqn:einstein}. If we apply this formula to the previous example with five friends who want to build five tables, we get such a Equation \eqref{eqn:amdalhinpractice}.
+
+\begin{equation}
+    \label{eqn:amdalhinpractice}
+    S = \frac{1}{1 - \frac{3}{5} + \frac{\frac{3}{5}}{\frac{5}{1}}} = 25/13 =\sim 2x \; acceleration
+    \tag{2}
+\end{equation}
+
+\section{Fundamentals}
+
+This section will explain the basic primitives that we need to know before embarking on the parallelization of a system. The description is based on following books. The first one is \emph{The Art of Multiprocessor programming} \cite{artOfMultiprocessorProgramming} and the second one \emph{An Introduction to Parallel Programming} \cite{introductionToParallelProgramming}.
+
+Before we dive into the overall terminology and discuss the Critical section, Mutual exclusion, etc., it is necessary to know what it means that the program is correct. The correctness of the program consists of two essential properties. The first is the safety property, which states: "\emph{Bad thing never happens}". To illustrate, imagine the concurrent program never end up in a deadlock\footnote{\textbf{Deadlock} \---\ is a situation where two processes or threads enters a waiting state because a requested system resource is held by another waiting process, which in turn is waiting for another resource held by another waiting process (toto prepisat)}. The second is the liveness property, which tells us: "\emph{An excellent thing will happen eventually}". For instance, the program always terminates. Thus, if we combine these two properties, then we say that the program is correct.
+
+\subsection{Shared memory}
+
+The first aspect is memory. One needs to understand how memory is organized and how a computer accesses individual data. The speed of memory in a computer is usually much slower than the speed at which the processor operates, and if one processor overwrites data in memory, the others must wait. In this type of memory, all processors access the same memory in the global address space. So if one processor makes a change to the data, all the other processors will know about it. The shared memory architecture is classified as UMA (Uniform memory access) and NUMA (Non-uniform memory access). This classification tells us how the individual processors are connected to the memory and how fast the data can be accessed. The wise reader might realize that memory access will be the same for all processors in Uniform memory access. While at Non-uniform memory access, the time will be different. In the UMA architecture, each processor has its own cache memory, storing the most frequent data. However, if the processor uses cache memory, there is a very high risk for cache coherence\footnote {\textbf{Cache coherence} \---\ this is a situation where one of the processors obtains a value from shared memory and makes a change in its cache memory and fails to do so. Update to shared memory (while the other processor reads a value that has not yet been updated and will therefore work with the wrong value)}. Fortunately, this cache coherence is handled by hardware in multicore processors.
+
+\subsection{Processes and Threads}
+
+If one imagines a shell script with a predefined set of instructions (bash commands), the moment someone runs it, it becomes a Process running in the Operating System. We can also imagine it as a static entity (written shell script) and a dynamic entity (shell script execution). In general, the process contains program code, its data, and status information. Each process is independent of the other and has its own address space in memory.
+On the other hand, there is also a subset of the process, and it is a thread. Each thread must be part of a process. Thus, the data we work with is shared with all threads inside the process. Furthermore, each thread has an independent path of program execution. One can imagine a thread as a lightweight variant of the process. It is well known that threads take up less memory. Moreover, the operating system can switch faster between individual threads than between processes (context switching\footnote {\textbf{Context switching} \---\ it is a situation where the Process scheduler finds out that some processes have spent a fair share of its time on the processor and swap it with the different process. When this happens, the Operating system stores the state of process or thread and then load the state of a different process.}). In general, threads can be in one of four states:
+\begin{enumerate}[itemsep=1mm, parsep=0pt]
+	\item \textbf{New} \---\ If the main thread spawns a new thread, that thread will be in the New state. Moreover, the descendants of the main thread can further create a tree hierarchy of new threads.
+        \item \textbf{Runnable} \---\ 
+        \item \textbf{Blocked} \---\
+         \item \textbf{Terminate} \---\
+\end{enumerate}
+
+\subsection{Critical section, Mutual exclusion \& Synchronization}
+
+If we imagine a situation wherein our parallel program, two or more threads will access the identical place in memory, everyone is aware that specific problems may occur. However, notice how the author wrote maybe because there are situations where this may not be a problem. The situations are as follows:
+
+\begin{enumerate}[itemsep=1mm, parsep=0pt]
+    \item Thread 1 reads and at the same time Thread 2 also reads from a shared variable
+    \item Thread 1 reads after Thread 2 writes a new value to the shared variable
+    \item Thread 1 reads before Thread 2 wrote a new value to the shared variable
+    \item Thread 1 and Thread 2 both write a new value to a shared variable at the same time
+\end {enumerate}
+
+In the case of the 1st situation, nothing can happen because we do not modify the content of the shared variable when reading. However, other situations are already causing some errors, which we will define in this section.
+
+As we have mentioned the following situations, the 4th situation where both threads write and thus change the content of the shared variable. Such a section of code is called \emph{Critical section} and its Definition \ref{04:criticalsection}.
+
+\begin{definition}
+    \label{04:criticalsection}
+  \textbf{Critical section} \---\ protected section of code, where two or more threads has write-access (simultaneously) and can product erroneous behaviour.
+\end{definition}
+
+\begin{definition}
+  \textbf{Mutual exclusion} \---\ two objects are excluded from being in the critical section at the same time. 
+\end{definition}
+
+\begin{definition}
+  \textbf{Deadlock-freedom property} \---\  if object wants to enter critical section, then it eventually succeeds. Moreover, if both objects wants to enter critical section, then eventually at least one of them succeeds.  
+\end{definition}
+
+Wise reader will realise that Mutual exclusion is a safety property, deadlock-freedom is a liveness property
+
+\begin{definition}
+  \textbf{Starvation-freedom property} \---\   if object wants to enter critical section, will it eventually succeed?   
+\end{definition}
+
+\begin{definition}
+  \textbf{Starvation-freedom property} \---\   waiting until object, which is in critical section release lock or flag. The mutual exclusion problem requires waiting and there is no way how to avoid it.     
+\end{definition}
+
+In modern operating systems, one common way for one thread to get the attention of another is to send it an interrupt
+
+\subsection{Threads \& Processes}
+
+\subsection{Problems in paralellelism}
+
+Race conditions, Data race, Deadlock, Starvation, Livelock...
+
+\subsection{Concurrent Objects}
+
+\section{Concurrency in Java}
 \section{JUnit5 paralelization}
-
-\chapter{Proposal of parallel approach}
-
-\section{Possible approaches}
-\section{Architecture changes} % detection of conflicts, resourceManagerrework...bla bla
-\section{Method wide paralelization}
-\section{Class wide paralelization}
-\section{Algorithms} 
-
-\begin{algorithm}[H]
-\label{01:alg:dsdsd}
-\caption{Parallel algorithm for creation all resources inside \emph{Resource manager}}
-
-\hspace*{\algorithmicindent} \textbf{Input: extensionContext, resources}
-
-    \begin{algorithmic}[1]
-        \ForEach{$resource \in resources$} 
-            \State $type \gets findResourceType(resource)$
-            \State $type.create(resource)$
-            \\
-            \State // here starts critical section
-            \State $all\_resources.computeIfAbsent((test\_name), k -> new Stack<>())$
-            \State $all\_resources.get((test\_name).push(deleteResource(resource)$
-            \State // here ends critical section
-            \\
-        \If{wait for resource readiness}
-            \ForEach{$resource \in resources$} 
-                \State $type \gets findResourceType(resource)$
-                \State wait for resource readiness
-            \EndForEach
-        \EndIf
-        \EndForEach
-    \end{algorithmic}
-\end{algorithm}
-
-\chapter{Implementation}
-
-\section{Resource Manager paralell approach} % algoritmus
-%\subsection{algoritmus...sekvenčný aj paralelný (podkapitola nebude vidieť...)}
-\section{Parallel annotations}
-\section{Method wide paralelization}
-\section{Class wide paralelization}
-\section{Complications during implementation}
-
-\chapter{Experimental evaluation}
-
-\section{Experimental setup}
-%\subsection{Azure \& Openstack clouds (podkapitola nebude vidieť...)}
-\section{Results}
-\section{Evaluation of the obtained results}
-
-\chapter{Future work}
-
-\chapter{Conclusion}
