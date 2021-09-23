@@ -1,0 +1,168 @@
+\makeatletter
+\makeatother
+\begin{thebibliography}{10}
+
+\bibitem{kubernetes}
+{\sc\bgroup}authors{\egroup}, K.
+\newblock {\em Kubernetes} [online].
+\newblock 2019 {\small [cit. 2021-08-11]}.
+\newblock Available at:
+  ~{\small\url{https://mapr.com/products/kubernetes/assets/k8s-logo.png}}.
+
+\bibitem{kafkaDocumentation}
+{\sc\bgroup}Authors{\egroup}, T.~K.
+\newblock {\em Apache Kafka documentation} [online].
+\newblock 2021 {\small [cit. 2021-08-14]}.
+\newblock Available at: ~{\small\url{https://kafka.apache.org/documentation/}}.
+
+\bibitem{history}
+{\sc\bgroup}Authors{\egroup}, T.~K.
+\newblock {\em History} [online].
+\newblock 2019 {\small [cit. 2021-08-11]}.
+\newblock Available at:
+  ~{\small\url{https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/#going-back-in-time}}.
+
+\bibitem{namespaceTypes}
+{\sc\bgroup}Authors{\egroup}, T.~K.
+\newblock {\em Namespaces} [online].
+\newblock 2019 {\small [cit. 2021-08-11]}.
+\newblock Available at:
+  ~{\small\url{https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/}}.
+
+\bibitem{ingress}
+{\sc\bgroup}Authors{\egroup}, T.~K.
+\newblock {\em Service} [online].
+\newblock 2019 {\small [cit. 2021-08-11]}.
+\newblock Available at:
+  ~{\small\url{https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types}}.
+
+\bibitem{strimziBlogPosts}
+{\sc\bgroup}Authors{\egroup}, T.~S.
+\newblock {\em Strimzi blog posts} [online].
+\newblock 2021 {\small [cit. 2021-09-26]}.
+\newblock Available at: ~{\small\url{https://strimzi.io/blog}}.
+
+\bibitem{strimziDoc}
+{\sc\bgroup}Authors{\egroup}, T.~S.
+\newblock {\em Strimzi Kafka Operator} [online].
+\newblock 2021 {\small [cit. 2021-09-26]}.
+\newblock Available at:
+  ~{\small\url{https://strimzi.io/docs/operators/latest}}.
+
+\bibitem{CernockyEnglish}
+{\sc\bgroup}Černocký{\egroup}, J.
+\newblock {\em English SOS} [online].
+\newblock 2016 {\small [cit. 2019-10-02]}.
+\newblock Available at:
+  ~{\small\url{https://merlin.fit.vutbr.cz/wiki/index.php/English_SOS}}.
+
+\bibitem{artOfMultiprocessorProgramming}
+{\sc\bgroup}Herlihy{\egroup}, M., {\sc\bgroup}Shavit{\egroup}, N.,
+  {\sc\bgroup}Luchangco{\egroup}, V. and~{\sc\bgroup}Spear{\egroup}, M.
+\newblock {\em The Art of Multiprocessor Programming}.
+\newblock 2nd ed.
+\newblock Morgan Kaufmann, 2020.
+\newblock ISBN 0124159508.
+
+\bibitem{Herout}
+{\sc\bgroup}Herout{\egroup}, A.
+\newblock {\em Herout.net -- Poznámky učitele, kouče, čtenáře.} [online].
+\newblock 2018 {\small [cit. 2019-10-02]}.
+\newblock Available at: ~{\small\url{http://www.herout.net/}}.
+
+\bibitem{docker}
+{\sc\bgroup}Inc.{\egroup}, D.
+\newblock {\em Docker} [online].
+\newblock 2016 {\small [cit. 2021-08-11]}.
+\newblock Available at:
+  ~{\small\url{https://s3-us-west-2.amazonaws.com/com-netuitive-app-usw2-public/wp-content/uploads/2016/06/small_v-trans.png}}.
+
+\bibitem{kafkaStreamsBook}
+{\sc\bgroup}Mitch{\egroup}, S.
+\newblock {\em Mastering Kafka Streams and ksqlDB Building real-time data
+  systems}.
+\newblock 1st ed.
+\newblock O'Reilly Media, Inc., 2021.
+\newblock ISBN 1492062499.
+
+\bibitem{apacheKafkaDefinitiveGuide}
+{\sc\bgroup}Neha Narkhede{\egroup}, T.~P.
+\newblock {\em Kafka: The Definitive Guide: Real-Time Data and Stream
+  Processing at Scale}.
+\newblock 1st ed.
+\newblock O’Reilly Media, 2017.
+\newblock ISBN 979-8703756065.
+
+\bibitem{02-bachelor-thesis}
+{\sc\bgroup}Ors\'{a}k{\egroup}, M.
+\newblock {\em Real Time Data Processing with Strimzi Project}.
+\newblock Brno, CZ, 2020.
+\newblock Bakal\'{a}\v{r}sk\'{a} pr\'{a}ce.
+\newblock Vysok\'{e} u\v{c}en\'{i} technick\'{e} v Brn\v{e}, Fakulta
+  informa\v{c}n\'{i}ch technologi\'{i}.
+\newblock Available at:
+  ~{\small\url{https://www.fit.vut.cz/study/thesis/22425/}}.
+
+\bibitem{02-blogpost-how-systemtest-work}
+{\sc\bgroup}Orsák{\egroup}, M.
+\newblock {\em How system tests work} [online].
+\newblock 2021 {\small [cit. 2021-08-11]}.
+\newblock Available at:
+  ~{\small\url{https://strimzi.io/blog/2020/12/03/how-the-system-tests-works/}}.
+
+\bibitem{02-blogpost-introduction-to-systemtest}
+{\sc\bgroup}Orsák{\egroup}, M.
+\newblock {\em Introduction to system tests} [online].
+\newblock 2021 {\small [cit. 2021-08-11]}.
+\newblock Available at:
+  ~{\small\url{https://strimzi.io/blog/2020/09/21/introduction-to-system-tests/}}.
+
+\bibitem{introductionToParallelProgramming}
+{\sc\bgroup}Pacheco{\egroup}, P.
+\newblock {\em An Introduction to Parallel Programming}.
+\newblock 1st ed.
+\newblock Morgan Kaufmann, 2011.
+\newblock ISBN 0123742609.
+
+\bibitem{kubernetesBook}
+{\sc\bgroup}Poulton{\egroup}, N.
+\newblock {\em The Kubernetes Book}.
+\newblock 1st ed.
+\newblock Independently published, 2021.
+\newblock ISBN 979-8703756065.
+
+\bibitem{Pysny}
+{\sc\bgroup}Py{\v{s}}n{\'{y}}{\egroup}, R.
+\newblock {\em BiBTeX styl pro {\v{C}}SN ISO 690 a {\v{C}}SN ISO 690-2}.
+\newblock Brno, CZ, 2009.
+\newblock Bakal{\'{a}}{\v{r}}sk{\'{a}} pr{\'{a}}ce.
+\newblock Vysok{\'{e}} u{\v{c}}en{\'{i}} technick{\'{e}} v Brn{\v{e}}, Fakulta
+  informa{\v{c}}n{\'{i}}ch technologi{\'{i}}.
+\newblock Available at:
+  ~{\small\url{https://www.fit.vut.cz/study/thesis/7848/}}.
+
+\bibitem{fitWeb}
+{\sc\bgroup}Rábová{\egroup}, Z., {\sc\bgroup}Hanáček{\egroup}, P.,
+  {\sc\bgroup}Peringer{\egroup}, P., {\sc\bgroup}Přikryl{\egroup}, P.
+  and~{\sc\bgroup}Křena{\egroup}, B.
+\newblock {\em Užitečné rady pro psaní práce} [online].
+\newblock FIT VUT v~Brně, november 2008 {\small [cit. 2019-10-02]}.
+\newblock Available at:
+  ~{\small\url{https://www.fit.vut.cz/study/theses/theses-advice/}}.
+
+\bibitem{strimziStorageBlogPost}
+{\sc\bgroup}Scholz{\egroup}, J.
+\newblock {\em Deploying Kafka on Kubernetes with Local storage using Strimzi}
+  [online].
+\newblock 2018 {\small [cit. 2021-09-26]}.
+\newblock Available at:
+  ~{\small\url{https://strimzi.io/blog/2018/06/11/deploying-kafka-on-kubernetes-with-local-storage-using-strimzi/}}.
+
+\bibitem{apacheKafkaDesignDistributedSystems}
+{\sc\bgroup}Stopford{\egroup}, B.
+\newblock {\em Designing Event-Driven Systems}.
+\newblock 1st ed.
+\newblock O'Reilly Media, Inc., 2018.
+\newblock ISBN 9781491990650.
+
+\end{thebibliography}
