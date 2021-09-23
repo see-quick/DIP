@@ -67,7 +67,7 @@ Kubernetes services from the biggest cloud providers such as Azure Kubernetes Se
         \EndWhile
     \end{algorithmic}
 \end{algorithm}
-The \emph{kube-apiserver} works like the controller of API calls and communicates with the \emph{kube-scheduler}. It makes sure that every created Pod has some node assigned to run there. The worth of mention is that we also have a component called \emph{etcd}, which works as a backup for cluster data. Slave or node components \ref{02:fig:slaveNode} as \emph{kubelet} have taken care of containers running inside the Pod. \emph{Kube-proxy}, which reflects all the services defined in the kube-apiserver. In the following Figure \ref{02:fig:masterAndSlaveNode}, one can see relation between master and slave nodes.
+The \emph{kube-apiserver} works like the controller of API calls and communicates with the \emph{kube-scheduler}. It makes sure that every created Pod has some node assigned to run there. It is worthwhile to mention that we also have a component called \emph{etcd}, which works as a backup for cluster data. Slave or node components \ref{02:fig:slaveNode} as \emph{kubelet} have taken care of containers running inside the Pod. \emph{Kube-proxy}, which reflects all the services defined in the kube-apiserver. In the following Figure \ref{02:fig:masterAndSlaveNode}, one can see relation between master and slave nodes.
 
 \begin{figure}[!h]
     \centering
