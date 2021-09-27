@@ -44,7 +44,7 @@ On the other hand, we have Kafka Custom Resource (Figure \ref{03:strimzi:fig:crd
   \item  \textbf{spec.kafka.config} \---\ these are additional configuration features that are added to Kafka,
   \item  \textbf{spec.kafka.storage} \cite{strimziStorageBlogPost} \---\ the type of used storage. Kubernetes has been supporting two storage types for a long time. In our case, it is ephemeral storage. Ephemeral storage is usually a directory somewhere in the operating system on our Kubernetes node. It works the same as the temporal directory. There are also risks associated with this, when the Kubernetes node may crash, and the data stored in the given storage will be lost. The same thing will happen if we get a running Pod that will use ephemeral storage. In case of a restart, together with the new Pod, empty storage will be created, not containing the previous data. The second type of storage is Persistent, which eliminates these risks.
   \item \textbf{spec.zookeeper.replicas} \---\ number of Zookeeper Pods to be deployed,
-  \item \textbf{spec.entityOperator} \---\ instance of Entity Operator with default configuration.,
+  \item \textbf{spec.entityOperator} \---\ configuration for Entity Operator.
 \end{itemize}
 
 \subsection{Architecture}
