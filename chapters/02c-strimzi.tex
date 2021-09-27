@@ -1,16 +1,16 @@
 \section{Strimzi}
 \label{03:title}
 
-This section describes and defines the fundamental parts of the Strimzi product. Moreover, it explains the whole architecture with all Operators (i.e., Topic, User, Cluster). The description is based mainly on \cite{strimziDoc, strimziBlogPosts}.
+This section describes the fundamental parts of the Strimzi project. Moreover, it explains the whole architecture with all Operators (i.e., Topic, User, Cluster). The description is based mainly on Strimzi documentation and blog posts\cite{strimziDoc, strimziBlogPosts}.
 
-The information described in sections \ref{01:sec:title}, \ref{02:sec:title} was a precursor to a complete understanding of the Strimzi system. Strimzi is an Apache Kafka orchestrator in the Kubernetes environment. It is therefore a collection of operators that simplify work with Kafka. The Operator in Kubernetes is a component that is always in one of the following three states:
+The information described in Sections \ref{01:sec:title}, \ref{02:sec:title} was a precursor to a complete understanding of the Strimzi system. Strimzi is an Apache Kafka orchestrator in the Kubernetes environment. It is therefore a collection of operators that simplify work with Kafka. The Operator in Kubernetes is a component that is always in one of the following three states:
 \begin{itemize}[itemsep=1mm, parsep=0pt]
     \item \textbf{Observe} \---\ gain the desired and current state,
     \item \textbf{Analysis} \---\ compares these two states and finds the differences,
     \item \textbf{Act} \---\ subsequently, if the given differences were found, it will do a reconciliation that will make the current and desired state identical
 \end{itemize}
 
-One can understand these Operators as a superset of the Deployment controller, which, like other controllers, followed this \ref{01:alg:controllerAlg} algorithm. The main difference is that the Operator oversees Custom Resources. Custom Resource is an extension of the Kubernetes API. These CRs defines your application objects in the Kubernetes environment. Moreover, this is associated with the Custom Resource Definition, which declares what values and types a given Custom Resource can acquire. We can also imagine that Custom Resource Definition is a template comparable to classes in the Object-Oriented programming world. At the same time, Custom Resource is already an instance of the class. Strimzi has a defined Custom Resource Definition for each Kafka component we described in section \ref{02:sec:title} except for clients. For example, for the KafkaBroker component, Strimzi has its Custom Resource Definition and others. 
+One can understand these Operators as a superset of the Deployment controller, which, like other controllers, followed this \ref{01:alg:controllerAlg} algorithm. The main difference is that the Operator oversees \emph{Custom Resources - CR}. Custom Resource is an extension of the Kubernetes API. These CRs define your application objects in the Kubernetes environment. Moreover, this is associated with the \emph{Custom Resource Definition}, which declares what values and types a given Custom Resource can acquire. We can also imagine that Custom Resource Definition is a template comparable to classes in the Object-Oriented programming world and Custom Resource is an instance of the class. Strimzi has defined a Custom Resource Definition for each Kafka component we described in section \ref{02:sec:title} except for clients. For example, for the KafkaBroker component, Strimzi has its Custom Resource Definition and others. 
 
 \begin{figure}[!h]
     \hspace{0.01\textwidth}
@@ -26,24 +26,24 @@ One can understand these Operators as a superset of the Deployment controller, w
     \label{03:strimzi:fig:crds}
 \end{figure}
 
-Figure \ref{03:strimzi:fig:crds} illustrates the mentioned Custom Resource and Custom Resource Definitions. Kafka Custom Resource Definition (Figure \ref{03:strimzi:fig:crds} \---\ left side) shows several essential parts:
+Figure \ref{03:strimzi:fig:crds} illustrates the mentioned Custom Resource and Custom Resource Definitions. In Figure \ref{03:strimzi:fig:crds} (left side) one can see Kafka Custom Resource Definition that shows several essential parts:
 \begin{itemize}[itemsep=1mm, parsep=0pt]
     \item \textbf{labels.app.strimzi}  \---\ every Kafka Custom Resource in Kubernetes contains this label, and with that, it is easier to find these resources
-    \item \textbf{spec.names.kind.Kafka} \---\ In this attribute, we specify how the Custom Resource type will be uniquely named. In this case, the label is Kafka.
+    \item \textbf{spec.names.kind.Kafka} \---\ by this attribute, we specify how the Custom Resource type will be uniquely named. In this case, the label is Kafka.
     \item \textbf{spec.scope.Namespaced} \---\ type of environment scope. It distinguishes between Custom Resource, which works multi-namespace or single-namespace. Because Kafka Custom resource has value Namespaced (single-namespace), it can work in one namespace. On the other hand, we also know the Custom Resource, which can have the scope set to Cluster (multi-namespace), which means that they will observe all the namespaces that the Kubernetes cluster has.
     \item \textbf{spec.schema} \---\ this is the whole declaration of the Custom Resource Definition. In the child nodes, we can see what types the individual attributes must comply with and the restrictions on the given types. For example, the attribute \emph{replicas} we have a restriction that it must have at least one replica and similarly for other attributes. For imagination, the current version of Strimzi 0.25.0 Kafka Custom Resource Definition consists of 7000 lines of code.
 \end{itemize}
 
-On the other hand, we have Kafka Custom Resource (Figure \ref{03:strimzi:fig:crds} - right side), which includes parts worth of mentioning:
+On the other hand, we have Kafka Custom Resource (Figure \ref{03:strimzi:fig:crds} - right side), which includes parts worth mentioning:
 \begin{itemize}[itemsep=1mm, parsep=0pt]
-  \item \textbf{apiVersion} \---\ This is the REST API offered by the Custom Resource Definition. The prefix must also match the value found in Kafka, Custom Resource Definition in spec: group. 
+  \item \textbf{apiVersion} \---\ This is the REST API offered by the Custom Resource Definition. The prefix must also match the value found in Kafka Custom Resource Definition in spec: group. 
   \item \textbf{metadata.name} \---\ Custom Resource name,
   \item \textbf{spec.kafka.version} \---\ version of Kafka to be used,
-  \item \textbf{spec.kafka.replicas} \---\ number of Kafka Pods to be installed,
-  \item \textbf{spec.kafka.listeners} \---\ types of listeners to be supported by a given Kafka instance. In this case, we see two types, one with plain communication listening on port 9092. Furthermore, a second listener will use encrypted communication using TLS technology and listen on port 9093.
+  \item \textbf{spec.kafka.replicas} \---\ number of Kafka Pods to be deployed,
+  \item \textbf{spec.kafka.listeners} \---\ types of listeners to be supported by a given Kafka instance. In this case, we see two types, one with plain communication listening on port 9092, and the second listener with encrypted communication using TLS technology and listening on port 9093.
   \item  \textbf{spec.kafka.config} \---\ these are additional configuration features that are added to Kafka,
-  \item  \textbf{spec.kafka.storage} \cite{strimziStorageBlogPost} \---\ the type of storage. We know two types of storage that Kubernetes has been supporting for a long time. In our case, it is ephemeral storage. Ephemeral storage is usually a directory somewhere in the operating system on our Kubernetes node. It works the same as the temporal directory. There are also risks associated with this, when the Kubernetes node may crash, and the data stored in the given storage will be lost. The same thing will happen if we get a running Pod that will use ephemeral storage. In case of a restart, together with the new Pod, empty storage will be created, not containing the previous data. The second type of storage is Persistent, which eliminates these risks.
-  \item \textbf{spec.zookeeper.replicas} \---\ number of Zookeeper Pods to be installed,
+  \item  \textbf{spec.kafka.storage} \cite{strimziStorageBlogPost} \---\ the type of used storage. Kubernetes has been supporting two storage types for a long time. In our case, it is ephemeral storage. Ephemeral storage is usually a directory somewhere in the operating system on our Kubernetes node. It works the same as the temporal directory. There are also risks associated with this, when the Kubernetes node may crash, and the data stored in the given storage will be lost. The same thing will happen if we get a running Pod that will use ephemeral storage. In case of a restart, together with the new Pod, empty storage will be created, not containing the previous data. The second type of storage is Persistent, which eliminates these risks.
+  \item \textbf{spec.zookeeper.replicas} \---\ number of Zookeeper Pods to be deployed,
   \item \textbf{spec.entityOperator} \---\ instance of Entity Operator with default configuration.,
 \end{itemize}
 
