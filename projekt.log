@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.5)  27 SEP 2021 14:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.5)  27 SEP 2021 17:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -819,11 +819,6 @@ l.14
       [3
 
 ]
-Overfull \hbox (1.4624pt too wide) in paragraph at lines 17--18
-[]\T1/lmr/bx/n/10.95 Containerization \T1/lmr/m/n/10.95 --- In the last phase, 
-con-tainer-iza-tion is con-sid-ered as a lightweight
- []
-
 <obrazky-figures/02-preliminaries/01-kubernetes/01-timeline-with-picture.pdf, i
 d=220, 466.62328pt x 196.8153pt>
 File: obrazky-figures/02-preliminaries/01-kubernetes/01-timeline-with-picture.p
@@ -1029,7 +1024,7 @@ Overfull \hbox (18.04723pt too wide) in paragraph at lines 16--25
 [18 <./obrazky-figures/02-preliminaries/03-strimzi/01-kafka-crd.pdf> <./obrazky
 -figures/02-preliminaries/03-strimzi/02-kafka-cr.pdf>] [19]
 <obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture (1).
-pdf, id=693, 626.34pt x 457.71pt>
+pdf, id=694, 626.34pt x 457.71pt>
 File: obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture
  (1).pdf Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture 
@@ -1245,11 +1240,11 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  17163 strings out of 480608
  259328 string characters out of 5903630
- 561130 words of memory out of 5000000
+ 561724 words of memory out of 5000000
  32283 multiletter control sequences out of 15000+600000
  636042 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,15n,42p,1769b,1129s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,15n,42p,1765b,1129s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2020/
 texmf-dist/fonts/enc/dvips/opensans/a_jg4h6q.enc}</usr/local/texlive/2020/texmf
@@ -1273,7 +1268,7 @@ public/lm/lmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lm
 ri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><
 /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/
 texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on projekt.pdf (63 pages, 3150883 bytes).
+Output written on projekt.pdf (63 pages, 3151061 bytes).
 PDF statistics:
  1288 PDF objects out of 1440 (max. 8388607)
  1083 compressed objects within 11 object streams
