@@ -136,6 +136,6 @@ The \emph{kube-apiserver} works like the controller of API calls and communicate
     \label{02:fig:statefulsetOrderedCreation}
 \end{figure}
 
-    With that being, we see that architecturally StatefulSets has a different self-healing and scaling operations mechanism compared to the Deployment. In addition, Volumes plays a significant role in StatefulSet. When the Pod is created, Statefulset immediately creates an associated volume and attach this Volume to the Pod, which shows Figure \ref{02:fig:statefulsetOrderedCreation}. This guarantees that Pod can keep all the information even in the event of an unexpected failure. 
+    Figure \ref{02:fig:statefulsetOrderedCreation}, we see that architecturally StatefulSets has a different self-healing and scaling operations mechanism compared to the Deployment. In addition, Volumes plays a significant role in StatefulSet. When the Pod is created, Statefulset immediately creates an associated volume and attaches this Volume to the Pod. This guarantees that Pod can keep all the information even in the event of an unexpected failure. 
 
 \end{enumerate}
