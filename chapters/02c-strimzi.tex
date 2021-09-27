@@ -69,7 +69,7 @@ The second part in the Strimzi architecture is the collection of Operators. In t
     \label{03:fig:strimziOperatorsArchitecture}
 \end{figure}
 
-Topic Operator takes care of creating, deleting, updating individual Topics. It is also necessary to mention that Topic Operator ensures synchronization between Custom Resource Topic and Topic (located inside Kafka container) and keep them in sync. \emph{For
+Topic Operator takes care of creating, deleting, updating individual Topics. It is also necessary to mention that Topic Operator ensures synchronization between Custom Resource Topic and Topic located inside Kafka and keeps them in sync. Strimzi documentation says - \emph{For
 instance, assume the scenario where the user changes different topic properties in Kubernetes
 but simultaneously in Kafka itself. Also, imagine another scenario where one change topic property at the same time. The first action is considered as allowed, and the solution for this is a 3-way diff (more about this method in section 2.19). In general, this method constructs these two differences' union and finds out where the intersection is not empty. The second one is treated as incompatible change. It must deterministically select by some winner policy implemented inside Topic Operator}.
 
