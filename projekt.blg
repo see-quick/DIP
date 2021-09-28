@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: projekt.aux
+The style file: bib-styles/Pysny/enplain.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: projekt-20-literatura-bibliography.bib
+You've used 20 entries,
+            3721 wiz_defined-function locations,
+            880 strings with 7894 characters,
+and the built_in function-call counts, 8022 in all, are:
+= -- 637
+> -- 219
+< -- 21
++ -- 90
+- -- 67
+* -- 407
+:= -- 982
+add.period$ -- 68
+call.type$ -- 20
+change.case$ -- 139
+chr.to.int$ -- 6
+cite$ -- 20
+duplicate$ -- 558
+empty$ -- 1117
+format.name$ -- 47
+if$ -- 1961
+int.to.chr$ -- 0
+int.to.str$ -- 20
+missing$ -- 0
+newline$ -- 133
+num.names$ -- 39
+pop$ -- 286
+preamble$ -- 1
+purify$ -- 65
+quote$ -- 0
+skip$ -- 384
+stack$ -- 0
+substring$ -- 217
+swap$ -- 110
+text.length$ -- 33
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 42
+warning$ -- 0
+while$ -- 43
+width$ -- 22
+write$ -- 268
