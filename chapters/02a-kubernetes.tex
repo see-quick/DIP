@@ -125,6 +125,7 @@ The \emph{kube-apiserver} works like the controller of API calls and communicate
     
     \item \textbf{StatefulSet} \---\ The last major controller is StatefulSet. This controller has many features like Deployment such as reconciliation loop described in \ref{01:alg:controllerAlg}, scaling operations, and self-healing mechanism. The difference between Deployment and StatefulSet are as follows:
     \begin{itemize}
+        \item \textbf{storage} \---\ with the Deployment controller, it is possible to specify PersistentVolumeClaim, which is shared between all pod replicas. On the other hand, in the case of StatefulSet controllers, each Pod has its own PersistentVolumeClaim. For clarity, one can use Deployment in the case of a stateless application, where each node does not need a unique identity, and in the case of StatefulSet, one can use it in the form of databases (i.e. Cassandra, MySQL) where each node has its storage.
         \item \textbf{unique identity to Pods} \---\ in case of failure remains the same (Deployment will create a new Pod with a completely new name). Moreover, StatefulSet guarantees that Pods are created/deleted in order (Deployment does not care about order).  
         \item \textbf{scaling operation} \---\  ensures that each new Pod is installed before the previous one is ready and running. This process is repeated until we reach the number of replicas required. Figure \ref{02:fig:statefulsetOrderedCreation} illustrates a scaling up scenario, where firstly \emph{Pod\_1} is being deployed and after a while when \emph{Pod\_1} is running and ready, the \emph{Pod\_2} is being deployed.
     \end{itemize}
@@ -136,6 +137,6 @@ The \emph{kube-apiserver} works like the controller of API calls and communicate
     \label{02:fig:statefulsetOrderedCreation}
 \end{figure}
 
-    Figure \ref{02:fig:statefulsetOrderedCreation}, we see that architecturally StatefulSets has a different self-healing and scaling operations mechanism compared to the Deployment. In addition, Volumes plays a significant role in StatefulSet. When the Pod is created, Statefulset immediately creates an associated volume and attaches this Volume to the Pod. This guarantees that Pod can keep all the information even in the event of an unexpected failure. 
+    In Figure \ref{02:fig:statefulsetOrderedCreation}, we see that architecturally StatefulSets has a different self-healing and scaling operations mechanism compared to the Deployment. In addition, Volumes plays a significant role in StatefulSet. When the Pod is created, Statefulset immediately creates an associated volume and attaches this Volume to the Pod. This guarantees that Pod can keep all the information even in the event of an unexpected failure.
 
 \end{enumerate}
