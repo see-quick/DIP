@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.5)  11 OCT 2021 12:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.5)  11 OCT 2021 14:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -904,7 +904,7 @@ File: obrazky-figures/02-preliminaries/02-kafka/02-kafka-without-depen.pdf Grap
 hic file (type pdf)
 <use obrazky-figures/02-preliminaries/02-kafka/02-kafka-without-depen.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/02-kafka-wit
-hout-depen.pdf  used on input line 14.
+hout-depen.pdf  used on input line 27.
 (pdftex.def)             Requested size: 200.62306pt x 148.73279pt.
 <obrazky-figures/02-preliminaries/02-kafka/01-kafka-with-depe.pdf, id=409, 334.
 3692pt x 247.8861pt>
@@ -912,38 +912,36 @@ File: obrazky-figures/02-preliminaries/02-kafka/01-kafka-with-depe.pdf Graphic
 file (type pdf)
 <use obrazky-figures/02-preliminaries/02-kafka/01-kafka-with-depe.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/01-kafka-wit
-h-depe.pdf  used on input line 16.
+h-depe.pdf  used on input line 29.
 (pdftex.def)             Requested size: 200.62306pt x 148.73279pt.
  [10 <./obrazky-figures/02-preliminaries/01-kubernetes/04-statefuset_with_volum
-e.pdf>]
+e.pdf>] [11 <./obrazky-figures/02-preliminaries/02-kafka/02-kafka-without-depen
+.pdf> <./obrazky-figures/02-preliminaries/02-kafka/01-kafka-with-depe.pdf>]
 <obrazky-figures/02-preliminaries/02-kafka/05-replication-of-partitions.pdf, id
-=442, 626.34pt x 406.3983pt>
+=477, 626.34pt x 406.3983pt>
 File: obrazky-figures/02-preliminaries/02-kafka/05-replication-of-partitions.pd
 f Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/02-kafka/05-replication-of-partitions.pdf
 >
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/05-replicati
-on-of-partitions.pdf  used on input line 35.
+on-of-partitions.pdf  used on input line 80.
 (pdftex.def)             Requested size: 438.435pt x 284.47687pt.
 
-Overfull \hbox (5.9532pt too wide) in paragraph at lines 35--36
+Overfull \hbox (5.9532pt too wide) in paragraph at lines 80--81
  [][] 
  []
 
-[11 <./obrazky-figures/02-preliminaries/02-kafka/02-kafka-without-depen.pdf> <.
-/obrazky-figures/02-preliminaries/02-kafka/01-kafka-with-depe.pdf>]
-<obrazky-figures/02-preliminaries/02-kafka/03-database-relation.pdf, id=482, 54
+<obrazky-figures/02-preliminaries/02-kafka/03-database-relation.pdf, id=481, 54
 1.06137pt x 175.61609pt>
 File: obrazky-figures/02-preliminaries/02-kafka/03-database-relation.pdf Graphi
 c file (type pdf)
 <use obrazky-figures/02-preliminaries/02-kafka/03-database-relation.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/03-database-
-relation.pdf  used on input line 45.
+relation.pdf  used on input line 89.
 (pdftex.def)             Requested size: 432.84969pt x 140.49306pt.
 
-
 LaTeX Warning: Reference `subSec:strimzi:topicOperator' on page 12 undefined on
- input line 51.
+ input line 99.
 
 [12 <./obrazky-figures/02-preliminaries/02-kafka/05-replication-of-partitions.p
 df>]
@@ -953,7 +951,7 @@ File: obrazky-figures/02-preliminaries/02-kafka/05-offset-thing.pdf Graphic fil
 e (type pdf)
 <use obrazky-figures/02-preliminaries/02-kafka/05-offset-thing.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/05-offset-th
-ing.pdf  used on input line 55.
+ing.pdf  used on input line 112.
 (pdftex.def)             Requested size: 383.1767pt x 69.69257pt.
  [13 <./obrazky-figures/02-preliminaries/02-kafka/03-database-relation.pdf> <./
 obrazky-figures/02-preliminaries/02-kafka/05-offset-thing.pdf>]
@@ -964,7 +962,7 @@ e,thread.pdf Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/02-kafka/07-kafka-streams-with-localstate
 ,thread.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/07-kafka-str
-eams-with-localstate,thread.pdf  used on input line 71.
+eams-with-localstate,thread.pdf  used on input line 138.
 (pdftex.def)             Requested size: 388.75038pt x 254.3875pt.
 <obrazky-figures/02-preliminaries/02-kafka/10-kafkaStreamsProces.pdf, id=549, 4
 89.74968pt x 189.8292pt>
@@ -972,7 +970,7 @@ File: obrazky-figures/02-preliminaries/02-kafka/10-kafkaStreamsProces.pdf Graph
 ic file (type pdf)
 <use obrazky-figures/02-preliminaries/02-kafka/10-kafkaStreamsProces.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/10-kafkaStre
-amsProces.pdf  used on input line 82.
+amsProces.pdf  used on input line 151.
 (pdftex.def)             Requested size: 382.0032pt x 148.06616pt.
 <obrazky-figures/02-preliminaries/02-kafka/11-kafkaStreamsProces2.pdf, id=555, 
 489.74968pt x 132.495pt>
@@ -980,7 +978,7 @@ File: obrazky-figures/02-preliminaries/02-kafka/11-kafkaStreamsProces2.pdf Grap
 hic file (type pdf)
 <use obrazky-figures/02-preliminaries/02-kafka/11-kafkaStreamsProces2.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/11-kafkaStre
-amsProces2.pdf  used on input line 90.
+amsProces2.pdf  used on input line 164.
 (pdftex.def)             Requested size: 430.98103pt x 116.59593pt.
  [14 <./obrazky-figures/02-preliminaries/02-kafka/07-kafka-streams-with-localst
 ate,thread.pdf>] [15 <./obrazky-figures/02-preliminaries/02-kafka/10-kafkaStrea
@@ -992,7 +990,7 @@ File: obrazky-figures/02-preliminaries/02-kafka/12-all-in-one.pdf Graphic file
 (type pdf)
 <use obrazky-figures/02-preliminaries/02-kafka/12-all-in-one.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/12-all-in-on
-e.pdf  used on input line 114.
+e.pdf  used on input line 209.
 (pdftex.def)             Requested size: 405.48341pt x 297.9455pt.
 )
 (./chapters/02c-strimzi.tex [16] [17 <./obrazky-figures/02-preliminaries/02-kaf
@@ -1003,7 +1001,7 @@ File: obrazky-figures/02-preliminaries/03-strimzi/01-kafka-crd.pdf Graphic file
  (type pdf)
 <use obrazky-figures/02-preliminaries/03-strimzi/01-kafka-crd.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/03-strimzi/01-kafka-c
-rd.pdf  used on input line 18.
+rd.pdf  used on input line 29.
 (pdftex.def)             Requested size: 224.90453pt x 354.02713pt.
 <obrazky-figures/02-preliminaries/03-strimzi/02-kafka-cr.pdf, id=650, 262.0992p
 t x 436.5108pt>
@@ -1011,10 +1009,10 @@ File: obrazky-figures/02-preliminaries/03-strimzi/02-kafka-cr.pdf Graphic file
 (type pdf)
 <use obrazky-figures/02-preliminaries/03-strimzi/02-kafka-cr.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/03-strimzi/02-kafka-c
-r.pdf  used on input line 22.
+r.pdf  used on input line 33.
 (pdftex.def)             Requested size: 209.67963pt x 349.2091pt.
 
-Overfull \hbox (18.04723pt too wide) in paragraph at lines 16--25
+Overfull \hbox (18.04723pt too wide) in paragraph at lines 27--36
 []  [][] []  [][]
  []
 
@@ -1027,49 +1025,49 @@ File: obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture
 <use obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture 
 (1).pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/03-strimzi/03-strimzi
--kafka-architecture (1).pdf  used on input line 57.
+-kafka-architecture (1).pdf  used on input line 93.
 (pdftex.def)             Requested size: 469.75383pt x 343.28166pt.
 
-Overfull \hbox (37.27203pt too wide) in paragraph at lines 57--58
+Overfull \hbox (37.27203pt too wide) in paragraph at lines 93--94
  [][] 
  []
 
 [20 <./obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architectur
 e (1).pdf>]
-<obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch.pdf, id=71
-9, 807.97856pt x 353.40028pt>
+<obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch.pdf, id=72
+0, 807.97856pt x 353.40028pt>
 File: obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch.pdf G
 raphic file (type pdf)
 <use obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/03-strimzi/04-stirmzi
-OperatorsArch.pdf  used on input line 67.
+OperatorsArch.pdf  used on input line 115.
 (pdftex.def)             Requested size: 484.79088pt x 212.0418pt.
 
-Overfull \hbox (52.30908pt too wide) in paragraph at lines 67--68
+Overfull \hbox (52.30908pt too wide) in paragraph at lines 115--116
  [][] 
  []
 
 [21 <./obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch.pdf>
 ]) (./chapters/02d-strimzi-system-tests.tex
 <obrazky-figures/02-preliminaries/04-strimzi-system-tests/01-architecture-overa
-ll.pdf, id=749, 412.4208pt x 478.66827pt>
+ll.pdf, id=750, 412.4208pt x 478.66827pt>
 File: obrazky-figures/02-preliminaries/04-strimzi-system-tests/01-architecture-
 overall.pdf Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/04-strimzi-system-tests/01-architecture-o
 verall.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/04-strimzi-system-tes
-ts/01-architecture-overall.pdf  used on input line 11.
+ts/01-architecture-overall.pdf  used on input line 14.
 (pdftex.def)             Requested size: 329.93707pt x 382.93513pt.
  [22] [23 <./obrazky-figures/02-preliminaries/04-strimzi-system-tests/01-archit
 ecture-overall.pdf>] [24] [25]
 <obrazky-figures/02-preliminaries/04-strimzi-system-tests/02d-strimzisystemtest
--sequence-execution.pdf, id=808, 613.33138pt x 435.54718pt>
+-sequence-execution.pdf, id=809, 613.33138pt x 435.54718pt>
 File: obrazky-figures/02-preliminaries/04-strimzi-system-tests/02d-strimzisyste
 mtest-sequence-execution.pdf Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/04-strimzi-system-tests/02d-strimzisystem
 test-sequence-execution.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/04-strimzi-system-tes
-ts/02d-strimzisystemtest-sequence-execution.pdf  used on input line 137.
+ts/02d-strimzisystemtest-sequence-execution.pdf  used on input line 186.
 (pdftex.def)             Requested size: 429.32903pt x 304.88094pt.
 )
 (./chapters/03-theory-of-paralellization.tex [26])
@@ -1112,7 +1110,7 @@ Appendix D.
 [47
 
 ]
-<obrazky-figures/placeholder.pdf, id=1061, 151.87993pt x 85.31876pt>
+<obrazky-figures/placeholder.pdf, id=1062, 151.87993pt x 85.31876pt>
 File: obrazky-figures/placeholder.pdf Graphic file (type pdf)
 <use obrazky-figures/placeholder.pdf>
 Package pdftex.def Info: obrazky-figures/placeholder.pdf  used on input line 43
@@ -1138,7 +1136,7 @@ File: obrazky-figures/placeholder.pdf Graphic file (type pdf)
 Package pdftex.def Info: obrazky-figures/placeholder.pdf  used on input line 43
 4.
 (pdftex.def)             Requested size: 103.798pt x 58.31018pt.
-<obrazky-figures/keep-calm.png, id=1062, 602.25pt x 702.625pt>
+<obrazky-figures/keep-calm.png, id=1063, 602.25pt x 702.625pt>
 File: obrazky-figures/keep-calm.png Graphic file (type png)
 <use obrazky-figures/keep-calm.png>
 Package pdftex.def Info: obrazky-figures/keep-calm.png  used on input line 444.
@@ -1244,7 +1242,7 @@ Here is how much of TeX's memory you used:
  32283 multiletter control sequences out of 15000+600000
  636042 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,15n,42p,1765b,1129s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,15n,42p,1174b,1129s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2020/
 texmf-dist/fonts/enc/dvips/opensans/a_jg4h6q.enc}</usr/local/texlive/2020/texmf
@@ -1268,10 +1266,10 @@ public/lm/lmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lm
 ri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><
 /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/
 texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on projekt.pdf (63 pages, 3151703 bytes).
+Output written on projekt.pdf (63 pages, 3151412 bytes).
 PDF statistics:
- 1288 PDF objects out of 1440 (max. 8388607)
- 1083 compressed objects within 11 object streams
+ 1289 PDF objects out of 1440 (max. 8388607)
+ 1084 compressed objects within 11 object streams
  278 named destinations out of 1000 (max. 500000)
  339 words of extra memory for PDF output out of 10000 (max. 10000000)
 
