@@ -16,7 +16,7 @@
 \contentsline {section}{\numberline {2.4}Strimzi system tests}{23}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}JUnit5 relation and execution of test cases}{24}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Strimzi system test management and execution flow}{25}{subsection.2.4.2}%
-\contentsline {chapter}{\numberline {3}Theory of paralelisation}{29}{chapter.3}%
+\contentsline {chapter}{\numberline {3}Theory of parallelisation}{29}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Amdahl's law}{29}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Shared memory}{30}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Processes and Threads}{31}{section.3.3}%

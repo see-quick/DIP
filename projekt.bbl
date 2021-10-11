@@ -56,6 +56,17 @@
 \newblock Available at:
   ~{\small\url{https://merlin.fit.vutbr.cz/wiki/index.php/English_SOS}}.
 
+\bibitem{amdalh}
+{\sc\bgroup}Gustafson{\egroup}, J.~L.
+\newblock Amdahl's Law.
+\newblock In: {\sc\bgroup}Padua{\egroup}, D.,  ed.~{\em Encyclopedia of
+  Parallel Computing}.
+\newblock Boston, MA: Springer US, 2011, p.~53--60.
+\newblock DOI: 10.1007/978-0-387-09766-4\_77.
+\newblock ISBN 978-0-387-09766-4.
+\newblock Available at:
+  ~{\small\url{https://doi.org/10.1007/978-0-387-09766-4_77}}.
+
 \bibitem{artOfMultiprocessorProgramming}
 {\sc\bgroup}Herlihy{\egroup}, M., {\sc\bgroup}Shavit{\egroup}, N.,
   {\sc\bgroup}Luchangco{\egroup}, V. and~{\sc\bgroup}Spear{\egroup}, M.
