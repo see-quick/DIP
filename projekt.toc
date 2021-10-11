@@ -12,7 +12,7 @@
 \contentsline {subsection}{\numberline {2.2.3}Kafka Streams}{13}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Kafka Connect}{16}{subsection.2.2.4}%
 \contentsline {section}{\numberline {2.3}Strimzi}{17}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Architecture}{19}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}Architecture}{20}{subsection.2.3.1}%
 \contentsline {section}{\numberline {2.4}Strimzi system tests}{22}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}JUnit5 relation and execution of test cases}{23}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Strimzi system test management and execution flow}{24}{subsection.2.4.2}%
