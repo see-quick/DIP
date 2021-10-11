@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.5)  11 OCT 2021 07:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.5)  11 OCT 2021 12:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -625,31 +625,31 @@ Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
 (./projekt.aux)
 \openout1 = `projekt.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 206.
-LaTeX Font Info:    ... okay on input line 206.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 206.
-LaTeX Font Info:    ... okay on input line 206.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 206.
-LaTeX Font Info:    ... okay on input line 206.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 206.
-LaTeX Font Info:    ... okay on input line 206.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 206.
-LaTeX Font Info:    ... okay on input line 206.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 206.
-LaTeX Font Info:    ... okay on input line 206.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 206.
-LaTeX Font Info:    ... okay on input line 206.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 206.
-LaTeX Font Info:    ... okay on input line 206.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 206.
-LaTeX Font Info:    ... okay on input line 206.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 20
-6.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 21
+4.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 206.
+LaTeX Info: Redefining \selectfont on input line 214.
 
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -685,7 +685,7 @@ e
 \c@mv@boldtabular=\count342
 \c@lstlisting=\count343
 \AtBeginShipoutBox=\box60
-Package hyperref Info: Link coloring ON on input line 206.
+Package hyperref Info: Link coloring ON on input line 214.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -699,15 +699,15 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count344
 )
-LaTeX Info: Redefining \ref on input line 206.
-LaTeX Info: Redefining \pageref on input line 206.
-LaTeX Info: Redefining \nameref on input line 206.
+LaTeX Info: Redefining \ref on input line 214.
+LaTeX Info: Redefining \pageref on input line 214.
+LaTeX Info: Redefining \nameref on input line 214.
  (./projekt.out) (./projekt.out)
 \@outlinefile=\write3
 \openout3 = `projekt.out'.
 
-LaTeX Font Info:    Trying to load font information for T1+qhv on input line 21
-2.
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 22
+0.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/tex-gyre/t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
@@ -723,37 +723,37 @@ File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 File: template-fig/VUT_symbol_barevne_CMYK_CZ.pdf Graphic file (type pdf)
 <use template-fig/VUT_symbol_barevne_CMYK_CZ.pdf>
 Package pdftex.def Info: template-fig/VUT_symbol_barevne_CMYK_CZ.pdf  used on i
-nput line 212.
+nput line 220.
 (pdftex.def)             Requested size: 116.65646pt x 115.17995pt.
 LaTeX Font Info:    Trying to load font information for T1+opensans-TLF on inpu
-t line 212.
+t line 220.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/opensans/T1opensans-TLF.fd
 File: T1opensans-TLF.fd 2019/06/24 Font definitions for T1/opensans-TLF.
 )
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 18.0pt on input line 212.
+(Font)              scaled to size 18.0pt on input line 220.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 18.0pt on input line 212.
+(Font)              scaled to size 18.0pt on input line 220.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 11.0pt on input line 212.
+(Font)              scaled to size 11.0pt on input line 220.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 11.0pt on input line 212.
+(Font)              scaled to size 11.0pt on input line 220.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 14.0pt on input line 212.
+(Font)              scaled to size 14.0pt on input line 220.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 14.0pt on input line 212.
+(Font)              scaled to size 14.0pt on input line 220.
 
-Overfull \hbox (3.4772pt too wide) in paragraph at lines 212--212
+Overfull \hbox (3.4772pt too wide) in paragraph at lines 220--220
 \T1/opensans-TLF/b/n/18 CONFIGURABLE PAR-AL-LEL EX-E-CU-TION OF SYS-TEM
  []
 
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 212.
+(Font)              scaled to size 10.0pt on input line 220.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 212.
+(Font)              scaled to size 10.0pt on input line 220.
 
-Overfull \hbox (19.07285pt too wide) in paragraph at lines 212--212
+Overfull \hbox (19.07285pt too wide) in paragraph at lines 220--220
 \T1/opensans-TLF/b/n/10 KONFIGURATE‰NÁ PAR-ALELNÁ EX-EKÚ-CIA SYS-TÉ-MOVÝCH TEST
 OV V RÁMCI PRO-JEKTU STRIMZI 
  []
@@ -762,7 +762,7 @@ OV V RÁMCI PRO-JEKTU STRIMZI
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./templ
 ate-fig/VUT_symbol_barevne_CMYK_CZ.pdf>]
-Overfull \hbox (0.92596pt too wide) in paragraph at lines 212--212
+Overfull \hbox (0.92596pt too wide) in paragraph at lines 220--220
 \T1/lmr/m/n/10.95 Sem bu-dou zap-sána jed-notlivá klí£ová slova v £eském (slove
 n-ském) jazyce, odd-¥lená £árkami. 
  []
@@ -1221,12 +1221,12 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 823--824
 \tf@ptc=\write5
 \openout5 = `projekt.ptc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 360.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 368.
  [59]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 360.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 368.
  (./projekt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 360.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 360.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 368.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 368.
 Package rerunfilecheck Info: File `projekt.out' has not changed.
 (rerunfilecheck)             Checksum: E74A022A3121D86C7EE2F343113E4D0A;3577.
 
@@ -1240,7 +1240,7 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  17163 strings out of 480608
  259328 string characters out of 5903630
- 561724 words of memory out of 5000000
+ 560885 words of memory out of 5000000
  32283 multiletter control sequences out of 15000+600000
  636042 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1268,7 +1268,7 @@ public/lm/lmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lm
 ri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><
 /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/
 texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on projekt.pdf (63 pages, 3151740 bytes).
+Output written on projekt.pdf (63 pages, 3151703 bytes).
 PDF statistics:
  1288 PDF objects out of 1440 (max. 8388607)
  1083 compressed objects within 11 object streams
