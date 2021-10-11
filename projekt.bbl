@@ -56,6 +56,14 @@
 \newblock Available at:
   ~{\small\url{https://merlin.fit.vutbr.cz/wiki/index.php/English_SOS}}.
 
+\bibitem{artOfMultiprocessorProgramming}
+{\sc\bgroup}Herlihy{\egroup}, M., {\sc\bgroup}Shavit{\egroup}, N.,
+  {\sc\bgroup}Luchangco{\egroup}, V. and~{\sc\bgroup}Spear{\egroup}, M.
+\newblock {\em The Art of Multiprocessor Programming}.
+\newblock 2nd ed.
+\newblock Morgan Kaufmann, 2020.
+\newblock ISBN 0124159508.
+
 \bibitem{Herout}
 {\sc\bgroup}Herout{\egroup}, A.
 \newblock {\em Herout.net -- Poznámky učitele, kouče, čtenáře.} [online].
@@ -108,6 +116,13 @@
 \newblock 2021 {\small [cit. 2021-08-11]}.
 \newblock Available at:
   ~{\small\url{https://strimzi.io/blog/2020/09/21/introduction-to-system-tests/}}.
+
+\bibitem{introductionToParallelProgramming}
+{\sc\bgroup}Pacheco{\egroup}, P.
+\newblock {\em An Introduction to Parallel Programming}.
+\newblock 1st ed.
+\newblock Morgan Kaufmann, 2011.
+\newblock ISBN 0123742609.
 
 \bibitem{kubernetesBook}
 {\sc\bgroup}Poulton{\egroup}, N.
