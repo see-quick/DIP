@@ -131,89 +131,65 @@
 \newlabel{02:fig:kafkaresource:defaultmethod}{{2.19}{27}{Default Kafka Custom Resource in KafkaResource.class}{figure.2.19}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.20}{\ignorespaces Strimzi system tests execution flow}}{28}{figure.2.20}\protected@file@percent }
 \newlabel{02d:fig:strimzisysmtetest:execution}{{2.20}{28}{Strimzi system tests execution flow}{figure.2.20}{}}
-\citation{introductionToParallelProgramming}
-\citation{artOfMultiprocessorProgramming}
-\citation{amdalh}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Theory of parallelisation}{29}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Proposal of parallel approach}{29}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{03:chapter:title}{{3}{29}{Theory of parallelisation}{chapter.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Amdahl's law}{29}{section.3.1}\protected@file@percent }
-\newlabel{04:amdalhlaw}{{3.1}{29}{Amdahl's law}{section.3.1}{}}
-\newlabel{eqn:einstein}{{{1}}{30}{Amdahl's law}{AMS.2}{}}
-\newlabel{eqn:amdalhinpractice}{{{2}}{30}{Amdahl's law}{AMS.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Shared memory}{30}{section.3.2}\protected@file@percent }
-\newlabel{04:sharedmemory}{{3.2}{30}{Shared memory}{section.3.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Processes and Threads}{31}{section.3.3}\protected@file@percent }
-\newlabel{04:processesandthreads}{{3.3}{31}{Processes and Threads}{section.3.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Dependencies and Protection}{32}{section.3.4}\protected@file@percent }
-\newlabel{dependenciesandprotection}{{3.4}{32}{Dependencies and Protection}{section.3.4}{}}
-\newlabel{04:criticalsection}{{5}{32}{Dependencies and Protection}{definition.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Synchronisation}{33}{section.3.5}\protected@file@percent }
-\newlabel{04:synchronization}{{3.5}{33}{Synchronisation}{section.3.5}{}}
-\citation{introductionToParallelProgramming}
-\citation{artOfMultiprocessorProgramming}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Asynchronous tasks}{34}{section.3.6}\protected@file@percent }
-\newlabel{04:asynctaks}{{3.6}{34}{Asynchronous tasks}{section.3.6}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Proposal of parallel approach}{35}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Bottlenecks of current approach}{29}{section.3.1}\protected@file@percent }
+\newlabel{05:bottlenecks}{{3.1}{29}{Bottlenecks of current approach}{section.3.1}{}}
+\newlabel{eqn:amdalhinpractice}{{{3}}{29}{Bottlenecks of current approach}{AMS.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Azure pipelines in form parallelism used to execute our system tests}}{30}{figure.3.1}\protected@file@percent }
+\newlabel{05:fig:azurepiplines}{{3.1}{30}{Azure pipelines in form parallelism used to execute our system tests}{figure.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Jenkins pipelines in a form parallelism used to execute our system tests}}{31}{figure.3.2}\protected@file@percent }
+\newlabel{05:fig:jenkinspipelines}{{3.2}{31}{Jenkins pipelines in a form parallelism used to execute our system tests}{figure.3.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Possible approaches}{31}{section.3.2}\protected@file@percent }
+\newlabel{05:possibleapproaches}{{3.2}{31}{Possible approaches}{section.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Writing own testing framework}{31}{subsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Writing our own Junit5 Engine}{32}{subsection.3.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}JUnit5 paralelization}{32}{subsection.3.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Architecture changes}{33}{section.3.3}\protected@file@percent }
+\newlabel{04:architecturechanges}{{3.3}{33}{Architecture changes}{section.3.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Resource classes}{33}{subsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}ResourceManager}{34}{subsection.3.3.2}\protected@file@percent }
+\newlabel{04:alg:creationofresource}{{3.3.2}{34}{ResourceManager}{subsection.3.3.2}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Thread-safe algorithm for creation resources inside \emph  {Resource manager}}}{34}{algorithm.4}\protected@file@percent }
+\newlabel{04:alg:syncresources}{{3.3.2}{35}{ResourceManager}{algorithm.4}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces Thread-safe algorithm for sychronising resources inside the \emph  {Resource manager}}}{35}{algorithm.5}\protected@file@percent }
+\newlabel{04:alg:deleteresources}{{3.3.2}{35}{ResourceManager}{algorithm.5}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {6}{\ignorespaces Thread-safe algorithm for deletion of resources the inside \emph  {Resource manager}}}{35}{algorithm.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Method wide paralelization}{36}{section.3.4}\protected@file@percent }
+\newlabel{04:methodwideparalelisation}{{3.4}{36}{Method wide paralelization}{section.3.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Class wide paralelization}{36}{section.3.5}\protected@file@percent }
+\newlabel{04:classwideparalelisation}{{3.5}{36}{Class wide paralelization}{section.3.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The best scenario in \emph  {method-wide} parallelism. \emph  {n} number of threads are executed, and there is no one \emph  {@IsolatedTest} in the test suite, which means that all test runs simultaneously. Note that \emph  {Tc} means Test case in short.}}{37}{figure.3.3}\protected@file@percent }
+\newlabel{05:fig:methodwideparallelism}{{3.3}{37}{The best scenario in \emph {method-wide} parallelism. \emph {n} number of threads are executed, and there is no one \emph {@IsolatedTest} in the test suite, which means that all test runs simultaneously. Note that \emph {Tc} means Test case in short}{figure.3.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Shared Cluster Operator}{37}{subsection.3.5.1}\protected@file@percent }
+\newlabel{05:sharedclusteroperator}{{3.5.1}{37}{Shared Cluster Operator}{subsection.3.5.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces One of the possible invocation of Cluster Operator deployment using the Builder desing pattern.}}{38}{figure.3.4}\protected@file@percent }
+\newlabel{05:fig:clusteroperatorinstallation}{{3.4}{38}{One of the possible invocation of Cluster Operator deployment using the Builder desing pattern}{figure.3.4}{}}
+\newlabel{05:alg:rollback}{{3.5.1}{39}{Shared Cluster Operator}{Item.38}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {7}{\ignorespaces Cluster Operator rollback algorithm}}{39}{algorithm.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}@IsolatedSuite}{39}{subsection.3.5.2}\protected@file@percent }
+\newlabel{05:isolatedsuite}{{3.5.2}{39}{@IsolatedSuite}{subsection.3.5.2}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementation}{41}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Bottlenecks of current approach}{35}{section.4.1}\protected@file@percent }
-\newlabel{05:bottlenecks}{{4.1}{35}{Bottlenecks of current approach}{section.4.1}{}}
-\newlabel{eqn:amdalhinpractice}{{{3}}{35}{Bottlenecks of current approach}{AMS.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Azure pipelines in form parallelism used to execute our system tests}}{36}{figure.4.1}\protected@file@percent }
-\newlabel{05:fig:azurepiplines}{{4.1}{36}{Azure pipelines in form parallelism used to execute our system tests}{figure.4.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Jenkins pipelines in a form parallelism used to execute our system tests}}{37}{figure.4.2}\protected@file@percent }
-\newlabel{05:fig:jenkinspipelines}{{4.2}{37}{Jenkins pipelines in a form parallelism used to execute our system tests}{figure.4.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Possible approaches}{37}{section.4.2}\protected@file@percent }
-\newlabel{05:possibleapproaches}{{4.2}{37}{Possible approaches}{section.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Writing own testing framework}{37}{subsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Writing own Junit5 Engine}{38}{subsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}JUnit5 paralelization}{38}{subsection.4.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Architecture changes}{39}{section.4.3}\protected@file@percent }
-\newlabel{04:architecturechanges}{{4.3}{39}{Architecture changes}{section.4.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Resource classes}{39}{subsection.4.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}ResourceManager}{40}{subsection.4.3.2}\protected@file@percent }
-\newlabel{04:alg:creationofresource}{{4.3.2}{40}{ResourceManager}{subsection.4.3.2}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Thread-safe algorithm for creation resources inside \emph  {Resource manager}}}{40}{algorithm.4}\protected@file@percent }
-\newlabel{04:alg:syncresources}{{4.3.2}{41}{ResourceManager}{algorithm.4}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces Thread-safe algorithm for sync resources inside \emph  {Resource manager}}}{41}{algorithm.5}\protected@file@percent }
-\newlabel{04:alg:deleteresources}{{4.3.2}{41}{ResourceManager}{algorithm.5}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {6}{\ignorespaces Thread-safe algorithm for deletion resources inside \emph  {Resource manager}}}{41}{algorithm.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Method wide paralelization}{42}{section.4.4}\protected@file@percent }
-\newlabel{04:methodwideparalelisation}{{4.4}{42}{Method wide paralelization}{section.4.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Class wide paralelization}{42}{section.4.5}\protected@file@percent }
-\newlabel{04:classwideparalelisation}{{4.5}{42}{Class wide paralelization}{section.4.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces The best scenario in \emph  {method-wide} parallelism. \emph  {n} number of threads are executed, and there is no one @IsolatedTest in the test suite, which means that all test runs simultaneously. Note that \emph  {Tc} means Test case in short}}{43}{figure.4.3}\protected@file@percent }
-\newlabel{05:fig:methodwideparallelism}{{4.3}{43}{The best scenario in \emph {method-wide} parallelism. \emph {n} number of threads are executed, and there is no one @IsolatedTest in the test suite, which means that all test runs simultaneously. Note that \emph {Tc} means Test case in short}{figure.4.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Shared Cluster Operator}{43}{subsection.4.5.1}\protected@file@percent }
-\newlabel{05:sharedclusteroperator}{{4.5.1}{43}{Shared Cluster Operator}{subsection.4.5.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces One of the possible invocation of Cluster Operator deployment using Builder desing pattern.}}{44}{figure.4.4}\protected@file@percent }
-\newlabel{05:fig:clusteroperatorinstallation}{{4.4}{44}{One of the possible invocation of Cluster Operator deployment using Builder desing pattern}{figure.4.4}{}}
-\newlabel{05:alg:rollback}{{4.5.1}{45}{Shared Cluster Operator}{Item.42}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {7}{\ignorespaces Cluster Operator rollback algorithm}}{45}{algorithm.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}@IsolatedSuite}{45}{subsection.4.5.2}\protected@file@percent }
-\newlabel{05:isolatedsuite}{{4.5.2}{45}{@IsolatedSuite}{subsection.4.5.2}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementation}{47}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Resource Manager paralell approach}{41}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Parallel annotations}{41}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Method wide paralelization}{41}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Class wide paralelization}{41}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Complications during implementation}{41}{section.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Experimental evaluation}{42}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Resource Manager paralell approach}{47}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Parallel annotations}{47}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Method wide paralelization}{47}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Class wide paralelization}{47}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Complications during implementation}{47}{section.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Experimental evaluation}{48}{chapter.6}\protected@file@percent }
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Experimental setup}{48}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Results}{48}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Evaluation of the obtained results}{48}{section.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Future work}{49}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Experimental setup}{42}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Results}{42}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Evaluation of the obtained results}{42}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Future work}{43}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibstyle{bib-styles/Pysny/enplain}
 \bibdata{projekt-20-literatura-bibliography}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion}{50}{chapter.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusion}{44}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{kubernetes}{1}
@@ -224,67 +200,64 @@
 \bibcite{strimziBlogPosts}{6}
 \bibcite{strimziDoc}{7}
 \bibcite{CernockyEnglish}{8}
-\bibcite{amdalh}{9}
-\bibcite{artOfMultiprocessorProgramming}{10}
-\bibcite{Herout}{11}
-\bibcite{docker}{12}
-\bibcite{kafkaStreamsBook}{13}
-\bibcite{apacheKafkaDefinitiveGuide}{14}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{51}{chapter*.5}\protected@file@percent }
-\bibcite{02-bachelor-thesis}{15}
-\bibcite{02-blogpost-how-systemtest-work}{16}
-\bibcite{02-blogpost-introduction-to-systemtest}{17}
-\bibcite{introductionToParallelProgramming}{18}
-\bibcite{kubernetesBook}{19}
-\bibcite{Pysny}{20}
-\bibcite{fitWeb}{21}
-\bibcite{strimziStorageBlogPost}{22}
-\bibcite{apacheKafkaDesignDistributedSystems}{23}
+\bibcite{Herout}{9}
+\bibcite{docker}{10}
+\bibcite{kafkaStreamsBook}{11}
+\bibcite{apacheKafkaDefinitiveGuide}{12}
+\bibcite{02-bachelor-thesis}{13}
+\bibcite{02-blogpost-how-systemtest-work}{14}
+\bibcite{02-blogpost-introduction-to-systemtest}{15}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{45}{chapter*.3}\protected@file@percent }
+\bibcite{kubernetesBook}{16}
+\bibcite{Pysny}{17}
+\bibcite{fitWeb}{18}
+\bibcite{strimziStorageBlogPost}{19}
+\bibcite{apacheKafkaDesignDistributedSystems}{20}
 \ttl@writefile{ptc}{\ttl@starttoc{chapters@1}}
 \citation{Pysny}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}How to use this template}{53}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}How to use this template}{47}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{jak}{{A}{53}{How to use this template}{appendix.A}{}}
-\@writefile{toc}{\contentsline {paragraph}{Pay attention to page numbering!}{54}{section*.7}\protected@file@percent }
+\newlabel{jak}{{A}{47}{How to use this template}{appendix.A}{}}
+\@writefile{toc}{\contentsline {paragraph}{Pay attention to page numbering!}{48}{section*.5}\protected@file@percent }
 \citation{fitWeb}
-\newlabel{nastroje}{{A}{56}{Useful tools}{section*.11}{}}
+\newlabel{nastroje}{{A}{50}{Useful tools}{section*.9}{}}
 \citation{CernockyEnglish}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Writing english texts}{58}{appendix.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Writing english texts}{52}{appendix.B}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{anglicky}{{B}{58}{Writing english texts}{appendix.B}{}}
-\@writefile{toc}{\contentsline {paragraph}{Common erros in words}{61}{section*.18}\protected@file@percent }
+\newlabel{anglicky}{{B}{52}{Writing english texts}{appendix.B}{}}
+\@writefile{toc}{\contentsline {paragraph}{Common erros in words}{55}{section*.16}\protected@file@percent }
 \citation{Herout}
-\@writefile{toc}{\contentsline {chapter}{\numberline {C}Checklist}{62}{appendix.C}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Checklist}{56}{appendix.C}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{checklist}{{C}{62}{Checklist}{appendix.C}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {D}\LaTeX {} for beginners}{66}{appendix.D}\protected@file@percent }
+\newlabel{checklist}{{C}{56}{Checklist}{appendix.C}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {D}\LaTeX {} for beginners}{60}{appendix.D}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{latex}{{D}{66}{\LaTeX {} for beginners}{appendix.D}{}}
-\newlabel{sec:Fragments}{{D}{66}{Commonly used \LaTeX {} commands}{section*.28}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {D.1}{\ignorespaces Assessment table}}{67}{table.D.1}\protected@file@percent }
-\newlabel{tab:ExampleTable}{{D.1}{67}{Assessment table}{table.D.1}{}}
-\newlabel{rovnice2}{{D.1}{67}{Commonly used \LaTeX {} commands}{equation.D.0.1}{}}
-\newlabel{eq:soustava}{{D.2}{67}{Commonly used \LaTeX {} commands}{equation.D.0.2}{}}
-\newlabel{eq:soustavaSrovnana}{{D.4}{67}{Commonly used \LaTeX {} commands}{equation.D.0.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {D.1}{\ignorespaces \textbf  {Wide image.} Image can be comprised of multiple smaller images. If you want to address the partial images from text, use packagae \texttt  {subcaption}.}}{67}{figure.D.1}\protected@file@percent }
-\newlabel{sirokyObrazek}{{D.1}{67}{\textbf {Wide image.} Image can be comprised of multiple smaller images. If you want to address the partial images from text, use packagae \texttt {subcaption}}{figure.D.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {D.2}{\ignorespaces Good text is a bad text, that has been changed countless times. You have to start somewhere.}}{68}{figure.D.2}\protected@file@percent }
-\newlabel{keepCalm}{{D.2}{68}{Good text is a bad text, that has been changed countless times. You have to start somewhere}{figure.D.2}{}}
+\newlabel{latex}{{D}{60}{\LaTeX {} for beginners}{appendix.D}{}}
+\newlabel{sec:Fragments}{{D}{60}{Commonly used \LaTeX {} commands}{section*.26}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {D.1}{\ignorespaces Assessment table}}{61}{table.D.1}\protected@file@percent }
+\newlabel{tab:ExampleTable}{{D.1}{61}{Assessment table}{table.D.1}{}}
+\newlabel{rovnice2}{{D.1}{61}{Commonly used \LaTeX {} commands}{equation.D.0.1}{}}
+\newlabel{eq:soustava}{{D.2}{61}{Commonly used \LaTeX {} commands}{equation.D.0.2}{}}
+\newlabel{eq:soustavaSrovnana}{{D.4}{61}{Commonly used \LaTeX {} commands}{equation.D.0.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {D.1}{\ignorespaces \textbf  {Wide image.} Image can be comprised of multiple smaller images. If you want to address the partial images from text, use packagae \texttt  {subcaption}.}}{61}{figure.D.1}\protected@file@percent }
+\newlabel{sirokyObrazek}{{D.1}{61}{\textbf {Wide image.} Image can be comprised of multiple smaller images. If you want to address the partial images from text, use packagae \texttt {subcaption}}{figure.D.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {D.2}{\ignorespaces Good text is a bad text, that has been changed countless times. You have to start somewhere.}}{62}{figure.D.2}\protected@file@percent }
+\newlabel{keepCalm}{{D.2}{62}{Good text is a bad text, that has been changed countless times. You have to start somewhere}{figure.D.2}{}}
 \citation{Pysny}
-\@writefile{toc}{\contentsline {chapter}{\numberline {E}Examples of bibliographic citations}{69}{appendix.E}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {E}Examples of bibliographic citations}{63}{appendix.E}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{priloha-priklady-citaci}{{E}{69}{Examples of bibliographic citations}{appendix.E}{}}
-\newlabel{pr-casopis-clanek}{{E}{71}{Article in a periodical literature - @Article}{section*.29}{}}
-\newlabel{pr-monografie}{{E}{72}{Monographic publication - @Book, @Booklet (book, brochure)}{section*.30}{}}
-\newlabel{pr-sbornik}{{E}{73}{Conference proceedings - @Proceedings}{section*.31}{}}
-\newlabel{pr-kapitola}{{E}{74}{Conference proceedings entry or book chapter - @InProceedings, @InCollection, @Conference, @InBook}{section*.32}{}}
-\newlabel{pr-manual}{{E}{75}{Manual, documentation, technical report and unpublished materials - @Manual, @TechReport, @Unpublished}{section*.33}{}}
-\newlabel{pr-thesis}{{E}{76}{Academic work - @BachelorsThesis, @MastersThesis, @PhdThesis, @Thesis}{section*.34}{}}
-\newlabel{pr-webpage}{{E}{77}{Web page - @Webpage}{section*.35}{}}
-\newlabel{pr-website}{{E}{78}{Web site - @Website}{section*.36}{}}
+\newlabel{priloha-priklady-citaci}{{E}{63}{Examples of bibliographic citations}{appendix.E}{}}
+\newlabel{pr-casopis-clanek}{{E}{65}{Article in a periodical literature - @Article}{section*.27}{}}
+\newlabel{pr-monografie}{{E}{66}{Monographic publication - @Book, @Booklet (book, brochure)}{section*.28}{}}
+\newlabel{pr-sbornik}{{E}{67}{Conference proceedings - @Proceedings}{section*.29}{}}
+\newlabel{pr-kapitola}{{E}{68}{Conference proceedings entry or book chapter - @InProceedings, @InCollection, @Conference, @InBook}{section*.30}{}}
+\newlabel{pr-manual}{{E}{69}{Manual, documentation, technical report and unpublished materials - @Manual, @TechReport, @Unpublished}{section*.31}{}}
+\newlabel{pr-thesis}{{E}{70}{Academic work - @BachelorsThesis, @MastersThesis, @PhdThesis, @Thesis}{section*.32}{}}
+\newlabel{pr-webpage}{{E}{71}{Web page - @Webpage}{section*.33}{}}
+\newlabel{pr-website}{{E}{72}{Web site - @Website}{section*.34}{}}
 \ttl@finishall
