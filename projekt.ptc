@@ -4,15 +4,15 @@
 \contentsline {section}{\numberline {2.1}Kubernetes}{3}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}History}{3}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Essential components of Kubernetes}{5}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Common objects}{7}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.3}Common objects}{6}{subsection.2.1.3}%
 \contentsline {subsection}{\numberline {2.1.4}Controllers}{8}{subsection.2.1.4}%
 \contentsline {section}{\numberline {2.2}Apache Kafka}{10}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Motivation \cite {02-bachelor-thesis}}{10}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Fundamental concepts}{11}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Kafka Streams}{14}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Kafka Streams}{13}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Kafka Connect}{16}{subsection.2.2.4}%
 \contentsline {section}{\numberline {2.3}Strimzi}{17}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Architecture}{20}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}Architecture}{19}{subsection.2.3.1}%
 \contentsline {section}{\numberline {2.4}Strimzi system tests}{22}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}JUnit5 relation and execution of test cases}{23}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Strimzi system test management and execution flow}{24}{subsection.2.4.2}%

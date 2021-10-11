@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.5)  11 OCT 2021 06:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.5)  11 OCT 2021 12:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -806,7 +806,7 @@ l.1 \chapter
 
 ]
 Chapter 2.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
 .
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -815,75 +815,72 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.14 
+l.26 
       [3
 
 ]
 <obrazky-figures/02-preliminaries/01-kubernetes/01-timeline-with-picture.pdf, i
-d=220, 466.62328pt x 196.8153pt>
+d=221, 466.62328pt x 196.8153pt>
 File: obrazky-figures/02-preliminaries/01-kubernetes/01-timeline-with-picture.p
 df Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/01-kubernetes/01-timeline-with-picture.pd
 f>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/01-kubernetes/01-time
-line-with-picture.pdf  used on input line 28.
+line-with-picture.pdf  used on input line 47.
 (pdftex.def)             Requested size: 419.95706pt x 177.13213pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.34 
-      [4]
+l.64         \item D
+                    eployment, StatefulSet, ReplicaSet, and Custom resource ...
+[4]
 <obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-master-sketch.p
-df, id=234, 485.89528pt x 189.8292pt>
+df, id=235, 485.89528pt x 189.8292pt>
 File: obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-master-ske
 tch.pdf Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-master-sket
 ch.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/01-kubernetes/02-arch
-itecture-master-sketch.pdf  used on input line 47.
+itecture-master-sketch.pdf  used on input line 75.
 (pdftex.def)             Requested size: 398.4367pt x 155.66093pt.
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 54.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[5 <./obrazky-figures/02-preliminaries/01-kubernetes/01-timeline-with-picture.p
-df>]
+put line 89.
+ [5 <./obrazky-figures/02-preliminaries/01-kubernetes/01-timeline-with-picture.
+pdf> <./obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-master-s
+ketch.pdf>]
 <obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-slave-sketch.pd
-f, id=277, 521.0667pt x 189.8292pt>
+f, id=291, 521.0667pt x 189.8292pt>
 File: obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-slave-sket
 ch.pdf Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-slave-sketc
 h.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/01-kubernetes/02-arch
-itecture-slave-sketch.pdf  used on input line 74.
+itecture-slave-sketch.pdf  used on input line 113.
 (pdftex.def)             Requested size: 427.27745pt x 155.66093pt.
 <obrazky-figures/02-preliminaries/01-kubernetes/02-final-architecture-master-sl
-ave.pdf, id=278, 314.13359pt x 240.9pt>
+ave.pdf, id=292, 314.13359pt x 240.9pt>
 File: obrazky-figures/02-preliminaries/01-kubernetes/02-final-architecture-mast
 er-slave.pdf Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/01-kubernetes/02-final-architecture-maste
 r-slave.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/01-kubernetes/02-fina
-l-architecture-master-slave.pdf  used on input line 82.
+l-architecture-master-slave.pdf  used on input line 121.
 (pdftex.def)             Requested size: 289.0016pt x 221.627pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6 <./obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-master-ske
-tch.pdf> <./obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-slav
-e-sketch.pdf>] [7 <./obrazky-figures/02-preliminaries/01-kubernetes/02-final-ar
-chitecture-master-slave.pdf>]
+[6 <./obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-slave-sket
+ch.pdf>] [7 <./obrazky-figures/02-preliminaries/01-kubernetes/02-final-architec
+ture-master-slave.pdf>]
 <obrazky-figures/02-preliminaries/01-kubernetes/03-deplyoment-archite.pdf, id=3
 46, 206.6922pt x 117.3183pt>
 File: obrazky-figures/02-preliminaries/01-kubernetes/03-deplyoment-archite.pdf 
 Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/01-kubernetes/03-deplyoment-archite.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/01-kubernetes/03-depl
-yoment-archite.pdf  used on input line 120.
+yoment-archite.pdf  used on input line 188.
 (pdftex.def)             Requested size: 248.02937pt x 140.78125pt.
  [8]
 <obrazky-figures/02-preliminaries/01-kubernetes/04-statefuset_with_volume.pdf, 
@@ -893,14 +890,14 @@ pdf Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/01-kubernetes/04-statefuset_with_volume.p
 df>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/01-kubernetes/04-stat
-efuset_with_volume.pdf  used on input line 135.
+efuset_with_volume.pdf  used on input line 218.
 (pdftex.def)             Requested size: 399.41121pt x 204.76448pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9 <./obrazky-figures/02-preliminaries/01-kubernetes/03-deplyoment-archite.pdf>
-]) (./chapters/02b-kafka.tex
+) (./chapters/02b-kafka.tex [9 <./obrazky-figures/02-preliminaries/01-kubernete
+s/03-deplyoment-archite.pdf>]
 <obrazky-figures/02-preliminaries/02-kafka/02-kafka-without-depen.pdf, id=408, 
 334.3692pt x 247.8861pt>
 File: obrazky-figures/02-preliminaries/02-kafka/02-kafka-without-depen.pdf Grap
@@ -918,10 +915,9 @@ Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/01-kafka-wit
 h-depe.pdf  used on input line 16.
 (pdftex.def)             Requested size: 200.62306pt x 148.73279pt.
  [10 <./obrazky-figures/02-preliminaries/01-kubernetes/04-statefuset_with_volum
-e.pdf>] [11 <./obrazky-figures/02-preliminaries/02-kafka/02-kafka-without-depen
-.pdf> <./obrazky-figures/02-preliminaries/02-kafka/01-kafka-with-depe.pdf>]
+e.pdf>]
 <obrazky-figures/02-preliminaries/02-kafka/05-replication-of-partitions.pdf, id
-=476, 626.34pt x 406.3983pt>
+=442, 626.34pt x 406.3983pt>
 File: obrazky-figures/02-preliminaries/02-kafka/05-replication-of-partitions.pd
 f Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/02-kafka/05-replication-of-partitions.pdf
@@ -934,7 +930,9 @@ Overfull \hbox (5.9532pt too wide) in paragraph at lines 35--36
  [][] 
  []
 
-<obrazky-figures/02-preliminaries/02-kafka/03-database-relation.pdf, id=481, 54
+[11 <./obrazky-figures/02-preliminaries/02-kafka/02-kafka-without-depen.pdf> <.
+/obrazky-figures/02-preliminaries/02-kafka/01-kafka-with-depe.pdf>]
+<obrazky-figures/02-preliminaries/02-kafka/03-database-relation.pdf, id=482, 54
 1.06137pt x 175.61609pt>
 File: obrazky-figures/02-preliminaries/02-kafka/03-database-relation.pdf Graphi
 c file (type pdf)
@@ -942,13 +940,14 @@ c file (type pdf)
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/03-database-
 relation.pdf  used on input line 45.
 (pdftex.def)             Requested size: 432.84969pt x 140.49306pt.
-[12 <./obrazky-figures/02-preliminaries/02-kafka/05-replication-of-partitions.p
-df>]
 
-LaTeX Warning: Reference `subSec:strimzi:topicOperator' on page 13 undefined on
+
+LaTeX Warning: Reference `subSec:strimzi:topicOperator' on page 12 undefined on
  input line 51.
 
-<obrazky-figures/02-preliminaries/02-kafka/05-offset-thing.pdf, id=510, 348.341
+[12 <./obrazky-figures/02-preliminaries/02-kafka/05-replication-of-partitions.p
+df>]
+<obrazky-figures/02-preliminaries/02-kafka/05-offset-thing.pdf, id=512, 348.341
 38pt x 63.3567pt>
 File: obrazky-figures/02-preliminaries/02-kafka/05-offset-thing.pdf Graphic fil
 e (type pdf)
@@ -956,10 +955,10 @@ e (type pdf)
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/05-offset-th
 ing.pdf  used on input line 55.
 (pdftex.def)             Requested size: 383.1767pt x 69.69257pt.
-[13 <./obrazky-figures/02-preliminaries/02-kafka/03-database-relation.pdf> <./o
-brazky-figures/02-preliminaries/02-kafka/05-offset-thing.pdf>]
+ [13 <./obrazky-figures/02-preliminaries/02-kafka/03-database-relation.pdf> <./
+obrazky-figures/02-preliminaries/02-kafka/05-offset-thing.pdf>]
 <obrazky-figures/02-preliminaries/02-kafka/07-kafka-streams-with-localstate,thr
-ead.pdf, id=546, 809.9058pt x 529.98pt>
+ead.pdf, id=547, 809.9058pt x 529.98pt>
 File: obrazky-figures/02-preliminaries/02-kafka/07-kafka-streams-with-localstat
 e,thread.pdf Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/02-kafka/07-kafka-streams-with-localstate
@@ -967,9 +966,7 @@ e,thread.pdf Graphic file (type pdf)
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/07-kafka-str
 eams-with-localstate,thread.pdf  used on input line 71.
 (pdftex.def)             Requested size: 388.75038pt x 254.3875pt.
- [14 <./obrazky-figures/02-preliminaries/02-kafka/07-kafka-streams-with-localst
-ate,thread.pdf>]
-<obrazky-figures/02-preliminaries/02-kafka/10-kafkaStreamsProces.pdf, id=568, 4
+<obrazky-figures/02-preliminaries/02-kafka/10-kafkaStreamsProces.pdf, id=549, 4
 89.74968pt x 189.8292pt>
 File: obrazky-figures/02-preliminaries/02-kafka/10-kafkaStreamsProces.pdf Graph
 ic file (type pdf)
@@ -977,7 +974,7 @@ ic file (type pdf)
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/10-kafkaStre
 amsProces.pdf  used on input line 82.
 (pdftex.def)             Requested size: 382.0032pt x 148.06616pt.
-<obrazky-figures/02-preliminaries/02-kafka/11-kafkaStreamsProces2.pdf, id=574, 
+<obrazky-figures/02-preliminaries/02-kafka/11-kafkaStreamsProces2.pdf, id=555, 
 489.74968pt x 132.495pt>
 File: obrazky-figures/02-preliminaries/02-kafka/11-kafkaStreamsProces2.pdf Grap
 hic file (type pdf)
@@ -985,9 +982,10 @@ hic file (type pdf)
 Package pdftex.def Info: obrazky-figures/02-preliminaries/02-kafka/11-kafkaStre
 amsProces2.pdf  used on input line 90.
 (pdftex.def)             Requested size: 430.98103pt x 116.59593pt.
-
-[15 <./obrazky-figures/02-preliminaries/02-kafka/10-kafkaStreamsProces.pdf> <./
-obrazky-figures/02-preliminaries/02-kafka/11-kafkaStreamsProces2.pdf>]
+ [14 <./obrazky-figures/02-preliminaries/02-kafka/07-kafka-streams-with-localst
+ate,thread.pdf>] [15 <./obrazky-figures/02-preliminaries/02-kafka/10-kafkaStrea
+msProces.pdf> <./obrazky-figures/02-preliminaries/02-kafka/11-kafkaStreamsProce
+s2.pdf>]
 <obrazky-figures/02-preliminaries/02-kafka/12-all-in-one.pdf, id=613, 506.85359
 pt x 372.43138pt>
 File: obrazky-figures/02-preliminaries/02-kafka/12-all-in-one.pdf Graphic file 
@@ -1020,13 +1018,10 @@ Overfull \hbox (18.04723pt too wide) in paragraph at lines 16--25
 []  [][] []  [][]
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[18] [19 <./obrazky-figures/02-preliminaries/03-strimzi/01-kafka-crd.pdf> <./ob
-razky-figures/02-preliminaries/03-strimzi/02-kafka-cr.pdf>]
+[18 <./obrazky-figures/02-preliminaries/03-strimzi/01-kafka-crd.pdf> <./obrazky
+-figures/02-preliminaries/03-strimzi/02-kafka-cr.pdf>] [19]
 <obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture (1).
-pdf, id=693, 626.34pt x 457.71pt>
+pdf, id=694, 626.34pt x 457.71pt>
 File: obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture
  (1).pdf Graphic file (type pdf)
 <use obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture 
@@ -1039,7 +1034,9 @@ Overfull \hbox (37.27203pt too wide) in paragraph at lines 57--58
  [][] 
  []
 
-<obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch.pdf, id=69
+[20 <./obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architectur
+e (1).pdf>]
+<obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch.pdf, id=71
 9, 807.97856pt x 353.40028pt>
 File: obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch.pdf G
 raphic file (type pdf)
@@ -1052,13 +1049,8 @@ Overfull \hbox (52.30908pt too wide) in paragraph at lines 67--68
  [][] 
  []
 
-[20]
-
-LaTeX Warning: Text page 21 contains only floats.
-
-[21 <./obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architectur
-e (1).pdf> <./obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsAr
-ch.pdf>]) (./chapters/02d-strimzi-system-tests.tex
+[21 <./obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch.pdf>
+]) (./chapters/02d-strimzi-system-tests.tex
 <obrazky-figures/02-preliminaries/04-strimzi-system-tests/01-architecture-overa
 ll.pdf, id=749, 412.4208pt x 478.66827pt>
 File: obrazky-figures/02-preliminaries/04-strimzi-system-tests/01-architecture-
@@ -1069,8 +1061,7 @@ Package pdftex.def Info: obrazky-figures/02-preliminaries/04-strimzi-system-tes
 ts/01-architecture-overall.pdf  used on input line 11.
 (pdftex.def)             Requested size: 329.93707pt x 382.93513pt.
  [22] [23 <./obrazky-figures/02-preliminaries/04-strimzi-system-tests/01-archit
-ecture-overall.pdf>] [24]
-[25]
+ecture-overall.pdf>] [24] [25]
 <obrazky-figures/02-preliminaries/04-strimzi-system-tests/02d-strimzisystemtest
 -sequence-execution.pdf, id=808, 613.33138pt x 435.54718pt>
 File: obrazky-figures/02-preliminaries/04-strimzi-system-tests/02d-strimzisyste
@@ -1080,7 +1071,8 @@ test-sequence-execution.pdf>
 Package pdftex.def Info: obrazky-figures/02-preliminaries/04-strimzi-system-tes
 ts/02d-strimzisystemtest-sequence-execution.pdf  used on input line 137.
 (pdftex.def)             Requested size: 429.32903pt x 304.88094pt.
-) (./chapters/03-theory-of-paralellization.tex [26])
+)
+(./chapters/03-theory-of-paralellization.tex [26])
 (./chapters/04-proposal-of-parallel-approach.tex)
 (./chapters/05-implementation.tex [27 <./obrazky-figures/02-preliminaries/04-st
 rimzi-system-tests/02d-strimzisystemtest-sequence-execution.pdf>]
@@ -1241,6 +1233,9 @@ Package rerunfilecheck Info: File `projekt.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
  17163 strings out of 480608
@@ -1273,7 +1268,7 @@ public/lm/lmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lm
 ri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><
 /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/
 texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on projekt.pdf (63 pages, 3151613 bytes).
+Output written on projekt.pdf (63 pages, 3151703 bytes).
 PDF statistics:
  1288 PDF objects out of 1440 (max. 8388607)
  1083 compressed objects within 11 object streams
