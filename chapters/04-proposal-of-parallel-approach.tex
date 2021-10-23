@@ -1,11 +1,11 @@
 \chapter{Proposal of parallel approach}
 
-This chapter describes the overall design for parallelising the computation of the Strimzi system tests.
-First, section \ref{05:bottlenecks} explains the prevailing problems in the Strimzi system tests.
+In this chapter, the author describes the overall design for parallelism the computation of the Strimzi system tests.
+At first, Section \ref{05:bottlenecks} explains the prevailing problems in the Strimzi system tests.
 Then, Section \ref{05:possibleapproaches} describes alternatives to solve these problems.
 Finally, the best possible option is proposed that meets all the necessary needs.
-Next, in section \ref{04:architecturechanges} we propose changes that have to be made, especially in the \emph{ResourceManager}, where the current algorithms for resource management do not support a thread-safe implementation.
-Finally, in Section \ref{04:methodwideparalelisation} and Section \ref{04:classwideparalelisation} a proposal for \emph{method-wide} and \emph{class-wide} parallelisation is specified, which is described in detail in the steps that need to be done for their construction (conflicts it contains and solutions proposed using learned knowledge from previous chapters).
+Next, in Section \ref{04:architecturechanges} we propose changes that have to be made, especially in the \emph{ResourceManager}, where the current algorithms for resource management are implemented and which currently do not support a thread-safe implementation.
+Finally, in Section \ref{04:methodwideparalelisation} and Section \ref{04:classwideparalelisation} a proposal for \emph{method-wide} and \emph{class-wide} parallelisation is specified, which is described in detail with the steps that need to be done for its construction (conflicts it contains and solutions proposed using learned knowledge from previous chapters).
 
 \section{Bottlenecks of current approach}
 \label{05:bottlenecks}
@@ -16,10 +16,12 @@ Nevertheless, one has to ask oneself whether it is possible and whether it worth
 To answer such a question, we can use Amdahl's law, which we learned about in Section \ref{04:amdalhlaw}.
 For simplicity, assume that the unit of work will be a test case.
 It will therefore be necessary to map how many tests can be parallelised.
-We can find out that by analysing whether a test case contains any shared variable with other tests.
+We can find out that by analysing whether a test case contains any shared variable with other tests (i.e., shared \emph{Kafka, KafkaMirrorMaker, KafkaConnect, KafkaUser, KafkaTopic resource}).
 Once it does not contain any variable, we can declare the test as parallelisable.
 If a given test contains such a shared variable, it implies that it will have to run in an isolated environment.
-The manual analysis we performed found that 250 tests could be run in parallel, and 115 must be isolated. So if we apply Equation \eqref{eqn:einstein}, (which we learned in Section \ref{04:amdalhlaw}), the total number of tests is 365. The parallelizable part is \emph{p = 250/365}.
+The manual analysis we performed found that 250 tests could be run in parallel, and 115 must be isolated.
+So if we apply Equation \eqref{eqn:einstein}, (which we learned in Section \ref{04:amdalhlaw}), the total number of tests is 365.
+The parallelizable part is \emph{p = 250/365}.
 The sequence part will be equal to \emph{seq = 1 - p = 115/365}.
 For only four-core CPUs, we get the following acceleration \eqref{eqn:amdalhinpractice}.
 \begin{equation}
@@ -27,7 +29,7 @@ For only four-core CPUs, we get the following acceleration \eqref{eqn:amdalhinpr
     S = \frac{1}{1 - \frac{250}{365} + \frac{\frac{250}{365}}{\frac{4}{1}}} =\sim 2.1x \; acceleration
     \tag{3}
 \end{equation}
-If we increase the number of CPUs to 8, the total acceleration will be 2.5, and if we scale it to 16 CPUs, the acceleration will be almost 3x.
+If we increase the number of CPUs to 8, the total acceleration will be 2.5 times, and if we scale it to 16 CPUs, the acceleration will be almost 3 times.
 Consequently, if we imagine that our system tests have a total executive time of 40 hours, all tests will last approximately 13 hours with parallelisation.
 Thus, with this first step, we just showed that it pays to parallelise.
 
@@ -42,15 +44,15 @@ However, we must be aware of a particular test suite or the test case that will 
 At that moment, we must guarantee that some label will annotate that single test case for the entire test suite to run in isolation.
 
 The disadvantages of the current approach mentioned above may be a clear argument for why such a change is necessary.
-What is also necessary to mention is the structure of the Resources in the Strimzi system tests.
-These are classes that encapsulate both some pre-prepared templates and, at the same time, the whole mechanism of creation.
+What is also necessary to mention is the structure of the Resources classes in the Strimzi system tests.
+These are classes that encapsulate both, a pre-prepared templates and, at the same time, the whole mechanism of creation.
 \begin{figure}[!ht]
     \centering
     \includegraphics[scale=1]{obrazky-figures/06-proposal-of-parallel-approach/01a-azure_pipelines_with_test_results.pdf}
     \caption{Azure pipelines in form parallelism used to execute our system tests}
     \label{05:fig:azurepiplines}
 \end{figure}
-If we want to create a resource, we do it using \emph{KafkaResource.kafkaEphemeral(...).done()} and similarly with other resources.
+If we want to create a resource, we do it using \emph{KafkaResource.kafkaEphemeral(...).done()} method calls and similarly with other resources.
 The correct API should propagate everything for the client writing the tests via the \emph{ResourceManager} class where a simple \emph{create()} method would be called.
 Nevertheless, this fact is more a matter of architecture and not a form of the execution model.
 
@@ -61,7 +63,7 @@ In Figure \ref{05:fig:azurepiplines} one can see such decomposition.
 The attentive reader might ask why we cannot run 40 or 100 Azure pipelines and thus reduce the total execution time of the tests.
 Unfortunately, we are limited only to run six Azure Pipelines simultaneously.
 By this limitation, the total set of tests takes approximately 6 hours, which is still a significant ammount of time.
-Similarly, we try to reduce the time at the Jenkins pipeline when using OpenStack and Amazon Web Services infrastructure.
+Similarly, we try to reduce the time at the Jenkins pipeline when using OpenStack\footnote{\textbf{OpenStack} \---\ is a cloud computing infrastructure that manages physical machines, virtual servers or containers. At the same time, this product is one of the three most active open-sourced products globally. (\url{https://www.openstack.org/})} and Amazon Web Services infrastructure\footnote{\textbf{Amazon Web Services} \---\ also like OpenStack, is a cloud computing infrastructure that offers a myriad of services (i.e., Amazon Elastic Compute Cloud, Amazon Simple Storage Service). A very admirable attribute of this service is the availability level according to SLA (service level agreement) up to 99.9\%. (\url{https://aws.amazon.com/})}.
 However, this Strimzi product must be verified for multiple configurations when running a separate Kubernetes cluster for the entire test suite.
 Once we launch several such Kubernetes clusters, we are also limited by infrastructure quotas.
 Overall execution time reduced can be seen in the following Figure \ref{05:fig:jenkinspipelines}.
@@ -74,7 +76,7 @@ Overall execution time reduced can be seen in the following Figure \ref{05:fig:j
 
 It is also important to mention that we are limited by the number of processes (i.e., pipelines) that always use the separate Kubernetes cluster.
 On Amazon Web Services and Openstack infrastructures, we are not limited the computing resources we use.
-This is a fact that we must use and thus think about how parallelisation will lead the way.
+This is the fact that we must use and thus think about how parallelisation will lead the way.
 Undoubtedly, this will not be at the levels of processes, but parallelisation is possible directly in the test set (i.e., using threads) thanks to the available computational resources.
 However, this decision evokes the approaches described in the next section.
 
@@ -86,13 +88,13 @@ As a result, we have no choice but to go one level lower and try to parallelise 
 
 \subsection{Writing own testing framework}
 
-The first and most difficult alternative is to write a new testing framework.
+The first and the most difficult alternative is to write a new testing framework.
 One would say that this may be an old-fashion approach, but it also has its advantages.
 One of the leading benefits is flexibility.
 Imagine that we want to configure how many test cases and test suites we want to run simultaneously.
 The natural way to do this is using Futures.
-Each parallel suit is associated with its Future, and one uses a composite future to await the completion of all of them.
-We could do that by using JDK ExecutorService\footnote{\textbf{ExecutorService} \---\ is a Java object, which provides a way to execute tasks on threads asynchronously.} and CompletableFuture\footnote{\textbf{CompletableFuture} \---\ is a superset to Future, which we learned about at the end of Chapter \ref{03:chapter:title}. Moreover, it provides exception handling, allows us to combine CompletableFuture, and has many auxiliary methods}.
+Each parallel suit is associated with its \emph{Future}, and one uses a composite future to await the completion of all of them.
+We could do that by using \emph{JDK ExecutorService}\footnote{\textbf{ExecutorService} \---\ is a Java object, which provides a way to execute tasks on threads asynchronously.} and \emph{CompletableFuture}\footnote{\textbf{CompletableFuture} \---\ is a superset to Future, which we learned about at the end of Chapter \ref{03:chapter:title}. Moreover, it provides exception handling, allows us to combine CompletableFuture, and has many auxiliary methods}.
 However, the problem that writing a new tool would mean writing new tests and partially rewriting them all.
 Since our tests are currently designed on top of the JUnit5 platform, it is not very acceptable for us to do such a thing.
 
@@ -101,29 +103,29 @@ Since our tests are currently designed on top of the JUnit5 platform, it is not 
 Another alternative to reduce the overall load of rewriting all tests would be to write a new JUnit5 Engine.
 In this case, we would have to write the overall logic of the lifecycle test.
 It would help if one remembered how we described the dependencies of the current Strimzi system tests in Section \ref{02:subsec:strimziJunit5relation:execution}.
-This dependency eliminates the worry of TestDiscovery and TestExecution.
-Therefore, if we want to create our own TestEngine, we have to implement our own TestDiscovery and thus create our own implementation similar to Algorithm \ref{02:alg:selectorresolver}.
-Furthermore, we need to create our own TestExecution mechanism.
-The testing mechanism could be very similar to the previous subsection, thus using the CompletableFutures and ExecutorService classes that Java offers.
+This dependency eliminates the worry of \emph{TestDiscovery} and \emph{TestExecution}.
+Therefore, if we want to create our own \emph{TestEngine}, we have to implement our own \emph{TestDiscovery} and thus create our own implementation similar to Algorithm \ref{02:alg:selectorresolver}.
+Furthermore, we need to create our own \emph{TestExecution} mechanism.
+The testing mechanism could be very similar to the previous subsection, thus using the \emph{CompletableFutures} and \emph{ExecutorService} classes that Java offers.
 One may invoke the idea that this is the best approach that eliminates the discovery of all tests and the overall work on designing a new tool.
 Unfortunately, it also has its disadvantages.
-One of them is that if one decides to write their TestEngine, they must realise that this eliminates all the annotation support offered by Junit5 TestEngine (i.e., @Test, @TestFactory, @ParametrizedTest, @Isolated and @TestTemplate).
-It is clear that if we write a new TestEngine, we have to write our own annotated tests and write our own annotations.
+One of them is that if one decides to write their \emph{TestEngine}, they must realise that this eliminates all the annotation support offered by Junit5 \emph{TestEngine} (i.e., @Test, @TestFactory, @ParametrizedTest, @Isolated and @TestTemplate).
+It is clear that if we write a new \emph{TestEngine}, we have to write our own annotated tests and write our own annotations.
 With this knowledge, even this approach does not meet our needs.
 
 
 \subsection{JUnit5 paralelization}
 
-The last alternative is the use of Junit5 TestEngine parallelisation.
+The last alternative is the use of Junit5 \emph{TestEngine} parallelisation.
 This, almost 3-year-old, feature of the Junit5 platform (released 3rd September in 2018) has a lot to offer.
-For example, parallelisation support for running multiple test cases at one time is possible using the Java Fork / Join framework.
-This framework also includes the implementation of the ThreadPool object, which we described in Chapter \ref{03:chapter:title}.
+For example, parallelisation support for running multiple test cases at one time is possible using the \emph{Java Fork / Join} framework.
+This framework also includes the implementation of the \emph{ThreadPool} object, which we described in Chapter \ref{03:chapter:title}.
 The overall logic utilises reusable Threads, where, for example.
 Thread A completes the execution of Test 1, it will be assigned another test immediately and thus, we eliminate redundant creation of threads.
 The main advantage of such an approach is that it is not necessary to rewrite a complete perform of the tests.
 Moreover, it is unnecessary to implement TestDiscovery and TestExecution because JUnit5 TestEngine already offers them.
 Related to this is keeping all the annotations mentioned in the previous subsection.
-Another advantage is the possibility of configuration where we can enable parallelization using the following commands.
+Another advantage is the possibility of configuration where we can enable parallelization using the following commands:
 \begin{verbatim}
 junit.jupiter.execution.parallel.enabled = true
 junit.jupiter.execution.parallel.mode.default = same_thread
@@ -150,33 +152,34 @@ This problem forces us to rewrite our test architecture, and with that comes the
 
 In this section, we will describe all the necessary changes in our system test architecture.
 We start with designing thread-safe algorithms responsible for managing the resources with which the individual test cases operate.
-Finally, we describe the design of individual resource classes that will use the Interface pattern\footnote{\textbf{Interface pattern} \---\ one of the most popular design patterns, which defines a set of operations and creates a contract for a class that must implement these operations .}
+Finally, we describe the design of individual resource classes that will use the Interface pattern\footnote{\textbf{Interface pattern} \---\ one of the most popular design patterns, which defines a set of operations and creates a contract for a class that must implement these operations.}
 
 \subsection{Resource classes}
 
-If we mention the whole architecture of the system tests from the section \ref{02:sec:strimzisystemtests}, one will notice that the Resource classes contains two large pieces.
-The first is management methods (i.e., create(), delete()), and the second part is predefined templates, which are then used in test cases.
+If we think about the whole architecture of the system tests from the section \ref{02:sec:strimzisystemtests}, one will notice that the Resource classes contains two large pieces.
+The first are management methods (i.e., create(), delete()), and the second part are predefined templates, which are then used in test cases.
 Therefore, we suggest that the given parts of the code must be divided into classes, where the methods are used for management would be left in these classes.
 However, predefined templates moved to the so-called \emph{Templates} classes.
-With further improvements and better design, we propose to create an Interface that will contain methods for resource management, and each type of Resource class will need to implement such an interface.
-The given Interface should consist of the following abstract methods:
+With further improvements and better design, we propose to create an interface that will contain methods for resource management, and each type of Resource class will need to implement such an interface.
+The given interface should consist of the following abstract methods:
 \begin{itemize}[itemsep = 1mm, parsep = 0pt]
-    \item \textbf {getKind()} \---\ abstract method that will serve as a type identifier of the given resource instance
-    \item \textbf {get()} \---\ an abstract method that will serve as a single resource
-    \item \textbf {create()} \---\ the abstract method responsible for creating the resource
-    \item \textbf {delete()} \---\ abstract method responsible for deleting a given resource
-    \item \textbf {waitForReadiness()} \---\ abstract method, for waiting for a given resource until it is ready
+    \item \textbf {getKind()} \---\ an abstract method that will serve as a type identifier of the given resource instance,
+    \item \textbf {get()} \---\ the abstract method that will serve as a single resource,
+    \item \textbf {create()} \---\ the abstract method responsible for creating the resource,
+    \item \textbf {delete()} \---\ the abstract method responsible for deleting a given resource,
+    \item \textbf {waitForReadiness()} \---\ the abstract method, for waiting for a given resource until it is ready.
 \end{itemize}
 Thanks to this change, we will create a generic method at the heart of the ResourceManager class.
 
 \subsection{ResourceManager}
 
-The most critical part of system testing is ResourceManager.
+The most critical part of system test module is ResourceManager.
 In Section \ref {02:sec:strimzisystemtests}, we described how this class works and what exactly it contains.
 To maintain the context of all resources with which the three types of stacks are currently used.
 If we are in the \emph{@BeforeAll} context, then it is clear that we switch the pointer stack to the class stack.
 On the other hand, before each test case, we switch to the method stack.
 However, the cautious reader will realise that such a mechanism will not work in parallel executions.
+
 As part of the change, we propose eliminating all three stacks used to maintain the context and creating a HashMap that will have the name of the test case as an identifier (key).
 We create a contract for a person who creates the tests to do not equal themselves.
 As a value in the given map, we will store a Stack that will store all types of resources, i.e. there will always be one stack for each test case.
@@ -185,9 +188,9 @@ We propose the following thread-safe algorithm \ref{04:alg:creationofresource}, 
 In the given algorithm, there are 3 phases:
 
 \begin{itemize}[itemsep=1mm, parsep=0pt]
-    \item \textbf{Find} \---\ finding the resource type and invoking it within the Kubernetes API
-    \item \textbf {Store and future deletion} \---\ save the resource to the stack and automatically delete it throughout the lifecycle
-    \item \textbf {Readiness check} \---\ waiting if a given resource is deployed in a Kubernetes cluster (optional)
+    \item \textbf{Find} \---\ finding the resource type and invoking it within the Kubernetes API,
+    \item \textbf {Store and future deletion} \---\ save the resource to the stack and automatically delete it throughout the lifecycle,
+    \item \textbf {Readiness check} \---\ waiting if a given resource is deployed in a Kubernetes cluster (optional).
 \end{itemize}
 
 \begin{algorithm}[H]
@@ -288,7 +291,7 @@ Furthermore, random naming does not require additional synchronisation of confli
 
 The second step is to create Kubernetes methods that will support namespace operations.
 Thanks to the Kubernetes client, which we already have in the system tests, this is possible.
-However, it contains too complicated invocations of methods, and so for our purposes, it is better to encapsulate this complexity in factory methods.
+However, it contains too complicated invocations of methods, and so for our purposes, it is better to encapsulate this complexity into factory methods.
 These are mainly methods for communication with the Kubernetes environment (i.e., Pod, ReplicaSet, Deployment, Services, Custom Resource, Custom Resource Definition).
 
 The third step provides a mechanism that determines which methods can be performed in parallel and which need to be isolated.
@@ -320,7 +323,7 @@ Thus, the more CPUs a given computer/cluster will have available, the quickier t
 \label{04:classwideparalelisation}
 
 In this section, we will describe and suggest what steps are needed to support \emph{class-wide} parallelisation.
-First, in Section \ref{05:sharedclusteroperator}, we describe all the necessary changes that need to be made—furthermore, restructuring and creating a new class for managing all possible Cluster Operator configurations.
+At first, in Section \ref{05:sharedclusteroperator}, we describe all the necessary changes that need to be made—furthermore, restructuring and creating a new class for managing all possible Cluster Operator configurations.
 Next, we describe the rollback mechanism needed to solve the problem with two test suites that need different configurations.
 Finally, we follow up on this in Section \ref{05:isolatedsuite}, where we solve the given problem completely.
 
