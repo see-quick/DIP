@@ -151,30 +151,69 @@
 \newlabel{04:criticalsection}{{5}{32}{Dependencies and Protection}{definition.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.5}Synchronisation}{33}{section.3.5}\protected@file@percent }
 \newlabel{04:synchronization}{{3.5}{33}{Synchronisation}{section.3.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Asynchronous tasks}{33}{section.3.6}\protected@file@percent }
-\newlabel{04:asynctaks}{{3.6}{33}{Asynchronous tasks}{section.3.6}{}}
 \citation{introductionToParallelProgramming}
 \citation{artOfMultiprocessorProgramming}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementation}{35}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Asynchronous tasks}{34}{section.3.6}\protected@file@percent }
+\newlabel{04:asynctaks}{{3.6}{34}{Asynchronous tasks}{section.3.6}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Proposal of parallel approach}{35}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Resource Manager paralell approach}{35}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Parallel annotations}{35}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Method wide paralelization}{35}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Class wide paralelization}{35}{section.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Complications during implementation}{35}{section.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Experimental evaluation}{36}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Bottlenecks of current approach}{35}{section.4.1}\protected@file@percent }
+\newlabel{05:bottlenecks}{{4.1}{35}{Bottlenecks of current approach}{section.4.1}{}}
+\newlabel{eqn:amdalhinpractice}{{{3}}{35}{Bottlenecks of current approach}{AMS.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Azure pipelines in form parallelism used to execute our system tests}}{36}{figure.4.1}\protected@file@percent }
+\newlabel{05:fig:azurepiplines}{{4.1}{36}{Azure pipelines in form parallelism used to execute our system tests}{figure.4.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Jenkins pipelines in a form parallelism used to execute our system tests}}{37}{figure.4.2}\protected@file@percent }
+\newlabel{05:fig:jenkinspipelines}{{4.2}{37}{Jenkins pipelines in a form parallelism used to execute our system tests}{figure.4.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Possible approaches}{37}{section.4.2}\protected@file@percent }
+\newlabel{05:possibleapproaches}{{4.2}{37}{Possible approaches}{section.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Writing own testing framework}{37}{subsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Writing own Junit5 Engine}{38}{subsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}JUnit5 paralelization}{38}{subsection.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Architecture changes}{39}{section.4.3}\protected@file@percent }
+\newlabel{04:architecturechanges}{{4.3}{39}{Architecture changes}{section.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Resource classes}{39}{subsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}ResourceManager}{40}{subsection.4.3.2}\protected@file@percent }
+\newlabel{04:alg:creationofresource}{{4.3.2}{40}{ResourceManager}{subsection.4.3.2}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Thread-safe algorithm for creation resources inside \emph  {Resource manager}}}{40}{algorithm.4}\protected@file@percent }
+\newlabel{04:alg:syncresources}{{4.3.2}{41}{ResourceManager}{algorithm.4}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces Thread-safe algorithm for sync resources inside \emph  {Resource manager}}}{41}{algorithm.5}\protected@file@percent }
+\newlabel{04:alg:deleteresources}{{4.3.2}{41}{ResourceManager}{algorithm.5}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {6}{\ignorespaces Thread-safe algorithm for deletion resources inside \emph  {Resource manager}}}{41}{algorithm.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Method wide paralelization}{42}{section.4.4}\protected@file@percent }
+\newlabel{04:methodwideparalelisation}{{4.4}{42}{Method wide paralelization}{section.4.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Class wide paralelization}{42}{section.4.5}\protected@file@percent }
+\newlabel{04:classwideparalelisation}{{4.5}{42}{Class wide paralelization}{section.4.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces The best scenario in \emph  {method-wide} parallelism. \emph  {n} number of threads are executed, and there is no one @IsolatedTest in the test suite, which means that all test runs simultaneously. Note that \emph  {Tc} means Test case in short}}{43}{figure.4.3}\protected@file@percent }
+\newlabel{05:fig:methodwideparallelism}{{4.3}{43}{The best scenario in \emph {method-wide} parallelism. \emph {n} number of threads are executed, and there is no one @IsolatedTest in the test suite, which means that all test runs simultaneously. Note that \emph {Tc} means Test case in short}{figure.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Shared Cluster Operator}{43}{subsection.4.5.1}\protected@file@percent }
+\newlabel{05:sharedclusteroperator}{{4.5.1}{43}{Shared Cluster Operator}{subsection.4.5.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces One of the possible invocation of Cluster Operator deployment using Builder desing pattern.}}{44}{figure.4.4}\protected@file@percent }
+\newlabel{05:fig:clusteroperatorinstallation}{{4.4}{44}{One of the possible invocation of Cluster Operator deployment using Builder desing pattern}{figure.4.4}{}}
+\newlabel{05:alg:rollback}{{4.5.1}{45}{Shared Cluster Operator}{Item.42}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {7}{\ignorespaces Cluster Operator rollback algorithm}}{45}{algorithm.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}@IsolatedSuite}{45}{subsection.4.5.2}\protected@file@percent }
+\newlabel{05:isolatedsuite}{{4.5.2}{45}{@IsolatedSuite}{subsection.4.5.2}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementation}{47}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Experimental setup}{36}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Results}{36}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Evaluation of the obtained results}{36}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Future work}{37}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Resource Manager paralell approach}{47}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Parallel annotations}{47}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Method wide paralelization}{47}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Class wide paralelization}{47}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Complications during implementation}{47}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Experimental evaluation}{48}{chapter.6}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Experimental setup}{48}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Results}{48}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Evaluation of the obtained results}{48}{section.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Future work}{49}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibstyle{bib-styles/Pysny/enplain}
 \bibdata{projekt-20-literatura-bibliography}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusion}{38}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion}{50}{chapter.8}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{kubernetes}{1}
@@ -191,7 +230,7 @@
 \bibcite{docker}{12}
 \bibcite{kafkaStreamsBook}{13}
 \bibcite{apacheKafkaDefinitiveGuide}{14}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{39}{chapter*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{51}{chapter*.5}\protected@file@percent }
 \bibcite{02-bachelor-thesis}{15}
 \bibcite{02-blogpost-how-systemtest-work}{16}
 \bibcite{02-blogpost-introduction-to-systemtest}{17}
@@ -203,49 +242,49 @@
 \bibcite{apacheKafkaDesignDistributedSystems}{23}
 \ttl@writefile{ptc}{\ttl@starttoc{chapters@1}}
 \citation{Pysny}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}How to use this template}{41}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}How to use this template}{53}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{jak}{{A}{41}{How to use this template}{appendix.A}{}}
-\@writefile{toc}{\contentsline {paragraph}{Pay attention to page numbering!}{42}{section*.6}\protected@file@percent }
+\newlabel{jak}{{A}{53}{How to use this template}{appendix.A}{}}
+\@writefile{toc}{\contentsline {paragraph}{Pay attention to page numbering!}{54}{section*.7}\protected@file@percent }
 \citation{fitWeb}
-\newlabel{nastroje}{{A}{44}{Useful tools}{section*.10}{}}
+\newlabel{nastroje}{{A}{56}{Useful tools}{section*.11}{}}
 \citation{CernockyEnglish}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Writing english texts}{46}{appendix.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Writing english texts}{58}{appendix.B}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{anglicky}{{B}{46}{Writing english texts}{appendix.B}{}}
-\@writefile{toc}{\contentsline {paragraph}{Common erros in words}{49}{section*.17}\protected@file@percent }
+\newlabel{anglicky}{{B}{58}{Writing english texts}{appendix.B}{}}
+\@writefile{toc}{\contentsline {paragraph}{Common erros in words}{61}{section*.18}\protected@file@percent }
 \citation{Herout}
-\@writefile{toc}{\contentsline {chapter}{\numberline {C}Checklist}{50}{appendix.C}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Checklist}{62}{appendix.C}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{checklist}{{C}{50}{Checklist}{appendix.C}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {D}\LaTeX {} for beginners}{54}{appendix.D}\protected@file@percent }
+\newlabel{checklist}{{C}{62}{Checklist}{appendix.C}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {D}\LaTeX {} for beginners}{66}{appendix.D}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{latex}{{D}{54}{\LaTeX {} for beginners}{appendix.D}{}}
-\newlabel{sec:Fragments}{{D}{54}{Commonly used \LaTeX {} commands}{section*.27}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {D.1}{\ignorespaces Assessment table}}{55}{table.D.1}\protected@file@percent }
-\newlabel{tab:ExampleTable}{{D.1}{55}{Assessment table}{table.D.1}{}}
-\newlabel{rovnice2}{{D.1}{55}{Commonly used \LaTeX {} commands}{equation.D.0.1}{}}
-\newlabel{eq:soustava}{{D.2}{55}{Commonly used \LaTeX {} commands}{equation.D.0.2}{}}
-\newlabel{eq:soustavaSrovnana}{{D.4}{55}{Commonly used \LaTeX {} commands}{equation.D.0.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {D.1}{\ignorespaces \textbf  {Wide image.} Image can be comprised of multiple smaller images. If you want to address the partial images from text, use packagae \texttt  {subcaption}.}}{55}{figure.D.1}\protected@file@percent }
-\newlabel{sirokyObrazek}{{D.1}{55}{\textbf {Wide image.} Image can be comprised of multiple smaller images. If you want to address the partial images from text, use packagae \texttt {subcaption}}{figure.D.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {D.2}{\ignorespaces Good text is a bad text, that has been changed countless times. You have to start somewhere.}}{56}{figure.D.2}\protected@file@percent }
-\newlabel{keepCalm}{{D.2}{56}{Good text is a bad text, that has been changed countless times. You have to start somewhere}{figure.D.2}{}}
+\newlabel{latex}{{D}{66}{\LaTeX {} for beginners}{appendix.D}{}}
+\newlabel{sec:Fragments}{{D}{66}{Commonly used \LaTeX {} commands}{section*.28}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {D.1}{\ignorespaces Assessment table}}{67}{table.D.1}\protected@file@percent }
+\newlabel{tab:ExampleTable}{{D.1}{67}{Assessment table}{table.D.1}{}}
+\newlabel{rovnice2}{{D.1}{67}{Commonly used \LaTeX {} commands}{equation.D.0.1}{}}
+\newlabel{eq:soustava}{{D.2}{67}{Commonly used \LaTeX {} commands}{equation.D.0.2}{}}
+\newlabel{eq:soustavaSrovnana}{{D.4}{67}{Commonly used \LaTeX {} commands}{equation.D.0.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {D.1}{\ignorespaces \textbf  {Wide image.} Image can be comprised of multiple smaller images. If you want to address the partial images from text, use packagae \texttt  {subcaption}.}}{67}{figure.D.1}\protected@file@percent }
+\newlabel{sirokyObrazek}{{D.1}{67}{\textbf {Wide image.} Image can be comprised of multiple smaller images. If you want to address the partial images from text, use packagae \texttt {subcaption}}{figure.D.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {D.2}{\ignorespaces Good text is a bad text, that has been changed countless times. You have to start somewhere.}}{68}{figure.D.2}\protected@file@percent }
+\newlabel{keepCalm}{{D.2}{68}{Good text is a bad text, that has been changed countless times. You have to start somewhere}{figure.D.2}{}}
 \citation{Pysny}
-\@writefile{toc}{\contentsline {chapter}{\numberline {E}Examples of bibliographic citations}{57}{appendix.E}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {E}Examples of bibliographic citations}{69}{appendix.E}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{priloha-priklady-citaci}{{E}{57}{Examples of bibliographic citations}{appendix.E}{}}
-\newlabel{pr-casopis-clanek}{{E}{59}{Article in a periodical literature - @Article}{section*.28}{}}
-\newlabel{pr-monografie}{{E}{60}{Monographic publication - @Book, @Booklet (book, brochure)}{section*.29}{}}
-\newlabel{pr-sbornik}{{E}{61}{Conference proceedings - @Proceedings}{section*.30}{}}
-\newlabel{pr-kapitola}{{E}{62}{Conference proceedings entry or book chapter - @InProceedings, @InCollection, @Conference, @InBook}{section*.31}{}}
-\newlabel{pr-manual}{{E}{63}{Manual, documentation, technical report and unpublished materials - @Manual, @TechReport, @Unpublished}{section*.32}{}}
-\newlabel{pr-thesis}{{E}{64}{Academic work - @BachelorsThesis, @MastersThesis, @PhdThesis, @Thesis}{section*.33}{}}
-\newlabel{pr-webpage}{{E}{65}{Web page - @Webpage}{section*.34}{}}
-\newlabel{pr-website}{{E}{66}{Web site - @Website}{section*.35}{}}
+\newlabel{priloha-priklady-citaci}{{E}{69}{Examples of bibliographic citations}{appendix.E}{}}
+\newlabel{pr-casopis-clanek}{{E}{71}{Article in a periodical literature - @Article}{section*.29}{}}
+\newlabel{pr-monografie}{{E}{72}{Monographic publication - @Book, @Booklet (book, brochure)}{section*.30}{}}
+\newlabel{pr-sbornik}{{E}{73}{Conference proceedings - @Proceedings}{section*.31}{}}
+\newlabel{pr-kapitola}{{E}{74}{Conference proceedings entry or book chapter - @InProceedings, @InCollection, @Conference, @InBook}{section*.32}{}}
+\newlabel{pr-manual}{{E}{75}{Manual, documentation, technical report and unpublished materials - @Manual, @TechReport, @Unpublished}{section*.33}{}}
+\newlabel{pr-thesis}{{E}{76}{Academic work - @BachelorsThesis, @MastersThesis, @PhdThesis, @Thesis}{section*.34}{}}
+\newlabel{pr-webpage}{{E}{77}{Web page - @Webpage}{section*.35}{}}
+\newlabel{pr-website}{{E}{78}{Web site - @Website}{section*.36}{}}
 \ttl@finishall

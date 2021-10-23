@@ -22,25 +22,38 @@
 \contentsline {section}{\numberline {3.3}Processes and Threads}{31}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Dependencies and Protection}{32}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Synchronisation}{33}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Asynchronous tasks}{33}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Implementation}{35}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Resource Manager paralell approach}{35}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Parallel annotations}{35}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Method wide paralelization}{35}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Class wide paralelization}{35}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Complications during implementation}{35}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Experimental evaluation}{36}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Experimental setup}{36}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Results}{36}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Evaluation of the obtained results}{36}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Future work}{37}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusion}{38}{chapter.7}%
-\contentsline {chapter}{Bibliography}{39}{chapter*.4}%
-\contentsline {chapter}{\numberline {A}How to use this template}{41}{appendix.A}%
-\contentsline {paragraph}{Pay attention to page numbering!}{42}{section*.6}%
-\contentsline {chapter}{\numberline {B}Writing english texts}{46}{appendix.B}%
-\contentsline {paragraph}{Common erros in words}{49}{section*.17}%
-\contentsline {chapter}{\numberline {C}Checklist}{50}{appendix.C}%
-\contentsline {chapter}{\numberline {D}\LaTeX {} for beginners}{54}{appendix.D}%
-\contentsline {chapter}{\numberline {E}Examples of bibliographic citations}{57}{appendix.E}%
+\contentsline {section}{\numberline {3.6}Asynchronous tasks}{34}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Proposal of parallel approach}{35}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Bottlenecks of current approach}{35}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Possible approaches}{37}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Writing own testing framework}{37}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Writing own Junit5 Engine}{38}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}JUnit5 paralelization}{38}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Architecture changes}{39}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Resource classes}{39}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}ResourceManager}{40}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Method wide paralelization}{42}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Class wide paralelization}{42}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Shared Cluster Operator}{43}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}@IsolatedSuite}{45}{subsection.4.5.2}%
+\contentsline {chapter}{\numberline {5}Implementation}{47}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Resource Manager paralell approach}{47}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Parallel annotations}{47}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Method wide paralelization}{47}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Class wide paralelization}{47}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Complications during implementation}{47}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Experimental evaluation}{48}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Experimental setup}{48}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Results}{48}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Evaluation of the obtained results}{48}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Future work}{49}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusion}{50}{chapter.8}%
+\contentsline {chapter}{Bibliography}{51}{chapter*.5}%
+\contentsline {chapter}{\numberline {A}How to use this template}{53}{appendix.A}%
+\contentsline {paragraph}{Pay attention to page numbering!}{54}{section*.7}%
+\contentsline {chapter}{\numberline {B}Writing english texts}{58}{appendix.B}%
+\contentsline {paragraph}{Common erros in words}{61}{section*.18}%
+\contentsline {chapter}{\numberline {C}Checklist}{62}{appendix.C}%
+\contentsline {chapter}{\numberline {D}\LaTeX {} for beginners}{66}{appendix.D}%
+\contentsline {chapter}{\numberline {E}Examples of bibliographic citations}{69}{appendix.E}%
 \contentsfinish 
