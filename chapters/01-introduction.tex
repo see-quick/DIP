@@ -28,8 +28,9 @@ For a long time and many releases of Strimzi, testing using a sequential computa
 At the same time, the product contains about 15 of the most critical possible combinations of product deployment, each of which lasts over sixty hours.
 This sequential computational model is not a recommended candidate for verifying such a large number of deployments.
 An attentive reader could see the entire test time approaching 1000 hours, approximately one and a half months.
-Nevertheless, as part of this effort for coarse-grained parallelism in performing multiple product deployments, it partially accelerated the overall computation. However, this approach is not horizontally scalable due to our cloud services that provide resources (i.e. bare metals, virtual machines, containers).
-Therefore, we got to the last opportunity to improve the computation using the vertical scalability of the resources (i.e. memory, central processing units) that the cloud services offer us.
+Nevertheless, as part of this effort for coarse-grained parallelism in performing multiple product deployments, it partially accelerated the overall computation.
+However, this approach is not horizontally scalable due to our cloud services that provide resources (i.e., bare metals, virtual machines, containers).
+Therefore, we got to the last opportunity to improve the computation using the vertical scalability of the resources (i.e., memory, central processing units) that the cloud services offer us.
 This information motivated us to design and implement a mechanism of fine-grained parallelism in our test framework.
 Figure \ref{00:fig:evolution} shows the overall evolution of our test framework and summarises the previously mentioned sentences.
 
