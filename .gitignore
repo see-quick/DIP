@@ -3,3 +3,6 @@ projekt.aux
 projekt.toc
 projekt.blg
 projekt.out
+
+# MAC related
+.DS_Store
