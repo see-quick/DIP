@@ -11,21 +11,21 @@ Nowadays, we live in a time when computers have significantly improved execution
 % 2) úvod do problematiky
 Several years ago, \emph{Google} released a technology that defined and changed our application deployment and management perspective.
 An iterative sequence of small steps caused this revolution (i.e., physical, virtual and container era).
-\emph{Kubernetes}~\cite{history, kubernetes, kubernetesBook} is a container management system, and recently in another mini-iteration, brought a new concept of how to organise containers more efficiently \ --- \ the \emph{Operator pattern}.
+\emph{Kubernetes}~\cite{history, kubernetes, kubernetesBook} is a container management system, and in another mini-iteration, brought a new concept of how to organise containers more efficiently \---\ the \emph{Operator pattern}.
 \emph{Operator pattern} aims to capture how to extend and implement automation tasks beyond \emph{Kubernetes}.
 One such Operator is developed and maintained as part of an open-source project called Strimzi~\cite{strimziDoc, strimziBlogPosts}.
 The \emph{Strimzi} project brings together several tools that take care of the deployment of Apache Kafka~\cite{apacheKafkaDefinitiveGuide, apacheKafkaDesignDistributedSystems, kafkaStreamsBook, kafkaDocumentation} on Kubernetes.
 Complexity, horizontal scalability and distribution system;
-are all attributes of a system called \emph{Apache Kafka}.
+are all attributes of \emph{Apache Kafka}.
 Unfortunately, these attributes make the system an exceedingly complex entity to verify.
 Therefore, one of the biggest challenges of using \emph{Kubernetes} is effectively and quickly testing projects like \emph{Kafka} and \emph{Strimzi} while verifying integration with similar products (i.e.,
-Prometheus\footnote{Prometheus \---\ open-source metrics-based project. Moreover, it provides an alerting system with incredible features, in case of interest \url{https://prometheus.io/}},
+\emph{Prometheus}\footnote{Prometheus \---\ open-source metrics-based project. Moreover, it provides an alerting system with incredible features, in case of interest \url{https://prometheus.io/}},
 Grafana\footnote{Grafana \---\ open-source project, which primary responsibility is to show user interactive visualisation to track crucial parts of the system via great user interface. (\url{https://grafana.com/})},
 Jaeger\footnote{Jaeger (Jaeger Tracing) \---\ is a an product, which find and help troubleshoot problems in distributive systems. (\url{https://www.jaegertracing.io/})},
 Keycloak\footnote{Keycloak \---\ open-source project for securing applications (authentication and authorization). (\url{https://www.keycloak.org/})}).
 Regarding the resources required to deploy \emph{Kafka} on virtual machines or containers, it is relatively simple to compare Kafka's deployment on \emph{Kubernetes}.
-Nevertheless, this causes time problems for our \emph{Strimzi} product testing.
-To solve this problem, we have adopted the principles of parallel execution and created a mechanism within the Strimzi system tests, which runs tests in parallel against only one cluster of \emph{Kubernetes}.
+Nevertheless, this causes time problems for our \emph{Strimzi} project testing.
+To solve this problem, we have adopted the principles of parallel execution and created a mechanism within the \emph{Strimzi system tests}, which runs tests in parallel against only one cluster of \emph{Kubernetes}.
 % 3) related work
 
 Related work focuses on improving the overall verification time of a Strimzi product.
