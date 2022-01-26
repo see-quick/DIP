@@ -54,5 +54,5 @@ vlna:
 
 # Spocita normostrany / Count of standard pages
 normostrany:
-	echo "scale=2; `detex -n $(CO)-[01]*.tex | sed s/"^ *"/""/ | sed s/"^	*"/""/ | wc -c`/1800;" | bc
+	echo "scale=2; `detex -n chapters/0*.tex | sed s/"^ *"/""/ | sed s/"^	*"/""/ | wc -c`/1800;" | bc
 

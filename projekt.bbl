@@ -49,13 +49,6 @@
 \newblock Available at:
   ~{\small\url{https://strimzi.io/docs/operators/latest}}.
 
-\bibitem{CernockyEnglish}
-{\sc\bgroup}Černocký{\egroup}, J.
-\newblock {\em English SOS} [online].
-\newblock 2016 {\small [cit. 2019-10-02]}.
-\newblock Available at:
-  ~{\small\url{https://merlin.fit.vutbr.cz/wiki/index.php/English_SOS}}.
-
 \bibitem{amdalh}
 {\sc\bgroup}Gustafson{\egroup}, J.~L.
 \newblock Amdahl's Law.
@@ -74,12 +67,6 @@
 \newblock 2nd ed.
 \newblock Morgan Kaufmann, 2020.
 \newblock ISBN 0124159508.
-
-\bibitem{Herout}
-{\sc\bgroup}Herout{\egroup}, A.
-\newblock {\em Herout.net -- Poznámky učitele, kouče, čtenáře.} [online].
-\newblock 2018 {\small [cit. 2019-10-02]}.
-\newblock Available at: ~{\small\url{http://www.herout.net/}}.
 
 \bibitem{docker}
 {\sc\bgroup}Inc.{\egroup}, D.
@@ -141,25 +128,6 @@
 \newblock 1st ed.
 \newblock Independently published, 2021.
 \newblock ISBN 979-8703756065.
-
-\bibitem{Pysny}
-{\sc\bgroup}Py{\v{s}}n{\'{y}}{\egroup}, R.
-\newblock {\em BiBTeX styl pro {\v{C}}SN ISO 690 a {\v{C}}SN ISO 690-2}.
-\newblock Brno, CZ, 2009.
-\newblock Bakal{\'{a}}{\v{r}}sk{\'{a}} pr{\'{a}}ce.
-\newblock Vysok{\'{e}} u{\v{c}}en{\'{i}} technick{\'{e}} v Brn{\v{e}}, Fakulta
-  informa{\v{c}}n{\'{i}}ch technologi{\'{i}}.
-\newblock Available at:
-  ~{\small\url{https://www.fit.vut.cz/study/thesis/7848/}}.
-
-\bibitem{fitWeb}
-{\sc\bgroup}Rábová{\egroup}, Z., {\sc\bgroup}Hanáček{\egroup}, P.,
-  {\sc\bgroup}Peringer{\egroup}, P., {\sc\bgroup}Přikryl{\egroup}, P.
-  and~{\sc\bgroup}Křena{\egroup}, B.
-\newblock {\em Užitečné rady pro psaní práce} [online].
-\newblock FIT VUT v~Brně, november 2008 {\small [cit. 2019-10-02]}.
-\newblock Available at:
-  ~{\small\url{https://www.fit.vut.cz/study/theses/theses-advice/}}.
 
 \bibitem{strimziStorageBlogPost}
 {\sc\bgroup}Scholz{\egroup}, J.
