@@ -3,15 +3,15 @@
 
 This Section describes the basics of the Strimzi system tests.
 At first, we will go through a short description of how we test Strimzi.
-Then in Section \ref{02:subsec:strimziJunit5relation:execution} we explain the fundamentals of JUnit5, how tests are discovered and executed.
-Lastly, in Section \ref{02:subsec:strimzisystemtestsexecution} we explain Strimzi system test management and execution flow.
+Then in Section~\ref{02:subsec:strimziJunit5relation:execution} we explain the fundamentals of JUnit5, how tests are discovered and executed.
+Lastly, in Section~\ref{02:subsec:strimzisystemtestsexecution} we explain Strimzi system test management and execution flow.
 
 Overall testing begins, as we know from textbooks with unit testing.
 Subsequently, if this phase is successful, we move on to integration tests and then to system tests.
 Of course, the most time-consuming is the system tests, which in our case take about 40 hours to complete.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.80]{obrazky-figures/02-preliminaries/04-strimzi-system-tests/01-architecture-overall.pdf}
+    \includegraphics[scale=0.80]{obrazky-figures/02-preliminaries/04-strimzi-system-tests/01-architecture-overall}
     \caption{Strimzi system tests top-level component architecture}
     \label{02d:fig:strimzisystemtestarch}
 \end{figure}
@@ -26,7 +26,7 @@ The first is resource classes that provide the user interface for creating, retr
 Moreover, we have three independent stacks that serves as resource storage.
 These stacks are responsible for storing all resources based on the test case.
 Furthermore, the deletion of these resources is transparent for the user just as if it is a resource created in a \emph{@BeforeAll}\footnote{\textbf{@BeforeAll } \---\ is JUnit5 annotation, where one specify what must be executed before all tests in the test suite.} annotated method.
-The second fundamental part is auxiliary classes such as Utils\footnote {\textbf{Utils} \---\ type of class that consists of static methods, which in general dynamically waiting for a specific event. For instance, waiting for Rolling Update, if one change Kafka configuration}, Apache Kafka clients for external communication, Kubernetes client offering an API for communication with the Kubernetes cluster and finally classes such as \emph{Constants} and \emph{Environment}. This can be seen in Figure \ref{02d:fig:strimzisystemtestarch}.
+The second fundamental part is auxiliary classes such as Utils\footnote {\textbf{Utils} \---\ type of class that consists of static methods, which in general dynamically waiting for a specific event. For instance, waiting for Rolling Update, if one change Kafka configuration}, Apache Kafka clients for external communication, Kubernetes client offering an API for communication with the Kubernetes cluster and finally classes such as \emph{Constants} and \emph{Environment}. This can be seen in Figure~\ref{02d:fig:strimzisystemtestarch}.
 
 \subsection{JUnit5 relation and execution of test cases}
 \label{02:subsec:strimziJunit5relation:execution}
@@ -38,7 +38,7 @@ Discovering can be thought of as a scan of all the classes and methods in specif
 The Engine has specified in advance which signatures to include in the test tree.
 In the case of the Junit5 Engine, it is a sequence of chaining methods, which gradually add all classes (test suites) and methods (test cases) to the test tree.
 They also add the test types defined by them (i.e., \emph{@TestFactory}, \emph{@ParametrizedTest}, \emph{@TestTemplate}).
-Everything is depicted in Algorithm \ref{02:alg:selectorresolver}.
+Everything is depicted in Algorithm~\ref{02:alg:selectorresolver}.
 
 \begin{algorithm}[H]
     \label{02:alg:selectorresolver}
@@ -81,7 +81,7 @@ Moreover, Engine instantiates the \emph{SameThreadHierarchicalTestExecutorServic
 \subsection{Strimzi system test management and execution flow}
 \label{02:subsec:strimzisystemtestsexecution}
 
-In the previous Section \ref{02:subsec:strimziJunit5relation:execution}, we described the intricate parts of loading and the type of tests performed.
+In the previous Section~\ref{02:subsec:strimziJunit5relation:execution}, we described the intricate parts of loading and the type of tests performed.
 In the case of the Strimzi part, it is necessary to add several mechanisms (i.e., creation of Kubernetes cluster, communication with Kubernetes cluster, management of Kubernetes resources, wait for conditions).
 We solve all these parts in Strimzi.
 We create Kubernetes clusters in several ways, as we test the product on several infrastructures.
@@ -127,7 +127,7 @@ All namespaces are obtained using the command \emph{client.namespaces().List();}
     \end{algorithmic}
 \end{algorithm}
 The overall orchestration of Kubernetes resources is handled by the \emph{ResourceManager} class and its additional resource classes.
-As we wrote at the beginning of Section \ref{02:sec:strimzisystemtests}, it includes three stacks and where the main/pointer stack points to method or class stack based on context.
+As we wrote at the beginning of Section~\ref{02:sec:strimzisystemtests}, it includes three stacks and where the main/pointer stack points to method or class stack based on context.
 For example, suppose the execution is located in \emph{@BeforeAll} or \emph{@AfterAll} annotation, we add elements to the class stack.
 In other scenarios, such as in the test case or \emph{@BeforeEach}, we add elements to the method stack.
 This data structure will guarantee the correct order of resources deletion at the end of each test or test class.
@@ -136,12 +136,12 @@ So if we create first Kafka, Producer, and lastly Consumer, then in the clean-up
 Thus, the user who creates the test cases does not have to delete individual resources created for the entire test.
 In other words, the clean-up phase is transparent to the user.
 However, if one wants to explicitly delete the resource, it is possible via the following command \emph{ResourceType.delete(name)}.
-Algorithm \ref{02:alg:deletionalg} defines clean-up phase.
+Algorithm~\ref{02:alg:deletionalg} defines clean-up phase.
 
 
 By contrast, when creating any resources, the user has at his disposal, for example, KafkaResource, KafkaTopicResource, and the like.
 Each of these classes contains predefined templates that include specific configuration settings.
-A typical example is Kafka, which can be seen by \ref{02:fig:kafkaresource:defaultmethod}.
+A typical example is Kafka, which can be seen by~\ref{02:fig:kafkaresource:defaultmethod}.
 
 \begin{figure}[!ht]
 \begin{lstlisting}
@@ -183,7 +183,7 @@ Another part of the Strimzi system tests is the wait for methods mechanism.
 It is used primarily in scenarios where it is necessary to wait for an event to occur.
 An example could be waiting for a Rolling Update to occur when Kafka's original Statefulset changes. \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.70]{obrazky-figures/02-preliminaries/04-strimzi-system-tests/02d-strimzisystemtest-sequence-execution.pdf}
+    \includegraphics[scale=0.70]{obrazky-figures/02-preliminaries/04-strimzi-system-tests/02d-strimzisystemtest-sequence-execution}
     \caption{Strimzi system tests execution flow}
     \label{02d:fig:strimzisysmtetest:execution}
 \end{figure}
@@ -195,5 +195,5 @@ This is the primary responsibility of TestEngine, which uses selectors to filter
 As soon as we have a tree available, which consists of TestDescriptor nodes, TestEngine starts execution.
 This execution is sequential for each test case.
 At the same time, thanks to our management and defined resources, we can communicate with the Kubernetes cluster.
-For example, in Figure \ref{02d:fig:strimzisysmtetest:execution} we can execute n Test cases where Test Suite 2 is currently executed and specifically Test Case 1.
+For example, in Figure~\ref{02d:fig:strimzisysmtetest:execution} we can execute n Test cases where Test Suite 2 is currently executed and specifically Test Case 1.
 The attentive reader will realize that the overall execution model is sequential due to Java's main thread, the primary thread identifier.

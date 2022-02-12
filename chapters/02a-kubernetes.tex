@@ -14,7 +14,7 @@ The definition of these resources is given in a declarative way using YAML\footn
 \subsection{History}
 \label{fig:history}
 
-So far, we have developed four approaches to managing applications on the top of the operating system \cite{history}.
+So far, we have developed four approaches to managing applications on the top of the operating system~\cite{history}.
 In each direction, we have eliminated certain disadvantages based on empirical knowledge.
 
 \begin{enumerate}
@@ -44,7 +44,7 @@ In each direction, we have eliminated certain disadvantages based on empirical k
 
     \begin{figure}[!ht]
         \centering
-        \includegraphics[scale=0.9]{obrazky-figures/02-preliminaries/01-kubernetes/01-timeline-with-picture.pdf}
+        \includegraphics[scale=0.9]{obrazky-figures/02-preliminaries/01-kubernetes/01-timeline-with-picture}
         \label{01:fig:timeline}
         \caption{Evolution of virtual technologies}
     \end{figure}
@@ -56,8 +56,8 @@ In each direction, we have eliminated certain disadvantages based on empirical k
     While in containers, we have to search each one individually, so in Kubernetes, we all have it simultaneously.
     Figure \ref{01:fig:timeline} illustrates and summarises the phases of managing an application on top of the operating system, starting in 1950 when the first computer, ENIAC, was assembled—moving to the virtualization era, which started in the early 70s.
     IBM Cambridge Scientific Center began the development of CP-40, the first operating system that implemented complete virtualization.
-    However, what is very important to note is that the first known virtualization software was VMware, created in 1997. Afterwards, the lightweight era comes with an idea whose functionality was based on containerization \cite{docker}.
-    Finally, we have a manager who takes care of the overall management of the individual containers and guarantees their reliability, scales it effectively and more. This is what we call a container orchestration system \cite{kubernetes}.
+    However, what is very important to note is that the first known virtualization software was VMware, created in 1997. Afterwards, the lightweight era comes with an idea whose functionality was based on containerization~\cite{docker}.
+    Finally, we have a manager who takes care of the overall management of the individual containers and guarantees their reliability, scales it effectively and more. This is what we call a container orchestration system~\cite{kubernetes}.
     It has the following properties:
 
     \begin{enumerate}[itemsep=1mm, parsep=0pt]
@@ -72,7 +72,7 @@ In each direction, we have eliminated certain disadvantages based on empirical k
 The Linux hosts can be virtual machines, bare-metal servers in the data center, or private or public cloud instances. Production environments typically have more than one master node running because of the need for High Availability\footnote{High availability (HA) \---\ is the characteristic of the system to run without failing for some period of time.}).
 \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.82]{obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-master-sketch.pdf}
+    \includegraphics[scale=0.82]{obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-master-sketch}
     \caption{Representation of the Master node}
     \label{02:fig:masterNode}
 \end{figure}
@@ -105,12 +105,12 @@ All these controllers follow algorithm \ref{01:alg:controllerAlg}.
 The \emph{kube-apiserver} works like the controller of API calls and communicates with the \emph{kube-scheduler}.
 It makes sure that every created Pod is assigned to run there.
 It is worthwhile to mention that we also have a component called \emph{etcd}, which works as a backup for cluster data.
-Slave node components \ref{02:fig:slaveNode} suas \emph{kubelet} have taken care of containers running inside the Pod. \emph{Kube-proxy}, which reflects all the services defined in the kube-apiserver.
-In the following Figure \ref{02:fig:masterAndSlaveNode}, one can see relation between master and slave nodes.
+Slave node components~\ref{02:fig:slaveNode} suas \emph{kubelet} have taken care of containers running inside the Pod. \emph{Kube-proxy}, which reflects all the services defined in the kube-apiserver.
+In the following Figure~\ref{02:fig:masterAndSlaveNode}, one can see relation between master and slave nodes.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.82]{obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-slave-sketch.pdf}
+    \includegraphics[scale=0.82]{obrazky-figures/02-preliminaries/01-kubernetes/02-architecture-slave-sketch}
     \caption{Representation of the Slave node}
     \label{02:fig:slaveNode}
 \end{figure}
@@ -118,7 +118,7 @@ In the following Figure \ref{02:fig:masterAndSlaveNode}, one can see relation be
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.92]{obrazky-figures/02-preliminaries/01-kubernetes/02-final-architecture-master-slave.pdf}
+    \includegraphics[scale=0.92]{obrazky-figures/02-preliminaries/01-kubernetes/02-final-architecture-master-slave}
     \caption{Relation between master and slave nodes}
     \label{02:fig:masterAndSlaveNode}
 \end{figure}
@@ -185,7 +185,7 @@ In the following Figure \ref{02:fig:masterAndSlaveNode}, one can see relation be
 
     \begin{figure}[!htb]
         \centering
-        \includegraphics[scale=1.2]{obrazky-figures/02-preliminaries/01-kubernetes/03-deplyoment-archite.pdf}
+        \includegraphics[scale=1.2]{obrazky-figures/02-preliminaries/01-kubernetes/03-deplyoment-archite}
         \caption{Hierarchy of Deployment, ReplicaSet and Pod inspired by The Kubernetes Book \cite{kubernetesBook}}
         \label{fig:kubernetes:deploymentReplicaSetPod}
     \end{figure}
@@ -200,12 +200,12 @@ In the following Figure \ref{02:fig:masterAndSlaveNode}, one can see relation be
     Figure \ref{fig:kubernetes:deploymentReplicaSetPod} shows us the hierarchy of mentioned the controllers.
 
     \item \textbf{StatefulSet} \---\ The last major controller is StatefulSet.
-    This controller has many features in common with Deployment such as reconciliation loop described in \ref{01:alg:controllerAlg}, scaling operations, and self-healing mechanism.
+    This controller has many features in common with Deployment such as reconciliation loop described in~\ref{01:alg:controllerAlg}, scaling operations, and self-healing mechanism.
     The difference between Deployment and StatefulSet are as follows:
     \begin{itemize}
         \item \textbf{storage} \---\ with the Deployment controller, it is possible to specify PersistentVolumeClaim, which is shared between all Pod replicas.
         On the other hand, in the case of StatefulSet controllers, each Pod has its own PersistentVolumeClaim.
-        For clarity, one can use Deployment in the case of a stateless application, where each node does not need a unique identity, and in the case of StatefulSet, one can use it in the form of databases (i.e. Cassandra, MySQL) where each node has its own unique storage.
+        For clarity, one can use Deployment in the case of a stateless application, where each node does not need a unique identity, and in the case of StatefulSet, one can use it in the form of databases (i.e., Cassandra, MySQL) where each node has its own unique storage.
         \item \textbf{unique identity to Pods} \---\ in case of failure remains the same (Deployment will create a new Pod with a completely new name).
         Moreover, StatefulSet guarantees that Pods are created/deleted in order (Deployment does ensure order).
         \item \textbf{scaling operation} \---\  ensures that each new Pod is installed only after the previous one is ready and running.
@@ -215,7 +215,7 @@ In the following Figure \ref{02:fig:masterAndSlaveNode}, one can see relation be
 
     \begin{figure}[!h]
         \centering
-        \includegraphics[scale=1]{obrazky-figures/02-preliminaries/01-kubernetes/04-statefuset_with_volume.pdf}
+        \includegraphics[scale=1]{obrazky-figures/02-preliminaries/01-kubernetes/04-statefuset_with_volume}
         \caption{StatefulSet ordered creation of Pods}
         \label{02:fig:statefulsetOrderedCreation}
     \end{figure}
