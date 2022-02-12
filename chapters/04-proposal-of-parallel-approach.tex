@@ -136,8 +136,8 @@ With this setting, it is possible to run the suite test in parallel using Junit5
 If we change \emph{junit.jupiter.execution.parallel.mode.default = concurrent} then we let concurrent execution of test cases and test suite run simultaneously.
 Another good aspect of this feature is the ability to choose the best variant of the parallelisation strategy:
 \begin{itemize}[itemsep=1mm, parsep=0pt]
-    \item \textbf{Fixed} \---\ The ThredPool object will have a predefined number of threads to work with and can be changed in the configuration using \emph{...parallel.config.fixed.parallelism}.
-    \item \textbf{Dynamic} \---\ ThredPool object will have a predefined number of threads based on the calculated available processors multiplied by the number specified by \emph {...parallel.config.dynamic.factor}.
+    \item \textbf{Fixed} \---\ \emph{ThreadPool} has a predefined number of threads to work with and can be changed in the configuration using \emph{parallel.config.fixed.parallelism}.
+    \item \textbf{Dynamic} \---\ \emph{ThreadPool} has a predefined number of threads based on the calculated available processors multiplied by the number specified by \emph{parallel.config.dynamic.factor}.
     \item \textbf{Custom} \---\ possible custom implementation of the strategy.
 \end{itemize}
 However, this configuration does not apply to scenarios where we want to run a particular set of tests in parallel and the other sequentially.
@@ -301,7 +301,7 @@ This annotation will encapsulate the \emph{@Test} annotation, so the JUnit5 fram
 It will also be necessary to add information so that the test can run in parallel.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.7]{obrazky-figures/06-proposal-of-parallel-approach/03b-method-wide-with-resource-manager.pdf}
+    \includegraphics[scale=0.8]{obrazky-figures/06-proposal-of-parallel-approach/04-method-wide}
     \caption{The best scenario in \emph{method-wide} parallelism. \emph{n} number of threads are executed, and there is no one \emph{@IsolatedTest} in the test suite, which means that all test runs simultaneously. Note that \emph{Tc} means Test case in short.}
     \label{05:fig:methodwideparallelism}
 \end{figure}
@@ -324,7 +324,8 @@ Thus, the more CPUs a given computer/cluster will have available, the quickier t
 \label{04:classwideparalelisation}
 
 In this section, we will describe and suggest what steps are needed to support \emph{class-wide} parallelisation.
-At first, in Section \ref{05:sharedclusteroperator}, we describe all the necessary changes that need to be made—furthermore, restructuring and creating a new class for managing all possible Cluster Operator configurations.
+At first, in Section \ref{05:sharedclusteroperator}, we describe all the necessary changes that need to be made.
+Furthermore, restructuring and creating a new class for managing all possible Cluster Operator configurations.
 Next, we describe the rollback mechanism needed to solve the problem with two test suites that need different configurations.
 Finally, we follow up on this in Section \ref{05:isolatedsuite}, where we solve the given problem completely.
 

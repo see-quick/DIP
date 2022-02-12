@@ -34,7 +34,7 @@
 \contentsline {subsection}{\numberline {4.3.2}ResourceManager}{42}{subsection.4.3.2}%
 \contentsline {section}{\numberline {4.4}Method wide paralelization}{44}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Class wide paralelization}{45}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Shared Cluster Operator}{46}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.1}Shared Cluster Operator}{45}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}@IsolatedSuite}{48}{subsection.4.5.2}%
 \contentsline {chapter}{\numberline {5}Implementation}{49}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Resource Manager paralell approach}{49}{section.5.1}%
