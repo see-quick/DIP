@@ -5,7 +5,7 @@ This section describes the fundamental parts of the Strimzi project.
 Moreover, it explains the whole architecture with all Operators (i.e., Topic, User, Cluster).
 The description is based mainly on Strimzi documentation and blog posts\cite{strimziDoc, strimziBlogPosts}.
 
-The information described in Sections \ref{01:sec:title}, \ref{02:sec:title} was a precursor to a complete understanding of the Strimzi system.
+The information described in Sections~\ref{01:sec:title},~\ref{02:sec:title} was a precursor to a complete understanding of the Strimzi system.
 Strimzi is an Apache Kafka orchestrator in the Kubernetes environment.
 It is therefore a collection of operators that simplify working with Kafka.
 The Operator in Kubernetes is a component that is always in one of the following three states:
@@ -15,30 +15,30 @@ The Operator in Kubernetes is a component that is always in one of the following
     \item \textbf{Act} \---\ subsequently, if the given differences were found, it will do a reconciliation that will make the current and desired state identical
 \end{itemize}
 
-One can understand these Operators as a superset of the Deployment controller, which, like other controllers, followed the \ref{01:alg:controllerAlg} algorithm.
+One can understand these Operators as a superset of the Deployment controller, which, like other controllers, followed the~\ref{01:alg:controllerAlg} algorithm.
 The main difference is that the Operator oversees \emph{Custom Resources - CR}.
 A Custom Resource is an extension of the Kubernetes API. These CRs define your application objects in the Kubernetes environment.
 Moreover, this is associated with the \emph{Custom Resource Definition}, which declares what values and types a given Custom Resource can acquire.
 We can also imagine that Custom Resource Definition is a template comparable to classes in the Object-Oriented programming world and Custom Resource is an instance of the class.
-Strimzi defines a Custom Resource Definition for each Kafka component we described in section \ref{02:sec:title} except for clients.
+Strimzi defines a Custom Resource Definition for each Kafka component we described in section~\ref{02:sec:title} except for clients.
 For example, for the KafkaBroker component, Strimzi has Kafka Custom Resource Definition and others.
 
 \begin{figure}[!h]
     \hspace{0.01\textwidth}
     \subfigure[Example of Kafka Custom Resource Definition (Unnecessary parts omitted for brevity).]
-        {\includegraphics[scale=0.8]{obrazky-figures/02-preliminaries/03-strimzi/01-kafka-crd.pdf}}
+        {\includegraphics[scale=0.8]{obrazky-figures/02-preliminaries/03-strimzi/01-kafka-crd}}
         \label{03:fig:kafkacrds}
     \hspace{0.01\textwidth}
     \subfigure[Example of Kafka Custom Resource]
-        {\includegraphics[scale=0.8]{obrazky-figures/02-preliminaries/03-strimzi/02-kafka-cr.pdf}}
+        {\includegraphics[scale=0.8]{obrazky-figures/02-preliminaries/03-strimzi/02-kafka-cr}}
         \label{03:fig:kafkacr}
     \hspace{0.01\textwidth}
     \caption{Kafka Custom Resource Definition and Kafka Custom Resource (Class and Instance)}
     \label{03:strimzi:fig:crds}
 \end{figure}
 
-Figure \ref{03:strimzi:fig:crds} illustrates the mentioned Custom Resource and Custom Resource Definitions.
-In Figure \ref{03:strimzi:fig:crds} (left side) one can see Kafka Custom Resource Definition that shows several essential parts:
+Figure~\ref{03:strimzi:fig:crds} illustrates the mentioned Custom Resource and Custom Resource Definitions.
+In Figure~\ref{03:strimzi:fig:crds} (left side) one can see Kafka Custom Resource Definition that shows several essential parts:
 \begin{itemize}[itemsep=1mm, parsep=0pt]
     \item \textbf{labels.app.strimzi}  \---\ every Kafka Custom Resource in Kubernetes contains this label, and with that, it is easier to find these resources
     \item \textbf{spec.names.kind.Kafka} \---\ by this attribute, we specify how the Custom Resource type will be uniquely named.
@@ -52,7 +52,7 @@ In Figure \ref{03:strimzi:fig:crds} (left side) one can see Kafka Custom Resourc
     For example, the attribute \emph{replicas} has a restriction that it must be at least one and similarly for other attributes (it can not be zero).
    \end{itemize}
 
-On the other hand, we have Kafka Custom Resource (Figure \ref{03:strimzi:fig:crds} - right side), which includes parts worth mentioning:
+On the other hand, we have Kafka Custom Resource (Figure~\ref{03:strimzi:fig:crds} - right side), which includes parts worth mentioning:
 \begin{itemize}[itemsep=1mm, parsep=0pt]
   \item \textbf{apiVersion} \---\ This is the REST API offered by the Custom Resource Definition.
   The prefix must also match the value found in Kafka Custom Resource Definition in spec: group.
@@ -62,9 +62,9 @@ On the other hand, we have Kafka Custom Resource (Figure \ref{03:strimzi:fig:crd
   \item \textbf{spec.kafka.listeners} \---\ types of listeners to be supported by a given Kafka instance.
   In this case, we see two types, one with plain communication listening on port 9092, and the second listener with encrypted communication using TLS technology and listening on port 9093.
   \item  \textbf{spec.kafka.config} \---\ these are additional configuration features that are added to Kafka (i.e., broker.id, log.dirs, zookeeper.connect, compression.type, cleanup.policy, delete.retention.ms),
-  \item  \textbf{spec.kafka.storage} \cite{strimziStorageBlogPost} \---\ the storage type.
+  \item  \textbf{spec.kafka.storage}~\cite{strimziStorageBlogPost} \---\ the storage type.
   Kubernetes supports two storage types.
-  In Figure \ref{03:strimzi:fig:crds}, it is ephemeral storage.
+  In Figure~\ref{03:strimzi:fig:crds}, it is ephemeral storage.
   Ephemeral storage is usually a directory somewhere in the operating system on our Kubernetes node.
   It works the same as a temporary directory.
   There are also risks associated with this, if the Kubernetes node crashes then the data stored in the ephemeral storage will be lost.
@@ -86,22 +86,22 @@ Zookeeper is one of the most significant dependencies for Kafka and limits it in
 The answer to these problems came in a 2020 Kafka Improvement Proposal (KIP)\footnote{KIP-500 \---\ removal of Zookeeper with replacing him with self-managed metadata quorum \url{https://cwiki.apache.org/confluence/display/KAFKA/KIP-500}}.
 As a result Kafka 3.0 should run without Zookeeper.
 Its responsibilities include, for example, leader election of partitions or storing the status of Kafka Brokers or Consumer offsets.
-Clients in Figure \ref{03:fig:strimziKafkaArchitecture} are classically Producer and Consumer as we know from the section \ref{02:sec:title}, so their objective is clear.
+Clients in Figure~\ref{03:fig:strimziKafkaArchitecture} are classically Producer and Consumer as we know from the section~\ref{02:sec:title}, so their objective is clear.
 On the other hand, HTTP clients communicate with the Kafka Bridge (a component provided by Strimzi) and thus connect the Kafka cluster and the clients themselves.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.75]{obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture (1).pdf}
+    \includegraphics[scale=0.75]{obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture (1)}
     \caption{Strimzi Kafka architecture}
     \label{03:fig:strimziKafkaArchitecture}
 \end{figure}
 It communicates by default via the REST API, and the user can create, delete, update Consumer, Producer, Topic and similar resources that Kafka Bridge offers.
  So Kafka Bridge is nothing more than an HTTP proxy that integrates HTTP clients with a Kafka cluster.
  Another part of the Kafka architecture is the Kafka Exporter and is used to extract additional metrics and supply them too Prometheus\footnote{Prometheus \---\ open-soured metrics-based project. Moreover, it provides an alerting system with incredible features, in case of interest \url{https://prometheus.io/}}.
- Then we have Kafka Connect and Kafka Mirror Maker, where we described the meaning of these components in the section \ref{02:sec:title}.
+ Then we have Kafka Connect and Kafka Mirror Maker, where we described the meaning of these components in the section~\ref{02:sec:title}.
  The last essential component, especially for the overall balancing of the Kafka cluster, is Cruise Control.
  This component collects data on CPU usage, partitions status, and many other metrics.
  Cruise Control creates an workload model and analyzes when necessary to perform balancing and rearrange the load across the Kafka cluster.
- Everything we have described is show in Figure \ref{03:fig:strimziKafkaArchitecture}.
+ Everything we have described is show in Figure~\ref{03:fig:strimziKafkaArchitecture}.
 
 The second part in the Strimzi architecture is the collection of Operators.
 In the beginning, we described what such an Operator does (reconciliation/control loop).
@@ -112,7 +112,7 @@ Figure \ref{03:fig:strimziOperatorsArchitecture} illustrates whole Strimzi ecosy
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.60]{obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch.pdf}
+    \includegraphics[scale=0.60]{obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch}
     \caption{Strimzi Operators architecture with Strimzi ecosystem}
     \label{03:fig:strimziOperatorsArchitecture}
 \end{figure}

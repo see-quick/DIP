@@ -2,9 +2,9 @@
 \label{02:sec:title}
 
 This section describes and explains the basics of the Apache Kafka system.
-The description is based on two books: \emph{Designing Event-Driven Systems} \cite{apacheKafkaDesignDistributedSystems} and \emph{Real-Time Data and StreamProcessing at Scale} \cite{apacheKafkaDefinitiveGuide}.
-Moreover, the Kafka streams subsection is based on \emph{Mastering Kafka Streams and ksqlDB Building real-time data systems} \cite{kafkaStreamsBook}.
-We also used Kafka's documentation \cite{kafkaDocumentation} as the most up-to-date reference.
+The description is based on two books: \emph{Designing Event-Driven Systems}~\cite{apacheKafkaDesignDistributedSystems} and \emph{Real-Time Data and StreamProcessing at Scale}~\cite{apacheKafkaDefinitiveGuide}.
+Moreover, the Kafka streams subsection is based on \emph{Mastering Kafka Streams and ksqlDB Building real-time data systems}~\cite{kafkaStreamsBook}.
+We also used Kafka's documentation~\cite{kafkaDocumentation} as the most up-to-date reference.
 In these books and documentation, there can be found a more detailed explanation of Kafka itself.
 
 Apache Kafka is an event streaming platform that offers many features like high performance, distribution, commit log service\footnote{\textbf{Commit log} 
@@ -13,7 +13,7 @@ It offers a publish/subscribe system to record streams that are similar to a mes
 Additionally, it stores record streams in a robust, fault-tolerant way.
 Kafka also creates real-time data flows that reliably capture data transferred between systems or applications.
 Kafka is widely used by many big companies like LinkedIn, Spotify, Netflix, and Uber.
-\subsection{Motivation \cite{02-bachelor-thesis}}
+\subsection{Motivation~\cite{02-bachelor-thesis}}
 \label{kafka:motivation}
 
 In the past, companies had applications or systems that share large amounts of data.
@@ -24,23 +24,23 @@ Assume an example where one has five source systems and five target systems.
 Each source system needs something from each particular target system.
 \begin{figure}[ht!]
     \hspace{0.01\textwidth}
-    \subfigure[Source and Target systems without Kafka]{\includegraphics[scale=0.60]{obrazky-figures/02-preliminaries/02-kafka/02-kafka-without-depen.pdf}}
+    \subfigure[Source and Target systems without Kafka]{\includegraphics[scale=0.60]{obrazky-figures/02-preliminaries/02-kafka/02-kafka-without-depen}}
     \hspace{0.01\textwidth}
-    \subfigure[Source and Target systems with Kafka]{\includegraphics[scale=0.60]{obrazky-figures/02-preliminaries/02-kafka/01-kafka-with-depe.pdf}}
+    \subfigure[Source and Target systems with Kafka]{\includegraphics[scale=0.60]{obrazky-figures/02-preliminaries/02-kafka/01-kafka-with-depe}}
     \hspace{0.01\textwidth}
     \caption{How to make system more efficient with Kafka}
     \label{fig:withoutAndWithBroker}
 \end{figure}
 
-The system without Kafka depicted in Figure \ref{fig:withoutAndWithBroker}a has twenty-five links, which is not scalable (quadratic complexity).
+The system without Kafka depicted in Figure~\ref{fig:withoutAndWithBroker}a has twenty-five links, which is not scalable (quadratic complexity).
 That is onne of main reasons Kafka was invented.
 Lets illustrate the same example with ten systems and Kafka in the middle serving as Middleware\footnote{\textbf{Middleware} \---\ Software, that acts as the middle man between two systems and guarantees interoperability between them.}, which is placed in the middle of these systems.
-In that case, each source system only has to bind to the Kafka broker, and all data are delivered by a single link. You can see the updated system in Figure \ref{fig:withoutAndWithBroker}b.
+In that case, each source system only has to bind to the Kafka broker, and all data are delivered by a single link. You can see the updated system in Figure~\ref{fig:withoutAndWithBroker}b.
 
 \subsection{Fundamental concepts}
 
 In this subsection, we describe fundamental concepts of Apache Kafka such as Producer, Consumer, Kafka broker, Kafka cluster, and so on.
-The description is based on the \emph{Real-Time Data and StreamProcessing at Scale} \cite{apacheKafkaDefinitiveGuide} and Kafka documentation \cite{kafkaDocumentation}.
+The description is based on the \emph{Real-Time Data and StreamProcessing at Scale}~\cite{apacheKafkaDefinitiveGuide} and Kafka documentation~\cite{kafkaDocumentation}.
 
 \begin{enumerate}
     \item \textbf{Kafka broker/cluster} \---\ it is a server application that manages messages that are sent by producers and at the same time obtained by consumers.
@@ -77,16 +77,16 @@ The description is based on the \emph{Real-Time Data and StreamProcessing at Sca
     
     \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.70]{obrazky-figures/02-preliminaries/02-kafka/05-replication-of-partitions.pdf}
+    \includegraphics[scale=0.70]{obrazky-figures/02-preliminaries/02-kafka/05-replication-of-partitions}
     \caption{Kafka topic partition replication scenario in Kafka cluster inspired by \emph{Real-Time Data and StreamProcessing at Scale} \cite{apacheKafkaDefinitiveGuide}}
     \label{02:fig:replicationOfTopicPartition}
     \end{figure}
 
     \item \textbf{Kafka Topic} \---\ is not a simple concept and includes several parts such as the replication factor, partitions, and more.
-    Kafka topic is equivalent to database table as one can see in the Figure \ref{fig:topicAndDatabaseTable}.
+    Kafka topic is equivalent to database table as one can see in the Figure~\ref{fig:topicAndDatabaseTable}.
      \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.80]{obrazky-figures/02-preliminaries/02-kafka/03-database-relation.pdf}
+    \includegraphics[scale=0.80]{obrazky-figures/02-preliminaries/02-kafka/03-database-relation}
     \caption{Equivalence of Kafka topic and database table}
     \label{fig:topicAndDatabaseTable}
     \end{figure}
@@ -94,9 +94,9 @@ The description is based on the \emph{Real-Time Data and StreamProcessing at Sca
     Messages are being stored on a specific topic.
     The replication factor is a number, which defines how many replicas will be available on the other brokers from the Kafka cluster.
     Imagine the following scenario \---\ we have a Kafka cluster with three Kafka brokers.
-    We create a new topic with a unique name by using an administration client. (In Section \ref{03:title}, we will talk about alternative ways of creating resources.) The question can be \emph{what happens if we set higher replication factor then we have available Kafka brokers}.
+    We create a new topic with a unique name by using an administration client. (In Section~\ref{03:title}, we will talk about alternative ways of creating resources.) The question can be \emph{what happens if we set higher replication factor then we have available Kafka brokers}.
     We are notified that the Topic can not be created because we do not have enough accessible Kafka brokers.
-    More about this in \ref{subSec:strimzi:topicOperator}.
+    More about this in~\ref{subSec:strimzi:topicOperator}.
     Partitions are entities that split your Topic into separate parts.
     It means that in each partition, we have different data; using this feature, we allow the consumer to fetch data in a concurrent\footnote{Consumes more than one message at the specific period.} way.
     A partition contains offsets, which serve as ids for the specific messages.
@@ -104,12 +104,12 @@ The description is based on the \emph{Real-Time Data and StreamProcessing at Sca
     Consider the scenario when we have one Kafka broker and one Topic with a hundred messages.
     According to offset implementation, the maximum offset value is 100 because it reflects the position of the last message in the Topic.
     If we configure consumers to subscribe to that Topic, it uses the polling method and starts with offset zero.
-    The first poll gets twenty messages, so offset move on nineteen and so on. The Figure  \ref{fig:offset} illustrate this scenario.
+    The first poll gets twenty messages, so offset move on nineteen and so on. The Figure~\ref{fig:offset} illustrate this scenario.
     In general, we can understand offset as the message index.
     
     \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=1.1]{obrazky-figures/02-preliminaries/02-kafka/05-offset-thing.pdf}
+    \includegraphics[scale=1.1]{obrazky-figures/02-preliminaries/02-kafka/05-offset-thing}
     \caption{Partition offset}
     \label{fig:offset}
     \end{figure}
@@ -136,7 +136,7 @@ Kafka streams also support two crucial operating characteristics:
     \begin{figure}[!h]
     \centering
     \includegraphics[scale=0.48]{obrazky-figures/02-preliminaries/02-kafka/07-kafka-streams-with-localstate,thread.pdf}
-    \caption{Kafka Streams with local state stores inspired by Kafka Documentation \cite{kafkaDocumentation}}
+    \caption{Kafka Streams with local state stores inspired by Kafka Documentation~\cite{kafkaDocumentation}}
     \label{fig:kafkaStreams}
     \end{figure}
     
@@ -148,21 +148,21 @@ Kafka streams also support two crucial operating characteristics:
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.78]{obrazky-figures/02-preliminaries/02-kafka/10-kafkaStreamsProces.pdf}
-    \caption{Micro-batching processing (typical for different systems) inspired by \cite{kafkaStreamsBook}}
+    \includegraphics[scale=0.78]{obrazky-figures/02-preliminaries/02-kafka/10-kafkaStreamsProces}
+    \caption{Micro-batching processing (typical for different systems) inspired by~\cite{kafkaStreamsBook}}
     \label{fig:02-kafkaStreamsProcessingBatch}
 \end{figure}
 
 One of the main differences between other similar systems is the processing model that Kafka Streams offers.
 These systems, such as \emph{Apache Spark Streaming}\footnote{\textbf{Apache Spark Streaming} \---\ is a extension of Spark API with many transformation methods.} or \emph{Trident}\footnote{\textbf{Trident} \---\ high-level abstraction for stream processing based on the Apache Storm. It provides multiple transformation methods such as filters, grouping, and aggregations.}, use micro-batching, which occurs very much in machine learning where work is divided into several batches.
 These groups are then loaded into memory then emitted at a pre-selected interval (typically $1s$ or less).
-Figure \ref{fig:02-kafkaStreamsProcessingBatch} shows a micro-batching strategy, where one can see that events are coupled into groups.
+Figure~\ref{fig:02-kafkaStreamsProcessingBatch} shows a micro-batching strategy, where one can see that events are coupled into groups.
 By contrast, Kafka Streams offers us event-at-a-time processing, where events are processed as soon as they arrive.
-This approach gives us low latency and is considered true data streaming. Figure \ref{fig:02-kafkaStreamsProcessingEvent} illustrates the event-at-a-time processing strategy.
+This approach gives us low latency and is considered true data streaming. Figure~\ref{fig:02-kafkaStreamsProcessingEvent} illustrates the event-at-a-time processing strategy.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.88]{obrazky-figures/02-preliminaries/02-kafka/11-kafkaStreamsProces2.pdf}
-    \caption{Kafka Streams uses event-at-a-time processing inspired by \emph{Mastering Kafka Streams and ksqlDB Building real-time data systems} \cite{kafkaStreamsBook}}
+    \includegraphics[scale=0.88]{obrazky-figures/02-preliminaries/02-kafka/11-kafkaStreamsProces2}
+    \caption{Kafka Streams uses event-at-a-time processing inspired by \emph{Mastering Kafka Streams and ksqlDB Building real-time data systems}~\cite{kafkaStreamsBook}}
     \label{fig:02-kafkaStreamsProcessingEvent}
 \end{figure}
 
@@ -206,7 +206,7 @@ However, to properly understand Kafka Connect, it is necessary to know how the f
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.8]{obrazky-figures/02-preliminaries/02-kafka/12-all-in-one.pdf}
+    \includegraphics[scale=0.8]{obrazky-figures/02-preliminaries/02-kafka/12-all-in-one}
     \caption{The entire Apache Kafka ecosystem.}
     \label{fig:02-ecosystem-of-kafka}
 \end{figure}

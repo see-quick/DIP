@@ -2,7 +2,7 @@
 \label{03:chapter:title}
 
 This chapter describes the fundamental theory of parallelisation (i.e., Amdahl's law (\ref{04:amdalhlaw}), Shared memory (\ref{04:sharedmemory}), Threads and Processes (\ref{04:processesandthreads}), Mutual Exclusion (\ref{dependenciesandprotection}), Synchronization (\ref{04:synchronization}), Asynchronous tasks (\ref{04:asynctaks})).
-Moreover it is based on the following books \emph{An Introduction to Parallel Programming} \cite{introductionToParallelProgramming} and \emph{The Art of Multiprocessor Programming} \cite{artOfMultiprocessorProgramming}.
+Moreover it is based on the following books \emph{An Introduction to Parallel Programming}~\cite{introductionToParallelProgramming} and \emph{The Art of Multiprocessor Programming}~\cite{artOfMultiprocessorProgramming}.
 
 In the past, computers did not have an operating system.
 They could only execute one program at a time.
@@ -41,8 +41,8 @@ Nevertheless, everything gets complicated if the tables are not the same.
 For example, the second table might be more complicated to build and take more time than the others.
 Furthermore, the first will be smaller, and thus the total time will be lower.
 These discrepancies imply that the acceleration will not be close to 5-times, but it will probably be only 3-times.
-This kind of analysis is crucial for concurrent computation, and thanks to Mr. Amdahl \cite{amdalh}, we have a formula for such calculation.
-It is called Amdahl's law, which can be seen in Equation \eqref{eqn:einstein}.
+This kind of analysis is crucial for concurrent computation, and thanks to Mr. Amdahl~\cite{amdalh}, we have a formula for such calculation.
+It is called Amdahl's law, which can be seen in Equation~\eqref{eqn:einstein}.
 \begin{equation}
     \label{eqn:einstein}
     S = \frac{1}{1 - p + \frac{p}{n}}
@@ -131,7 +131,7 @@ The process begins with the detection of critical sections in the code.
     \label{04:criticalsection}
     \textbf{Critical section} \---\ section of code, where two or more concurrent threads have write-access (simultaneously) and at least one of them can write to it and can produce erroneous behaviour.
 \end{definition}
-As can be seen from Definition \ref{04:criticalsection}, the programmer must look for such places.
+As can be seen from Definition~\ref{04:criticalsection}, the programmer must look for such places.
 It can be a simple increment of a shared variable or a complex structure or object change.
 If these places are detected, it is necessary to perform the next step \---\ use \emph{Mutual Exclusion} (Mutex).
 \begin {definition}
