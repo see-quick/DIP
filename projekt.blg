@@ -10,44 +10,44 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: projekt-20-literatura-bibliography.bib
-You've used 23 entries,
+You've used 19 entries,
             3721 wiz_defined-function locations,
-            903 strings with 8416 characters,
-and the built_in function-call counts, 9393 in all, are:
-= -- 753
-> -- 266
-< -- 25
-+ -- 108
-- -- 80
-* -- 486
-:= -- 1167
-add.period$ -- 82
-call.type$ -- 23
-change.case$ -- 161
-chr.to.int$ -- 6
-cite$ -- 23
-duplicate$ -- 646
-empty$ -- 1286
-format.name$ -- 60
-if$ -- 2287
+            876 strings with 7703 characters,
+and the built_in function-call counts, 7535 in all, are:
+= -- 607
+> -- 191
+< -- 16
++ -- 67
+- -- 45
+* -- 388
+:= -- 931
+add.period$ -- 68
+call.type$ -- 19
+change.case$ -- 130
+chr.to.int$ -- 0
+cite$ -- 19
+duplicate$ -- 523
+empty$ -- 1057
+format.name$ -- 45
+if$ -- 1851
 int.to.chr$ -- 0
-int.to.str$ -- 23
+int.to.str$ -- 19
 missing$ -- 0
-newline$ -- 156
-num.names$ -- 46
-pop$ -- 313
+newline$ -- 130
+num.names$ -- 39
+pop$ -- 247
 preamble$ -- 1
-purify$ -- 78
+purify$ -- 61
 quote$ -- 0
-skip$ -- 443
+skip$ -- 365
 stack$ -- 0
-substring$ -- 277
-swap$ -- 124
-text.length$ -- 37
+substring$ -- 231
+swap$ -- 100
+text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
+type$ -- 39
 warning$ -- 0
-while$ -- 52
-width$ -- 25
-write$ -- 311
+while$ -- 41
+width$ -- 21
+write$ -- 257
