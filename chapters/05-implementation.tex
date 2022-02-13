@@ -1,11 +1,173 @@
 \chapter{Implementation}
 \label{05:chapter:title}
 
-\section{Resource Manager paralell approach} % algoritmus
-%\subsection{algoritmus...sekvenčný aj paralelný (podkapitola nebude vidieť...)}
-\section{Parallel annotations}
-\section{Method wide paralelization}
-\section{Class wide paralelization}
+This chapter is devoted to implementing additional functionality (i.e., parallelism) into the test framework within the Strimzi project.
+We selected Java programming language because the test framework is written in the given language.
+Moreover, in Section~\ref{05:sec:method:wide:parallelism} we describe an implementation of the first possible level of parallelism for more minor instances of Kubernetes cluster.
+Finally, for more comprehensive instances (i.e., multi-node Kubernetes clusters), we explain the implementation of even higher-level parallelism in Section~\ref{05:sec:class:wide:parallelism}.
+
+\section{Stage \---\ method-wide parallelisation}
+\label{05:sec:method:wide:parallelism}
+
+In this section, we describe the solutions of the individual steps proposed in Section~\ref{04:methodwideparalelisation},
+which were necessary to perform for adaptation to method-wide parallelisations.
+We start with an explanation of how to resolve the uniqueness of test resources in Section~\ref{05:sub:sec:unique}.
+Furthermore, we describe the core implementation, and the necessary reworking of test resources, as well as \emph{ResourceManager} in Section~\ref{05:sub:sec:resourcemanager}.
+Next, in Section~\ref{05:sub:sec:annotations} the author present a mechanism that determines whether a given test case has to be executed in parallel or isolation.
+Finally, in Section~\ref{05:sub:sec:configuration} we explain how such parallelization can be configured,
+and in Section~\ref{05:sub:sec:applicability} we describe its usability within our infrastructure.
+
+\subsection{Unique Naming for each resource\protect\footnote{https://github.com/strimzi/strimzi-kafka-operator/pull/4092}}
+\label{05:sub:sec:unique}
+
+Several sources (f.e., \emph{Kafka cluster}, \emph{KafkaConnect}, \emph{KafkaMirrorMaker}), which are used in test cases,
+are necessary to work with unique names to avoid conflict.
+That is why we created the class \emph{TestStorage}\footnote{TestStorage \---\ https://github.com/strimzi/strimzi-kafka-operator/pull/5446/}, which will include the necessary resources (i.e., name of the namespace, cluster, topic, producer, consumer).
+All this is possible thanks to \emph{ExtensionContext}, where each test case has a different object, and therefore it can be used as a map repository.
+
+\subsection{Resource Manager re-work\protect\footnote{https://github.com/strimzi/strimzi-kafka-operator/pull/4137}}
+\label{05:sub:sec:resourcemanager}
+
+As described in Section~\ref{04:architecturechanges}, we created \emph{Interface ResourceType <T extends HasMetadata>}.
+Where \emph{T} is a generic type and can take subtypes (f.e., Kafka, KafkaBridge, KafkaMirrorMaker).
+In other words, everything that contains the object \emph{HasMetadata}\footnote{HasMetadata \---\ is an interface of Kubernetes resources that contain metadata object}.
+Figure~\ref{interface:resourcetype} shows the individual method signatures in the given interface.
+
+\begin{lstlisting}[language=Java,label=interface:resourcetype,caption=Interface used across all resources,frame=tb]
+public interface ResourceType<T extends HasMetadata> {
+    String getKind();
+    T get(String namespace, String name);
+    void create(T resource);
+    void delete(T resource);
+    boolean waitForReadiness(T resource);
+}
+\end{lstlisting}
+Each resource then signs a contract with the ResourceType interface in our test framework.
+So, for example, for a \emph{Kafka} resource the reader can see in~\ref{interface:implementation:kafka}.
+\begin{lstlisting}[language=Java,label=interface:implementation:kafka,caption=Kafka resource sings contract with ResourceType interface,frame=tb]
+public class KafkaResource implements ResourceType<Kafka> {
+    @Override
+    public String getKind() {  return Kafka.RESOURCE_KIND;}
+    @Override
+    public Kafka get(String namespace, String name) {...}
+    @Override
+    public void create(Kafka resource) {...}
+    @Override
+    public void delete(Kafka resource) {...}
+    @Override
+    public boolean waitForReadiness(Kafka resource) {...}
+    // implementation of each methods omitted for clarity
+}
+\end{lstlisting}
+
+Nevertheless, the most critical part of the entire Strimzi test framework is \emph{ResourceManager}.
+As described in the design~\ref{04:sub:sec:resourcemanager}, so instead of 3 stacks (i.e., pointer, class and method),
+we had to adapt a solution with hash maps, which for each test case will keep each stack in which will contain the test resources.
+At the same time, thanks to the proposed algorithms (\ref{04:alg:creationofresource},~\ref{04:alg:deleteresources}),
+the algorithm for creating resources according to the generic type \emph{T}, finds out which method to invoke.
+At the same time, a parallel algorithm for deleting individual resources from a given stack.
+Finally, the~\ref{04:alg:syncresources} algorithm for synchronization of parallel generating resources is most useful
+in the parallel preparation of individual resources for a given test case.
+An example of such a preparation phase can be seen in~\ref{resourcemanager:sync:method}.
+\begin{lstlisting}[language=Java,label=resourcemanager:sync:method,caption=Example of parallel preparation of resources,frame=tb]
+// create resources in parallel (simultaneously)
+resourceManager.createResource(extensionContext, false,
+    KafkaTemplates.kafka().build()
+    KafkaTemplates.kafkaWithMetrics().build(),
+    KafkaMirrorMakerTemplates.kafkaMirrorMaker().build(),
+    KafkaConnectTemplates.kafkaConnect().build(),
+    KafkaClientsTemplates.kafkaClients().build()
+);
+// synchronize point (barrier)
+resourceManager.synchronizeResources(extensionContext);
+\end{lstlisting}
+The overall implementation of individual algorithms (\ref{04:alg:creationofresource},\ref{04:alg:syncresources} and~\ref{04:alg:deleteresources})
+can be seen in the Appendix~\ref{30:appendix:b}.
+
+\subsection{Injection of the runtime annotations}
+\label{05:sub:sec:annotations}
+
+Another crucial part is creating a mechanism that will provide information, which test case may be executed in parallel
+mode and other parallel tests or run in complete isolation.
+In the~\ref{04:methodwideparalelisation} section, we propose such annotations offered by the Java language.
+We implemented three types of annotations for method-wide parallelization.
+The most concise annotation is \emph{@ParallelTest}, which overrides the parallelism configuration at runtime.
+It is possible to see the given implementation of such an annotation on~\ref{annotation:paralleltest}.
+An essential part is \emph {@Execution(ExecutionMode.CONCURRENT)}, where the semantics of this line means that the given
+annotation will overwrite the given configuration from a sequential mode to parallel mode and thanks to \emph {@Retention(RUNTIME)} it will do so at runtime.
+
+\begin{lstlisting}[language=Java,label=annotation:paralleltest,caption=Implementation of the @ParallelTest annotation,frame=tb]
+@Target(ElementType.METHOD)
+@Retention(RUNTIME)
+@Execution(ExecutionMode.CONCURRENT)
+@ResourceLock(mode = ResourceAccessMode.READ, value = "global")
+@Test
+public @interface ParallelTest {  }
+\end{lstlisting}
+Another annotation (\ref{annotation:isolatedtest}) we have implemented to be responsible for the complete isolation of is \emph{@IsolatedTest}.
+At an initial glance, it is remarkably similar to the previous annotations.
+However, there is one major difference when using \emph{@ResourceLock}.
+When \emph {@ParallelTest} uses a read lock, \emph{@IsolatedTest} uses a read\_write lock.
+The idea is that read\_write lock will completely isolate us from other tests.
+Multiple \emph{@ParallelTest} will be performed at the same time, and \emph{@IsolatedTest} will wait until this lock is
+released (because these two annotations share the same @ResourceLock named \emph{global}).
+
+\begin{lstlisting}[language=Java,label=annotation:isolatedtest,caption=Implementation of the @IsolatedTest annotation,frame=tb]
+@Target(ElementType.METHOD)
+@Retention(RUNTIME)
+@Inherited
+@ResourceLock(mode = ResourceAccessMode.READ_WRITE, value = "global")
+@Test
+public @interface IsolatedTest {
+    String value() default ""; // reason why it needs isolation
+}
+\end{lstlisting}
+Eventually, we implemented the last annotation due to product requirements \emph{@ParallelNamespaceTest}.
+This annotation is equivalent to \emph{@ParallelTest}, but there is a slight distinction.
+We create an additional namespace for each such test.
+Scenarios where we mainly used it is when multiple Kafka clusters are deployed for a given test or when we use \emph{KafkaMirrorMaker} (by default, we need two Kafka clusters).
+
+\subsection{Configuration}
+\label{05:sub:sec:configuration}
+
+The method-wide parallelization configuration can be set up in several ways (a) using system properties (\ref{config:system:property}),
+(b) using the junit-platform.properties configuration file (\ref{config:file}).
+\begin{lstlisting}[language= Java,label=config:system:property,caption=(a) Configuration via system properties,frame=tb]
+-Djunit.jupiter.execution.parallel.enabled = true
+-Djunit.jupiter.execution.parallel.config.fixed.parallelism = 5
+// parallel.mode.default has default value same_thread
+// parallel.mode.classes.default has default value same_thread
+\end{lstlisting}
+In both cases, five threads will be released, where each thread will perform one test at a time, and if it finishes its work, it will move on to the next test case. This is repeated until there is no more test in the test class.
+\begin{lstlisting}[language=Java,label=config:file,caption=(b) Configuration via file,frame = tb]
+junit.jupiter.execution.parallel.enabled = true
+junit.jupiter.execution.parallel.mode.default = same_thread
+junit.jupiter.execution.parallel.mode.classes.default = same_thread
+junit.jupiter.execution.parallel.config.strategy = fixed
+junit.jupiter.execution.parallel.config.fixed.parallelism = 5
+\end{lstlisting}
+
+\subsection{Applicability}
+\label{05:sub:sec:applicability}
+
+Method-wide parallelization for our testing framework is most efficient for more diminutive infrastructures,
+typically with parameters f.e., 25GB RAM and eight cores. We use such infrastructure as part of nightly testing.
+In the circumstances, we have less power available; it is necessary to count on it that in more demanding test cases
+(i.e., a test case using \emph{KafkaMirrorMaker} or several Kafka clusters), the cluster will be unstable, which will
+lead to poor test results and overall test timeouts. On the other hand, in the case of more powerful infrastructure
+(i.e., multi-node Kubernetes cluster), it is possible to use the following form of parallelism.
+
+\section{Stage \---\ class-wide parallelisation}
+\label{05:sec:class:wide:parallelism}
+
+\subsection{Deployment of shared Cluster Operator across $\forall$ suites}
+\subsection{Isolation of test Suites}
+\subsection{SuiteThreadControlller and TestNamespaceManager}
+\subsection{ForkJoinPool worker-steal algorithm limitation}
+\subsection{Configuration}
+.... using concurrent -Djunit \dots classes=concurrent
+\subsection{Usage (big clusters i.e., 6-12 nodes machines each 25GB RAM 8 CPU)}
+
 \section{Complications during implementation}
 
 \chapter{Experimental evaluation}
