@@ -164,3 +164,145 @@ private final ResourceType<?>[] resourceTypes = new ResourceType[]{
     new ValidatingWebhookConfigurationResource()
 };
 \end{lstlisting}
+
+\begin{lstlisting}[language=Java,label=cluster:operator:builder:pattern,caption=Cluster Operator builder pattern,frame=tb]
+public class SetupClusterOperator {
+
+    private ExtensionContext extensionContext;
+    private String clusterOperatorName;
+    private String namespaceInstallTo;
+    private String namespaceToWatch;
+    private List<String> bindingsNamespaces;
+    private long operationTimeout;
+    private long reconciliationInterval;
+    private List<EnvVar> extraEnvVars;
+    private Map<String, String> extraLabels;
+    private ClusterOperatorRBACType clusterOperatorRBACType;
+
+    public SetupClusterOperator(SetupClusterOperatorBuilder builder) {
+        this.extensionContext = builder.extensionContext;
+        this.clusterOperatorName = builder.clusterOperatorName;
+        this.namespaceInstallTo = builder.namespaceInstallTo;
+        this.namespaceToWatch = builder.namespaceToWatch;
+        this.bindingsNamespaces = builder.bindingsNamespaces;
+        this.operationTimeout = builder.operationTimeout;
+        this.reconciliationInterval = builder.reconciliationInterval;
+        this.extraEnvVars = builder.extraEnvVars;
+        this.extraLabels = builder.extraLabels;
+        this.clusterOperatorRBACType = builder.clusterOperatorRBACType;
+
+        // assign defaults is something is not specified
+        if (this.clusterOperatorName == null || this.clusterOperatorName.isEmpty()) {
+            this.clusterOperatorName = Constants.STRIMZI_DEPLOYMENT_NAME;
+        }
+        // if namespace is not set we install operator to 'infra-namespace'
+        if (this.namespaceInstallTo == null || this.namespaceInstallTo.isEmpty()) {
+            this.namespaceInstallTo = Constants.INFRA_NAMESPACE;
+        }
+        if (this.namespaceToWatch == null) {
+            this.namespaceToWatch = this.namespaceInstallTo;
+        }
+        if (this.bindingsNamespaces == null) {
+            this.bindingsNamespaces = new ArrayList<>();
+            this.bindingsNamespaces.add(this.namespaceInstallTo);
+        }
+        if (this.operationTimeout == 0) {
+            this.operationTimeout = Constants.CO_OPERATION_TIMEOUT_DEFAULT;
+        }
+        if (this.reconciliationInterval == 0) {
+            this.reconciliationInterval = Constants.RECONCILIATION_INTERVAL;
+        }
+        if (this.extraEnvVars == null) {
+            this.extraEnvVars = new ArrayList<>();
+        }
+        if (this.extraLabels == null) {
+            this.extraLabels = new HashMap<>();
+        }
+        if (this.clusterOperatorRBACType == null) {
+            this.clusterOperatorRBACType = ClusterOperatorRBACType.CLUSTER;
+        }
+        instanceHolder = this;
+    }
+
+    public static class SetupClusterOperatorBuilder {
+
+        private ExtensionContext extensionContext;
+        private String clusterOperatorName;
+        private String namespaceInstallTo;
+        private String namespaceToWatch;
+        private List<String> bindingsNamespaces;
+        private long operationTimeout;
+        private long reconciliationInterval;
+        private List<EnvVar> extraEnvVars;
+        private Map<String, String> extraLabels;
+        private ClusterOperatorRBACType clusterOperatorRBACType;
+
+        public SetupClusterOperatorBuilder withExtensionContext(
+            ExtensionContext extensionContext) {
+            this.extensionContext = extensionContext;
+            return self();
+        }
+        public SetupClusterOperatorBuilder withClusterOperatorName(
+            String clusterOperatorName) {
+            this.clusterOperatorName = clusterOperatorName;
+            return self();
+        }
+        public SetupClusterOperatorBuilder withNamespace(
+            String namespaceInstallTo) {
+            this.namespaceInstallTo = namespaceInstallTo;
+            return self();
+        }
+        public SetupClusterOperatorBuilder withWatchingNamespaces(
+            String namespaceToWatch) {
+            this.namespaceToWatch = namespaceToWatch;
+            return self();
+        }
+
+        public SetupClusterOperatorBuilder withBindingsNamespaces(
+            List<String> bindingsNamespaces) {
+            this.bindingsNamespaces = bindingsNamespaces;
+            return self();
+        }
+
+        public SetupClusterOperatorBuilder withOperationTimeout(
+            long operationTimeout) {
+            this.operationTimeout = operationTimeout;
+            return self();
+        }
+        public SetupClusterOperatorBuilder withReconciliationInterval(
+            long reconciliationInterval) {
+            this.reconciliationInterval = reconciliationInterval;
+            return self();
+        }
+
+        // currently supported only for Bundle installation
+        public SetupClusterOperatorBuilder withExtraEnvVars(
+            List<EnvVar> envVars) {
+            this.extraEnvVars = envVars;
+            return self();
+        }
+
+        // currently supported only for Bundle installation
+        public SetupClusterOperatorBuilder withExtraLabels(
+            Map<String, String> extraLabels) {
+            this.extraLabels = extraLabels;
+            return self();
+        }
+
+        // currently supported only for Bundle installation
+        public SetupClusterOperatorBuilder withClusterOperatorRBACType(
+            ClusterOperatorRBACType clusterOperatorRBACType) {
+            this.clusterOperatorRBACType = clusterOperatorRBACType;
+            return self();
+        }
+
+        private SetupClusterOperatorBuilder self() {
+            return this;
+        }
+
+        public SetupClusterOperator createInstallation() {
+            return new SetupClusterOperator(this);
+        }
+    }
+}
+\end{lstlisting}
