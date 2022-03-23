@@ -29,10 +29,12 @@ and in Section~\ref{05:sub:sec:applicability} we describe its usability within o
 \label{05:sub:sec:unique}
 
 Several sources (f.e., \emph{Kafka cluster}, \emph{KafkaConnect}, \emph{KafkaMirrorMaker}), which are used in test cases,
-are necessary to work with unique names to avoid conflict.
+are necessary to work with unique names to avoid conflict (f.e., replace existing or already created resource).
 That is why we created the class \emph{TestStorage}\footnote{TestStorage \---\ https://github.com/strimzi/strimzi-kafka-operator/pull/5446/},
-which will include the necessary resources (i.e., name of the \emph{Namespace}, \emph{Kafka cluster}, \emph{KafkaTopic}, \emph{Producer}, \emph{Consumer}).
-All this is possible thanks to \emph{ExtensionContext}, where each test case has a different object, and therefore it can be used as a map repository.
+which will include unique generated name of the necessary resources (i.e., name of the \emph{Namespace}, \emph{Kafka cluster},
+\emph{KafkaTopic}, \emph{Producer}, \emph{Consumer}).
+All this is possible thanks to \emph{ExtensionContext}, where each test case has a different \emph{ExtensionContext},
+and therefore it can be used as a map repository.
 
 \subsection{Resource Manager re-work\protect\footnote{\url{https://github.com/strimzi/strimzi-kafka-operator/pull/4137}}}
 \label{05:sub:sec:resourcemanager}
@@ -41,7 +43,7 @@ As described in Section~\ref{04:architecturechanges}, we created \emph{Interface
 Where \emph{T} is a generic type and can take subtypes (f.e., Kafka, KafkaBridge, KafkaMirrorMaker).
 In other words, everything that contains the object \emph{HasMetadata}\footnote{HasMetadata \---\ is an interface of
 Kubernetes resources that contain metadata object}.
-Figure~\ref{interface:resourcetype} shows the individual method signatures in the given interface.
+Listing~\ref{interface:resourcetype} shows the individual method signatures in the given interface.
 
 \begin{lstlisting}[language=Java,label=interface:resourcetype,caption=Interface used across all resources,frame=tb]
 public interface ResourceType<T extends HasMetadata> {
@@ -53,7 +55,7 @@ public interface ResourceType<T extends HasMetadata> {
 }
 \end{lstlisting}
 Each resource then signs a contract with the ResourceType interface in our test framework.
-For instance, the \emph{Kafka} resource implementation can see in~\ref{interface:implementation:kafka}.
+For instance, the \emph{Kafka} resource implementation (Listing~\ref{interface:implementation:kafka}).
 \begin{lstlisting}[language=Java,label=interface:implementation:kafka,caption=Kafka resource sings contract with ResourceType interface,frame=tb]
 public class KafkaResource implements ResourceType<Kafka> {
     @Override
@@ -71,14 +73,14 @@ public class KafkaResource implements ResourceType<Kafka> {
 \end{lstlisting}
 
 Nevertheless, the most critical part of the entire Strimzi test framework is \emph{ResourceManager}.
-As described in the design~\ref{04:sub:sec:resourcemanager}, so instead of 3 stacks (i.e., pointer, class and method),
+As described in the design~\ref{04:sub:sec:resourcemanager}, so instead of three stacks (i.e., pointer, class and method),
 we had to adapt a solution with hash maps, which for each test case will keep each stack in which will contain the test resources.
 At the same time, thanks to the proposed algorithms (\ref{04:alg:creationofresource},~\ref{04:alg:deleteresources}),
 the algorithm for creating resources according to the generic type \emph{T}, finds out which method to invoke.
 Moreover, a parallel algorithm for deleting individual resources from a given stack.
 Finally, the~\ref{04:alg:syncresources} algorithm for synchronization of parallel generating resources is most useful
 in the parallel preparation of individual resources for a given test case.
-An example of such a preparation phase can be seen in~\ref{resourcemanager:sync:method}.
+An example of such a preparation phase (Listing~\ref{resourcemanager:sync:method}).
 \begin{lstlisting}[language=Java,label=resourcemanager:sync:method,caption=Example of parallel preparation of resources,frame=tb]
 // create resources in parallel (simultaneously)
 resourceManager.createResource(extensionContext, false,
@@ -91,7 +93,7 @@ resourceManager.createResource(extensionContext, false,
 // synchronize point (barrier)
 resourceManager.synchronizeResources(extensionContext);
 \end{lstlisting}
-The overall implementation of individual algorithms (\ref{04:alg:creationofresource},\ref{04:alg:syncresources} and~\ref{04:alg:deleteresources})
+The overall implementation of individual algorithms (\ref{04:alg:creationofresource},~\ref{04:alg:syncresources} and~\ref{04:alg:deleteresources})
 can be seen in the Appendix~\ref{30:appendix:b}.
 
 \subsection{Injection of the runtime annotations}
@@ -99,8 +101,8 @@ can be seen in the Appendix~\ref{30:appendix:b}.
 
 Another crucial part is creating a mechanism that will provide information, which test case may be executed in parallel
 mode or run in complete isolation.
-In the~\ref{04:methodwideparalelisation} section, we propose such annotations offered by the Java language.
-We implemented three types of annotations for method-wide parallelization.
+In Section~\ref{04:methodwideparalelisation}, we propose such annotations offered by the Java language.
+We implemented three types of annotations for method-wide parallelisation.
 The most concise annotation is \emph{@ParallelTest}, which overrides the parallelism configuration at runtime.
 It is possible to see the given implementation of such an annotation on Listing~\ref{annotation:paralleltest}.
 An essential part is \emph {@Execution(ExecutionMode.CONCURRENT)}, where the semantics of this line means that the given
@@ -117,8 +119,8 @@ public @interface ParallelTest {  }
 Another annotation (Listing~\ref{annotation:isolatedtest}) we have implemented to be responsible for the complete isolation of is \emph{@IsolatedTest}.
 At an initial glance, it is remarkably similar to the previous annotations.
 However, there is one major difference when using \emph{@ResourceLock}.
-When \emph {@ParallelTest} uses a read lock, \emph{@IsolatedTest} uses a read\_write lock.
-The idea is that read\_write lock will completely isolate us from other tests.
+When \emph {@ParallelTest} uses a read lock, \emph{@IsolatedTest} uses a \emph{read\_write} lock.
+The idea is that \emph{read\_write} lock will completely isolate us from other tests.
 Multiple \emph{@ParallelTest} will be performed at the same time, and \emph{@IsolatedTest} will wait until this lock is
 released (because these two annotations share the same @ResourceLock named \emph{global}).
 
@@ -134,8 +136,9 @@ public @interface IsolatedTest {
 \end{lstlisting}
 Eventually, we implemented the last annotation due to product requirements \emph{@ParallelNamespaceTest}.
 This annotation is equivalent to \emph{@ParallelTest}, but there is a slight distinction.
-We create an additional namespace for each such test.
-Scenarios where we mainly used it is when multiple Kafka clusters are deployed for a given test or when we use \emph{KafkaMirrorMaker} (by default, we need two Kafka clusters).
+We create an additional namespace for each test case.
+Scenarios where we mainly used it is when multiple Kafka clusters are deployed for a given test or when we use
+\emph{KafkaMirrorMaker} (by default, we need two Kafka clusters).
 
 \subsection{Configuration}
 \label{05:sub:sec:configuration}
@@ -144,24 +147,25 @@ The method-wide parallelization configuration can be set up in several ways (a) 
 (b) using the junit-platform.properties configuration file (Listing~\ref{config:file}).
 \begin{lstlisting}[language= Java,label=config:system:property,caption=(a) Configuration via system properties,frame=tb]
 -Djunit.jupiter.execution.parallel.enabled = true
--Djunit.jupiter.execution.parallel.config.fixed.parallelism = 5
+-Djunit.jupiter.execution.parallel.config.fixed.parallelism = <n>
 // parallel.mode.default has default value same_thread
 // parallel.mode.classes.default has default value same_thread
 \end{lstlisting}
-In both cases, five threads will be released, where each thread will perform one test at a time, and if it finishes its work, it will move on to the next test case. This is repeated until there is no more test in the test class.
+In both cases, \emph{n} threads will be released, where each thread will perform one test case at a time, and if it finishes its work,
+it will move on to the next test case. This is repeated until there is no more test to execute in the given test class.
 \begin{lstlisting}[language=Java,label=config:file,caption=(b) Configuration via file,frame = tb]
 junit.jupiter.execution.parallel.enabled = true
 junit.jupiter.execution.parallel.mode.default = same_thread
 junit.jupiter.execution.parallel.mode.classes.default = same_thread
 junit.jupiter.execution.parallel.config.strategy = fixed
-junit.jupiter.execution.parallel.config.fixed.parallelism = 5
+junit.jupiter.execution.parallel.config.fixed.parallelism = <n>
 \end{lstlisting}
 
 \subsection{Applicability}
 \label{05:sub:sec:applicability}
 
 Method-wide parallelization for our testing framework is most efficient for more diminutive infrastructures,
-typically with parameters f.e., 25GB RAM and eight cores. We use such infrastructure as part of nightly testing.
+typically with parameters f.e., 24GB RAM and eight cores. We use such infrastructure as part of nightly testing.
 In the circumstances, we have less power available; it is necessary to count on it that in more demanding test cases
 (i.e., a test case using \emph{KafkaMirrorMaker} or several Kafka clusters), the cluster will be unstable, which will
 lead to poor test results and overall test timeouts. On the other hand, in the case of more powerful infrastructure
@@ -265,11 +269,10 @@ public @interface IsolatedSuite {  }
 \end{lstlisting}
 Moreover, we have implemented an additional mechanism that will ensure synchronisation between such test suites
 (i.e., \emph{@IsolatedSuite}. We create \emph{SuiteThreadController} class, and one of the synchronisations that are
-implemented inside this class is for \emph {@IsolatedSuite}. This is the use of active waiting when at the same time,
-we thread each iteration for a particular time so that the condition is not tested unnecessarily. If \emph{@IsolatedSuite}
-starts executing, it sets the given boolean value to true, which prevents the following thread from going through the
-given while loop. If \emph{@IsolatedSuite} completes its execution, it sets the given boolean value to false, and
-the following thread will be able to start its execution. At the same time, we notice the keyword \emph{synchronised}
+implemented inside this class is for \emph {@IsolatedSuite}. If \emph{@IsolatedSuite} starts its execution, it sets the given
+boolean value to true, which prevents the following thread from going through the given while loop.
+If \emph{@IsolatedSuite} completes its execution, it sets the given boolean value to false, and
+the following thread will be able to start its execution. Furthermore, we notice the keyword \emph{synchronised}
 in the method definition. The main reason why this keyword is necessary is that for multiple threads (i.e., \emph{@IsolatedSuite}),
 they will have to wait until the thread that is currently in the loop is dropped and unlocks the lock, which implicitly
 adds \emph {synchronised} (Listing~\ref{isolatedsuite:sync}).
@@ -431,14 +434,14 @@ That is because we override this value using the annotations @ParallelTest and @
 \begin{lstlisting}[language= Java,label=config:system:property,caption=(a) Configuration via system properties,frame=tb]
 -Djunit.jupiter.execution.parallel.enabled = true
 -Djunit.jupiter.execution.parallel.mode.classes.default= concurrent
--Djunit.jupiter.execution.parallel.config.fixed.parallelism = 10
+-Djunit.jupiter.execution.parallel.config.fixed.parallelism = <n>
 \end{lstlisting}
 \begin{lstlisting}[language=Java,label=config:file,caption=(b) Configuration via file,frame = tb]
 junit.jupiter.execution.parallel.enabled = true
 junit.jupiter.execution.parallel.mode.default = same_thread
 junit.jupiter.execution.parallel.mode.classes.default = concurrent
 junit.jupiter.execution.parallel.config.strategy = fixed
-junit.jupiter.execution.parallel.config.fixed.parallelism = 10
+junit.jupiter.execution.parallel.config.fixed.parallelism = <n>
 \end{lstlisting}
 
 \subsection{Applicability}
