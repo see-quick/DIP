@@ -53,13 +53,16 @@
 \contentsline {subsection}{\numberline {5.2.6}Applicability}{58}{subsection.5.2.6}%
 \contentsline {section}{\numberline {5.3}Complications during implementation (Do we need it??)}{59}{section.5.3}%
 \contentsline {chapter}{\numberline {6}Experimental evaluation}{60}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Experimental setup}{60}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Results}{60}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Evaluation of the obtained results}{60}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Future work}{61}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Conclusion}{62}{chapter.8}%
-\contentsline {chapter}{Bibliography}{63}{chapter*.5}%
+\contentsline {section}{\numberline {6.1}Experiments design}{60}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Preliminary experiments}{61}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Method-wide}{61}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Cluster-wide}{63}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Acceptance experiments}{63}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Regression experiments}{63}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Future work}{64}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusion}{65}{chapter.8}%
+\contentsline {chapter}{Bibliography}{66}{chapter*.10}%
 \ttl@starttoc {chapters@1}
-\contentsline {chapter}{\numberline {A}Manual}{65}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Implementation details}{66}{appendix.B}%
+\contentsline {chapter}{\numberline {A}Manual}{68}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Implementation details}{69}{appendix.B}%
 \contentsfinish 
