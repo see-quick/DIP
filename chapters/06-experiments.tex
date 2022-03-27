@@ -10,8 +10,8 @@ At the same time, we calculated Amhdal's law for each experiment and compared it
 
 Celkový návrh experimentov sa rozlišuje do troch hlavných kategórií; (a) pre-liminary experiments, ktoré sú navrhnuté
 pre dokázanie, že nami navrhnutá paralelizácia je schopná vertikálneho škálovania. Tieto experimenty budú vykonané
-ako pre malé Kubernetes inštancie (i.e, Minikube) tak zároveň aj pre multi-node klastre. Očakávané výsledky by mali
-byť pozitívne pretože tieto paralelizácia bude mať najlepší možný scénar vykonávania (f.e., pre method-wide paralalelizáciu
+ako pre malé Kubernetes inštancie (i.e, Minikube) tak zároveň aj pre multi-node klastre.
+Očakávané výsledky by mali byť pozitívne pretože tieto paralelizácia bude mať najlepší možný scénar vykonávania (f.e., pre method-wide paralalelizáciu
 to bude testovacia trieda obsahujúca iba testy, ktoré sú schopné paralelného výpočtu, obdobne tak pre class-wide parallelizáciu.);
 (b) dalšiou častou budú acceptance experimenty, ktoré budú predovšetkým mať za úlohu dodať nám informáciu, zda je efektívne
 využívať paralelizáciu na pre malé inštancie Kubernetes ale zároveň tak pre veľké inštancie. Acceptance experimenty
@@ -25,19 +25,20 @@ už len z dovodu, že sa často jedná o testovacie triedy obsahujúce 10 až vi
 testov, ktoré potrebujú na svoje vykonávanie totálnu izoláciu čo može celý výpočet spomaliť.
 
 Pre vykonanie všetkých experimentov bude predovšetkým využívať Openstack, ktorý nám dodá potrebné HW zdroje.
-Čo sa týka pre-liminárnych experimentov budeme používať 3 typy inštancií:
+Čo sa týka pre-liminárnych experimentov budeme používať 4 typy inštancií:
 \begin{itemize}
-    \item Minikube \---\ single-node, kde táto inštancia bude poskytovať four virtual cores a 16 GB RAM
-    \item Minikube \---\ single-node, kde táto inštancia bude poskytovať 16 virtual cores a 32 GB RAM
     \item Kubernetes cluster \---\ multi-node, kde táto inštancia bude poskytovať 24 virtual cores a 48 GB RAM (bez počítania master nodov)
+    \item Minikube \---\ single-node, kde táto inštancia bude poskytovať dve virtuáne jadrá s 8GB RAM
+    \item Minikube \---\ single-node, kde táto inštancia bude poskytovať štyri virtuálne jadrá s 16GB RAM
+    \item Minikube \---\ single-node, kde táto inštancia bude poskytovať osem virtuálnych jadier a 32GB RAM
 \end{itemize}
 
 \section{Preliminary experiments}
 
 Recall~\ref{04:amdalhlaw} Amdalh's formulu z Kapitoly~\ref{03:chapter:title}.
 Nato aby sme začali daný experiment nebude tentokrát počítať unit
-jednotku ako počet testov ale zameriame sa na overall test execution time. Zavedieme zároveň novú formulu
-(\eqref{eqn:t-new-formula}), ktorá nám zároveň vypočíta teoretický čas po zrýchlení a následne tak vďaka tomuto
+jednotku ako počet testov ale zameriame sa na overall test execution time.
+Zavedieme zároveň novú formulu (\eqref{eqn:t-new-formula}), ktorá nám zároveň vypočíta teoretický čas po zrýchlení a následne tak vďaka tomuto
 výsledku vypočítame celkové možné zrýchlenie pomocou formule (\eqref{eqn:acc-formula}). Všetky značenia sú rovnaké
 ako popísané v Kapitole 3 pri Amdalhovom zákone akurát tu máme \emph{T\_{new}} a \emph{T\_{old}}). \emph{T\_{old}} popisuje čas nutne vykonaný
 (i.e., sekvenčne) daným taskom. Na druhú stranu \emph{T\_{new}} popisuje čas po zrýchlení (\eqref{eqn:t-new-formula}).
@@ -95,7 +96,7 @@ Toto je však podmienené viacerými faktormi (f.e., testy netrvajú rovnaký č
 pretože to možeme vyjadriť ako limitu (\eqref{eqn:amdalh-limit}).
 \begin{table}[ht!]
     \centering
-    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-final-smoke}
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-final-smoke-method-wide-ocp}
     \caption{Preliminary experiments with Security test suite containing twenty-one test cases, which all can be run in parallel.
     Each test case deploys Kafka cluster, which perfectly verifies if Kubernetes cluster or Minikube (i.e., single-node) can handle such a load.}
     \label{06:tab:01:securityst-ocp-multinode}
@@ -112,15 +113,14 @@ pretože to je v praxi normálne. Celkovo naše zrýchlenie je rovné $S_{practi
 
 % MINIKUBE PART
 Dalšie preliminárne experimenty, ktoré sme vykonali boli na menších inštanciach kde bolo samozrejmosťou, že výsledky
-zrýchlenia s porovnaním multi-node klastru budú podstatne nižšie. Preto aj Amdalhov zákon bude obsahovať o dosť nižšie
-teoretické zrýchlenie. Pre mašinu obsahujúcu four virtual CPUs je odhadujúci teoretický čas $T_{new\_teo\_small}$, ktorý je rovný
-$T_{new\_teo\_small} = (1 - \frac{182}{185}) * 185 +  \frac{ \frac{182}{185}}{4} * 185 = approximately 49~minutes$.
-A teda teoretické zrýchlenie inštancie by mohol byť $S_{new\_teo\_small} = \frac{185}{49} = 3.8x$.
+zrýchlenia s porovnaním multi-node klastru budú podstatne nižšie.
+Preto aj Amdalhov zákon bude obsahovať o dosť nižšie teoretické zrýchlenie. Pre mašinu obsahujúcu štyri virtuálne jadrá je
+odhadujúci teoretický čas $T_{new\_teo\_medium}$, ktorý je rovný $T_{new\_teo\_medium} = (1 - \frac{182}{185}) * 185 +  \frac{ \frac{182}{185}}{4} * 185 = $ approximately 49~minutes.
+A teda teoretické zrýchlenie inštancie by mohol byť $S_{new\_teo\_medium} = \frac{185}{49} = 3.8x$.
 Ako však možeme vidieť na tabuľke~\ref{06:tab:01:securityst-minikube}, tak také presné zrýchlenie sme nedosiahli.
-Avšak priblížili sme sa k tomu dostatočne blízko a praktické zrýchlenie je rovné $S_{new\_practical\_small} = \frac{185}{79} = 2.34x$.
+Avšak priblížili sme sa k tomu dostatočne blízko a praktické zrýchlenie je rovné $S_{new\_practical\_medium} = \frac{185}{79} = 2.34x$.
 Maximálne sme mohli využiť tri jadrá, pretože v prípade štyroch jadier virtual machine padla kvoli nedostatku pamate.
-CPU utilizácia bola v priebehu pri použití 4 jadier približne na 80\%.
-
+CPU utilizácia bola v priebehu pri použití štyroch jadier približne na 80\%.
 
 \begin{table}[ht!]
     \centering
@@ -130,12 +130,25 @@ CPU utilizácia bola v priebehu pri použití 4 jadier približne na 80\%.
     \label{06:tab:01:securityst-minikube}
 \end{table}
 
-\subsection{Cluster-wide}
+\subsection{Class-wide}
+
+Preliminárne experimenty pre class-wide parallezáciu sme vybrali množinu testovacích tried, ktoré podporujú túto formu
+paralelizácie (i.e, @ParallelSuite).
+Špecificky sa bude jednať o CruiseControlConfigurationST, HttpBridgeScramShaST, HttpBridgeCorsST, HttpBridgeKafkaExternalListenersST,
+HttpBridgeTlsST, TopicST, ThrottlingQuotaST, UserST, ReconciliationST, QuotasST.
+
+...
+
 
 % b) PRELIMINARY EXPERIMENTS FOR CLASS-WIDE
 
 \section{Acceptance experiments}
+
+acceptance profile...
+
 \section{Regression experiments}
+
+regression profile...
 
 \chapter{Future work}
 \label{07:chapter:title}
