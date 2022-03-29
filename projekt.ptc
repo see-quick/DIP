@@ -56,13 +56,14 @@
 \contentsline {section}{\numberline {6.1}Experiments design}{60}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Preliminary experiments}{61}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Method-wide}{61}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Class-wide}{63}{subsection.6.2.2}%
-\contentsline {section}{\numberline {6.3}Acceptance experiments}{64}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Regression experiments}{64}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Future work}{65}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Conclusion}{66}{chapter.8}%
-\contentsline {chapter}{Bibliography}{67}{chapter*.10}%
+\contentsline {subsection}{\numberline {6.2.2}Class-wide}{64}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Acceptance experiments}{65}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Method-wide}{65}{subsection.6.3.1}%
+\contentsline {section}{\numberline {6.4}Regression experiments}{65}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Future work}{66}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusion}{67}{chapter.8}%
+\contentsline {chapter}{Bibliography}{68}{chapter*.10}%
 \ttl@starttoc {chapters@1}
-\contentsline {chapter}{\numberline {A}Manual}{69}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Implementation details}{70}{appendix.B}%
+\contentsline {chapter}{\numberline {A}Manual}{70}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Implementation details}{71}{appendix.B}%
 \contentsfinish 

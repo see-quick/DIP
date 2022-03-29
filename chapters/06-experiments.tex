@@ -124,7 +124,7 @@ CPU utilizácia bola v priebehu pri použití štyroch jadier približne na 80\%
 
 \begin{table}[ht!]
     \centering
-    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-a-prelim}
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-preliminary-minikube-b}
     \caption{Preliminary experiments with Security test suite containing twenty-one test cases, which all can be run in parallel.
     Each test case deploys Kafka cluster, which perfectly verifies if Kubernetes cluster or Minikube (i.e., single-node) can handle such a load.}
     \label{06:tab:01:securityst-minikube}
@@ -137,12 +137,39 @@ paralelizácie (i.e, @ParallelSuite).
 Špecificky sa bude jednať o CruiseControlConfigurationST, HttpBridgeScramShaST, HttpBridgeCorsST, HttpBridgeKafkaExternalListenersST,
 HttpBridgeTlsST, TopicST, ThrottlingQuotaST, UserST, ReconciliationST, QuotasST.
 
-...
+\begin{table}[ht!]
+    \centering
+    \includegraphics[scale=0.7]{obrazky-figures/08-experiments/06-exp-graph-test}
+    \caption{Preliminary experiments with Security test suite containing twenty-one test cases, which all can be run in parallel.
+    Each test case deploys Kafka cluster, which perfectly verifies if Kubernetes cluster or Minikube (i.e., single-node) can handle such a load.}
+    \label{06:tab:01:securityst-minikube}
+\end{table}
+
+bla bla bla bla...
+
+\begin{table}[ht!]
+    \centering
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-preliminary-cluster-wide-ocp}
+    \caption{Preliminary experiments with Security test suite containing twenty-one test cases, which all can be run in parallel.
+    Each test case deploys Kafka cluster, which perfectly verifies if Kubernetes cluster or Minikube (i.e., single-node) can handle such a load.}
+    \label{06:tab:01:securityst-minikube}
+\end{table}
 
 
 % b) PRELIMINARY EXPERIMENTS FOR CLASS-WIDE
 
 \section{Acceptance experiments}
+
+Tento typ experimentov bude zahrnovať nášu reálnu podmnožinu testov, ktorá sa vykonávana ako jedna z príslušných jobov v CI
+nástroji. Výsledok týchto testov nám zároveň dodá informáciu, či je ideálne púštať paralelne. Kedže viem, že daný profil
+obsahuje aj dosť testov pre ktoré je nutná izoláciu (i.e., @IsolatedTest) a rovnako tak aj testovacie triedy (i.e., @IsolatedSuite).
+V tomto ohlade sa teda čaká podstatne slabšie zrýchlenie ak to porovnáme z preliminárnymi experimentami, ktoré sa púštali
+s takmer najlepšom prostredí pre paralelizáciu. Zároveň kedže sme zistili, že flavour \emph{2CPUs a 8GB RAM}, nie je
+možný vykonávať ani dve paralelné testy a teda je pre tento typ experimentu zbytočný.
+
+\subsection{Method-wide}
+
+Ako minule začneme
 
 acceptance profile...
 
@@ -155,3 +182,4 @@ regression profile...
 
 \chapter{Conclusion}
 \label{08:chapter:title}
+
