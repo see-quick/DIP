@@ -1,0 +1,1714 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Build Order:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Strimzi - Apache Kafka on Kubernetes and OpenShift                 [pom]
+[[1;34mINFO[m] test                                                               [jar]
+[[1;34mINFO[m] crd-annotations                                                    [jar]
+[[1;34mINFO[m] crd-generator                                                      [jar]
+[[1;34mINFO[m] api                                                                [jar]
+[[1;34mINFO[m] mockkube                                                           [jar]
+[[1;34mINFO[m] config-model                                                       [jar]
+[[1;34mINFO[m] certificate-manager                                                [jar]
+[[1;34mINFO[m] operator-common                                                    [jar]
+[[1;34mINFO[m] systemtest                                                         [jar]
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------------------------< [0;36mio.strimzi:strimzi[0;1m >-------------------------[m
+[[1;34mINFO[m] [1mBuilding Strimzi - Apache Kafka on Kubernetes and OpenShift 0.29.0-SNAPSHOT [1/10][m
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:report[m [1m(report)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36mstrimzi[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36mstrimzi[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.1.0:jar[m [1m(attach-javadocs)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:integration-test[m [1m(default)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:verify[m [1m(default)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:3.1.1:analyze-only[m [1m(analyze)[m @ [36mstrimzi[0;1m ---[m
+[[1;34mINFO[m] Skipping pom project
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------------------------< [0;36mio.strimzi:test[0;1m >---------------------------[m
+[[1;34mINFO[m] [1mBuilding test 0.29.0-SNAPSHOT                                     [2/10][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/test/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/ec2-user/strimzi-kafka-operator/test/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/ec2-user/strimzi-kafka-operator/test/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M5:test[m [1m(default-test)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.0:jar[m [1m(default-jar)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:report[m [1m(report)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36mtest[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/test/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36mtest[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/ec2-user/strimzi-kafka-operator/test/target/test-0.29.0-SNAPSHOT-sources.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.1.0:jar[m [1m(attach-javadocs)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:integration-test[m [1m(default)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:verify[m [1m(default)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:3.1.1:analyze-only[m [1m(analyze)[m @ [36mtest[0;1m ---[m
+[[1;34mINFO[m] No dependency problems found
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------< [0;36mio.strimzi:crd-annotations[0;1m >---------------------[m
+[[1;34mINFO[m] [1mBuilding crd-annotations 0.29.0-SNAPSHOT                          [3/10][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/crd-annotations/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/ec2-user/strimzi-kafka-operator/crd-annotations/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/ec2-user/strimzi-kafka-operator/crd-annotations/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M5:test[m [1m(default-test)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.0:jar[m [1m(default-jar)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:report[m [1m(report)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36mcrd-annotations[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/crd-annotations/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36mcrd-annotations[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/ec2-user/strimzi-kafka-operator/crd-annotations/target/crd-annotations-0.29.0-SNAPSHOT-sources.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.1.0:jar[m [1m(attach-javadocs)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:integration-test[m [1m(default)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;33mWARNING[m] useSystemClassLoader setting has no effect when not forking
+[[1;33mWARNING[m] The parameter forkCount should likely not be 0, not forking a JVM for tests reduce test accuracy, ensure to have a <forkCount> >= 1.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:verify[m [1m(default)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:3.1.1:analyze-only[m [1m(analyze)[m @ [36mcrd-annotations[0;1m ---[m
+[[1;34mINFO[m] No dependency problems found
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36mio.strimzi:crd-generator[0;1m >----------------------[m
+[[1;34mINFO[m] [1mBuilding crd-generator 0.29.0-SNAPSHOT                            [4/10][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/crd-generator/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/ec2-user/strimzi-kafka-operator/crd-generator/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 7 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M5:test[m [1m(default-test)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.0:jar[m [1m(default-jar)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:report[m [1m(report)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36mcrd-generator[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/crd-generator/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36mcrd-generator[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/ec2-user/strimzi-kafka-operator/crd-generator/target/crd-generator-0.29.0-SNAPSHOT-sources.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.1.0:jar[m [1m(attach-javadocs)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-shade-plugin:3.1.0:shade[m [1m(default)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] Including io.strimzi:crd-annotations:jar:0.29.0-SNAPSHOT in the shaded jar.
+[[1;34mINFO[m] Including com.fasterxml.jackson.core:jackson-core:jar:2.12.6 in the shaded jar.
+[[1;34mINFO[m] Including com.fasterxml.jackson.core:jackson-databind:jar:2.12.6 in the shaded jar.
+[[1;34mINFO[m] Including com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.12.6 in the shaded jar.
+[[1;34mINFO[m] Including org.yaml:snakeyaml:jar:1.27 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-client:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-rbac:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-admissionregistration:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-apps:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-autoscaling:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-apiextensions:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-batch:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-certificates:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-coordination:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-discovery:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-events:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-extensions:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-flowcontrol:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-networking:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-metrics:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-policy:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-scheduling:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-storageclass:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-node:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including com.squareup.okhttp3:okhttp:jar:3.12.12 in the shaded jar.
+[[1;34mINFO[m] Including com.squareup.okio:okio:jar:1.15.0 in the shaded jar.
+[[1;34mINFO[m] Including com.squareup.okhttp3:logging-interceptor:jar:3.12.12 in the shaded jar.
+[[1;34mINFO[m] Including org.slf4j:slf4j-api:jar:1.7.36 in the shaded jar.
+[[1;34mINFO[m] Including com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.13.1 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:zjsonpatch:jar:0.3.0 in the shaded jar.
+[[1;34mINFO[m] Including com.github.mifmif:generex:jar:1.0.2 in the shaded jar.
+[[1;34mINFO[m] Including dk.brics.automaton:automaton:jar:1.11-8 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-core:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including io.fabric8:kubernetes-model-common:jar:5.12.0 in the shaded jar.
+[[1;34mINFO[m] Including com.fasterxml.jackson.core:jackson-annotations:jar:2.12.6 in the shaded jar.
+[[1;33mWARNING[m] Discovered module-info.class. Shading will break its strong encapsulation.
+[[1;33mWARNING[m] Discovered module-info.class. Shading will break its strong encapsulation.
+[[1;33mWARNING[m] Discovered module-info.class. Shading will break its strong encapsulation.
+[[1;33mWARNING[m] Discovered module-info.class. Shading will break its strong encapsulation.
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, generex-1.0.2.jar define 7 overlapping classes: 
+[[1;33mWARNING[m]   - com.mifmif.common.regex.GenerexIterator
+[[1;33mWARNING[m]   - com.mifmif.common.regex.Generex
+[[1;33mWARNING[m]   - com.mifmif.common.regex.GenerexIterator$Step
+[[1;33mWARNING[m]   - com.mifmif.common.regex.Node
+[[1;33mWARNING[m]   - com.mifmif.common.regex.Main
+[[1;33mWARNING[m]   - com.mifmif.common.regex.util.Iterable
+[[1;33mWARNING[m]   - com.mifmif.common.regex.util.Iterator
+[[1;33mWARNING[m] kubernetes-model-rbac-5.12.0.jar, crd-generator-0.29.0-SNAPSHOT.jar define 80 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.rbac.SubjectBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.rbac.ClusterRoleBindingFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.rbac.RoleListFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.rbac.ClusterRoleBindingFluent$MetadataNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.rbac.RoleBindingBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.rbac.ClusterRoleBindingBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.rbac.AggregationRuleFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.rbac.SubjectFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.rbac.ClusterRoleListFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.rbac.PolicyRuleFluent
+[[1;33mWARNING[m]   - 70 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, jackson-annotations-2.12.6.jar define 71 overlapping classes: 
+[[1;33mWARNING[m]   - com.fasterxml.jackson.annotation.JsonAutoDetect
+[[1;33mWARNING[m]   - com.fasterxml.jackson.annotation.JsonInclude
+[[1;33mWARNING[m]   - com.fasterxml.jackson.annotation.ObjectIdGenerators
+[[1;33mWARNING[m]   - com.fasterxml.jackson.annotation.JsonFormat$Features
+[[1;33mWARNING[m]   - com.fasterxml.jackson.annotation.JsonFormat$Feature
+[[1;33mWARNING[m]   - com.fasterxml.jackson.annotation.JsonIgnore
+[[1;33mWARNING[m]   - com.fasterxml.jackson.annotation.JsonSetter
+[[1;33mWARNING[m]   - com.fasterxml.jackson.annotation.JsonTypeInfo$None
+[[1;33mWARNING[m]   - com.fasterxml.jackson.annotation.JsonFormat$Shape
+[[1;33mWARNING[m]   - com.fasterxml.jackson.annotation.JsonSubTypes
+[[1;33mWARNING[m]   - 61 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, kubernetes-model-extensions-5.12.0.jar define 264 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.extensions.DaemonSetConditionBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.extensions.NetworkPolicyListFluent$ItemsNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.extensions.DeploymentStrategyFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.extensions.IngressListFluentImpl$ItemsNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.extensions.NetworkPolicySpecFluent$IngressNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.extensions.IngressStatus
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.extensions.DaemonSetFluentImpl$SpecNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.extensions.IngressSpecFluent$RulesNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.extensions.DaemonSetSpecFluent$UpdateStrategyNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.extensions.NetworkPolicyPeerBuilder
+[[1;33mWARNING[m]   - 254 more...
+[[1;33mWARNING[m] kubernetes-model-autoscaling-5.12.0.jar, crd-generator-0.29.0-SNAPSHOT.jar define 350 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.autoscaling.v2beta1.MetricSpecFluentImpl$ObjectNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.autoscaling.v2beta2.HorizontalPodAutoscalerSpec
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.autoscaling.v2beta1.CrossVersionObjectReferenceBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.autoscaling.v2beta1.HorizontalPodAutoscalerStatusFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.autoscaling.v2beta2.HorizontalPodAutoscalerFluent$SpecNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.autoscaling.v2beta2.ContainerResourceMetricStatusFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.autoscaling.v2beta1.HorizontalPodAutoscalerStatus
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.autoscaling.v2beta1.MetricStatusFluent$ObjectNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.autoscaling.v2beta2.HorizontalPodAutoscalerSpecFluent$ScaleTargetRefNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.autoscaling.v2beta1.HorizontalPodAutoscalerFluent$SpecNested
+[[1;33mWARNING[m]   - 340 more...
+[[1;33mWARNING[m] kubernetes-model-storageclass-5.12.0.jar, crd-generator-0.29.0-SNAPSHOT.jar define 172 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.storage.v1beta1.CSIStorageCapacityListFluentImpl$ItemsNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.storage.CSINodeFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.storage.CSINodeDriverFluentImpl$AllocatableNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.storage.StorageClass
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.storage.VolumeAttachmentSourceBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.storage.VolumeAttachmentSourceFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.storage.TokenRequestFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.storage.v1beta1.CSINodeDriverFluent$AllocatableNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.storage.v1beta1.CSIDriverSpecBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.storage.VolumeAttachmentSpecFluent
+[[1;33mWARNING[m]   - 162 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, kubernetes-model-batch-5.12.0.jar define 112 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.batch.v1.JobFluentImpl$StatusNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.batch.v1.CronJobStatusFluentImpl$ActiveNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.batch.v1.JobSpecFluent$TemplateNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.batch.v1beta1.CronJobListFluentImpl$ItemsNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.batch.v1beta1.CronJobSpecFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.batch.v1.JobSpecFluentImpl$TemplateNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.batch.v1.Job
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.batch.v1beta1.CronJobFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.batch.v1beta1.CronJobListFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.batch.v1.CronJobListFluent
+[[1;33mWARNING[m]   - 102 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, kubernetes-model-apiextensions-5.12.0.jar define 350 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apiextensions.v1beta1.CustomResourceDefinitionVersionBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apiextensions.v1beta1.JSONSchemaPropsOrBoolBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apiextensions.v1beta1.CustomResourceDefinitionSpecFluent$ValidationNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apiextensions.v1beta1.CustomResourceDefinitionVersionFluentImpl$SchemaNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apiextensions.v1beta1.JSONSchemaPropsOrStringArraySerDe$Deserializer$1
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apiextensions.v1beta1.CustomResourceValidationFluentImpl$OpenAPIV3SchemaNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apiextensions.v1beta1.JSONSchemaPropsFluentImpl$NotNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apiextensions.v1beta1.WebhookClientConfigFluentImpl$ServiceNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apiextensions.v1beta1.JSONSchemaPropsOrArrayFluent$SchemaNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apiextensions.v1.JSONSchemaPropsOrBoolSerDe
+[[1;33mWARNING[m]   - 340 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, kubernetes-model-discovery-5.12.0.jar define 88 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.discovery.v1beta1.EndpointSliceFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.discovery.v1beta1.EndpointFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.discovery.v1.EndpointSliceBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.discovery.v1beta1.EndpointPort
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.discovery.v1beta1.ForZoneBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.discovery.v1.EndpointFluent$TargetRefNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.discovery.v1beta1.EndpointFluentImpl$ConditionsNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.discovery.v1.EndpointSliceListFluentImpl$ItemsNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.discovery.v1beta1.EndpointConditionsFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.discovery.v1beta1.EndpointSliceListFluentImpl$ItemsNestedImpl
+[[1;33mWARNING[m]   - 78 more...
+[[1;33mWARNING[m] okhttp-3.12.12.jar, crd-generator-0.29.0-SNAPSHOT.jar define 208 overlapping classes: 
+[[1;33mWARNING[m]   - okhttp3.WebSocket
+[[1;33mWARNING[m]   - okhttp3.Cookie$Builder
+[[1;33mWARNING[m]   - okhttp3.internal.http.HttpHeaders
+[[1;33mWARNING[m]   - okhttp3.internal.http2.Http2Connection$ReaderRunnable
+[[1;33mWARNING[m]   - okhttp3.internal.http2.Http2Reader$ContinuationSource
+[[1;33mWARNING[m]   - okhttp3.internal.tls.OkHostnameVerifier
+[[1;33mWARNING[m]   - okhttp3.Cache$Entry
+[[1;33mWARNING[m]   - okhttp3.internal.http2.Http2Connection$3
+[[1;33mWARNING[m]   - okhttp3.internal.ws.RealWebSocket$Streams
+[[1;33mWARNING[m]   - okhttp3.CacheControl$Builder
+[[1;33mWARNING[m]   - 198 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, kubernetes-model-metrics-5.12.0.jar define 30 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.metrics.v1beta1.PodMetricsFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.metrics.v1beta1.NodeMetricsListFluentImpl$ItemsNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.metrics.v1beta1.ContainerMetricsFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.metrics.v1beta1.NodeMetrics
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.metrics.v1beta1.NodeMetricsListFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.metrics.v1beta1.NodeMetricsListFluent$ItemsNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.metrics.v1beta1.NodeMetricsFluent$MetadataNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.metrics.v1beta1.PodMetricsFluentImpl$ContainersNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.metrics.v1beta1.PodMetricsListFluentImpl$ItemsNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.metrics.v1beta1.PodMetricsListBuilder
+[[1;33mWARNING[m]   - 20 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, kubernetes-model-flowcontrol-5.12.0.jar define 132 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.flowcontrol.v1beta1.PriorityLevelConfigurationFluentImpl$SpecNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.flowcontrol.v1beta1.FlowSchemaConditionFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.flowcontrol.v1beta1.FlowDistinguisherMethodBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.flowcontrol.v1beta1.PriorityLevelConfigurationReferenceBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.flowcontrol.v1beta1.QueuingConfiguration
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.flowcontrol.v1beta1.QueuingConfigurationFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.flowcontrol.v1beta1.PriorityLevelConfiguration
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.flowcontrol.v1beta1.PriorityLevelConfigurationReference
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.flowcontrol.v1beta1.PolicyRulesWithSubjects
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.flowcontrol.v1beta1.PriorityLevelConfigurationListFluent$ItemsNested
+[[1;33mWARNING[m]   - 122 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, kubernetes-model-events-5.12.0.jar define 44 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.events.v1beta1.EventFluent$MetadataNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.events.v1beta1.EventFluent$SeriesNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.events.v1.EventList
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.events.v1.EventListBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.events.v1beta1.EventFluent$RegardingNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.events.v1.EventSeriesFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.events.v1beta1.EventFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.events.v1beta1.EventBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.events.v1beta1.EventListFluent$ItemsNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.events.v1beta1.EventListFluentImpl$ItemsNestedImpl
+[[1;33mWARNING[m]   - 34 more...
+[[1;33mWARNING[m] automaton-1.11-8.jar, crd-generator-0.29.0-SNAPSHOT.jar define 25 overlapping classes: 
+[[1;33mWARNING[m]   - dk.brics.automaton.AutomatonMatcher
+[[1;33mWARNING[m]   - dk.brics.automaton.ShuffleOperations$ShuffleConfiguration
+[[1;33mWARNING[m]   - dk.brics.automaton.RegExp$Kind
+[[1;33mWARNING[m]   - dk.brics.automaton.RunAutomaton
+[[1;33mWARNING[m]   - dk.brics.automaton.Automaton
+[[1;33mWARNING[m]   - dk.brics.automaton.RegExp
+[[1;33mWARNING[m]   - dk.brics.automaton.AutomatonProvider
+[[1;33mWARNING[m]   - dk.brics.automaton.RegExp$1
+[[1;33mWARNING[m]   - dk.brics.automaton.MinimizationOperations$StateListNode
+[[1;33mWARNING[m]   - dk.brics.automaton.State
+[[1;33mWARNING[m]   - 15 more...
+[[1;33mWARNING[m] jackson-core-2.12.6.jar, crd-generator-0.29.0-SNAPSHOT.jar define 124 overlapping classes: 
+[[1;33mWARNING[m]   - com.fasterxml.jackson.core.JsonGenerator$Feature
+[[1;33mWARNING[m]   - com.fasterxml.jackson.core.json.JsonReadFeature
+[[1;33mWARNING[m]   - com.fasterxml.jackson.core.util.ThreadLocalBufferManager$ThreadLocalBufferManagerHolder
+[[1;33mWARNING[m]   - com.fasterxml.jackson.core.util.Separators
+[[1;33mWARNING[m]   - com.fasterxml.jackson.core.io.SegmentedStringWriter
+[[1;33mWARNING[m]   - com.fasterxml.jackson.core.TreeNode
+[[1;33mWARNING[m]   - com.fasterxml.jackson.core.sym.Name
+[[1;33mWARNING[m]   - com.fasterxml.jackson.core.util.RequestPayload
+[[1;33mWARNING[m]   - com.fasterxml.jackson.core.util.JsonGeneratorDelegate
+[[1;33mWARNING[m]   - com.fasterxml.jackson.core.async.NonBlockingInputFeeder
+[[1;33mWARNING[m]   - 114 more...
+[[1;33mWARNING[m] kubernetes-model-networking-5.12.0.jar, crd-generator-0.29.0-SNAPSHOT.jar define 234 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.networking.v1beta1.IngressClassListFluent$ItemsNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.networking.v1beta1.IngressClassListFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.networking.v1.IngressServiceBackend
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.networking.v1.NetworkPolicyPort
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.networking.v1beta1.IngressFluentImpl$StatusNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.networking.v1beta1.IngressClassSpec
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.networking.v1.IngressStatus
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.networking.v1.IngressClassFluent$SpecNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.networking.v1.NetworkPolicyBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.networking.v1.IngressRuleFluentImpl$HttpNestedImpl
+[[1;33mWARNING[m]   - 224 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, kubernetes-model-coordination-5.12.0.jar define 18 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.coordination.v1.LeaseListFluentImpl$ItemsNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.coordination.v1.LeaseFluentImpl$SpecNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.coordination.v1.LeaseSpec
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.coordination.v1.LeaseFluent$SpecNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.coordination.v1.LeaseListFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.coordination.v1.LeaseSpecBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.coordination.v1.LeaseSpecFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.coordination.v1.LeaseFluentImpl$MetadataNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.coordination.v1.LeaseFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.coordination.v1.LeaseListFluent
+[[1;33mWARNING[m]   - 8 more...
+[[1;33mWARNING[m] zjsonpatch-0.3.0.jar, crd-generator-0.29.0-SNAPSHOT.jar define 24 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.zjsonpatch.internal.collections4.sequence.InsertCommand
+[[1;33mWARNING[m]   - io.fabric8.zjsonpatch.Operation
+[[1;33mWARNING[m]   - io.fabric8.zjsonpatch.internal.collections4.sequence.CommandVisitor
+[[1;33mWARNING[m]   - io.fabric8.zjsonpatch.internal.guava.Strings
+[[1;33mWARNING[m]   - io.fabric8.zjsonpatch.internal.collections4.sequence.EditCommand
+[[1;33mWARNING[m]   - io.fabric8.zjsonpatch.JsonDiff$EncodePathFunction
+[[1;33mWARNING[m]   - io.fabric8.zjsonpatch.internal.collections4.sequence.SequencesComparator
+[[1;33mWARNING[m]   - io.fabric8.zjsonpatch.Diff
+[[1;33mWARNING[m]   - io.fabric8.zjsonpatch.internal.collections4.ListUtils
+[[1;33mWARNING[m]   - io.fabric8.zjsonpatch.JsonPatch
+[[1;33mWARNING[m]   - 14 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, kubernetes-model-common-5.12.0.jar define 16 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.model.annotation.Plural
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.model.annotation.Group
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.model.jackson.JsonUnwrappedDeserializer$CancelUnwrapped
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.model.jackson.JsonUnwrappedDeserializer
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.model.annotation.PrinterColumn
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.model.jackson.UnwrappedTypeResolverBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.model.annotation.Singular
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.model.annotation.StatusReplicas
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.model.annotation.SpecReplicas
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.model.annotation.Version
+[[1;33mWARNING[m]   - 6 more...
+[[1;33mWARNING[m] kubernetes-model-admissionregistration-5.12.0.jar, crd-generator-0.29.0-SNAPSHOT.jar define 362 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.admissionregistration.v1beta1.MutatingWebhookFluent$ObjectSelectorNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.authorization.v1.SubjectAccessReviewSpecFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.authorization.v1beta1.SubjectRulesReviewStatusBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.admissionregistration.v1.ValidatingWebhookConfigurationBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.authentication.TokenReviewFluentImpl$MetadataNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.authorization.v1beta1.SelfSubjectRulesReviewSpec
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.admissionregistration.v1beta1.MutatingWebhookFluentImpl$NamespaceSelectorNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.admissionregistration.v1beta1.MutatingWebhookConfigurationFluentImpl$WebhooksNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.authorization.v1beta1.SelfSubjectAccessReviewFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.admissionregistration.v1.MutatingWebhookFluent$ClientConfigNested
+[[1;33mWARNING[m]   - 352 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, okio-1.15.0.jar define 44 overlapping classes: 
+[[1;33mWARNING[m]   - okio.ByteString
+[[1;33mWARNING[m]   - okio.Source
+[[1;33mWARNING[m]   - okio.ForwardingSink
+[[1;33mWARNING[m]   - okio.BufferedSource
+[[1;33mWARNING[m]   - okio.Util
+[[1;33mWARNING[m]   - okio.AsyncTimeout$1
+[[1;33mWARNING[m]   - okio.HashingSource
+[[1;33mWARNING[m]   - okio.GzipSink
+[[1;33mWARNING[m]   - okio.Okio$1
+[[1;33mWARNING[m]   - okio.Pipe$PipeSink
+[[1;33mWARNING[m]   - 34 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, kubernetes-model-certificates-5.12.0.jar define 60 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.certificates.v1.CertificateSigningRequestStatusFluent$ConditionsNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.certificates.v1.CertificateSigningRequestFluent$SpecNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.certificates.v1.CertificateSigningRequestFluentImpl$StatusNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.certificates.v1beta1.CertificateSigningRequestListFluent$ItemsNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.certificates.v1beta1.CertificateSigningRequestStatusFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.certificates.v1beta1.CertificateSigningRequestFluent$MetadataNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.certificates.v1beta1.CertificateSigningRequestConditionFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.certificates.v1.CertificateSigningRequestStatusBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.certificates.v1beta1.CertificateSigningRequestStatusFluent$ConditionsNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.certificates.v1.CertificateSigningRequestFluentImpl
+[[1;33mWARNING[m]   - 50 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, jackson-datatype-jsr310-2.13.1.jar define 59 overlapping classes: 
+[[1;33mWARNING[m]   - com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer
+[[1;33mWARNING[m]   - com.fasterxml.jackson.datatype.jsr310.deser.key.Jsr310KeyDeserializer
+[[1;33mWARNING[m]   - com.fasterxml.jackson.datatype.jsr310.PackageVersion
+[[1;33mWARNING[m]   - com.fasterxml.jackson.datatype.jsr310.deser.YearDeserializer
+[[1;33mWARNING[m]   - com.fasterxml.jackson.datatype.jsr310.ser.key.Jsr310NullKeySerializer
+[[1;33mWARNING[m]   - com.fasterxml.jackson.datatype.jsr310.deser.key.LocalDateTimeKeyDeserializer
+[[1;33mWARNING[m]   - com.fasterxml.jackson.datatype.jsr310.util.DurationUnitConverter
+[[1;33mWARNING[m]   - com.fasterxml.jackson.datatype.jsr310.ser.InstantSerializerBase
+[[1;33mWARNING[m]   - com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer
+[[1;33mWARNING[m]   - com.fasterxml.jackson.datatype.jsr310.ser.OffsetDateTimeSerializer
+[[1;33mWARNING[m]   - 49 more...
+[[1;33mWARNING[m] crd-annotations-0.29.0-SNAPSHOT.jar, crd-generator-0.29.0-SNAPSHOT.jar define 8 overlapping classes: 
+[[1;33mWARNING[m]   - io.strimzi.api.annotations.VersionRange
+[[1;33mWARNING[m]   - io.strimzi.api.annotations.ApiVersion
+[[1;33mWARNING[m]   - io.strimzi.api.annotations.ApiVersion$Stability
+[[1;33mWARNING[m]   - io.strimzi.api.annotations.ApiVersion$1
+[[1;33mWARNING[m]   - io.strimzi.api.annotations.DeprecatedType
+[[1;33mWARNING[m]   - io.strimzi.api.annotations.DeprecatedProperty
+[[1;33mWARNING[m]   - io.strimzi.api.annotations.VersionRange$VersionParser
+[[1;33mWARNING[m]   - io.strimzi.api.annotations.KubeVersion
+[[1;33mWARNING[m] kubernetes-model-apps-5.12.0.jar, crd-generator-0.29.0-SNAPSHOT.jar define 212 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apps.ReplicaSetSpec
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apps.StatefulSetConditionFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apps.DeploymentStrategyFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apps.ControllerRevisionFluent$DeploymentDataNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apps.ReplicaSetSpecFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apps.DeploymentFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apps.ReplicaSetStatusFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apps.ControllerRevisionFluentImpl$PersistentVolumeClaimDataNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apps.ReplicaSetCondition
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.apps.StatefulSetSpecFluent$UpdateStrategyNested
+[[1;33mWARNING[m]   - 202 more...
+[[1;33mWARNING[m] logging-interceptor-3.12.12.jar, crd-generator-0.29.0-SNAPSHOT.jar define 8 overlapping classes: 
+[[1;33mWARNING[m]   - okhttp3.logging.HttpLoggingInterceptor$Logger$1
+[[1;33mWARNING[m]   - okhttp3.logging.LoggingEventListener$Factory
+[[1;33mWARNING[m]   - okhttp3.logging.HttpLoggingInterceptor$Level
+[[1;33mWARNING[m]   - okhttp3.logging.HttpLoggingInterceptor
+[[1;33mWARNING[m]   - okhttp3.logging.package-info
+[[1;33mWARNING[m]   - okhttp3.logging.LoggingEventListener
+[[1;33mWARNING[m]   - okhttp3.logging.LoggingEventListener$1
+[[1;33mWARNING[m]   - okhttp3.logging.HttpLoggingInterceptor$Logger
+[[1;33mWARNING[m] jackson-databind-2.12.6.jar, crd-generator-0.29.0-SNAPSHOT.jar define 700 overlapping classes: 
+[[1;33mWARNING[m]   - com.fasterxml.jackson.databind.introspect.AnnotationCollector$NoAnnotations
+[[1;33mWARNING[m]   - com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator$Builder
+[[1;33mWARNING[m]   - com.fasterxml.jackson.databind.BeanDescription
+[[1;33mWARNING[m]   - com.fasterxml.jackson.databind.deser.impl.BeanAsArrayBuilderDeserializer
+[[1;33mWARNING[m]   - com.fasterxml.jackson.databind.introspect.AnnotatedMethodMap
+[[1;33mWARNING[m]   - com.fasterxml.jackson.databind.SerializerProvider
+[[1;33mWARNING[m]   - com.fasterxml.jackson.databind.introspect.AnnotationCollector$OneAnnotation
+[[1;33mWARNING[m]   - com.fasterxml.jackson.databind.ser.std.StaticListSerializerBase
+[[1;33mWARNING[m]   - com.fasterxml.jackson.databind.ser.std.NumberSerializers$ShortSerializer
+[[1;33mWARNING[m]   - com.fasterxml.jackson.databind.ser.BeanSerializerFactory
+[[1;33mWARNING[m]   - 690 more...
+[[1;33mWARNING[m] jackson-dataformat-yaml-2.12.6.jar, crd-generator-0.29.0-SNAPSHOT.jar define 17 overlapping classes: 
+[[1;33mWARNING[m]   - com.fasterxml.jackson.dataformat.yaml.YAMLMapper$Builder
+[[1;33mWARNING[m]   - com.fasterxml.jackson.dataformat.yaml.snakeyaml.error.Mark
+[[1;33mWARNING[m]   - com.fasterxml.jackson.dataformat.yaml.YAMLGenerator
+[[1;33mWARNING[m]   - com.fasterxml.jackson.dataformat.yaml.UTF8Reader
+[[1;33mWARNING[m]   - com.fasterxml.jackson.dataformat.yaml.YAMLParser
+[[1;33mWARNING[m]   - com.fasterxml.jackson.dataformat.yaml.util.StringQuotingChecker
+[[1;33mWARNING[m]   - com.fasterxml.jackson.dataformat.yaml.YAMLGenerator$Feature
+[[1;33mWARNING[m]   - com.fasterxml.jackson.dataformat.yaml.JacksonYAMLParseException
+[[1;33mWARNING[m]   - com.fasterxml.jackson.dataformat.yaml.YAMLParser$Feature
+[[1;33mWARNING[m]   - com.fasterxml.jackson.dataformat.yaml.util.StringQuotingChecker$Default
+[[1;33mWARNING[m]   - 7 more...
+[[1;33mWARNING[m] kubernetes-model-core-5.12.0.jar, crd-generator-0.29.0-SNAPSHOT.jar define 2394 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.BaseKubernetesListFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.StatusBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.KubeSchemaFluentImpl$APIResourceNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.NodeListBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.ResourceQuotaListFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.WatchEventFluentImpl$APIServiceStatusObjectNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.WatchEventFluent$VsphereVirtualDiskVolumeSourceObjectNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.ProbeFluentImpl$HttpGetNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.PatchOptionsFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.ServerAddressByClientCIDRFluentImpl
+[[1;33mWARNING[m]   - 2384 more...
+[[1;33mWARNING[m] slf4j-api-1.7.36.jar, crd-generator-0.29.0-SNAPSHOT.jar define 34 overlapping classes: 
+[[1;33mWARNING[m]   - org.slf4j.helpers.SubstituteLogger
+[[1;33mWARNING[m]   - org.slf4j.helpers.NamedLoggerBase
+[[1;33mWARNING[m]   - org.slf4j.helpers.NOPMDCAdapter
+[[1;33mWARNING[m]   - org.slf4j.MarkerFactory
+[[1;33mWARNING[m]   - org.slf4j.helpers.BasicMarker
+[[1;33mWARNING[m]   - org.slf4j.spi.LoggerFactoryBinder
+[[1;33mWARNING[m]   - org.slf4j.MDC$MDCCloseable
+[[1;33mWARNING[m]   - org.slf4j.spi.LocationAwareLogger
+[[1;33mWARNING[m]   - org.slf4j.helpers.MessageFormatter
+[[1;33mWARNING[m]   - org.slf4j.helpers.Util$ClassContextSecurityManager
+[[1;33mWARNING[m]   - 24 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, kubernetes-model-node-5.12.0.jar define 78 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.node.v1beta1.OverheadBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.node.v1.RuntimeClassListFluent$ItemsNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.node.v1alpha1.Scheduling
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.node.v1beta1.RuntimeClassFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.node.v1beta1.RuntimeClassListBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.node.v1.RuntimeClassFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.node.v1alpha1.SchedulingFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.node.v1alpha1.RuntimeClassSpecFluent$OverheadNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.node.v1.RuntimeClassBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.node.v1.RuntimeClassFluentImpl
+[[1;33mWARNING[m]   - 68 more...
+[[1;33mWARNING[m] crd-generator-0.29.0-SNAPSHOT.jar, snakeyaml-1.27.jar define 216 overlapping classes: 
+[[1;33mWARNING[m]   - org.yaml.snakeyaml.emitter.Emitter$ExpectBlockMappingValue
+[[1;33mWARNING[m]   - org.yaml.snakeyaml.parser.ParserImpl$ParseBlockNode
+[[1;33mWARNING[m]   - org.yaml.snakeyaml.emitter.Emitter$ExpectBlockMappingSimpleValue
+[[1;33mWARNING[m]   - org.yaml.snakeyaml.emitter.Emitter$ExpectDocumentEnd
+[[1;33mWARNING[m]   - org.yaml.snakeyaml.Yaml$3
+[[1;33mWARNING[m]   - org.yaml.snakeyaml.emitter.Emitter$ExpectBlockSequenceItem
+[[1;33mWARNING[m]   - org.yaml.snakeyaml.parser.ParserImpl$ParseBlockSequenceEntry
+[[1;33mWARNING[m]   - org.yaml.snakeyaml.util.ArrayUtils
+[[1;33mWARNING[m]   - org.yaml.snakeyaml.tokens.Token$ID
+[[1;33mWARNING[m]   - org.yaml.snakeyaml.reader.StreamReader
+[[1;33mWARNING[m]   - 206 more...
+[[1;33mWARNING[m] kubernetes-client-5.12.0.jar, crd-generator-0.29.0-SNAPSHOT.jar define 536 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.client.internal.CertUtils
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.client.CustomResource
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.client.osgi.ManagedKubernetesClient
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.client.V1beta1ApiextensionAPIGroupDSL
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.client.internal.PatchUtils$SingletonHolder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.client.VersionInfo$1
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.client.utils.ReplaceValueStream
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.client.dsl.CreateFromServerGettable
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.client.dsl.ApiextensionsAPIGroupDSL
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.client.dsl.Containerable
+[[1;33mWARNING[m]   - 526 more...
+[[1;33mWARNING[m] kubernetes-model-scheduling-5.12.0.jar, crd-generator-0.29.0-SNAPSHOT.jar define 24 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.scheduling.v1.PriorityClassFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.scheduling.v1.PriorityClassFluentImpl$MetadataNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.scheduling.v1.PriorityClassListFluent$ItemsNested
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.scheduling.v1.PriorityClassList
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.scheduling.v1beta1.PriorityClassListFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.scheduling.v1.PriorityClassListFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.scheduling.v1.PriorityClass
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.scheduling.v1.PriorityClassListFluentImpl$ItemsNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.scheduling.v1beta1.PriorityClassBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.scheduling.v1beta1.PriorityClassFluent$MetadataNested
+[[1;33mWARNING[m]   - 14 more...
+[[1;33mWARNING[m] kubernetes-model-policy-5.12.0.jar, crd-generator-0.29.0-SNAPSHOT.jar define 162 overlapping classes: 
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.policy.v1.PodDisruptionBudgetList
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.policy.v1beta1.HostPortRangeBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.policy.v1beta1.EvictionFluentImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.policy.v1beta1.PodSecurityPolicyFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.policy.v1beta1.PodSecurityPolicySpecFluentImpl$AllowedCSIDriversNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.policy.v1beta1.PodSecurityPolicyListFluentImpl$ItemsNestedImpl
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.policy.v1beta1.AllowedFlexVolumeBuilder
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.policy.v1beta1.IDRangeFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.policy.v1beta1.SELinuxStrategyOptionsFluent
+[[1;33mWARNING[m]   - io.fabric8.kubernetes.api.model.policy.v1beta1.PodSecurityPolicySpecFluentImpl$FsGroupNestedImpl
+[[1;33mWARNING[m]   - 152 more...
+[[1;33mWARNING[m] maven-shade-plugin has detected that some class files are
+[[1;33mWARNING[m] present in two or more JARs. When this happens, only one
+[[1;33mWARNING[m] single version of the class is copied to the uber jar.
+[[1;33mWARNING[m] Usually this is not harmful and you can skip these warnings,
+[[1;33mWARNING[m] otherwise try to manually exclude artifacts based on
+[[1;33mWARNING[m] mvn dependency:tree -Ddetail=true and the above output.
+[[1;33mWARNING[m] See http://maven.apache.org/plugins/maven-shade-plugin/
+[[1;34mINFO[m] Replacing original artifact with shaded artifact.
+[[1;34mINFO[m] Replacing /home/ec2-user/strimzi-kafka-operator/crd-generator/target/crd-generator-0.29.0-SNAPSHOT.jar with /home/ec2-user/strimzi-kafka-operator/crd-generator/target/crd-generator-0.29.0-SNAPSHOT-shaded.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:integration-test[m [1m(default)[m @ [36mcrd-generator[0;1m ---[m
+[[1;33mWARNING[m] useSystemClassLoader setting has no effect when not forking
+[[1;33mWARNING[m] The parameter forkCount should likely not be 0, not forking a JVM for tests reduce test accuracy, ensure to have a <forkCount> >= 1.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:verify[m [1m(default)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:3.1.1:analyze-only[m [1m(analyze)[m @ [36mcrd-generator[0;1m ---[m
+[[1;34mINFO[m] No dependency problems found
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------------< [0;36mio.strimzi:api[0;1m >---------------------------[m
+[[1;34mINFO[m] [1mBuilding api 0.29.0-SNAPSHOT                                      [5/10][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/api/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/ec2-user/strimzi-kafka-operator/api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mexec-maven-plugin:1.6.0:exec[m [1m(generate-crd-co-install-v1)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mexec-maven-plugin:1.6.0:exec[m [1m(generate-crd-co-install-v1-eo)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mexec-maven-plugin:1.6.0:exec[m [1m(generate-doc)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 99 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-test-compile)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M5:test[m [1m(default-test)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.0:jar[m [1m(default-jar)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:report[m [1m(report)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36mapi[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/api/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36mapi[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.1.0:jar[m [1m(attach-javadocs)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.0:test-jar[m [1m(default)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:integration-test[m [1m(default)[m @ [36mapi[0;1m ---[m
+[[1;33mWARNING[m] useSystemClassLoader setting has no effect when not forking
+[[1;33mWARNING[m] The parameter forkCount should likely not be 0, not forking a JVM for tests reduce test accuracy, ensure to have a <forkCount> >= 1.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:verify[m [1m(default)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:3.1.1:analyze-only[m [1m(analyze)[m @ [36mapi[0;1m ---[m
+[[1;34mINFO[m] No dependency problems found
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------< [0;36mio.strimzi:mockkube[0;1m >-------------------------[m
+[[1;34mINFO[m] [1mBuilding mockkube 0.29.0-SNAPSHOT                                 [6/10][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/mockkube/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/ec2-user/strimzi-kafka-operator/mockkube/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M5:test[m [1m(default-test)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.0:jar[m [1m(default-jar)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:report[m [1m(report)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36mmockkube[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/mockkube/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36mmockkube[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/ec2-user/strimzi-kafka-operator/mockkube/target/mockkube-0.29.0-SNAPSHOT-sources.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.1.0:jar[m [1m(attach-javadocs)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:integration-test[m [1m(default)[m @ [36mmockkube[0;1m ---[m
+[[1;33mWARNING[m] useSystemClassLoader setting has no effect when not forking
+[[1;33mWARNING[m] The parameter forkCount should likely not be 0, not forking a JVM for tests reduce test accuracy, ensure to have a <forkCount> >= 1.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:verify[m [1m(default)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:3.1.1:analyze-only[m [1m(analyze)[m @ [36mmockkube[0;1m ---[m
+[[1;34mINFO[m] No dependency problems found
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36mio.strimzi:config-model[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding config-model 0.29.0-SNAPSHOT                             [7/10][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/config-model/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/ec2-user/strimzi-kafka-operator/config-model/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/ec2-user/strimzi-kafka-operator/config-model/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M5:test[m [1m(default-test)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.0:jar[m [1m(default-jar)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:report[m [1m(report)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36mconfig-model[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/config-model/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36mconfig-model[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/ec2-user/strimzi-kafka-operator/config-model/target/config-model-0.29.0-SNAPSHOT-sources.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.1.0:jar[m [1m(attach-javadocs)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:integration-test[m [1m(default)[m @ [36mconfig-model[0;1m ---[m
+[[1;33mWARNING[m] useSystemClassLoader setting has no effect when not forking
+[[1;33mWARNING[m] The parameter forkCount should likely not be 0, not forking a JVM for tests reduce test accuracy, ensure to have a <forkCount> >= 1.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:verify[m [1m(default)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:3.1.1:analyze-only[m [1m(analyze)[m @ [36mconfig-model[0;1m ---[m
+[[1;34mINFO[m] No dependency problems found
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------------------< [0;36mio.strimzi:certificate-manager[0;1m >-------------------[m
+[[1;34mINFO[m] [1mBuilding certificate-manager 0.29.0-SNAPSHOT                      [8/10][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/certificate-manager/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M5:test[m [1m(default-test)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.0:jar[m [1m(default-jar)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:report[m [1m(report)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36mcertificate-manager[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/certificate-manager/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36mcertificate-manager[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/ec2-user/strimzi-kafka-operator/certificate-manager/target/certificate-manager-0.29.0-SNAPSHOT-sources.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.1.0:jar[m [1m(attach-javadocs)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:integration-test[m [1m(default)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;33mWARNING[m] useSystemClassLoader setting has no effect when not forking
+[[1;33mWARNING[m] The parameter forkCount should likely not be 0, not forking a JVM for tests reduce test accuracy, ensure to have a <forkCount> >= 1.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:verify[m [1m(default)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:3.1.1:analyze-only[m [1m(analyze)[m @ [36mcertificate-manager[0;1m ---[m
+[[1;34mINFO[m] No dependency problems found
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------< [0;36mio.strimzi:operator-common[0;1m >---------------------[m
+[[1;34mINFO[m] [1mBuilding operator-common 0.29.0-SNAPSHOT                          [9/10][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/operator-common/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/ec2-user/strimzi-kafka-operator/operator-common/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 9 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M5:test[m [1m(default-test)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.0:jar[m [1m(default-jar)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:report[m [1m(report)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36moperator-common[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/operator-common/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36moperator-common[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/ec2-user/strimzi-kafka-operator/operator-common/target/operator-common-0.29.0-SNAPSHOT-sources.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.1.0:jar[m [1m(attach-javadocs)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.0:test-jar[m [1m(default)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:integration-test[m [1m(default)[m @ [36moperator-common[0;1m ---[m
+[[1;33mWARNING[m] useSystemClassLoader setting has no effect when not forking
+[[1;33mWARNING[m] The parameter forkCount should likely not be 0, not forking a JVM for tests reduce test accuracy, ensure to have a <forkCount> >= 1.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:verify[m [1m(default)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:3.1.1:analyze-only[m [1m(analyze)[m @ [36moperator-common[0;1m ---[m
+[[1;34mINFO[m] No dependency problems found
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------------< [0;36mio.strimzi:systemtest[0;1m >------------------------[m
+[[1;34mINFO[m] [1mBuilding systemtest 0.29.0-SNAPSHOT                              [10/10][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/systemtest/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 3 resources
+[[1;34mINFO[m] Copying 2 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 32 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M5:test[m [1m(default-test)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[[1;34mINFO[m] 
+[[1;33mWARNING[m] Corrupted STDOUT by directly writing to native stream in forked JVM 1. See FAQ web page and the dump file /home/ec2-user/strimzi-kafka-operator/systemtest/target/surefire-reports/2022-03-30T12-29-50_871-jvmRun1.dumpstream
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.1.0:jar[m [1m(default-jar)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:report[m [1m(report)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36msystemtest[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:3.1.2:check[m [1m(validate)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] Starting audit...
+Audit done.
+[[1;34mINFO[m] You have 0 Checkstyle violations.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-banned-dependencies)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.7.9:prepare-agent[m [1m(default)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] surefireArgLine set to -javaagent:/home/ec2-user/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/home/ec2-user/strimzi-kafka-operator/systemtest/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36msystemtest[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.0.1:jar[m [1m(attach-sources)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.1.0:jar[m [1m(attach-javadocs)[m @ [36msystemtest[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-failsafe-plugin:3.0.0-M5:integration-test[m [1m(default)[m @ [36msystemtest[0;1m ---[m
+[[1;33mWARNING[m] useSystemClassLoader setting has no effect when not forking
+[[1;33mWARNING[m] The parameter forkCount should likely not be 0, not forking a JVM for tests reduce test accuracy, ensure to have a <forkCount> >= 1.
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:29] =======================================================================
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:30] =======================================================================
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:31]                         Test run started
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:32] =======================================================================
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:33] =======================================================================
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:48] Following testclasses are selected for run:
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.operators.user.UserST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.bridge.HttpBridgeTlsST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.cruisecontrol.CruiseControlApiST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.cruisecontrol.CruiseControlST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.kafka.listeners.ListenersST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.security.SecurityST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.rollingupdate.RollingUpdateST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.specific.SpecificIsolatedST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.watcher.AllNamespaceIsolatedST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.connect.ConnectIsolatedST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.mirrormaker.MirrorMaker2IsolatedST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.mirrormaker.MirrorMakerIsolatedST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:51] -> io.strimzi.systemtest.metrics.MetricsIsolatedST
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:52] =======================================================================
+2022-03-30 12:30:08 [main] [32mINFO [m [TestExecutionListener:53] =======================================================================
+[[1;34mINFO[m] Running io.strimzi.systemtest.operators.user.UserST
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:219] Used environment variables:
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:220] CONFIG: /home/ec2-user/strimzi-kafka-operator/systemtest/config.json
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] STRIMZI_RBAC_SCOPE: CLUSTER
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] OLM_APP_BUNDLE_PREFIX: strimzi-cluster-operator
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] TEST_CLIENTS_VERSION: 0.2.0
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] OLM_SOURCE_NAMESPACE: openshift-marketplace
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] CLUSTER_OPERATOR_INSTALL_TYPE: BUNDLE
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] STRIMZI_COMPONENTS_LOG_LEVEL: INFO
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] SKIP_TEARDOWN: false
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] LB_FINALIZERS: false
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] OLM_OPERATOR_DEPLOYMENT_NAME: strimzi-cluster-operator
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] DOCKER_ORG: strimzi
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] TEST_LOG_DIR: /home/ec2-user/strimzi-kafka-operator/systemtest/../systemtest/target/logs/
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] COMPONENTS_IMAGE_PULL_POLICY: IfNotPresent
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] DOCKER_REGISTRY: quay.io
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] TEST_CLIENT_IMAGE: quay.io/strimzi/test-client:latest-kafka-3.1.0
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] SYSTEM_TEST_STRIMZI_IMAGE_PULL_SECRET: 
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] TEST_ADMIN_IMAGE: quay.io/strimzi-test-clients/test-client-kafka-admin:0.2.0-kafka-3.1.0
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] TEST_HTTP_PRODUCER_IMAGE: quay.io/strimzi-test-clients/test-client-http-producer:0.2.0
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] OLM_OPERATOR_NAME: strimzi-kafka-operator
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] DOCKER_TAG: latest
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] OLM_SOURCE_NAME: community-operators
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] STRIMZI_FEATURE_GATES: 
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] CLIENTS_KAFKA_VERSION: 3.1.0
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] TEST_HTTP_CONSUMER_IMAGE: quay.io/strimzi-test-clients/test-client-http-consumer:0.2.0
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] STRIMZI_LOG_LEVEL: DEBUG
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] ST_KAFKA_VERSION: 3.1.0
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] OPERATOR_IMAGE_PULL_POLICY: Always
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] DEFAULT_TO_DENY_NETWORK_POLICIES: true
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] TEST_PRODUCER_IMAGE: quay.io/strimzi-test-clients/test-client-kafka-producer:0.2.0-kafka-3.1.0
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] BRIDGE_IMAGE: latest-released
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] TEST_STREAMS_IMAGE: quay.io/strimzi-test-clients/test-client-kafka-streams:0.2.0-kafka-3.1.0
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] TEST_CONSUMER_IMAGE: quay.io/strimzi-test-clients/test-client-kafka-consumer:0.2.0-kafka-3.1.0
+2022-03-30 12:30:08 [ForkJoinPool-3-worker-3] [32mINFO [m [Environment:221] OLM_OPERATOR_VERSION: 
+2022-03-30 12:30:09 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeCluster:87] Using cluster: minikube
+2022-03-30 12:30:09 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:60] Cluster default namespace is 'default'
+2022-03-30 12:30:09 [ForkJoinPool-3-worker-3] [32mINFO [m [SetupClusterOperator:197] Cluster operator installation configuration:
+extensionContext=org.junit.jupiter.engine.descriptor.JupiterEngineExtensionContext@388fed38
+clusterOperatorName=strimzi-cluster-operator
+namespaceInstallTo=infra-namespace
+namespaceToWatch=*
+bindingsNamespaces=[infra-namespace]
+operationTimeout=300000
+reconciliationInterval=30000
+clusterOperatorRBACType=CLUSTER
+2022-03-30 12:30:09 [ForkJoinPool-3-worker-3] [32mINFO [m [SetupClusterOperator:248] Install ClusterOperator via Yaml bundle
+2022-03-30 12:30:10 [ForkJoinPool-3-worker-3] [33mWARN [m [KubeClusterResource:151] Namespace infra-namespace is already created, going to delete it
+2022-03-30 12:30:37 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:156] Creating Namespace: infra-namespace
+2022-03-30 12:30:37 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:82] Client use Namespace: infra-namespace
+2022-03-30 12:30:37 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ServiceAccount strimzi-cluster-operator in namespace infra-namespace
+2022-03-30 12:30:37 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ClusterRole strimzi-cluster-operator-namespaced in namespace (not set)
+2022-03-30 12:30:37 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ClusterRole strimzi-cluster-operator-global in namespace (not set)
+2022-03-30 12:30:37 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ClusterRole strimzi-kafka-broker in namespace (not set)
+2022-03-30 12:30:37 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ClusterRole strimzi-entity-operator in namespace (not set)
+2022-03-30 12:30:37 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ClusterRole strimzi-kafka-client in namespace (not set)
+2022-03-30 12:30:37 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update CustomResourceDefinition kafkas.kafka.strimzi.io in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update CustomResourceDefinition kafkaconnects.kafka.strimzi.io in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update CustomResourceDefinition strimzipodsets.core.strimzi.io in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update CustomResourceDefinition kafkatopics.kafka.strimzi.io in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update CustomResourceDefinition kafkausers.kafka.strimzi.io in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update CustomResourceDefinition kafkamirrormakers.kafka.strimzi.io in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update CustomResourceDefinition kafkabridges.kafka.strimzi.io in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update CustomResourceDefinition kafkaconnectors.kafka.strimzi.io in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update CustomResourceDefinition kafkamirrormaker2s.kafka.strimzi.io in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update CustomResourceDefinition kafkarebalances.kafka.strimzi.io in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ConfigMap strimzi-cluster-operator in namespace infra-namespace
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: infra-namespace
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ClusterRoleBindingResource:48] Creating ClusterRoleBinding in test case JUnit Jupiter from /home/ec2-user/strimzi-kafka-operator/systemtest/../packaging/install/cluster-operator/021-ClusterRoleBinding-strimzi-cluster-operator.yaml in namespace infra-namespace
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ClusterRoleBinding strimzi-cluster-operator in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ClusterRoleBindingResource:48] Creating ClusterRoleBinding in test case JUnit Jupiter from /home/ec2-user/strimzi-kafka-operator/systemtest/../packaging/install/cluster-operator/030-ClusterRoleBinding-strimzi-cluster-operator-kafka-broker-delegation.yaml in namespace infra-namespace
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ClusterRoleBinding strimzi-cluster-operator-kafka-broker-delegation in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ClusterRoleBindingResource:48] Creating ClusterRoleBinding in test case JUnit Jupiter from /home/ec2-user/strimzi-kafka-operator/systemtest/../packaging/install/cluster-operator/033-ClusterRoleBinding-strimzi-cluster-operator-kafka-client-delegation.yaml in namespace infra-namespace
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ClusterRoleBinding strimzi-cluster-operator-kafka-client-delegation in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [RoleBindingResource:43] Creating RoleBinding in test case JUnit Jupiter from /home/ec2-user/strimzi-kafka-operator/systemtest/../packaging/install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml in namespace infra-namespace
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update RoleBinding strimzi-cluster-operator in namespace infra-namespace
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [RoleBindingResource:43] Creating RoleBinding in test case JUnit Jupiter from /home/ec2-user/strimzi-kafka-operator/systemtest/../packaging/install/cluster-operator/031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml in namespace infra-namespace
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update RoleBinding strimzi-cluster-operator-entity-operator-delegation in namespace infra-namespace
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ClusterRoleBindingTemplates:21] Creating ClusterRoleBinding that grant cluster-wide access to all OpenShift projects
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ClusterRoleBindingTemplates:26] Creating ClusterRoleBinding that grant cluster-wide access to all OpenShift projects
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ClusterRoleBinding strimzi-cluster-operator-namespaced in namespace (not set)
+2022-03-30 12:30:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update ClusterRoleBinding strimzi-cluster-operator-entity-operator in namespace (not set)
+2022-03-30 12:30:39 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Deployment strimzi-cluster-operator in namespace infra-namespace
+2022-03-30 12:30:39 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:161] Wait for Deployment: strimzi-cluster-operator will be ready
+2022-03-30 12:31:08 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:168] Deployment: strimzi-cluster-operator is ready
+2022-03-30 12:31:08 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:194] Waiting for 1 Pod(s) of Deployment strimzi-cluster-operator to be ready
+2022-03-30 12:31:18 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:197] Deployment strimzi-cluster-operator is ready
+2022-03-30 12:31:18 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:156] Creating Namespace: user-st
+2022-03-30 12:31:18 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:82] Client use Namespace: user-st
+2022-03-30 12:31:18 [ForkJoinPool-3-worker-3] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: user-st
+2022-03-30 12:31:18 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Kafka user-cluster-name in namespace user-st
+2022-03-30 12:31:18 [ForkJoinPool-3-worker-3] [33mWARN [m [VersionUsageUtils:60] The client is using resource type 'kafkas' with unstable version 'v1beta2'
+2022-03-30 12:31:18 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for Kafka: user-cluster-name will have desired state: Ready
+2022-03-30 12:32:34 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] Kafka: user-cluster-name is in desired state: Ready
+2022-03-30 12:32:34 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:23] ############################################################################
+2022-03-30 12:32:34 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:24] io.strimzi.systemtest.operators.user.UserST.testUpdateUser-STARTED
+2022-03-30 12:32:34 [ForkJoinPool-3-worker-3] [32mINFO [m [AbstractST:597] Not first test we are gonna generate cluster name
+2022-03-30 12:32:34 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update KafkaUser my-user-1547117302-968229478 in namespace user-st
+2022-03-30 12:32:34 [ForkJoinPool-3-worker-3] [33mWARN [m [VersionUsageUtils:60] The client is using resource type 'kafkausers' with unstable version 'v1beta2'
+2022-03-30 12:32:34 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaUser: my-user-1547117302-968229478 will have desired state: Ready
+2022-03-30 12:32:35 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaUser: my-user-1547117302-968229478 is in desired state: Ready
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [SecretUtils:46] Waiting for Secret my-user-1547117302-968229478
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [SecretUtils:50] Secret my-user-1547117302-968229478 created
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaUser: my-user-1547117302-968229478 will have desired state: Ready
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaUser: my-user-1547117302-968229478 is in desired state: Ready
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaUserUtils:62] Waiting for KafkaUser deletion my-user-1547117302-968229478
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaUserUtils:75] KafkaUser my-user-1547117302-968229478 deleted
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:348] Delete all resources for testUpdateUser
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of KafkaUser my-user-1547117302-968229478 in namespace user-st
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:369] ############################################################################
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:29] io.strimzi.systemtest.operators.user.UserST.testUpdateUser-FINISHED
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:30] ############################################################################
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:348] Delete all resources for UserST
+2022-03-30 12:32:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of Kafka user-cluster-name in namespace user-st
+2022-03-30 12:32:46 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:369] ############################################################################
+[[1;34mINFO[m] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 163.264 s - in io.strimzi.systemtest.operators.user.UserST
+[[1;34mINFO[m] Running io.strimzi.systemtest.bridge.HttpBridgeTlsST
+2022-03-30 12:32:51 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:156] Creating Namespace: http-bridge-tls-st
+2022-03-30 12:32:51 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:82] Client use Namespace: http-bridge-tls-st
+2022-03-30 12:32:51 [ForkJoinPool-3-worker-3] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: http-bridge-tls-st
+2022-03-30 12:32:51 [ForkJoinPool-3-worker-3] [32mINFO [m [HttpBridgeTlsST:129] Deploy Kafka and KafkaBridge before tests
+2022-03-30 12:32:51 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Kafka http-bridge-tls-cluster-name in namespace http-bridge-tls-st
+2022-03-30 12:32:51 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for Kafka: http-bridge-tls-cluster-name will have desired state: Ready
+2022-03-30 12:33:57 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] Kafka: http-bridge-tls-cluster-name is in desired state: Ready
+2022-03-30 12:33:57 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update KafkaUser my-user-1396100878-1317489692 in namespace http-bridge-tls-st
+2022-03-30 12:33:57 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaUser: my-user-1396100878-1317489692 will have desired state: Ready
+2022-03-30 12:33:58 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaUser: my-user-1396100878-1317489692 is in desired state: Ready
+2022-03-30 12:33:58 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Deployment http-bridge-tls-st-kafka-clients in namespace http-bridge-tls-st
+2022-03-30 12:33:58 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:161] Wait for Deployment: http-bridge-tls-st-kafka-clients will be ready
+2022-03-30 12:34:00 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:168] Deployment: http-bridge-tls-st-kafka-clients is ready
+2022-03-30 12:34:00 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update KafkaBridge http-bridge-tls-cluster-name in namespace http-bridge-tls-st
+2022-03-30 12:34:00 [ForkJoinPool-3-worker-3] [33mWARN [m [VersionUsageUtils:60] The client is using resource type 'kafkabridges' with unstable version 'v1beta2'
+2022-03-30 12:34:00 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaBridge: http-bridge-tls-cluster-name will have desired state: Ready
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaBridge: http-bridge-tls-cluster-name is in desired state: Ready
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaClients:87] Consumer group were not specified going to create the random one.
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:23] ############################################################################
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:24] io.strimzi.systemtest.bridge.HttpBridgeTlsST.testSendSimpleMessageTls-STARTED
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:23] ############################################################################
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:24] io.strimzi.systemtest.bridge.HttpBridgeTlsST.testReceiveSimpleMessageTls-STARTED
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-3] [32mINFO [m [AbstractST:597] Not first test we are gonna generate cluster name
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-1] [32mINFO [m [AbstractST:597] Not first test we are gonna generate cluster name
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:155] Create/Update KafkaTopic my-topic-651825809-288359841 in namespace http-bridge-tls-st
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update KafkaTopic my-topic-291328277-990319460 in namespace http-bridge-tls-st
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-3] [33mWARN [m [VersionUsageUtils:60] The client is using resource type 'kafkatopics' with unstable version 'v1beta2'
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaTopic: my-topic-291328277-990319460 will have desired state: Ready
+2022-03-30 12:34:20 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:433] Wait for KafkaTopic: my-topic-651825809-288359841 will have desired state: Ready
+2022-03-30 12:34:21 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaTopic: my-topic-291328277-990319460 is in desired state: Ready
+2022-03-30 12:34:21 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:444] KafkaTopic: my-topic-651825809-288359841 is in desired state: Ready
+2022-03-30 12:34:21 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:155] Create/Update Job consumer-1300906824 in namespace http-bridge-tls-st
+2022-03-30 12:34:21 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Job producer-1240017696 in namespace http-bridge-tls-st
+2022-03-30 12:34:21 [ForkJoinPool-3-worker-3] [32mINFO [m [JobUtils:81] Waiting for job: producer-1240017696 will be in active state
+2022-03-30 12:34:21 [ForkJoinPool-3-worker-1] [32mINFO [m [JobUtils:81] Waiting for job: consumer-1300906824 will be in active state
+2022-03-30 12:34:22 [ForkJoinPool-3-worker-3] [32mINFO [m [ClientUtils:76] Waiting for producer/consumer:producer-1240017696 to finished
+2022-03-30 12:34:22 [ForkJoinPool-3-worker-1] [32mINFO [m [KafkaClients:87] Consumer group were not specified going to create the random one.
+2022-03-30 12:34:22 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:155] Create/Update Job producer-428440345 in namespace http-bridge-tls-st
+2022-03-30 12:34:22 [ForkJoinPool-3-worker-1] [32mINFO [m [JobUtils:81] Waiting for job: producer-428440345 will be in active state
+2022-03-30 12:34:23 [ForkJoinPool-3-worker-1] [32mINFO [m [ClientUtils:61] Waiting till producer producer-428440345 and consumer consumer-1300906824 finish
+2022-03-30 12:34:31 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaClients:87] Consumer group were not specified going to create the random one.
+2022-03-30 12:34:31 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Job consumer-116435652 in namespace http-bridge-tls-st
+2022-03-30 12:34:31 [ForkJoinPool-3-worker-3] [32mINFO [m [JobUtils:81] Waiting for job: consumer-116435652 will be in active state
+2022-03-30 12:34:32 [ForkJoinPool-3-worker-3] [32mINFO [m [ClientUtils:76] Waiting for producer/consumer:consumer-116435652 to finished
+2022-03-30 12:34:38 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:34:38 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:348] Delete all resources for testReceiveSimpleMessageTls
+2022-03-30 12:34:38 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of Job consumer-1300906824 in namespace http-bridge-tls-st
+2022-03-30 12:34:38 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of Job producer-428440345 in namespace http-bridge-tls-st
+2022-03-30 12:34:38 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of KafkaTopic my-topic-651825809-288359841 in namespace http-bridge-tls-st
+2022-03-30 12:34:43 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:34:43 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:348] Delete all resources for testSendSimpleMessageTls
+2022-03-30 12:34:43 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of Job producer-1240017696 in namespace http-bridge-tls-st
+2022-03-30 12:34:43 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of Job consumer-116435652 in namespace http-bridge-tls-st
+2022-03-30 12:34:43 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of KafkaTopic my-topic-291328277-990319460 in namespace http-bridge-tls-st
+2022-03-30 12:34:48 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:369] ############################################################################
+2022-03-30 12:34:48 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:29] io.strimzi.systemtest.bridge.HttpBridgeTlsST.testReceiveSimpleMessageTls-FINISHED
+2022-03-30 12:34:48 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:30] ############################################################################
+2022-03-30 12:34:53 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:369] ############################################################################
+2022-03-30 12:34:53 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:29] io.strimzi.systemtest.bridge.HttpBridgeTlsST.testSendSimpleMessageTls-FINISHED
+2022-03-30 12:34:53 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:30] ############################################################################
+2022-03-30 12:34:53 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:34:53 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:348] Delete all resources for HttpBridgeTlsST
+2022-03-30 12:34:53 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of Deployment http-bridge-tls-st-kafka-clients in namespace http-bridge-tls-st
+2022-03-30 12:34:53 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of KafkaUser my-user-1396100878-1317489692 in namespace http-bridge-tls-st
+2022-03-30 12:35:03 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of Kafka http-bridge-tls-cluster-name in namespace http-bridge-tls-st
+2022-03-30 12:35:13 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of KafkaBridge http-bridge-tls-cluster-name in namespace http-bridge-tls-st
+2022-03-30 12:35:33 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:369] ############################################################################
+[[1;34mINFO[m] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 167.582 s - in io.strimzi.systemtest.bridge.HttpBridgeTlsST
+[[1;34mINFO[m] Running io.strimzi.systemtest.cruisecontrol.CruiseControlApiST
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:156] Creating Namespace: cruise-control-api-st
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:82] Client use Namespace: cruise-control-api-st
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: cruise-control-api-st
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:23] ############################################################################
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:23] ############################################################################
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:24] io.strimzi.systemtest.cruisecontrol.CruiseControlApiST.testCruiseControlBasicAPIRequestsWithSecurityDisabled-STARTED
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:24] io.strimzi.systemtest.cruisecontrol.CruiseControlApiST.testCruiseControlBasicAPIRequests-STARTED
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [AbstractST:597] Not first test we are gonna generate cluster name
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSuiteNamespaceManager:163] Creating namespace:namespace-0 for test case:testCruiseControlBasicAPIRequestsWithSecurityDisabled
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:156] Creating Namespace: namespace-0
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:82] Client use Namespace: namespace-0
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: namespace-0
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-1] [32mINFO [m [AbstractST:597] Not first test we are gonna generate cluster name
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSuiteNamespaceManager:163] Creating namespace:namespace-1 for test case:testCruiseControlBasicAPIRequests
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-1] [32mINFO [m [KubeClusterResource:156] Creating Namespace: namespace-1
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Kafka cruise-control-api-cluster-name in namespace namespace-0
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-0
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for Kafka: cruise-control-api-cluster-name will have desired state: Ready
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-1] [32mINFO [m [KubeClusterResource:82] Client use Namespace: namespace-1
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-1] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: namespace-1
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:155] Create/Update Kafka my-cluster-5ebc0fa8 in namespace namespace-1
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-1
+2022-03-30 12:35:39 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:433] Wait for Kafka: my-cluster-5ebc0fa8 will have desired state: Ready
+2022-03-30 12:37:17 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:444] Kafka: my-cluster-5ebc0fa8 is in desired state: Ready
+2022-03-30 12:37:17 [ForkJoinPool-3-worker-1] [32mINFO [m [CruiseControlApiST:48] ----> CRUISE CONTROL DEPLOYMENT STATE ENDPOINT <----
+2022-03-30 12:37:17 [ForkJoinPool-3-worker-1] [32mINFO [m [CruiseControlApiST:58] Verifying that Cruise Control REST API is available
+2022-03-30 12:37:29 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] Kafka: cruise-control-api-cluster-name is in desired state: Ready
+2022-03-30 12:37:29 [ForkJoinPool-3-worker-3] [32mINFO [m [CruiseControlApiST:153] ----> CRUISE CONTROL DEPLOYMENT STATE ENDPOINT <----
+2022-03-30 12:37:29 [ForkJoinPool-3-worker-3] [32mINFO [m [CruiseControlApiST:157] Verifying that Cruise Control REST API is available using HTTP request without credentials
+2022-03-30 12:37:29 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:37:29 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:348] Delete all resources for testCruiseControlBasicAPIRequestsWithSecurityDisabled
+2022-03-30 12:37:29 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of Kafka cruise-control-api-cluster-name in namespace namespace-0
+2022-03-30 12:37:29 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaResource:64] Explicit deletion of KafkaTopics in namespace namespace-0, for cruise control Kafka cluster cruise-control-api-cluster-name
+2022-03-30 12:37:39 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:369] ############################################################################
+2022-03-30 12:37:39 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSuiteNamespaceManager:200] Deleting namespace:namespace-0 for test case:testCruiseControlBasicAPIRequestsWithSecurityDisabled
+2022-03-30 12:38:22 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:29] io.strimzi.systemtest.cruisecontrol.CruiseControlApiST.testCruiseControlBasicAPIRequestsWithSecurityDisabled-FINISHED
+2022-03-30 12:38:22 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:30] ############################################################################
+2022-03-30 12:38:49 [ForkJoinPool-3-worker-1] [32mINFO [m [CruiseControlApiST:66] ----> KAFKA REBALANCE <----
+2022-03-30 12:38:49 [ForkJoinPool-3-worker-1] [32mINFO [m [CruiseControlApiST:73] Waiting for CC will have for enough metrics to be recorded to make a proposal 
+2022-03-30 12:41:11 [ForkJoinPool-3-worker-1] [32mINFO [m [CruiseControlApiST:97] ----> EXECUTION OF STOP PROPOSAL <----
+2022-03-30 12:41:11 [ForkJoinPool-3-worker-1] [32mINFO [m [CruiseControlApiST:108] ----> USER TASKS <----
+2022-03-30 12:41:12 [ForkJoinPool-3-worker-1] [32mINFO [m [CruiseControlApiST:126] Verifying that Cruise Control REST API doesn't allow HTTP requests
+2022-03-30 12:41:12 [ForkJoinPool-3-worker-1] [32mINFO [m [CruiseControlApiST:132] Verifying that Cruise Control REST API doesn't allow unauthenticated requests
+2022-03-30 12:41:12 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:41:12 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:348] Delete all resources for testCruiseControlBasicAPIRequests
+2022-03-30 12:41:12 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of Kafka my-cluster-5ebc0fa8 in namespace namespace-1
+2022-03-30 12:41:12 [ForkJoinPool-3-worker-1] [32mINFO [m [KafkaResource:64] Explicit deletion of KafkaTopics in namespace namespace-1, for cruise control Kafka cluster my-cluster-5ebc0fa8
+2022-03-30 12:41:22 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:369] ############################################################################
+2022-03-30 12:41:22 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSuiteNamespaceManager:200] Deleting namespace:namespace-1 for test case:testCruiseControlBasicAPIRequests
+2022-03-30 12:41:49 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:29] io.strimzi.systemtest.cruisecontrol.CruiseControlApiST.testCruiseControlBasicAPIRequests-FINISHED
+2022-03-30 12:41:49 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:30] ############################################################################
+2022-03-30 12:41:49 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:41:49 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:346] In context CruiseControlApiST is everything deleted.
+2022-03-30 12:41:49 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:369] ############################################################################
+[[1;34mINFO[m] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 375.924 s - in io.strimzi.systemtest.cruisecontrol.CruiseControlApiST
+[[1;34mINFO[m] Running io.strimzi.systemtest.cruisecontrol.CruiseControlST
+2022-03-30 12:41:55 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:156] Creating Namespace: cruise-control-st
+2022-03-30 12:41:55 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:82] Client use Namespace: cruise-control-st
+2022-03-30 12:41:55 [ForkJoinPool-3-worker-3] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: cruise-control-st
+2022-03-30 12:41:55 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:23] ############################################################################
+2022-03-30 12:41:55 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:24] io.strimzi.systemtest.cruisecontrol.CruiseControlST.testCruiseControlWithRebalanceResourceAndRefreshAnnotation-STARTED
+2022-03-30 12:41:55 [ForkJoinPool-3-worker-3] [32mINFO [m [AbstractST:597] Not first test we are gonna generate cluster name
+2022-03-30 12:41:55 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Kafka my-cluster-1f783d7e in namespace cruise-control-st
+2022-03-30 12:41:55 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for Kafka: my-cluster-1f783d7e will have desired state: Ready
+2022-03-30 12:43:32 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] Kafka: my-cluster-1f783d7e is in desired state: Ready
+2022-03-30 12:43:32 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update KafkaRebalance my-cluster-1f783d7e in namespace cruise-control-st
+2022-03-30 12:43:32 [ForkJoinPool-3-worker-3] [33mWARN [m [VersionUsageUtils:60] The client is using resource type 'kafkarebalances' with unstable version 'v1beta2'
+2022-03-30 12:43:32 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaRebalance: my-cluster-1f783d7e will have desired state: PendingProposal
+2022-03-30 12:43:33 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaRebalance: my-cluster-1f783d7e is in desired state: PendingProposal
+2022-03-30 12:43:33 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:75] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): ============================================================================
+2022-03-30 12:43:33 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:76] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): PendingProposal
+2022-03-30 12:43:33 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:77] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): ============================================================================
+2022-03-30 12:43:33 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:81] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Verifying that KafkaRebalance resource is in PendingProposal state
+2022-03-30 12:43:33 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaRebalance: my-cluster-1f783d7e will have desired state: PendingProposal
+2022-03-30 12:43:33 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaRebalance: my-cluster-1f783d7e is in desired state: PendingProposal
+2022-03-30 12:43:33 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:85] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Verifying that KafkaRebalance resource is in ProposalReady state
+2022-03-30 12:43:33 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaRebalance: my-cluster-1f783d7e will have desired state: ProposalReady
+2022-03-30 12:46:28 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaRebalance: my-cluster-1f783d7e is in desired state: ProposalReady
+2022-03-30 12:46:28 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:90] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): ============================================================================
+2022-03-30 12:46:28 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:91] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): ProposalReady
+2022-03-30 12:46:28 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:92] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): ============================================================================
+2022-03-30 12:46:28 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:94] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Triggering the rebalance with annotation strimzi.io/rebalance=approve of KafkaRebalance resource
+2022-03-30 12:46:28 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:63] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Annotating KafkaRebalance:my-cluster-1f783d7e with annotation approve
+2022-03-30 12:46:28 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:98] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Response from the annotation process kafkarebalance.kafka.strimzi.io/my-cluster-1f783d7e annotated
+2022-03-30 12:46:28 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:100] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Verifying that annotation triggers the Rebalancing state
+2022-03-30 12:46:28 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaRebalance: my-cluster-1f783d7e will have desired state: Rebalancing
+2022-03-30 12:46:29 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaRebalance: my-cluster-1f783d7e is in desired state: Rebalancing
+2022-03-30 12:46:29 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:104] Reconciliation #1(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Verifying that KafkaRebalance is in the Ready state
+2022-03-30 12:46:29 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaRebalance: my-cluster-1f783d7e will have desired state: Ready
+2022-03-30 12:48:04 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaRebalance: my-cluster-1f783d7e is in desired state: Ready
+2022-03-30 12:48:04 [ForkJoinPool-3-worker-3] [32mINFO [m [CruiseControlST:152] Annotating KafkaRebalance: my-cluster-1f783d7e with 'refresh' anno
+2022-03-30 12:48:04 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:63] Reconciliation #2(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Annotating KafkaRebalance:my-cluster-1f783d7e with annotation refresh
+2022-03-30 12:48:04 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaRebalance: my-cluster-1f783d7e will have desired state: ProposalReady
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaRebalance: my-cluster-1f783d7e is in desired state: ProposalReady
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [CruiseControlST:156] Trying rebalancing process again
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:75] Reconciliation #3(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): ============================================================================
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:76] Reconciliation #3(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): ProposalReady
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:77] Reconciliation #3(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): ============================================================================
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:90] Reconciliation #3(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): ============================================================================
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:91] Reconciliation #3(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): ProposalReady
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:92] Reconciliation #3(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): ============================================================================
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:94] Reconciliation #3(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Triggering the rebalance with annotation strimzi.io/rebalance=approve of KafkaRebalance resource
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:63] Reconciliation #3(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Annotating KafkaRebalance:my-cluster-1f783d7e with annotation approve
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:98] Reconciliation #3(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Response from the annotation process kafkarebalance.kafka.strimzi.io/my-cluster-1f783d7e annotated
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:100] Reconciliation #3(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Verifying that annotation triggers the Rebalancing state
+2022-03-30 12:48:05 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaRebalance: my-cluster-1f783d7e will have desired state: Rebalancing
+2022-03-30 12:48:06 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaRebalance: my-cluster-1f783d7e is in desired state: Rebalancing
+2022-03-30 12:48:06 [ForkJoinPool-3-worker-3] [32mINFO [m [KafkaRebalanceUtils:104] Reconciliation #3(test) KafkaRebalance(cruise-control-st/my-cluster-1f783d7e): Verifying that KafkaRebalance is in the Ready state
+2022-03-30 12:48:06 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaRebalance: my-cluster-1f783d7e will have desired state: Ready
+2022-03-30 12:48:11 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaRebalance: my-cluster-1f783d7e is in desired state: Ready
+2022-03-30 12:48:11 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:48:11 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:348] Delete all resources for testCruiseControlWithRebalanceResourceAndRefreshAnnotation
+2022-03-30 12:48:11 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of KafkaRebalance my-cluster-1f783d7e in namespace cruise-control-st
+2022-03-30 12:48:11 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of Kafka my-cluster-1f783d7e in namespace cruise-control-st
+2022-03-30 12:48:11 [ForkJoinPool-3-worker-1] [32mINFO [m [KafkaResource:64] Explicit deletion of KafkaTopics in namespace cruise-control-st, for cruise control Kafka cluster my-cluster-1f783d7e
+2022-03-30 12:48:21 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:369] ############################################################################
+2022-03-30 12:48:21 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:29] io.strimzi.systemtest.cruisecontrol.CruiseControlST.testCruiseControlWithRebalanceResourceAndRefreshAnnotation-FINISHED
+2022-03-30 12:48:21 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:30] ############################################################################
+2022-03-30 12:48:21 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:48:21 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:346] In context CruiseControlST is everything deleted.
+2022-03-30 12:48:21 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:369] ############################################################################
+[[1;34mINFO[m] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 429.131 s - in io.strimzi.systemtest.cruisecontrol.CruiseControlST
+[[1;34mINFO[m] Running io.strimzi.systemtest.kafka.listeners.ListenersST
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:156] Creating Namespace: listeners-st
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:82] Client use Namespace: listeners-st
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: listeners-st
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:23] ############################################################################
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:23] ############################################################################
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:24] io.strimzi.systemtest.kafka.listeners.ListenersST.testSendMessagesTlsScramSha-STARTED
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:24] io.strimzi.systemtest.kafka.listeners.ListenersST.testSendMessagesCustomListenerTlsScramSha-STARTED
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [AbstractST:597] Not first test we are gonna generate cluster name
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSuiteNamespaceManager:163] Creating namespace:namespace-2 for test case:testSendMessagesTlsScramSha
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:156] Creating Namespace: namespace-2
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:82] Client use Namespace: namespace-2
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: namespace-2
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-1] [32mINFO [m [AbstractST:597] Not first test we are gonna generate cluster name
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSuiteNamespaceManager:163] Creating namespace:namespace-3 for test case:testSendMessagesCustomListenerTlsScramSha
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-1] [32mINFO [m [KubeClusterResource:156] Creating Namespace: namespace-3
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Kafka my-cluster-0268befb in namespace namespace-2
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-2
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for Kafka: my-cluster-0268befb will have desired state: Ready
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-1] [32mINFO [m [KubeClusterResource:82] Client use Namespace: namespace-3
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-1] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: namespace-3
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:155] Create/Update Kafka my-cluster-11753c11 in namespace namespace-3
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-3
+2022-03-30 12:49:06 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:433] Wait for Kafka: my-cluster-11753c11 will have desired state: Ready
+2022-03-30 12:51:26 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:444] Kafka: my-cluster-11753c11 is in desired state: Ready
+2022-03-30 12:51:26 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:155] Create/Update KafkaTopic my-topic-1479604510-2054304232 in namespace namespace-3
+2022-03-30 12:51:26 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-3
+2022-03-30 12:51:26 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:433] Wait for KafkaTopic: my-topic-1479604510-2054304232 will have desired state: Ready
+2022-03-30 12:51:27 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:444] KafkaTopic: my-topic-1479604510-2054304232 is in desired state: Ready
+2022-03-30 12:51:27 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:155] Create/Update KafkaUser my-user-2138361941-1989814812 in namespace namespace-3
+2022-03-30 12:51:27 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-3
+2022-03-30 12:51:27 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:433] Wait for KafkaUser: my-user-2138361941-1989814812 will have desired state: Ready
+2022-03-30 12:51:28 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:444] KafkaUser: my-user-2138361941-1989814812 is in desired state: Ready
+2022-03-30 12:51:28 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:155] Create/Update Deployment my-cluster-11753c11-kafka-clients in namespace namespace-3
+2022-03-30 12:51:28 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-3
+2022-03-30 12:51:28 [ForkJoinPool-3-worker-1] [32mINFO [m [DeploymentUtils:161] Wait for Deployment: my-cluster-11753c11-kafka-clients will be ready
+2022-03-30 12:51:30 [ForkJoinPool-3-worker-1] [32mINFO [m [DeploymentUtils:168] Deployment: my-cluster-11753c11-kafka-clients is ready
+2022-03-30 12:51:30 [ForkJoinPool-3-worker-1] [32mINFO [m [AbstractKafkaClient:188] Consumer group were not specified going to create the random one.
+2022-03-30 12:51:30 [ForkJoinPool-3-worker-1] [32mINFO [m [ListenersST:442] Checking produced and consumed messages to pod:my-cluster-11753c11-kafka-clients-6d7b496778-g652h
+2022-03-30 12:51:30 [ForkJoinPool-3-worker-1] [32mINFO [m [InternalKafkaClient:123] Starting verifiableClient tls producer with the following configuration: VerifiableClient{allowedArguments=[TOPIC, BOOTSTRAP_SERVER, BROKER_LIST, MAX_MESSAGES, THROUGHPUT, ACKS, PRODUCER_CONFIG, MESSAGE_CREATE_TIME, VALUE_PREFIX, REPEATING_KEYS, USER], lock=java.lang.Object@2425c9b9, messages=[], arguments=[USER=my_user_2138361941_1989814812, --topic, my-topic-1479604510-2054304232, --max-messages, 100, --bootstrap-server, my-cluster-11753c11-kafka-bootstrap.namespace-3.svc:9122], executable='/opt/kafka/producer.sh', executor=null, clientType=CLI_KAFKA_VERIFIABLE_PRODUCER, podName='my-cluster-11753c11-kafka-clients-6d7b496778-g652h', podNamespace='namespace-3', bootstrapServer='my-cluster-11753c11-kafka-bootstrap.namespace-3.svc:9122', topicName='my-topic-1479604510-2054304232', maxMessages=100, kafkaUsername='my-user-2138361941-1989814812', consumerGroupName='null', consumerInstanceId='null', clientArgumentMap=io.strimzi.systemtest.kafkaclients.clients.ClientArgumentMap@5a54a781}
+2022-03-30 12:51:30 [ForkJoinPool-3-worker-1] [32mINFO [m [InternalKafkaClient:124] Producing 100 messages to my-cluster-11753c11-kafka-bootstrap.namespace-3.svc:9122:my-topic-1479604510-2054304232 from pod my-cluster-11753c11-kafka-clients-6d7b496778-g652h
+2022-03-30 12:51:30 [ForkJoinPool-3-worker-1] [32mINFO [m [VerifiableClient:192] Client command: kubectl exec my-cluster-11753c11-kafka-clients-6d7b496778-g652h -n namespace-3 -- /opt/kafka/producer.sh USER=my_user_2138361941_1989814812 --topic my-topic-1479604510-2054304232 --max-messages 100 --bootstrap-server my-cluster-11753c11-kafka-bootstrap.namespace-3.svc:9122
+2022-03-30 12:51:33 [ForkJoinPool-3-worker-1] [32mINFO [m [InternalKafkaClient:127] Producer finished correctly: true
+2022-03-30 12:51:33 [ForkJoinPool-3-worker-1] [32mINFO [m [InternalKafkaClient:131] Producer produced 100 messages
+2022-03-30 12:51:33 [ForkJoinPool-3-worker-1] [32mINFO [m [InternalKafkaClient:191] Starting verifiableClient tls consumer with the following configuration: VerifiableClient{allowedArguments=[BOOTSTRAP_SERVER, BROKER_LIST, TOPIC, GROUP_ID, MAX_MESSAGES, SESSION_TIMEOUT, VERBOSE, ENABLE_AUTOCOMMIT, RESET_POLICY, ASSIGMENT_STRATEGY, CONSUMER_CONFIG, USER, GROUP_INSTANCE_ID], lock=java.lang.Object@2d8553a9, messages=[], arguments=[--group-instance-id, instance870488575, USER=my_user_2138361941_1989814812, --topic, my-topic-1479604510-2054304232, --group-id, my-consumer-group-605258086, --max-messages, 100, --bootstrap-server, my-cluster-11753c11-kafka-bootstrap.namespace-3.svc:9122], executable='/opt/kafka/consumer.sh', executor=null, clientType=CLI_KAFKA_VERIFIABLE_CONSUMER, podName='my-cluster-11753c11-kafka-clients-6d7b496778-g652h', podNamespace='namespace-3', bootstrapServer='my-cluster-11753c11-kafka-bootstrap.namespace-3.svc:9122', topicName='my-topic-1479604510-2054304232', maxMessages=100, kafkaUsername='my-user-2138361941-1989814812', consumerGroupName='my-consumer-group-605258086', consumerInstanceId='instance870488575', clientArgumentMap=io.strimzi.systemtest.kafkaclients.clients.ClientArgumentMap@5c34d63d}
+2022-03-30 12:51:33 [ForkJoinPool-3-worker-1] [32mINFO [m [InternalKafkaClient:192] Consuming 100 messages from my-cluster-11753c11-kafka-bootstrap.namespace-3.svc:9122:my-topic-1479604510-2054304232 from pod my-cluster-11753c11-kafka-clients-6d7b496778-g652h
+2022-03-30 12:51:33 [ForkJoinPool-3-worker-1] [32mINFO [m [VerifiableClient:192] Client command: kubectl exec my-cluster-11753c11-kafka-clients-6d7b496778-g652h -n namespace-3 -- /opt/kafka/consumer.sh --group-instance-id instance870488575 USER=my_user_2138361941_1989814812 --topic my-topic-1479604510-2054304232 --group-id my-consumer-group-605258086 --max-messages 100 --bootstrap-server my-cluster-11753c11-kafka-bootstrap.namespace-3.svc:9122
+2022-03-30 12:51:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] Kafka: my-cluster-0268befb is in desired state: Ready
+2022-03-30 12:51:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update KafkaTopic my-topic-882996526-1246773510 in namespace namespace-3
+2022-03-30 12:51:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-2
+2022-03-30 12:51:36 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaTopic: my-topic-882996526-1246773510 will have desired state: Ready
+2022-03-30 12:51:37 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaTopic: my-topic-882996526-1246773510 is in desired state: Ready
+2022-03-30 12:51:37 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update KafkaUser my-user-974394279-1628594043 in namespace namespace-3
+2022-03-30 12:51:37 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-2
+2022-03-30 12:51:37 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaUser: my-user-974394279-1628594043 will have desired state: Ready
+2022-03-30 12:51:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaUser: my-user-974394279-1628594043 is in desired state: Ready
+2022-03-30 12:51:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Deployment my-cluster-0268befb-kafka-clients in namespace namespace-2
+2022-03-30 12:51:38 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-2
+2022-03-30 12:51:38 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:161] Wait for Deployment: my-cluster-0268befb-kafka-clients will be ready
+2022-03-30 12:51:40 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:168] Deployment: my-cluster-0268befb-kafka-clients is ready
+2022-03-30 12:51:40 [ForkJoinPool-3-worker-3] [32mINFO [m [AbstractKafkaClient:188] Consumer group were not specified going to create the random one.
+2022-03-30 12:51:40 [ForkJoinPool-3-worker-3] [32mINFO [m [ListenersST:370] Checking produced and consumed messages to pod:my-cluster-0268befb-kafka-clients-795cc976dc-czj8c
+2022-03-30 12:51:40 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:123] Starting verifiableClient tls producer with the following configuration: VerifiableClient{allowedArguments=[TOPIC, BOOTSTRAP_SERVER, BROKER_LIST, MAX_MESSAGES, THROUGHPUT, ACKS, PRODUCER_CONFIG, MESSAGE_CREATE_TIME, VALUE_PREFIX, REPEATING_KEYS, USER], lock=java.lang.Object@522b688e, messages=[], arguments=[USER=my_user_974394279_1628594043, --topic, my-topic-882996526-1246773510, --max-messages, 100, --bootstrap-server, my-cluster-0268befb-kafka-bootstrap.namespace-2.svc:9096], executable='/opt/kafka/producer.sh', executor=null, clientType=CLI_KAFKA_VERIFIABLE_PRODUCER, podName='my-cluster-0268befb-kafka-clients-795cc976dc-czj8c', podNamespace='namespace-2', bootstrapServer='my-cluster-0268befb-kafka-bootstrap.namespace-2.svc:9096', topicName='my-topic-882996526-1246773510', maxMessages=100, kafkaUsername='my-user-974394279-1628594043', consumerGroupName='null', consumerInstanceId='null', clientArgumentMap=io.strimzi.systemtest.kafkaclients.clients.ClientArgumentMap@5675540e}
+2022-03-30 12:51:40 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:124] Producing 100 messages to my-cluster-0268befb-kafka-bootstrap.namespace-2.svc:9096:my-topic-882996526-1246773510 from pod my-cluster-0268befb-kafka-clients-795cc976dc-czj8c
+2022-03-30 12:51:40 [ForkJoinPool-3-worker-3] [32mINFO [m [VerifiableClient:192] Client command: kubectl exec my-cluster-0268befb-kafka-clients-795cc976dc-czj8c -n namespace-2 -- /opt/kafka/producer.sh USER=my_user_974394279_1628594043 --topic my-topic-882996526-1246773510 --max-messages 100 --bootstrap-server my-cluster-0268befb-kafka-bootstrap.namespace-2.svc:9096
+2022-03-30 12:51:41 [ForkJoinPool-3-worker-1] [32mINFO [m [InternalKafkaClient:195] Consumer finished correctly: true
+2022-03-30 12:51:41 [ForkJoinPool-3-worker-1] [32mINFO [m [InternalKafkaClient:198] Consumer consumed 100 messages
+2022-03-30 12:51:41 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:51:41 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:348] Delete all resources for testSendMessagesCustomListenerTlsScramSha
+2022-03-30 12:51:41 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of KafkaUser my-user-2138361941-1989814812 in namespace namespace-3
+2022-03-30 12:51:44 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:127] Producer finished correctly: true
+2022-03-30 12:51:44 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:131] Producer produced 100 messages
+2022-03-30 12:51:44 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:191] Starting verifiableClient tls consumer with the following configuration: VerifiableClient{allowedArguments=[BOOTSTRAP_SERVER, BROKER_LIST, TOPIC, GROUP_ID, MAX_MESSAGES, SESSION_TIMEOUT, VERBOSE, ENABLE_AUTOCOMMIT, RESET_POLICY, ASSIGMENT_STRATEGY, CONSUMER_CONFIG, USER, GROUP_INSTANCE_ID], lock=java.lang.Object@68a6b413, messages=[], arguments=[--group-instance-id, instance37407876, USER=my_user_974394279_1628594043, --topic, my-topic-882996526-1246773510, --group-id, my-consumer-group-1703554992, --max-messages, 100, --bootstrap-server, my-cluster-0268befb-kafka-bootstrap.namespace-2.svc:9096], executable='/opt/kafka/consumer.sh', executor=null, clientType=CLI_KAFKA_VERIFIABLE_CONSUMER, podName='my-cluster-0268befb-kafka-clients-795cc976dc-czj8c', podNamespace='namespace-2', bootstrapServer='my-cluster-0268befb-kafka-bootstrap.namespace-2.svc:9096', topicName='my-topic-882996526-1246773510', maxMessages=100, kafkaUsername='my-user-974394279-1628594043', consumerGroupName='my-consumer-group-1703554992', consumerInstanceId='instance37407876', clientArgumentMap=io.strimzi.systemtest.kafkaclients.clients.ClientArgumentMap@148f57a8}
+2022-03-30 12:51:44 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:192] Consuming 100 messages from my-cluster-0268befb-kafka-bootstrap.namespace-2.svc:9096:my-topic-882996526-1246773510 from pod my-cluster-0268befb-kafka-clients-795cc976dc-czj8c
+2022-03-30 12:51:44 [ForkJoinPool-3-worker-3] [32mINFO [m [VerifiableClient:192] Client command: kubectl exec my-cluster-0268befb-kafka-clients-795cc976dc-czj8c -n namespace-2 -- /opt/kafka/consumer.sh --group-instance-id instance37407876 USER=my_user_974394279_1628594043 --topic my-topic-882996526-1246773510 --group-id my-consumer-group-1703554992 --max-messages 100 --bootstrap-server my-cluster-0268befb-kafka-bootstrap.namespace-2.svc:9096
+2022-03-30 12:51:51 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of Deployment my-cluster-11753c11-kafka-clients in namespace namespace-3
+2022-03-30 12:51:51 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:195] Consumer finished correctly: true
+2022-03-30 12:51:51 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:198] Consumer consumed 100 messages
+2022-03-30 12:51:51 [ForkJoinPool-3-worker-3] [32mINFO [m [ListenersST:377] Checking if generated password has 25 characters
+2022-03-30 12:51:51 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:51:51 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:348] Delete all resources for testSendMessagesTlsScramSha
+2022-03-30 12:51:51 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of KafkaUser my-user-974394279-1628594043 in namespace namespace-2
+2022-03-30 12:52:01 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of Deployment my-cluster-0268befb-kafka-clients in namespace namespace-2
+2022-03-30 12:52:41 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of KafkaTopic my-topic-1479604510-2054304232 in namespace namespace-3
+2022-03-30 12:52:41 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of KafkaTopic my-topic-882996526-1246773510 in namespace namespace-2
+2022-03-30 12:52:51 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of Kafka my-cluster-11753c11 in namespace namespace-3
+2022-03-30 12:52:51 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of Kafka my-cluster-0268befb in namespace namespace-2
+2022-03-30 12:53:01 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:369] ############################################################################
+2022-03-30 12:53:01 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSuiteNamespaceManager:200] Deleting namespace:namespace-3 for test case:testSendMessagesCustomListenerTlsScramSha
+2022-03-30 12:53:01 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:369] ############################################################################
+2022-03-30 12:53:01 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSuiteNamespaceManager:200] Deleting namespace:namespace-2 for test case:testSendMessagesTlsScramSha
+2022-03-30 12:53:44 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:29] io.strimzi.systemtest.kafka.listeners.ListenersST.testSendMessagesCustomListenerTlsScramSha-FINISHED
+2022-03-30 12:53:44 [ForkJoinPool-3-worker-1] [32mINFO [m [TestSeparator:30] ############################################################################
+2022-03-30 12:53:44 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:29] io.strimzi.systemtest.kafka.listeners.ListenersST.testSendMessagesTlsScramSha-FINISHED
+2022-03-30 12:53:44 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:30] ############################################################################
+2022-03-30 12:53:44 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 12:53:44 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:346] In context ListenersST is everything deleted.
+2022-03-30 12:53:44 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:369] ############################################################################
+[[1;34mINFO[m] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 285.557 s - in io.strimzi.systemtest.kafka.listeners.ListenersST
+[[1;34mINFO[m] Running io.strimzi.systemtest.security.SecurityST
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:156] Creating Namespace: security-st
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:82] Client use Namespace: security-st
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: security-st
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:23] ############################################################################
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSeparator:24] io.strimzi.systemtest.security.SecurityST.testAutoRenewAllCaCertsTriggeredByAnno-STARTED
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [AbstractST:597] Not first test we are gonna generate cluster name
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [TestSuiteNamespaceManager:163] Creating namespace:namespace-4 for test case:testAutoRenewAllCaCertsTriggeredByAnno
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:156] Creating Namespace: namespace-4
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [KubeClusterResource:82] Client use Namespace: namespace-4
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [NetworkPolicyResource:239] NetworkPolicy successfully set to: true for namespace: namespace-4
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:596] Creating a cluster
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Kafka my-cluster-79546b0a in namespace namespace-4
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-4
+2022-03-30 12:53:50 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for Kafka: my-cluster-79546b0a will have desired state: Ready
+2022-03-30 12:57:03 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] Kafka: my-cluster-79546b0a is in desired state: Ready
+2022-03-30 12:57:03 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update KafkaUser my-user-1968683502-674206930 in namespace namespace-4
+2022-03-30 12:57:03 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-4
+2022-03-30 12:57:03 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaUser: my-user-1968683502-674206930 will have desired state: Ready
+2022-03-30 12:57:04 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaUser: my-user-1968683502-674206930 is in desired state: Ready
+2022-03-30 12:57:04 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update KafkaTopic my-topic-891074202-1871088701 in namespace namespace-4
+2022-03-30 12:57:04 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-4
+2022-03-30 12:57:04 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaTopic: my-topic-891074202-1871088701 will have desired state: Ready
+2022-03-30 12:57:05 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaTopic: my-topic-891074202-1871088701 is in desired state: Ready
+2022-03-30 12:57:05 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Deployment my-cluster-79546b0a-kafka-clients in namespace namespace-4
+2022-03-30 12:57:05 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-4
+2022-03-30 12:57:05 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:161] Wait for Deployment: my-cluster-79546b0a-kafka-clients will be ready
+2022-03-30 12:57:07 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:168] Deployment: my-cluster-79546b0a-kafka-clients is ready
+2022-03-30 12:57:07 [ForkJoinPool-3-worker-3] [32mINFO [m [AbstractKafkaClient:188] Consumer group were not specified going to create the random one.
+2022-03-30 12:57:07 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:269] Checking produced and consumed messages to pod:my-cluster-79546b0a-kafka-clients-555b5bbf6b-xrrrp
+2022-03-30 12:57:07 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:93] Starting verifiableClient plain producer with the following configuration: VerifiableClient{allowedArguments=[TOPIC, BOOTSTRAP_SERVER, BROKER_LIST, MAX_MESSAGES, THROUGHPUT, ACKS, PRODUCER_CONFIG, MESSAGE_CREATE_TIME, VALUE_PREFIX, REPEATING_KEYS, USER], lock=java.lang.Object@32fdfddc, messages=[], arguments=[--topic, my-topic-891074202-1871088701, --max-messages, 100, --bootstrap-server, my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092], executable='/opt/kafka/producer.sh', executor=null, clientType=CLI_KAFKA_VERIFIABLE_PRODUCER, podName='my-cluster-79546b0a-kafka-clients-555b5bbf6b-xrrrp', podNamespace='namespace-4', bootstrapServer='my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092', topicName='my-topic-891074202-1871088701', maxMessages=100, kafkaUsername='null', consumerGroupName='null', consumerInstanceId='null', clientArgumentMap=io.strimzi.systemtest.kafkaclients.clients.ClientArgumentMap@5ce82ee}
+2022-03-30 12:57:07 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:94] Producing 100 messages to my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092:my-topic-891074202-1871088701 from pod my-cluster-79546b0a-kafka-clients-555b5bbf6b-xrrrp
+2022-03-30 12:57:07 [ForkJoinPool-3-worker-3] [32mINFO [m [VerifiableClient:192] Client command: kubectl exec my-cluster-79546b0a-kafka-clients-555b5bbf6b-xrrrp -n namespace-4 -- /opt/kafka/producer.sh --topic my-topic-891074202-1871088701 --max-messages 100 --bootstrap-server my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092
+2022-03-30 12:57:10 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:97] Producer finished correctly: true
+2022-03-30 12:57:10 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:101] Producer produced 100 messages
+2022-03-30 12:57:10 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:156] Starting verifiableClient plain consumer with the following configuration: VerifiableClient{allowedArguments=[BOOTSTRAP_SERVER, BROKER_LIST, TOPIC, GROUP_ID, MAX_MESSAGES, SESSION_TIMEOUT, VERBOSE, ENABLE_AUTOCOMMIT, RESET_POLICY, ASSIGMENT_STRATEGY, CONSUMER_CONFIG, USER, GROUP_INSTANCE_ID], lock=java.lang.Object@77bf71d7, messages=[], arguments=[--group-instance-id, instance888135096, --topic, my-topic-891074202-1871088701, --group-id, my-consumer-group-1519476426, --max-messages, 100, --bootstrap-server, my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092], executable='/opt/kafka/consumer.sh', executor=null, clientType=CLI_KAFKA_VERIFIABLE_CONSUMER, podName='my-cluster-79546b0a-kafka-clients-555b5bbf6b-xrrrp', podNamespace='namespace-4', bootstrapServer='my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092', topicName='my-topic-891074202-1871088701', maxMessages=100, kafkaUsername='null', consumerGroupName='my-consumer-group-1519476426', consumerInstanceId='instance888135096', clientArgumentMap=io.strimzi.systemtest.kafkaclients.clients.ClientArgumentMap@6974a19}
+2022-03-30 12:57:10 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:157] Consuming 100 messages from my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092#my-topic-891074202-1871088701 from pod my-cluster-79546b0a-kafka-clients-555b5bbf6b-xrrrp
+2022-03-30 12:57:10 [ForkJoinPool-3-worker-3] [32mINFO [m [VerifiableClient:192] Client command: kubectl exec my-cluster-79546b0a-kafka-clients-555b5bbf6b-xrrrp -n namespace-4 -- /opt/kafka/consumer.sh --group-instance-id instance888135096 --topic my-topic-891074202-1871088701 --group-id my-consumer-group-1519476426 --max-messages 100 --bootstrap-server my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092
+2022-03-30 12:57:16 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:160] Consumer finished correctly: true
+2022-03-30 12:57:16 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:163] Consumer consumed 100 messages
+2022-03-30 12:57:16 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:283] Triggering CA cert renewal by adding the annotation
+2022-03-30 12:57:16 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:295] Patching secret my-cluster-79546b0a-cluster-ca-cert with strimzi.io/force-renew
+2022-03-30 12:57:16 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:295] Patching secret my-cluster-79546b0a-clients-ca-cert with strimzi.io/force-renew
+2022-03-30 12:57:16 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:300] Wait for zk to rolling restart ...
+2022-03-30 12:57:16 [ForkJoinPool-3-worker-3] [32mINFO [m [RollingUpdateUtils:73] Waiting for component with name: my-cluster-79546b0a-zookeeper rolling update
+2022-03-30 12:58:41 [ForkJoinPool-3-worker-3] [32mINFO [m [RollingUpdateUtils:86] Component with name: my-cluster-79546b0a-zookeeper has been successfully rolled
+2022-03-30 12:58:41 [ForkJoinPool-3-worker-3] [32mINFO [m [RollingUpdateUtils:101] Waiting for 3 Pod(s) of my-cluster-79546b0a-zookeeper to be ready
+2022-03-30 12:59:06 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:304] Wait for kafka to rolling restart ...
+2022-03-30 12:59:06 [ForkJoinPool-3-worker-3] [32mINFO [m [RollingUpdateUtils:73] Waiting for component with name: my-cluster-79546b0a-kafka rolling update
+2022-03-30 13:00:11 [ForkJoinPool-3-worker-3] [32mINFO [m [RollingUpdateUtils:86] Component with name: my-cluster-79546b0a-kafka has been successfully rolled
+2022-03-30 13:00:11 [ForkJoinPool-3-worker-3] [32mINFO [m [RollingUpdateUtils:101] Waiting for 3 Pod(s) of my-cluster-79546b0a-kafka to be ready
+2022-03-30 13:00:40 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:308] Wait for EO to rolling restart ...
+2022-03-30 13:00:40 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:136] Waiting for Deployment my-cluster-79546b0a-entity-operator rolling update
+2022-03-30 13:00:40 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:161] Wait for Deployment: my-cluster-79546b0a-entity-operator will be ready
+2022-03-30 13:01:20 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:168] Deployment: my-cluster-79546b0a-entity-operator is ready
+2022-03-30 13:01:30 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:141] Deployment my-cluster-79546b0a-entity-operator rolling update finished
+2022-03-30 13:01:30 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:312] Wait for CC and KE to rolling restart ...
+2022-03-30 13:01:30 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:136] Waiting for Deployment my-cluster-79546b0a-kafka-exporter rolling update
+2022-03-30 13:02:31 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:161] Wait for Deployment: my-cluster-79546b0a-kafka-exporter will be ready
+2022-03-30 13:02:31 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:168] Deployment: my-cluster-79546b0a-kafka-exporter is ready
+2022-03-30 13:02:41 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:141] Deployment my-cluster-79546b0a-kafka-exporter rolling update finished
+2022-03-30 13:02:41 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:317] Checking the certificates have been replaced
+2022-03-30 13:02:41 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:331] Checking consumed messages to pod:my-cluster-79546b0a-kafka-clients-555b5bbf6b-xrrrp
+2022-03-30 13:02:41 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:156] Starting verifiableClient plain consumer with the following configuration: VerifiableClient{allowedArguments=[BOOTSTRAP_SERVER, BROKER_LIST, TOPIC, GROUP_ID, MAX_MESSAGES, SESSION_TIMEOUT, VERBOSE, ENABLE_AUTOCOMMIT, RESET_POLICY, ASSIGMENT_STRATEGY, CONSUMER_CONFIG, USER, GROUP_INSTANCE_ID], lock=java.lang.Object@3b02a20e, messages=[], arguments=[--group-instance-id, instance323752557, --topic, my-topic-891074202-1871088701, --group-id, my-consumer-group-1175618692, --max-messages, 100, --bootstrap-server, my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092], executable='/opt/kafka/consumer.sh', executor=null, clientType=CLI_KAFKA_VERIFIABLE_CONSUMER, podName='my-cluster-79546b0a-kafka-clients-555b5bbf6b-xrrrp', podNamespace='namespace-4', bootstrapServer='my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092', topicName='my-topic-891074202-1871088701', maxMessages=100, kafkaUsername='null', consumerGroupName='my-consumer-group-1175618692', consumerInstanceId='instance323752557', clientArgumentMap=io.strimzi.systemtest.kafkaclients.clients.ClientArgumentMap@1e4f9727}
+2022-03-30 13:02:41 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:157] Consuming 100 messages from my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092#my-topic-891074202-1871088701 from pod my-cluster-79546b0a-kafka-clients-555b5bbf6b-xrrrp
+2022-03-30 13:02:41 [ForkJoinPool-3-worker-3] [32mINFO [m [VerifiableClient:192] Client command: kubectl exec my-cluster-79546b0a-kafka-clients-555b5bbf6b-xrrrp -n namespace-4 -- /opt/kafka/consumer.sh --group-instance-id instance323752557 --topic my-topic-891074202-1871088701 --group-id my-consumer-group-1175618692 --max-messages 100 --bootstrap-server my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9092
+2022-03-30 13:02:46 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:160] Consumer finished correctly: true
+2022-03-30 13:02:46 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:163] Consumer consumed 100 messages
+2022-03-30 13:02:46 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update KafkaUser bob-my-cluster-79546b0a in namespace namespace-4
+2022-03-30 13:02:46 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-4
+2022-03-30 13:02:46 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:433] Wait for KafkaUser: bob-my-cluster-79546b0a will have desired state: Ready
+2022-03-30 13:02:47 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:444] KafkaUser: bob-my-cluster-79546b0a is in desired state: Ready
+2022-03-30 13:02:47 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:155] Create/Update Deployment my-cluster-79546b0a-kafka-clients-tls in namespace namespace-4
+2022-03-30 13:02:47 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:164] Using Namespace: namespace-4
+2022-03-30 13:02:47 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:161] Wait for Deployment: my-cluster-79546b0a-kafka-clients-tls will be ready
+2022-03-30 13:02:49 [ForkJoinPool-3-worker-3] [32mINFO [m [DeploymentUtils:168] Deployment: my-cluster-79546b0a-kafka-clients-tls is ready
+2022-03-30 13:02:49 [ForkJoinPool-3-worker-3] [32mINFO [m [SecurityST:355] Checking consumed messages to pod:my-cluster-79546b0a-kafka-clients-tls-5898cf5c89-vdqs4
+2022-03-30 13:02:49 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:156] Starting verifiableClient plain consumer with the following configuration: VerifiableClient{allowedArguments=[BOOTSTRAP_SERVER, BROKER_LIST, TOPIC, GROUP_ID, MAX_MESSAGES, SESSION_TIMEOUT, VERBOSE, ENABLE_AUTOCOMMIT, RESET_POLICY, ASSIGMENT_STRATEGY, CONSUMER_CONFIG, USER, GROUP_INSTANCE_ID], lock=java.lang.Object@1aaaf198, messages=[], arguments=[--group-instance-id, instance1030388256, USER=bob_my_cluster_79546b0a, --topic, my-topic-891074202-1871088701, --group-id, my-consumer-group-328634413, --max-messages, 100, --bootstrap-server, my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9093], executable='/opt/kafka/consumer.sh', executor=null, clientType=CLI_KAFKA_VERIFIABLE_CONSUMER, podName='my-cluster-79546b0a-kafka-clients-tls-5898cf5c89-vdqs4', podNamespace='namespace-4', bootstrapServer='my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9093', topicName='my-topic-891074202-1871088701', maxMessages=100, kafkaUsername='bob-my-cluster-79546b0a', consumerGroupName='my-consumer-group-328634413', consumerInstanceId='instance1030388256', clientArgumentMap=io.strimzi.systemtest.kafkaclients.clients.ClientArgumentMap@17426450}
+2022-03-30 13:02:49 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:157] Consuming 100 messages from my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9093#my-topic-891074202-1871088701 from pod my-cluster-79546b0a-kafka-clients-tls-5898cf5c89-vdqs4
+2022-03-30 13:02:49 [ForkJoinPool-3-worker-3] [32mINFO [m [VerifiableClient:192] Client command: kubectl exec my-cluster-79546b0a-kafka-clients-tls-5898cf5c89-vdqs4 -n namespace-4 -- /opt/kafka/consumer.sh --group-instance-id instance1030388256 USER=bob_my_cluster_79546b0a --topic my-topic-891074202-1871088701 --group-id my-consumer-group-328634413 --max-messages 100 --bootstrap-server my-cluster-79546b0a-kafka-bootstrap.namespace-4.svc:9093
+2022-03-30 13:02:56 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:160] Consumer finished correctly: true
+2022-03-30 13:02:56 [ForkJoinPool-3-worker-3] [32mINFO [m [InternalKafkaClient:163] Consumer consumed 100 messages
+2022-03-30 13:02:56 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:344] ############################################################################
+2022-03-30 13:02:56 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:348] Delete all resources for testAutoRenewAllCaCertsTriggeredByAnno
+2022-03-30 13:02:56 [ForkJoinPool-3-worker-3] [32mINFO [m [ResourceManager:241] Delete of Deployment my-cluster-79546b0a-kafka-clients in namespace namespace-4
+2022-03-30 13:02:56 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of KafkaUser my-user-1968683502-674206930 in namespace namespace-4
+2022-03-30 13:03:06 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of KafkaTopic my-topic-891074202-1871088701 in namespace namespace-4
+2022-03-30 13:03:07 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of Kafka my-cluster-79546b0a in namespace namespace-4
+2022-03-30 13:03:07 [ForkJoinPool-3-worker-1] [32mINFO [m [KafkaResource:64] Explicit deletion of KafkaTopics in namespace namespace-4, for cruise control Kafka cluster my-cluster-79546b0a
+2022-03-30 13:03:17 [ForkJoinPool-3-worker-1] [32mINFO [m [ResourceManager:241] Delete of Deployment my-cluster-79546b0a-kafka-clients-tls in namespace namespace-4
