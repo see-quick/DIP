@@ -8,40 +8,41 @@ At the same time, we calculated Amhdal's law for each experiment and compared it
 
 \section{Experiments design}
 
-Celkový návrh experimentov sa rozlišuje do troch hlavných kategórií; (a) pre-liminary experiments, ktoré sú navrhnuté
-pre dokázanie, že nami navrhnutá paralelizácia je schopná vertikálneho škálovania. Tieto experimenty budú vykonané
-ako pre malé Kubernetes inštancie (i.e, Minikube) tak zároveň aj pre multi-node klastre.
-Očakávané výsledky by mali byť pozitívne pretože tieto paralelizácia bude mať najlepší možný scénar vykonávania (f.e., pre method-wide paralalelizáciu
-to bude testovacia trieda obsahujúca iba testy, ktoré sú schopné paralelného výpočtu, obdobne tak pre class-wide parallelizáciu.);
-(b) dalšiou častou budú acceptance experimenty, ktoré budú predovšetkým mať za úlohu dodať nám informáciu, zda je efektívne
-využívať paralelizáciu na pre malé inštancie Kubernetes ale zároveň tak pre veľké inštancie. Acceptance experimenty
-budú zahrňovať v sebe podmnožinu našich system testov, kde sa samozrejme budú vyskytovať aj testy a testovacie triedy,
-ktoré nie su schopné paralleného vykonávania a teda bude dochádzať ku synchronizácií a čakaniu. Tým pádom je možné, že
-pre acceptance experimenty nebude paralelizácia vobec vhodná, pretože vačšinou sa jedná o testy kde máme v každej
-testovacej triede približne jeden alebo dva testy a celková preparion fáza testovacej triedy je dlhá.; (c) posledným
-typom experimentov budú tzv. regression, ktoré už budú obsahovať celú testovaciu sadu, ktorú aktuálne ponúka projekt Strimzi.
-Vďaka tomu bude môct povedať, či je daná paralelizácia vhodná aj pre celkový produkt. Zároveň sa tu očakáva výrazné zrýchlenie
-už len z dovodu, že sa často jedná o testovacie triedy obsahujúce 10 až viac testov. Na druhú stranu tu však máme aj veľa
-testov, ktoré potrebujú na svoje vykonávanie totálnu izoláciu čo može celý výpočet spomaliť.
+The overall design of the experiments is divided into three main categories;
+(a) preliminary experiments to prove that the parallelization we propose is capable of vertical scaling.
+These experiments will be performed for small Kubernetes instances (i.e., Minikube) and multi-node Kubernetes clusters.
+The expected results should be positive because parallelization will have the best possible implementation environment
+(f.e., for method-wide parallelization, it will be a test class containing only tests that are capable of parallel computation,
+similarly to class-wide parallelization.);
+(b) the next part will be acceptance experiments, which will primarily provide information on whether it is beneficial
+to use parallelization in a small subset of tests, where mostly half of the tests are capable of parallel execution.
+Acceptance experiments will include a subset of our system of tests, where of course, there will also be tests and test classes,
+which are not capable of parallel execution, and thus synchronization will occur.
+Possibly the parallelization will not be suitable for acceptance experiments because most test suites consist of one or two test cases,
+and the overall preparation phase of the test suite is long.;
+(c) last type of experiments will be the so-called regression, which will already include the entire test suite currently offered by the Strimzi project.
+It will tell us whether the given parallelization is eligible for the Strimzi.
+Moreover, a significant acceleration is expected because test classes often contain ten or more tests.
+On the other hand, we also have many tests that need total isolation, which potentially can slow down the whole performance.
 
-Pre vykonanie všetkých experimentov bude predovšetkým využívať Openstack, ktorý nám dodá potrebné HW zdroje.
-Čo sa týka pre-liminárnych experimentov budeme používať 4 typy inštancií:
+We mainly use the Openstack and Amazon Web Services infrastructures to perform all the experiments, which will provide us with the necessary hardware resources.
+Furthermore, for preliminary experiments, we use four types of instances:
 \begin{itemize}
-    \item Kubernetes cluster \---\ multi-node, kde táto inštancia bude poskytovať 24 virtual cores a 48 GB RAM (bez počítania master nodov)
-    \item Minikube \---\ single-node, kde táto inštancia bude poskytovať dve virtuáne jadrá s 8GB RAM
-    \item Minikube \---\ single-node, kde táto inštancia bude poskytovať štyri virtuálne jadrá s 16GB RAM
-    \item Minikube \---\ single-node, kde táto inštancia bude poskytovať osem virtuálnych jadier a 32GB RAM
+    \item \textbf{Kubernetes cluster} \---\ multi-node, where this instance will provide 24 virtual cores and 48 GB RAM (without taking into account master nodes)
+    \item \textbf{Small minikube} \---\ single-node, where this instance will provide two virtual cores and 8GB RAM
+    \item \textbf{Medium minikube} \---\ single-node, where this instance will provide four virtual cores and 16GB RAM
+    \item \textbf{Large minikube} \---\ single-node, where this instance will provide eight virtual cores and 32GB of RAM
 \end{itemize}
 
 \section{Preliminary experiments}
 
-Recall~\ref{04:amdalhlaw} Amdalh's formulu z Kapitoly~\ref{03:chapter:title}.
-Nato aby sme začali daný experiment nebude tentokrát počítať unit
-jednotku ako počet testov ale zameriame sa na overall test execution time.
-Zavedieme zároveň novú formulu (\eqref{eqn:t-new-formula}), ktorá nám zároveň vypočíta teoretický čas po zrýchlení a následne tak vďaka tomuto
-výsledku vypočítame celkové možné zrýchlenie pomocou formule (\eqref{eqn:acc-formula}). Všetky značenia sú rovnaké
-ako popísané v Kapitole 3 pri Amdalhovom zákone akurát tu máme \emph{T\_{new}} a \emph{T\_{old}}). \emph{T\_{old}} popisuje čas nutne vykonaný
-(i.e., sekvenčne) daným taskom. Na druhú stranu \emph{T\_{new}} popisuje čas po zrýchlení (\eqref{eqn:t-new-formula}).
+Recall~\ref{04:amdalhlaw} Amdahl's formula from Chapter~\ref{03:chapter:title}.
+We will not count the unit of work as the number of tests capable of parallel execution, but we will use a more accurate way (i.e., execution time).
+We also introduce a new formula~\eqref{eqn:t-new-formula}, which also calculates the theoretical time after acceleration and then, thanks to this
+the result, we calculate the total possible acceleration using the formula~\eqref{eqn:acc-formula}.
+All markings are the same as described in Chapter~\ref{03:chapter:title} under Amdahl's law;
+we have $T_{new}$ and $T_{old}$. $T_{old}$ describes the time necessarily performed (i.e., sequentially) by a given task.
+On the other hand, $T_{new}$ describes the time after acceleration Equation~\eqref{eqn:t-new-formula}
 
 \begin{equation}
     \label{eqn:t-new-formula}
@@ -55,108 +56,149 @@ ako popísané v Kapitole 3 pri Amdalhovom zákone akurát tu máme \emph{T\_{ne
     \tag{5}
 \end{equation}
 
-\subsection{Method-wide}
-
-V prípade našeho experimentu budeme mať k dispozící našu testovaciu triedu **SecurityST**, ktorá v sebe zahrňuje 21 testov.
-Všetky tieto testy sa možu vykonávať parallene a tým su pre náš perfektným kandidátom, na získanie informacie že daná
-paralelizácia škáluje. Čo je nutné podotknúť je fakt, že pred celkovým spusteným testov sa deployuje zdieľaný Cluster Operator,
-kde vačšinou tento deployment trvá od 1m až po 6m (i.e., preto strednú hodnotu 3m). Čiže v našom prípade celková časť
-ktorá sa bude dať paralelizovať bude rovná $p = \frac{171}{174} $  Prvú inštanciu ktorú použijeme bude multi-node
-Kubernetes klaster s 24 virtual cores a 48 GB RAM. My zároveň vieme koľko času trvá vykonanie danej testovacej triedy
-sekvenčne a túto informáciu použijeme v Amdalh's zákone.
+In the case of our experiment, we have the test class \textbf {SecurityST}, which includes twenty-one test cases.
+All these tests can be performed in parallel and are a perfect candidate to obtain information that parallelization is capable of vertical scaling.
+What should be noted is the fact that the shared Cluster Operator is deployed before the execution tests,
+where usually this deployment lasts from one to six minutes (we choose a mean value of three minutes).
+So in our case, the part that can be parallelized will be equal to $p = \frac{171}{174}$.
+The first instance we use is a multi-node Kubernetes cluster with 24 virtual cores and 48 GB of RAM.
+Empirically, we obtained data on how long it takes to complete a given test class sequentially, using such information in Amdahl's law.
 \begin{equation}
     \label{eqn:security-st-time-ocp}
-    T_{new} = (1 - \frac{171}{174}) * 174 +  \frac{ \frac{171}{174}}{24} * 174 = ~**10 minutes**
+    T_{new} = (1 - \frac{171}{174}) * 174 +  \frac{\frac{171}{174}}{24} * 174 =~10~minutes
     \tag{6}
 \end{equation}
-Toto je teoretický čas, ku ktorému by sme sa mali blížiť v rámci testov (\eqref{eqn:security-st-time-ocp}).
-Zároveň tak celkové zrýchlenie bude až 24 times. Samozrejme z praxe vieme že presne takéto zrýchlenie nedostaneme
-iba sa k nemu možeme čiastoćne priblížiť.
+In Equation~\eqref{eqn:security-st-time-ocp}, one can see the theoretical time we should approach in first experiments executing \textbf{SecurityST} test suite.
+Furthermore, the entire acceleration could be up to 17 times (i.e, Equation~\eqref{eqn:prelim-method-wide}).
+Of course, we know from practice that we will not get exactly such an acceleration;
+we can solely get nearer to it.
 \begin{equation}
-    \label{eqn:method-wide}
+    \label{eqn:prelim-method-wide}
     S = \frac{174}{10} =17.4x
     \tag{7}
 \end{equation}
-We use the following notation in the tables:
+Additionally, we use the following notation in the tables:
 \begin{itemize}[itemsep=1mm, parsep=0pt]
-    \item {\xmark} \---\ disabled parallelism (f.e., method or class-wide), or test execution containing errors
+    \item {\xmark} \---\ disabled parallelism (f.e., method or class-wide), or test execution containing errors (f.e., cluster crashed, because of out of memory problem)
     \item {\cmark} \---\ enabled parallelism (f.e., method or class-wide), or test execution without any issues
     \item {\fontencoding{U}\fontfamily{futs}\selectfont\char 66\relax} \---\ test execution with flaky tests because of resource capacity
 \end{itemize}
 
-V nasledujúcej tabuľke~\ref{06:tab:01:securityst-ocp-multinode}, možeme vidieť jednotlivé preliminárne experimenty vykonané
-nad našou implementáciou. Pre názornosť je tam zároveň obsiahnutá sekvenčná varianta. Aby sme zistili či daná parallelizácia
-škáluje tam sme začali pomaly zvyšovať použité vlákna (i.e., začali sme od 2 až po 16). V rámci experimentovania sme zistili,
-že najvhodnejším kandidátom pre SecurityST by bolo behať to až na 12 vláknach. Ako zároveň možeme vidieť na
-tabuľke~\ref{06:tab:01:securityst-ocp-multinode} tak pri použití 16 vlákien bol daný Kubernetes cluster zneškodnený.
-Dovodom bolo hlavne kapacita zdrojov (i.e., pre každý test sa deployne Kafka cluster a mnoho dalších zdrojov), a Kubernetes API.
-Zároveň si možeme všimnúť, že sme nedosiahli teoretického zrýchlenia, ktoré sme vypočítali (\eqref{eqn:security-st-time-ocp}).
-Toto je však podmienené viacerými faktormi (f.e., testy netrvajú rovnaký čas alebo pomalší deployment volumes v rámci Kafka clusterov).
-Čo je si ale treba uvedomiť je že ak v prípade neobmedzených zdrojov (i.e., cores, RAM) by sme nemohli prekonať nami vypočítané zrýchlenie
-pretože to možeme vyjadriť ako limitu (\eqref{eqn:amdalh-limit}).
+In the following Table~\ref{06:tab:01:securityst-ocp-multinode}, we can see the individual preliminary experiments performed over our implementation.
+For clarity, a sequential variant is also included.
+We slowly increased the threads used to determine if a given parallelization scales there (i.e., we started from two to sixteen).
+As part of our experimentation, we found that up to twelve threads would be the best candidate for \textbf{SecurityST}.
+As shown in Table~\ref{06:tab:01:securityst-ocp-multinode}, when using sixteen threads, the given Kubernetes cluster was destroyed.
+The reason was mainly the capacity resources (i.e., we deploy Kafka cluster and many other resources for each test case).
+At the same time, we can notice that we did not reach the theoretical acceleration that we calculated in Equation~\eqref{eqn:security-st-time-ocp}.
+However, this is due to several factors (f.e., tests do not take the same time or slower deployment volumes within Kafka clusters).
+Nevertheless, one needs to realize that if we had hypothetically unlimited resources (i.e., cores, RAM), we would not be able to overcome
+the acceleration we calculated (i.e., Equation~\eqref{eqn:amdalh-limit}).
 \begin{table}[ht!]
     \centering
     \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-final-smoke-method-wide-ocp}
-    \caption{Preliminary experiments with Security test suite containing twenty-one test cases, which all can be run in parallel.
-    Each test case deploys Kafka cluster, which perfectly verifies if Kubernetes cluster or Minikube (i.e., single-node) can handle such a load.}
+    \caption{The \textbf{SecurityST} contains twenty-one test cases, and all of them could be executed in parallel
+        (i.e., contains @ParallelTest or @ParallelNamespaceTest annotation).
+        Moreover, each test case deploys a Kafka cluster, which perfectly verifies if the Kubernetes cluster
+        or Minikube (i.e., single-node) can handle such a load.}
     \label{06:tab:01:securityst-ocp-multinode}
 \end{table}
 
 \begin{equation}
     \label{eqn:amdalh-limit}
-    \lim_{s\to\infty} S_{max} = \frac{1}{1-p} =  \frac{1}{1-\frac{171}{174}} = 58x
+    \lim_{s\to\infty} S_{max} = \frac{1}{1-p} = \frac{1}{1-\frac{171}{174}} = 58x
     \tag{8}
 \end{equation}
-Naše nadobutnuté zrýchlenie v rámci perfektnom prostredí je menšie než $S_{\max} = 58x$ a zároveň tak $S_{teo} = 17.4x$.
-Čo však potvrdzuje fakt, že nikdy nebudeme lepší než $S_{\max}$ a taktiež nikdy nedosiahneme možné teoretické zrýchlenie (i.e., $S_{teo}$),
-pretože to je v praxi normálne. Celkovo naše zrýchlenie je rovné $S_{practical} = \frac{174}{24.5} =7.1x$, čo je veľmi skvelé.
+Our acquired acceleration in a perfect environment is less than $S _{\max} = 58x$ and at the same time $S_{teo} = 17.4x$.
+However, this is confirmed by the fact that we will never be better than $S_{\max}$ and also, we will never achieve a
+possible theoretical acceleration (i.e., $S_{teo}$) because such results are entirely typical for this kind of experiments.
+Overall, our acceleration is $S_{practical} = \frac{174}{24.5} = 7.1x$, which proves following relation $S_{practical} < S_{teo} < S_{\max}$.
 
-% MINIKUBE PART
-Dalšie preliminárne experimenty, ktoré sme vykonali boli na menších inštanciach kde bolo samozrejmosťou, že výsledky
-zrýchlenia s porovnaním multi-node klastru budú podstatne nižšie.
-Preto aj Amdalhov zákon bude obsahovať o dosť nižšie teoretické zrýchlenie. Pre mašinu obsahujúcu štyri virtuálne jadrá je
-odhadujúci teoretický čas $T_{new\_teo\_medium}$, ktorý je rovný $T_{new\_teo\_medium} = (1 - \frac{182}{185}) * 185 +  \frac{ \frac{182}{185}}{4} * 185 = $ approximately 49~minutes.
-A teda teoretické zrýchlenie inštancie by mohol byť $S_{new\_teo\_medium} = \frac{185}{49} = 3.8x$.
-Ako však možeme vidieť na tabuľke~\ref{06:tab:01:securityst-minikube}, tak také presné zrýchlenie sme nedosiahli.
-Avšak priblížili sme sa k tomu dostatočne blízko a praktické zrýchlenie je rovné $S_{new\_practical\_medium} = \frac{185}{79} = 2.34x$.
-Maximálne sme mohli využiť tri jadrá, pretože v prípade štyroch jadier virtual machine padla kvoli nedostatku pamate.
-CPU utilizácia bola v priebehu pri použití štyroch jadier približne na 80\%.
+%---------------------------------------------------------
+%--------------------MINIKUBE PART------------------------
+%---------------------------------------------------------
 
+Other preliminary experiments we performed were on more minor instances where it was a matter of course that the results
+accelerations compared to a multi-node cluster will be significantly lower and slower.
+Therefore, Amdalh's law will also contain a much lower theoretical acceleration.
+For a machine containing four virtual cores, the estimated theoretical time is $T_{new\_teo\_medium}$, which is equal to
+$T_{new\_teo\_medium} = (1 - \frac{182}{185}) * 185 + \frac{\frac{182}{185}} {4} * 185 = $ approximately 49~minutes.
+So the theoretical acceleration of the instance could be $S_{new\_teo\_medium} = \frac{185}{49} = 3.8x$.
+Nevertheless, as we can see in Table~\ref{06:tab:01:securityst-minikube}, we did not accomplish such a same acceleration.
+However, we have come close enough, and the practical acceleration is $S_{new\_practical\_medium} = \frac{185}{79} = 2.34x$.
+We could use a maximum of three cores because, in the case of four cores, the virtual machine crashes due to a lack of memory.
+CPU utilization was approximately 80\% during the use of the four cores.
 \begin{table}[ht!]
     \centering
     \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-preliminary-minikube-b}
-    \caption{Preliminary experiments with Security test suite containing twenty-one test cases, which all can be run in parallel.
-    Each test case deploys Kafka cluster, which perfectly verifies if Kubernetes cluster or Minikube (i.e., single-node) can handle such a load.}
-    \label{06:tab:01:securityst-minikube}
+    \caption{Multiple experiments for various flavours of single-node Kubernetes instances for the
+    \textbf{SecurityST} suite. Both of these flavours (i.e., orange and red one prove that parallelisation is
+    vertically scaling on more minor instances), the yellow one (i.e., using two virtual cores and eight GB RAM)
+        is not able to run either two test cases in parallel resulting in OOM problem (i.e., Out of memory).}
+    \label{06:tab:01:security-st-minikube}
 \end{table}
+%-------------------------------------------------------
+%-------b) PRELIMINARY EXPERIMENTS FOR CLASS-WIDE-------
+%-------------------------------------------------------
 
-\subsection{Class-wide}
+Dalšie experimenty, ktoré majú dokázať, že nami implementovaná class-wide parallelizácia je možná vertikálneho škálovania.
+Preto sme vybrali množinu testovacích tried, ktoré nepotrebujú žiadnu formu sychronizácie alebo izolácie (i.e., neobsahujú @IsolatedSuite anotáciu).
+Špecificky sa bude jednať o triedy obsahujúce anotáciu @ParallelSuite a nimi sú práve HttpBridgeScramShaST, HttpBridgeTlsST,
+ThrottlingQuotaST, TopicST, UserST, ReconciliationST a CruiseControlConfigurationST. Spolu obsahujú tridsať testovacích
+prípadov, kde celkovo 29 nepotrebujú žiadnu formu sychronizácie a iba 1 testovací prípad potrebuje izoláciu voči ostatným testom.
+Presnejšie máme 10 @ParallelNamespaceTest, pre zopakonie sú to testy ktoré deploynú Kafka cluster a teda sa radia medzi
+viac resource náročné.
+Ďalej máme 19 @ParallelTest taktiež možno povedať lighweight variantou na potrebu celkových zdrojov a nakoniec jeden @IsolatedTest
+zaručújúci izolácia od ostatných parallelných testov.
+V prípade ak by sme chceli vypočívať možné teoretické zrýchlenie tak je nutné poznať sekvenčný čas a zároveň tak čas jedného @IsolatedTest.
+Celkový čas nami vybraními testovami je 107~minút a z toho @IsolatedTest trvá 2.5 minúty.
+Ak k tomu pripočítame preparačný čas zdieľaného Cluster Operatora tak sa dostaneme na 5.5 minúty a teda možná paralelná čas bude rovná $p = \frac{101.5}{107}$.
+Speedup factor je rovný počtu virtual CPU, ktoré máme k dispozící (i.e., $S=24$) a vďaka tomu može všetky hodnoty dosadiť do
+vzorca nadefinovaného vyššie (i.e., Equation~\eqref{eqn:t-new-formula}).
+\begin{equation}
+    \label{eqn:class-wide-time-ocp}
+    T_{new} = (1 - \frac{101.5}{107}) * 107 +  \frac{\frac{101.5}{107}}{24} * 107 =~10~minutes
+    \tag{6}
+\end{equation}
+Po vypočítaní nám vyjde, že teoretické zrýchlenie pri použítí 24 jadier sa bude blížiť ku 10 minútam z čoho si zároveň
+možeme vypočítať aj $S_{teo} = \frac{T_{old}}{T_{new}} = \frac{107}{10} =~10.7x$ a $\lim_{s\to\infty} S_{\max} = \frac{1}{1-p} = \frac{1}{1-\frac{101.5}{107}} =~19x$.
 
-Preliminárne experimenty pre class-wide parallezáciu sme vybrali množinu testovacích tried, ktoré podporujú túto formu
-paralelizácie (i.e, @ParallelSuite).
-Špecificky sa bude jednať o CruiseControlConfigurationST, HttpBridgeScramShaST, HttpBridgeCorsST, HttpBridgeKafkaExternalListenersST,
-HttpBridgeTlsST, TopicST, ThrottlingQuotaST, UserST, ReconciliationST, QuotasST.
+Čo je nutné podotknúť je, že pre class-wide parallelizáciu je najlepším možným scenárom máť konzistentné rozloženie testov
+najideálnejśie podporujú parallelnú exekúciu (f.e., mať 5 testovacích tried, ktoré každá z nich obsahuje 10 parallel testov).
+Tým za získa z daného typu parallelizácie najviac.
+Triedy, ktoré sme využili avšak neposkytujú presne také rovnomerné rozloženie čo je zároveň aj v praxi takmer nemožné
+(i.e, mať rovnaký počet testov pre každú testovaciu triedu).
 
-\begin{table}[ht!]
-    \centering
-    \includegraphics[scale=0.7]{obrazky-figures/08-experiments/06-exp-graph-test}
-    \caption{Preliminary experiments with Security test suite containing twenty-one test cases, which all can be run in parallel.
-    Each test case deploys Kafka cluster, which perfectly verifies if Kubernetes cluster or Minikube (i.e., single-node) can handle such a load.}
-    \label{06:tab:01:securityst-minikube}
-\end{table}
+Experimenty, ktoré sme vykonali je možné vidieť v Tabuľke~\ref{06:tab:01:class-widesecurityst-ocp} obdobne ako pre method-wide
+parallelizáciu sme najskôr dodali totálne sekvenčné vykonanie a následne sme pridávali vlákna.
+Zároveň sme aj v rámci experimentoch porovnali vykonávanie method-wide (i.e., orange row color), kde celkové vykonávanie trvalo
+podstatne viac ako v prípade class-wide parallelizácie (i.e, green row color).
+Hlavným dôvodom prečo pri využítí 10 vlákien class-wide parallelizácia bola o viac než pol hodinu lepšia bola kvoli tomu, že
+nie v každej testovacej triede bolo testov väčší ako 10 a teda v method-wide parallelizácií sa použílo zbytočne veľa vlákien,
+ktoré sa vlastne nevyužili.
+Na druhú stranu class-wide parallelízícia 10 vlákien plne využila, pretože može vykonávať viacero tried zároveň a tým podstatne zvýšiť celkový čas.
 
-bla bla bla bla...
+% HttpBridgeScramShaST - 2 parallel test                  = 2
+% HttpBridgeTlsST - 2 parallel test                       = 2
+% ThrottlingQuotaST - 4 parallel test                     = 4
+% TopicST - 5 parallel test a 1 isolated                  = 6 (1 isolated)
+% UserST - 6 parallel test a 2 Paralle namespace test     = 8
+% ReconciliationST - 2 parallel namespace test            = 2
+% CruiseControlConfigurationST - 6 parallel namespace test= 6
+% ----
+% 10 PNT, 19 PT a 1 IT
 
 \begin{table}[ht!]
     \centering
     \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-preliminary-cluster-wide-ocp}
     \caption{Preliminary experiments with Security test suite containing twenty-one test cases, which all can be run in parallel.
     Each test case deploys Kafka cluster, which perfectly verifies if Kubernetes cluster or Minikube (i.e., single-node) can handle such a load.}
-    \label{06:tab:01:securityst-minikube}
+    \label{06:tab:01:class-widesecurityst-ocp}
 \end{table}
 
-
-% b) PRELIMINARY EXPERIMENTS FOR CLASS-WIDE
+%-------------------------------------------------------------
+%------------- END OF PRELIMINARY EXPERIMENTS ----------------
+%-------------------------------------------------------------
 
 \section{Acceptance experiments}
 
