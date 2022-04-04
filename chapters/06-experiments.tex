@@ -141,42 +141,49 @@ CPU utilization was approximately 80\% during the use of the four cores.
 %-------b) PRELIMINARY EXPERIMENTS FOR CLASS-WIDE-------
 %-------------------------------------------------------
 
-Dalšie experimenty, ktoré majú dokázať, že nami implementovaná class-wide parallelizácia je možná vertikálneho škálovania.
-Preto sme vybrali množinu testovacích tried, ktoré nepotrebujú žiadnu formu sychronizácie alebo izolácie (i.e., neobsahujú @IsolatedSuite anotáciu).
-Špecificky sa bude jednať o triedy obsahujúce anotáciu @ParallelSuite a nimi sú práve HttpBridgeScramShaST, HttpBridgeTlsST,
-ThrottlingQuotaST, TopicST, UserST, ReconciliationST a CruiseControlConfigurationST. Spolu obsahujú tridsať testovacích
-prípadov, kde celkovo 29 nepotrebujú žiadnu formu sychronizácie a iba 1 testovací prípad potrebuje izoláciu voči ostatným testom.
-Presnejšie máme 10 @ParallelNamespaceTest, pre zopakonie sú to testy ktoré deploynú Kafka cluster a teda sa radia medzi
-viac resource náročné.
-Ďalej máme 19 @ParallelTest taktiež možno povedať lighweight variantou na potrebu celkových zdrojov a nakoniec jeden @IsolatedTest
-zaručújúci izolácia od ostatných parallelných testov.
-V prípade ak by sme chceli vypočívať možné teoretické zrýchlenie tak je nutné poznať sekvenčný čas a zároveň tak čas jedného @IsolatedTest.
-Celkový čas nami vybraními testovami je 107~minút a z toho @IsolatedTest trvá 2.5 minúty.
-Ak k tomu pripočítame preparačný čas zdieľaného Cluster Operatora tak sa dostaneme na 5.5 minúty a teda možná paralelná čas bude rovná $p = \frac{101.5}{107}$.
-Speedup factor je rovný počtu virtual CPU, ktoré máme k dispozící (i.e., $S=24$) a vďaka tomu može všetky hodnoty dosadiť do
-vzorca nadefinovaného vyššie (i.e., Equation~\eqref{eqn:t-new-formula}).
+We also have done other experiments to prove that our implemented class-wide parallelisation is capable of vertical scaling.
+Therefore, we selected a set of test classes that do not need any form of synchronisation or isolation (that is, they do not contain @IsolatedSuite annotation).
+Specifically, these will be classes containing the @ParallelSuite annotation, and they are HttpBridgeScramShaST, HttpBridgeTlsST,
+ThrottlingQuotaST, TopicST, UserST, ReconciliationST and CruiseControlConfigurationST.
+Together they contain thirty test cases where twenty-nine do not need any form of synchronisation, and only one test case needs isolation from other tests.
+More precisely, we have ten @ParallelNamespaceTest, for repetition;
+these are tests that deploy the Kafka cluster and thus rank among more resource-intensive.
+Next, we have 19 @ParallelTest can also be said to be lightweight variants on the need for total resources, and finally, one @IsolatedTest
+guaranteeing isolation from other parallel tests.
+In case we would like to calculate a possible theoretical acceleration, it is necessary to know the sequence time and, at the same time, the time of one @IsolatedTest.
+The total time of our selected tests is 107~minutes, of which @IsolatedTest lasts two and a half minutes.
+If we add the preparation time of the shared Cluster Operator to this, we get to five and a half minutes and therefore, the possible parallel time will be equal to $p = \frac{101.5}{107}$.
+The speedup factor is equal to the number of virtual CPUs we have available (i.e., $S = 24$), and thanks to that, all values can be set to
+formula as defined above (i.e., Equation~\eqref {eqn:t-new-formula}).
 \begin{equation}
     \label{eqn:class-wide-time-ocp}
     T_{new} = (1 - \frac{101.5}{107}) * 107 +  \frac{\frac{101.5}{107}}{24} * 107 =~10~minutes
     \tag{6}
 \end{equation}
-Po vypočítaní nám vyjde, že teoretické zrýchlenie pri použítí 24 jadier sa bude blížiť ku 10 minútam z čoho si zároveň
-možeme vypočítať aj $S_{teo} = \frac{T_{old}}{T_{new}} = \frac{107}{10} =~10.7x$ a $\lim_{s\to\infty} S_{\max} = \frac{1}{1-p} = \frac{1}{1-\frac{101.5}{107}} =~19x$.
+After the calculation, it turns out that the theoretical acceleration using twenty-four cores will approach ten minutes,
+and by this outcome, we can compute theoretical speed up which is $S_{teo} = \frac{T_{old}}{T_{new}} = \frac{107}{10} =~10.7x$ a $\lim_{s\to\infty} S_{\max} = \frac{1}{1-p} = \frac{1}{1-\frac{101.5}{107}} =~19x$.
 
-Čo je nutné podotknúť je, že pre class-wide parallelizáciu je najlepším možným scenárom máť konzistentné rozloženie testov
-najideálnejśie podporujú parallelnú exekúciu (f.e., mať 5 testovacích tried, ktoré každá z nich obsahuje 10 parallel testov).
-Tým za získa z daného typu parallelizácie najviac.
-Triedy, ktoré sme využili avšak neposkytujú presne také rovnomerné rozloženie čo je zároveň aj v praxi takmer nemožné
-(i.e, mať rovnaký počet testov pre každú testovaciu triedu).
+What should be noted is that for class-wide parallelisation, the best possible scenario is to have a consistent test distribution.
+Ideally, such distribution where most test cases support parallel execution and in each test class are enough tests
+(i.e., have test classes, each containing more minor parallel test cases than configured parallelism).
+This gives us the most out of the given type of parallelisation.
+For instance, suppose that we have five test classes, and each of them will have two tests (these tests will be capable of parallel execution).
+The best possible scenario would be to run such a set of tests with ten threads,
+which would guarantee that all threads will be busy and at the same time, the overall calculation will end the same,
+of course, provided that the tests last the same.
+However, the test classes generally do not provide such an even distribution, which is almost impossible in practice
+(i.e., have the same number of tests for each test class).
 
-Experimenty, ktoré sme vykonali je možné vidieť v Tabuľke~\ref{06:tab:01:class-widesecurityst-ocp} obdobne ako pre method-wide
-parallelizáciu sme najskôr dodali totálne sekvenčné vykonanie a následne sme pridávali vlákna.
-Zároveň sme aj v rámci experimentoch porovnali vykonávanie method-wide (i.e., orange row color), kde celkové vykonávanie trvalo
-podstatne viac ako v prípade class-wide parallelizácie (i.e, green row color).
-Hlavným dôvodom prečo pri využítí 10 vlákien class-wide parallelizácia bola o viac než pol hodinu lepšia bola kvoli tomu, že
-nie v každej testovacej triede bolo testov väčší ako 10 a teda v method-wide parallelizácií sa použílo zbytočne veľa vlákien,
-ktoré sa vlastne nevyužili.
-Na druhú stranu class-wide parallelízícia 10 vlákien plne využila, pretože može vykonávať viacero tried zároveň a tým podstatne zvýšiť celkový čas.
+The experiments we performed can be seen in Table~\ ref{06:tab:01:class-widesecurityst-ocp} similar to method-wide
+we first added a total sequential run to the parallelisation;
+then, we increased the number of threads.
+Furthermore, we also compared the implementation of method-wide (i.e., orange row colour), where the overall implementation took
+significantly more than in the case of class-wide parallelisation (i.e., green row colour).
+The main reason why the use of ten threads of class-wide parallelisation was more than half an hour better was because
+not more than ten tests were in each test class, and therefore unnecessarily, many threads were used in method-wide parallelisation,
+which were not actually used.
+On the other hand, class-wide parallelisation has made full use of ten threads, as it can perform several classes simultaneously,
+thus significantly increasing the total time.
 
 % HttpBridgeScramShaST - 2 parallel test                  = 2
 % HttpBridgeTlsST - 2 parallel test                       = 2
@@ -191,8 +198,10 @@ Na druhú stranu class-wide parallelízícia 10 vlákien plne využila, pretože
 \begin{table}[ht!]
     \centering
     \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-preliminary-cluster-wide-ocp}
-    \caption{Preliminary experiments with Security test suite containing twenty-one test cases, which all can be run in parallel.
-    Each test case deploys Kafka cluster, which perfectly verifies if Kubernetes cluster or Minikube (i.e., single-node) can handle such a load.}
+    \caption{Experiments aimed at class-wide parallelisation and one execution for method-wide by which we compare these
+    two approaches and found non-correlation. Overall thirty test cases were executed (i.e., nineteen @ParallelTest,
+        ten @ParallelNamespaceTest and one@IsolatedTest).
+    }
     \label{06:tab:01:class-widesecurityst-ocp}
 \end{table}
 
