@@ -174,7 +174,17 @@ of course, provided that the tests last the same.
 However, the test classes generally do not provide such an even distribution, which is almost impossible in practice
 (i.e., have the same number of tests for each test class).
 
-The experiments we performed can be seen in Table~\ ref{06:tab:01:class-widesecurityst-ocp} similar to method-wide
+\begin{table}[ht!]
+    \centering
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-preliminary-cluster-wide-ocp}
+    \caption{Experiments aimed at class-wide parallelisation and one execution for method-wide by which we compare these
+    two approaches and found non-correlation. Overall thirty test cases were executed (i.e., nineteen @ParallelTest,
+        ten @ParallelNamespaceTest and one@IsolatedTest).
+    }
+    \label{06:tab:01:class-widesecurityst-ocp}
+\end{table}
+
+The experiments we performed can be seen in Table~\ref{06:tab:01:class-widesecurityst-ocp} similar to method-wide
 we first added a total sequential run to the parallelisation;
 then, we increased the number of threads.
 Furthermore, we also compared the implementation of method-wide (i.e., orange row colour), where the overall implementation took
@@ -194,16 +204,6 @@ thus significantly increasing the total time.
 % CruiseControlConfigurationST - 6 parallel namespace test= 6
 % ----
 % 10 PNT, 19 PT a 1 IT
-
-\begin{table}[ht!]
-    \centering
-    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-preliminary-cluster-wide-ocp}
-    \caption{Experiments aimed at class-wide parallelisation and one execution for method-wide by which we compare these
-    two approaches and found non-correlation. Overall thirty test cases were executed (i.e., nineteen @ParallelTest,
-        ten @ParallelNamespaceTest and one@IsolatedTest).
-    }
-    \label{06:tab:01:class-widesecurityst-ocp}
-\end{table}
 
 %-------------------------------------------------------------
 %------------- END OF PRELIMINARY EXPERIMENTS ----------------
