@@ -55,13 +55,13 @@
 \contentsline {chapter}{\numberline {6}Experimental evaluation}{60}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Experiments design}{60}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Preliminary experiments}{61}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Acceptance experiments}{65}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Method-wide}{65}{subsection.6.3.1}%
-\contentsline {section}{\numberline {6.4}Regression experiments}{65}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Future work}{66}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Conclusion}{67}{chapter.8}%
-\contentsline {chapter}{Bibliography}{68}{chapter*.11}%
+\contentsline {section}{\numberline {6.3}Production experiments}{65}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Subset of our Strimzi system test}{65}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Entire system tests of the Strimzi}{65}{subsection.6.3.2}%
+\contentsline {chapter}{\numberline {7}Future work}{68}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusion}{69}{chapter.8}%
+\contentsline {chapter}{Bibliography}{70}{chapter*.11}%
 \ttl@starttoc {chapters@1}
-\contentsline {chapter}{\numberline {A}Manual}{70}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Implementation details}{71}{appendix.B}%
+\contentsline {chapter}{\numberline {A}Manual}{72}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Implementation details}{73}{appendix.B}%
 \contentsfinish 

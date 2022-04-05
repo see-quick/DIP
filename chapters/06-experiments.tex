@@ -14,7 +14,7 @@ These experiments will be performed for small Kubernetes instances (i.e., Miniku
 The expected results should be positive because parallelization will have the best possible implementation environment
 (f.e., for method-wide parallelization, it will be a test class containing only tests that are capable of parallel computation,
 similarly to class-wide parallelization.);
-(b) the next part will be acceptance experiments, which will primarily provide information on whether it is beneficial
+(b) the next part will be production based experiments (i.e., acceptance), which will primarily provide information on whether it is beneficial
 to use parallelization in a small subset of tests, where mostly half of the tests are capable of parallel execution.
 Acceptance experiments will include a subset of our system of tests, where of course, there will also be tests and test classes,
 which are not capable of parallel execution, and thus synchronization will occur.
@@ -96,7 +96,7 @@ Nevertheless, one needs to realize that if we had hypothetically unlimited resou
 the acceleration we calculated (i.e., Equation~\eqref{eqn:amdalh-limit}).
 \begin{table}[ht!]
     \centering
-    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-final-smoke-method-wide-ocp}
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/preliminary/06-exp-final-smoke-method-wide-ocp}
     \caption{The \textbf{SecurityST} contains twenty-one test cases, and all of them could be executed in parallel
         (i.e., contains @ParallelTest or @ParallelNamespaceTest annotation).
         Moreover, each test case deploys a Kafka cluster, which perfectly verifies if the Kubernetes cluster
@@ -130,7 +130,7 @@ We could use a maximum of three cores because, in the case of four cores, the vi
 CPU utilization was approximately 80\% during the use of the four cores.
 \begin{table}[ht!]
     \centering
-    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-preliminary-minikube-b}
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/preliminary/06-exp-preliminary-minikube-b}
     \caption{Multiple experiments for various flavours of single-node Kubernetes instances for the
     \textbf{SecurityST} suite. Both of these flavours (i.e., orange and red one prove that parallelisation is
     vertically scaling on more minor instances), the yellow one (i.e., using two virtual cores and eight GB RAM)
@@ -161,7 +161,8 @@ formula as defined above (i.e., Equation~\eqref {eqn:t-new-formula}).
     \tag{6}
 \end{equation}
 After the calculation, it turns out that the theoretical acceleration using twenty-four cores will approach ten minutes,
-and by this outcome, we can compute theoretical speed up which is $S_{teo} = \frac{T_{old}}{T_{new}} = \frac{107}{10} =~10.7x$ a $\lim_{s\to\infty} S_{\max} = \frac{1}{1-p} = \frac{1}{1-\frac{101.5}{107}} =~19x$.
+and by this outcome, we can compute theoretical speed up which is $S_{teo} = \frac{T_{old}}{T_{new}} = \frac{107}{10} =~10.7x$
+and $\lim_{s\to\infty} S_{\max} = \frac{1}{1-p} = \frac{1}{1-\frac{101.5}{107}} =~19x$.
 
 What should be noted is that for class-wide parallelisation, the best possible scenario is to have a consistent test distribution.
 Ideally, such distribution where most test cases support parallel execution and in each test class are enough tests
@@ -176,7 +177,7 @@ However, the test classes generally do not provide such an even distribution, wh
 
 \begin{table}[ht!]
     \centering
-    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/06-exp-preliminary-cluster-wide-ocp}
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/preliminary/06-exp-preliminary-cluster-wide-ocp}
     \caption{Experiments aimed at class-wide parallelisation and one execution for method-wide by which we compare these
     two approaches and found non-correlation. Overall thirty test cases were executed (i.e., nineteen @ParallelTest,
         ten @ParallelNamespaceTest and one@IsolatedTest).
@@ -209,24 +210,59 @@ thus significantly increasing the total time.
 %------------- END OF PRELIMINARY EXPERIMENTS ----------------
 %-------------------------------------------------------------
 
-\section{Acceptance experiments}
+\section{Production experiments}
+
+V tejto sekcií zahrnieme dva rôznorodé experimenty.
+V Sekcií~\ref{06:subsec:acceptance-experiments} budú popísané
+a ukázané experimenty nad malou produkčnou sadou system testov.
+Zároveň tak zistíme, či je pre malú sadu testov parallelizácia aplikovateľná.
+V dalšej časti (i.e, Section~\ref{06:subsec:regression-experiments}) získame na druhú stranu iný pohľad nad veľkou sadou system testov, ktorou aktuálne disponuje Strimzi.
+
+\subsection{Subset of our Strimzi system test}
+\label{06:subsec:acceptance-experiments}
 
 Tento typ experimentov bude zahrnovať nášu reálnu podmnožinu testov, ktorá sa vykonávana ako jedna z príslušných jobov v CI
-nástroji. Výsledok týchto testov nám zároveň dodá informáciu, či je ideálne púštať paralelne. Kedže viem, že daný profil
-obsahuje aj dosť testov pre ktoré je nutná izoláciu (i.e., @IsolatedTest) a rovnako tak aj testovacie triedy (i.e., @IsolatedSuite).
+nástroji.
+Výsledok týchto testov nám zároveň dodá informáciu, či je ideálne púštať paralelne.
+Kedže viem, že daný profil obsahuje aj dosť testov pre ktoré je nutná izoláciu (i.e., @IsolatedTest) a rovnako tak aj testovacie triedy (i.e., @IsolatedSuite).
 V tomto ohlade sa teda čaká podstatne slabšie zrýchlenie ak to porovnáme z preliminárnymi experimentami, ktoré sa púštali
-s takmer najlepšom prostredí pre paralelizáciu. Zároveň kedže sme zistili, že flavour \emph{2CPUs a 8GB RAM}, nie je
-možný vykonávať ani dve paralelné testy a teda je pre tento typ experimentu zbytočný.
+s takmer najlepšom prostredí pre paralelizáciu.
+Zároveň kedže sme zistili, že flavour \emph{2CPUs a 8GB RAM}, nie je možný vykonávať ani dve paralelné testy a teda je pre tento typ experimentu zbytočný.
 
-\subsection{Method-wide}
+% TODO:     1. popisat Amdalh zakon na jednotlive instancie MINIKUBE co ocakame ake teoreticke zrychlenie
+%           2. Nasledne popisat vysledky ze sa vlastne dalo cakat ze to nebude velke zrychlenie kvoli poctu IsolatedTest...
 
-Ako minule začneme
+\begin{table}[ht!]
+    \centering
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/acceptance/06-exp-acceptance-minikube}
+    \caption{Experiments aimed at class-wide parallelisation and one execution for method-wide by which we compare these
+    two approaches and found non-correlation. Overall thirty test cases were executed (i.e., nineteen @ParallelTest,
+        ten @ParallelNamespaceTest and one@IsolatedTest).
+    }
+    \label{06:tab:02:minikube-accepatance-experiments}
+\end{table}
 
-acceptance profile...
+% TODO:     1. popisat Amdalh zakon na jednotlive instancie OCP co ocakame ake teoreticke zrychlenie
+%           2. Nasledne popisat vysledky ze sa vlastne dalo cakat ze to nebude velke zrychlenie kvoli poctu IsolatedTest...avsak je vidiet nejake zrychlenie...
+%    ------
+% final words = kedze dane testy trvaju iba 2h tak tam to zrychlenie nie je vidiet avsak v nasledujucich experintoch budeme vidiet
+% zrychlenie v meritku hodin co je urcite priatelne a skvele zistenie...
 
-\section{Regression experiments}
+\begin{table}[ht!]
+    \centering
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/acceptance/06-exp-acceptance-ocp}
+    \caption{Experiments aimed at class-wide parallelisation and one execution for method-wide by which we compare these
+    two approaches and found non-correlation. Overall thirty test cases were executed (i.e., nineteen @ParallelTest,
+        ten @ParallelNamespaceTest and one@IsolatedTest).
+    }
+    \label{06:tab:02:ocp-accepatance-experiments}
+\end{table}
 
-regression profile...
+
+\subsection{Entire system tests of the Strimzi}
+\label{06:subsec:regression-experiments}
+
+
 
 \chapter{Future work}
 \label{07:chapter:title}
