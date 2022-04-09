@@ -14,13 +14,13 @@ These experiments will be performed for small Kubernetes instances (i.e., Miniku
 The expected results should be positive because parallelization will have the best possible implementation environment
 (f.e., for method-wide parallelization, it will be a test class containing only tests that are capable of parallel computation,
 similarly to class-wide parallelization.);
-(b) the next part will be production based experiments (i.e., acceptance), which will primarily provide information on whether it is beneficial
+(b) the next part will be acceptance production based experiments, which will primarily provide information on whether it is beneficial
 to use parallelization in a small subset of tests, where mostly half of the tests are capable of parallel execution.
 Acceptance experiments will include a subset of our system of tests, where of course, there will also be tests and test classes,
 which are not capable of parallel execution, and thus synchronization will occur.
 Possibly the parallelization will not be suitable for acceptance experiments because most test suites consist of one or two test cases,
 and the overall preparation phase of the test suite is long.;
-(c) last type of experiments will be the so-called regression, which will already include the entire test suite currently offered by the Strimzi project.
+(c) last type of experiments so\-called regression, which will already include the entire test suite currently offered by the Strimzi project.
 It will tell us whether the given parallelization is eligible for the Strimzi.
 Moreover, a significant acceleration is expected because test classes often contain ten or more tests.
 On the other hand, we also have many tests that need total isolation, which potentially can slow down the whole performance.
@@ -212,55 +212,89 @@ thus significantly increasing the total time.
 
 \section{Production experiments}
 
-V tejto sekcií zahrnieme dva rôznorodé experimenty.
-V Sekcií~\ref{06:subsec:acceptance-experiments} budú popísané
-a ukázané experimenty nad malou produkčnou sadou system testov.
-Zároveň tak zistíme, či je pre malú sadu testov parallelizácia aplikovateľná.
-V dalšej časti (i.e, Section~\ref{06:subsec:regression-experiments}) získame na druhú stranu iný pohľad nad veľkou sadou system testov, ktorou aktuálne disponuje Strimzi.
+In this section, we will include two different experiments.
+First, in Section~\ref{06:subsec:acceptance-experiments} they will be described as shown experiments on a small production set of system tests.
+Moreover, these experiments provide information on whether parallelisation is applicable even for a small production-based set of tests.
+In the next Section (i.e., Section~\ref{06:subsec:regression-experiments}), we get a different view of the extensive set
+of system tests that are currently available in the Strimzi.
 
 \subsection{Subset of our Strimzi system test}
 \label{06:subsec:acceptance-experiments}
 
-Tento typ experimentov bude zahrnovať nášu reálnu podmnožinu testov, ktorá sa vykonávana ako jedna z príslušných jobov v CI
-nástroji.
-Výsledok týchto testov nám zároveň dodá informáciu, či je ideálne púštať paralelne.
-Kedže viem, že daný profil obsahuje aj dosť testov pre ktoré je nutná izoláciu (i.e., @IsolatedTest) a rovnako tak aj testovacie triedy (i.e., @IsolatedSuite).
-V tomto ohlade sa teda čaká podstatne slabšie zrýchlenie ak to porovnáme z preliminárnymi experimentami, ktoré sa púštali
-s takmer najlepšom prostredí pre paralelizáciu.
-Zároveň kedže sme zistili, že flavour \emph{2CPUs a 8GB RAM}, nie je možný vykonávať ani dve paralelné testy a teda je pre tento typ experimentu zbytočný.
+This type of experiment will enclose our genuine subset of tests.
+These tests also give us whether it is beneficial for performing them in parallel.
+Since we know that the profile also contains enough test cases for which isolation is necessary (i.e., @IsolatedTest) and test classes (i.e., @IsolatedSuite).
+Therefore, a significantly weaker acceleration is expected compared to the preliminary experiments, which have the best possible parallelisation environment.
+Furthermore, since we found out that flavour \emph{2CPUs and 8GB RAM} is not able to perform even two parallel tests, it is thus unnecessary for this type of experiment.
 
-% TODO:     1. popisat Amdalh zakon na jednotlive instancie MINIKUBE co ocakame ake teoreticke zrychlenie
-%           2. Nasledne popisat vysledky ze sa vlastne dalo cakat ze to nebude velke zrychlenie kvoli poctu IsolatedTest...
+So if we look at a more detailed way in our production-based tests, we find out precisely that it contains 13 test classes and 35 tests.
+Of these, 6 test classes require complete isolation (i.e., @IsolatedSuite) and the same for 5 test cases (i.e., @IsolatedTest).
+However, what is interesting is to be careful, and parallel tests could sometimes be in border situations taken as @IsolatedTest.
+One of the cases is where we have three isolated classes containing only one test that can perform the parallel implementation.
+This is because test cases in @IsolatedSuite will only be executed after the calculation is completed by @ParallelSuite or another @IsolatedSuite.
+We have eight tests that require complete isolation and 27 tests capable of parallel execution.
+However, this fact still does not guarantee that the problem will scale vertically.
+One reason is that the \emph{MetricsIsolatedST} test class contains 18 parallel tests, where almost all of them do not last more than a few seconds.
+Thus, there will be little success in this class for parallelisation.
+At the same time, the overall test set is not an ideal sample for method-wide parallelisation because these are test classes that do not contain
+several tests.
+However, where it can be a potential success, the use of class-wide parallelisation is not great.
+Some paralleled classes (i.e., @ParallelSuite) contain pre-preparation of their test environment (i.e., \emph{HttpBridgeTlsST}, \emph{RollingUpdateST}).
+Furthermore, in the case of class-wide parallelisation, they create it independently of the second test class, meaning that where
+it will be possible to save time will be mainly in these parts.
+However, we do not think we will see an intense acceleration.
 
+% 18x PT, 2x IT...
+% ========== SUMMARY ======
+% 21x PT, 10PNT (but 3 as iso...), 8x IT
+% 8x IT, 6PNT, 21x PT
+
+The experiments we performed on a given test sample do not differ much from the previous ones.
+We started with typical sequential execution and gradually started to increase the number of threads (see Table~\ref{06:tab:02:minikube-accepatance-experiments}).
+We found out that during the use of method-wide parallelisation, there was no acceleration at all.
+Thus, a scenario where this form of parallelisation is not very suitable due to the small number of tests in the given test classes.
+However, where we could potentially succeed was by using class-wide parallelisation.
+Within the more powerless machine (i.e., \emph{16GB RAM and four virtual CPUs}), the acceleration was almost non-existent, even in the class-wide case.
 \begin{table}[ht!]
     \centering
-    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/acceptance/06-exp-acceptance-minikube}
-    \caption{Experiments aimed at class-wide parallelisation and one execution for method-wide by which we compare these
-    two approaches and found non-correlation. Overall thirty test cases were executed (i.e., nineteen @ParallelTest,
-        ten @ParallelNamespaceTest and one@IsolatedTest).
-    }
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/acceptance/06-exp-minikube-accpeantace-second}
+    \caption{Combination of experiments (i.e., using method and class-wide parallelisation) primarily aiming at class-wide
+    parallelisation. Moreover, experiments were performed for more-minor instances of Kubernetes.}
     \label{06:tab:02:minikube-accepatance-experiments}
 \end{table}
+On the other hand, using a more robust machine (i.e., \emph {32GB RAM and eight virtual CPUs}),
+we could get to eight threads with only 1.4x acceleration, which is not very advantageous in using the number of resources needed for parallelisation.
+Hence, it is clear that more minor instances of Kubernetes are not suitable for this type of sample (i.e., acceptance production-based) due to the above facts.
 
-% TODO:     1. popisat Amdalh zakon na jednotlive instancie OCP co ocakame ake teoreticke zrychlenie
-%           2. Nasledne popisat vysledky ze sa vlastne dalo cakat ze to nebude velke zrychlenie kvoli poctu IsolatedTest...avsak je vidiet nejake zrychlenie...
-%    ------
-% final words = kedze dane testy trvaju iba 2h tak tam to zrychlenie nie je vidiet avsak v nasledujucich experintoch budeme vidiet
-% zrychlenie v meritku hodin co je urcite priatelne a skvele zistenie...
-
+At the same time, we wanted to try a similar scenario in the case of using a more significant instance of Kubernetes (i.e., multi-node).
+The results we obtained were the same as for the more minor instances of Kubernetes, also due to the size of the test set
+(i.e., Table~\ref{06:tab:02:ocp-accepatance-experiments}).
 \begin{table}[ht!]
     \centering
-    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/acceptance/06-exp-acceptance-ocp}
-    \caption{Experiments aimed at class-wide parallelisation and one execution for method-wide by which we compare these
-    two approaches and found non-correlation. Overall thirty test cases were executed (i.e., nineteen @ParallelTest,
-        ten @ParallelNamespaceTest and one@IsolatedTest).
-    }
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/acceptance/06-exp-ocp-accpetance-second}
+    \caption{Experiments performed by using class-wide parallelisation for a more robust Kubernetes cluster.}
     \label{06:tab:02:ocp-accepatance-experiments}
 \end{table}
 
-
 \subsection{Entire system tests of the Strimzi}
 \label{06:subsec:regression-experiments}
+
+eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
+eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
+eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
+eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
+eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
+eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
+eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
+eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
+eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
+eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
+eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
+eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
+eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
+eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
+eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
+eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
 
 
 
