@@ -17,8 +17,25 @@
 \chapter{Manual}
 \label{30:appendix:a}
 
-The author assume \dots by step how to run (a) method-wide parallelisation, (b) class-wide parallelisation.
-What is needed blah blah..
+The author assume that one has already prepare Kubernetes cluster and it is connected to such instance.
+Here is the a few steps how to run (a) method-wide or (b) class-wide parallelisation:
+\begin{enumerate}[itemsep=1mm, parsep=0pt]
+    \item clone the Strimzi repository \---\ git clone https://github.com/strimzi/strimzi-kafka-operator
+    \item enter the cloned repository \---\ cd strimzi-kafka-operator
+    \item download needed utilities in directory development-docs/DEV\_GUIDE.md
+    \item build Strimzi project \---\ mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true
+    \item (a) run system tests using five threads by method-wide parallelisation
+    \begin{itemize}
+        \item  mvn verify -pl systemtest -Pall -Djunit.jupiter.execution.parallel.enabled=true -Djunit.jupiter.execution.parallel.config.fixed.parallelism=10
+    \end{itemize}
+    \item (b) run system tests using five threads by class-wide parallelisation
+    \begin{itemize}
+        \item mvn verify -pl systemtest -Pall -Djunit.jupiter.execution.parallel.enabled=true \\
+        -Djunit.jupiter.execution.parallel.config.fixed.parallelism=10 \\
+        -Djunit.jupiter.execution.parallel.mode.classes.default=concurrent
+    \end{itemize}
+    \item (optional) one can also run such parallelisation in the InteliJ IDE by specifying these properties inside configuration.
+\end{enumerate}
 
 \chapter{Implementation details}
 \label{30:appendix:b}

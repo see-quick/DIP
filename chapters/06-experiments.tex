@@ -278,29 +278,79 @@ The results we obtained were the same as for the more minor instances of Kuberne
 
 \subsection{Entire system tests of the Strimzi}
 \label{06:subsec:regression-experiments}
+% 1. Popísať naše očakávania...
+The last type of experiment we tried was a regression (i.e., production\-based).
+In other words, a very robust set of test cases contains everything (i.e., @IsolatedTest, @IsolatedSuite,
+@ParallelTest, @ParallelSuite).
+Currently, this test sample contains approximately 65 test classes, and more than half of them are classes
+requiring synchronisation (i.e., @IsolatedSuite).
+Specifically, these are 37 isolated classes, and with the use of the add-on, we find that there are classes that
+can perform them at the same time exactly 28.
+This quantification can give us an approximate possible result of the experiments.
+Given that sequential execution takes almost twenty-one hours, the ideal scenario would be to get below half
+(i.e., ten hours) of execution time.
+A total of four types of experiments will be performed; (a) VM with 16GB RAM and four virtual cores,
+(b) VM with 32GB RAM and eight virtual cores, (c) Kubernetes cluster with six nodes (three masters and three workers)
+and (d) Kubernetes cluster with nine nodes (three masters and six workers).
+We do not expect much acceleration for (a) because this is a test suite when OOM may have a problem.
+This is mainly due to test cases containing the component \emph{KafkaMirrorMaker} or \emph{KafkaMirrorMaker2}, which
+needs a lot of RAM. On the other hand, for alternative (b), we already assume an acceleration approaching half.
+At the same time, however, it will perform method-wide parallelisation for both types of experiments.
+In another Kubernetes instance (c) type, we assume the possible implementation of at least five threads
+in parallel and, thus, some acceleration.
+Finally, for (d), it is a matter of course that the most significant possible acceleration is expected and,
+at the same time, the use of class-wide parallelisation for a vast number of threads.
 
-eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
-eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
-eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
-eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
-eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
-eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
-eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
-eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
-eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
-eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
-eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
-eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
-eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
-eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
-eqwewqeqweowq dkoqekwoq ekqweko qwoe kqwoe kqeoqwk eoqwwek eoqwke kek oeqwoe wqkeoqko ekwqe oqwke woqek oqwek oqwkeqwk ekqwo
-eqwkoe kqoe ksdmsafa mdos dsaoim oadmo asdomasod miowq ei qionsodmaosdm oasmdsoan iqwone e keowk oekw oq  qoek oq eqw ewq
+% 2. Popísať výsledky
+In the first run of experiments for small instances of Kubernetes (i.e., using one VM), we obtained the following information.
+For VMs with 16GB RAM and four virtual cores, no form of parallelisation is possible because already with method-wide parallelisations
+with the use of two threads, the given VM falls on the lack of memory (Table~\ref{06:tab:02:minikube-regression-experiments}).
+\begin{table}[ht!]
+    \centering
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/regression/06-minikube-regression}
+    \caption{Combination of experiments (i.e., using method parallelisation) on production-based test sample with different VMs.}
+    \label{06:tab:02:minikube-regression-experiments}
+\end{table}
+This is the case in test cases using the \emph{KafkaMirrorMaker} or \emph{KafkaMirrorMaker2} components.
+At the same time, the combination of \emph{KafkaConnect} with \emph{KafkaMirrorMaker/2}.
+Let us remember that one component of \emph {KafkaMirrorMaker/2} requires two Kafka clusters, and hence
+is very memory intensive.
 
+The second type of experiment using a more powerful VM was slightly more favourable in terms of results.
+We could even use four threads where the total time spent performing was 12h from the flood 21h.
+However, using five threads, we got into the same problem as in previous experiments (i.e., OOM problem), as
+shown in Table~\ref{06:tab:02:minikube-regression-experiments}.
+Overall, it can be assessed (for small instances of Kubernetes) that ideal candidates for this test sample
+will use VM with 32GB RAM and eight virtual cores.
 
+Another form of experimentation (i.e., (c) and (d)) they were even more massive on resources.
+Therefore, we expected better results.
+\begin{table}[ht!]
+    \centering
+    \includegraphics[scale=0.8]{obrazky-figures/08-experiments/regression/06-exp-ocp-regression}
+    \caption{Experiments performed by using method-wide and class-wide parallelisation for a more robust Kubernetes
+    clusters (variation with three and six worker nodes).}
+    \label{06:tab:02:ocp-regression-experiments}
+\end{table}
+For the Kubernetes cluster using three master and three worker nodes, we got the best results using five threads and were
+we can get from 21h to 11h, as can be seen in Table~\ref{06:tab:02:ocp-regression-experiments}.
+When we used more threads, the result was worse, or the test cases fell due to a lack of memory (f.e., using
+ten threads, we got 32 error tests).
 
-\chapter{Future work}
-\label{07:chapter:title}
+The results were much better for the Kubernetes cluster using three master and six worker nodes.
+We could use up to 25 threads, which resulted in a decrease in computing time.
+From the flood 21h we got to 8h (Table~\ref{06:tab:02:ocp-regression-experiments}).
+In the case of using 30 threads, we got to the problem of OOM and Kubernetes cluster crashing.
+We can evaluate that Kubernetes for a given test sample is the optimal candidate
+cluster using three master and six workers nodes for larger instances.
 
 \chapter{Conclusion}
 \label{08:chapter:title}
+
+The thesis began with a description of the basic principles of \emph{Kubernetes} and \emph{Kafka}.
+Furthermore, we described a project that encapsulates the Kafka system and replaces it with the Kubernetes system (i.e., Strimzi).
+We further described the architecture and principles in the system tests of the Strimzi project.
+We also gained knowledge about parallel execution, which we successfully used in this thesis.
+We identified the challenges of the current system test architecture and created and implemented it to solve these problems for us.
+Finally, we experimented with showing that parallelisation can scale vertically for different test samples.
 
