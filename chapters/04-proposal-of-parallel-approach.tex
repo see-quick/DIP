@@ -41,7 +41,7 @@ Subsequently, we create in each Namespace a Cluster Operator, again and again;
 this process usually takes one minute.
 The ideal approach should be that the Cluster Operator should see all Namespaces and shared them for all test suites.
 Using this approach eliminates much lost time.
-However, we must be aware of a particular test suite or the test case that will require a different Cluster Operator configuration.
+However, we must be aware of a particular test suite, or the test case that will require a different Cluster Operator configuration.
 At that moment, we must guarantee that some label will annotate that single test case for the entire test suite to run in isolation.
 
 The disadvantages of the current approach mentioned above may be a clear argument for why such a change is necessary.
@@ -115,7 +115,7 @@ It is clear that if we write a new \emph{TestEngine}, we have to write our own a
 With this knowledge, even this approach does not meet our needs.
 
 
-\subsection{JUnit5 paralelization}
+\subsection{JUnit5 parallelisation}
 
 The last alternative is the use of Junit5 \emph{TestEngine} parallelisation.
 This, almost 3-year-old, feature of the Junit5 platform (released 3rd September in 2018) has a lot to offer.
@@ -173,6 +173,7 @@ The given interface should consist of the following abstract methods:
 Thanks to this change, we will create a generic method at the heart of the ResourceManager class.
 
 \subsection{ResourceManager}
+\label{04:sub:sec:resourcemanager}
 
 The most critical part of system test module is ResourceManager.
 In Section~\ref{02:sec:strimzisystemtests}, we described how this class works and what exactly it contains.
@@ -195,9 +196,8 @@ In the given algorithm, there are 3 phases:
 \end{itemize}
 
 \begin{algorithm}[H]
-    \label{04:alg:creationofresource}
     \caption{Thread-safe algorithm for creation resources inside \emph{Resource manager}}
-
+    \label{04:alg:creationofresource}
     \hspace*{\algorithmicindent} \textbf{Input: ExtensionContext context, GenericType resources}
 
     \begin{algorithmic}[1]
@@ -226,8 +226,8 @@ Another thread-safe algorithm~\ref{04:alg:syncresources} does a very similar pro
 The identification of which resource to wait for is within the given ExtensionContext.
 
 \begin{algorithm}[H]
-    \label{04:alg:syncresources}
     \caption{Thread-safe algorithm for sychronising resources inside the \emph{Resource manager}}
+    \label{04:alg:syncresources}
     \hspace*{\algorithmicindent} \textbf{Input: ExtensionContext context}
     \begin{algorithmic}[1]
         \State Stack<Resource> resources = resourceStack.get(context.getTestName());
@@ -257,8 +257,8 @@ However, if the map is not empty, deletion begins.
 Once this phase is completed, everything will be deleted from the map.
 
 \begin{algorithm}[H]
-    \label{04:alg:deleteresources}
     \caption{Thread-safe algorithm for deletion of resources the inside \emph{Resource manager}}
+    \label{04:alg:deleteresources}
     \hspace*{\algorithmicindent} \textbf{Input: ExtensionContext context}
     \begin{algorithmic}[1]
         \State{$\Psi \gets mapResourceEmptinessCondition(context)$}
@@ -276,7 +276,7 @@ Once this phase is completed, everything will be deleted from the map.
     \end{algorithmic}
 \end{algorithm}
 
-\section{Method wide paralelization}
+\section{Method wide parallelisation}
 \label{04:methodwideparalelisation}
 
 In this section, we will describe our proposal for a possible method-wide parallelisation.
@@ -312,7 +312,7 @@ As a reminder from Chapter~\ref{03:chapter:title}, read-write lock consists of t
 ReaderLock allows multiple readers to read from a shared source.
 However, if even one reader reads, no thread can write to the source.
 If no reader reads anymore and one thread wants to write, the file will be locked using WriterLock.
-Here, however, another thread cannot access until the same thread rereleases it.
+Here, however, another thread cannot access until the same thread releases it.
 So for the @IsolatedTest annotation, we propose using this type of lock to guarantee the system's safety property (mutual exclusion).
 
 In Figure~\ref {05:fig:methodwideparallelism} it is possible to see the best scenario that can happen in \emph {method-wide} parallelisation.
@@ -320,14 +320,15 @@ Moreover, we must realise that if the test suite theoretically contains all \emp
 Of course, if the computer on which the tests would run contained no more than two CPUs, then it is not possible to run multiple parallel threads with each other (it is possible, but the processor would then have to make many \textbf{context switches}, which would lead to a significant decrease in performance).
 Thus, the more CPUs a given computer/cluster will have available, the quickier the results.
 
-\section{Class wide paralelization}
+\section{Class wide parallelisation}
 \label{04:classwideparalelisation}
 
 In this section, we will describe and suggest what steps are needed to support \emph{class-wide} parallelisation.
-At first, in Section \ref{05:sharedclusteroperator}, we describe all the necessary changes that need to be made.
+At first, in Section~\ref{05:sharedclusteroperator}, we describe all the necessary changes that need to be made.
 Furthermore, restructuring and creating a new class for managing all possible Cluster Operator configurations.
 Next, we describe the rollback mechanism needed to solve the problem with two test suites that need different configurations.
-Finally, we follow up on this in Section \ref{05:isolatedsuite}, where we solve the given problem completely.
+We follow up on this in Section~\ref{05:isolatedsuite}, where we solve the given problem completely.
+Finally, in Section~\ref{05:parallelsuite} we propose a mechanism that determines when to execute test suites in parallel.
 
 \subsection{Shared Cluster Operator}
 \label{05:sharedclusteroperator}
@@ -335,7 +336,13 @@ Finally, we follow up on this in Section \ref{05:isolatedsuite}, where we solve 
 This change requires multiple interventions in the test suite.
 Since a new Cluster Operator is currently being created in each test suite, we must always have this Cluster Operator available in a shared context.
 This is accompanied by the question of how it will be possible to obtain such a context.
-In Section \ref{04:architecturechanges}, especially in the description of the ResourceManager component, we partially described the ExtensionContext object, which serves as a test identifier thanks to a \emph{hashcode}\footnote{\textbf{Hashcode} \---\ hashcode in Java is usually an integer value that has the same number for the identical objects. However, if the objects differ in one of the instance attributes, the hashcode must have a different value. This is a known contract between a Class and its implemented \emph{int hashCode()} method.}  However, we must be aware that any ExtensionContext in either the \emph{@BeforeEach} or \emph{@BeforeAll} scopes of the code cannot be used. If we used such an ExtensionContext, the Shared Cluster Operator would be deleted after the test suite in \emph{@AfterAll} has perished. One elegant approach to solving this problem is to use the \emph{extensioncontext.getRoot()} context, which ensures that the Cluster Operator is not deleted prematurely.
+In Section~\ref{04:architecturechanges}, especially in the description of the ResourceManager component, we partially described the ExtensionContext object,
+which serves as a test identifier thanks to a \emph{hashcode}\footnote{\textbf{Hashcode} \---\ hashcode in Java is usually an integer value that has the same number
+for the identical objects. However, if the objects differ in one of the instance attributes, the hashcode must have a different value. This is a known contract between
+a Class and its implemented \emph{int hashCode()} method.}.
+However, we must be aware that any ExtensionContext in either the \emph{@BeforeEach} or \emph{@BeforeAll} scopes of the code cannot be used.
+If we used such an ExtensionContext, the Shared Cluster Operator would be deleted after the test suite in \emph{@AfterAll} has perished.
+One elegant approach to solving this problem is to use the \emph{extensioncontext.getRoot()} context, which ensures that the Cluster Operator is not deleted prematurely.
 Another problem is the lack of an annotation/extension that creates a shared Cluster Operator only once if multiple test suites are run.
 We propose to create such an annotation \emph{@BeforeAllOnce}.
 Thanks to JUnit5 and its flexibility, it will be possible to implement such a mechanism by overriding \emph{@BeforeAllCallback}.
@@ -345,7 +352,7 @@ This requires a design that encapsulates multiple configurations of the Cluster 
 The answer to this is the \emph{Builder design pattern}, which will allow the client to specify the necessary configuration it will require.
 On the other hand, a person implementing this mechanism will disable parts that he does not want to make available to the user using operators' visibility (i.e., private, protected, package-protected).
 This eliminates the number of factory methods currently in the project and increases the overall readability of the code.
-An example of the resulting implementation and invocation for a given client might look exactly like the code shown in \ref{05:fig:clusteroperatorinstallation}.
+An example of the resulting implementation and invocation for a given client might look exactly like the code shown in~\ref{05:fig:clusteroperatorinstallation}.
 
 \begin{figure}[ht!]
     \centering
@@ -384,12 +391,13 @@ This may not be clear from the Figure~\ref{05:fig:clusteroperatorinstallation}, 
 
 The last change within the shared Cluster Operator is to create a rollback mechanism that will solve the problem if we have two test suites with different Cluster Operator configurations.
 Note that it is not possible to have multiple Cluster Operator deployments, as this would overlap and at the same time disrupt the operators.
-Therefore, we propose to create a rollback mechanism that will solve this problem. The~\ref{05:alg:rollback} algorithm shows the principle of operation.
+Therefore, we propose to create a rollback mechanism that will solve this problem.
+The~\ref{05:alg:rollback} algorithm shows the principle of operation.
 Specifically, we suggest that the algorithm be divided into two phases, where the first is to delete all currently deployed resources.
 The second phase is the deployment of a new Cluster Operator with a default configuration.
 \begin{algorithm}[H]
-    \label{05:alg:rollback}
     \caption{Cluster Operator rollback algorithm}
+    \label{05:alg:rollback}
     \begin{algorithmic}[1]
         \State{$// \; 1st \; phase$}
         \State{// trigger that we will again create namespace}
@@ -421,11 +429,26 @@ This issue will be resolved in the following Section~\ref{05:isolatedsuite}.
 
 One way to solve the problem is when we have different configurations of Cluster Operator, it is necessary to supply some form of synchronisation.
 Recall \emph{@IsolatedTest} from \emph{method-wide} parallelization.
-In this case, it will be no different.
-We suggest using a read-write lock for the new \emph{IsolatedSuite} annotation, which will encapsulate the lock.
-All the rules we described in the \emph{method-wide} parallelisation will be the same as for \emph{@IsolatedSuite}, so they will be the same semantically.
-The only difference will be the fact that @IsolatedTest will be an annotation applied only to method-scope, where \emph{@IsolatedSuite} the annotation will be applied only to class-scope.
+In this case, we suggest making a different approach because in the \emph{@IsolatedTest} we used \emph{@ResourceLock}.
+\emph{@ResourceLock} locks the overall computation, and no other threads can proceed with its execution.
+In the scope of method-wide parallelisation, this approach is applicable.
+However, if we use this approach in class-wide parallelisation and thus annotate such test class
+with \emph{@ResourceLock} using \emph{read\_write} lock, it will always execute only one test case.
+The reason why is that that \emph{@ResourceLock} will be propagated to each test method and thus resulting in sequence mode.
+Because of this problem, we propose to create \emph{@IsolatedSuite} as a labeling unit and implement an additional synchronisation mechanism,
+which will take care of multiple \emph{@IsolatedSuite}.
+The easiest way how to tackle such a problem would be using \emph{AtomicBoolean} as a flag.
+When \emph{@IsolatedSuite} starts its execution, it will set such a flag, and after everything is complete, it will release it.
 
-Additionally, we will have to design a mechanism for running multiple test suites in parallel simultaneously.
-An attentive reader, one will know the solution, and so we will solve it by creating an annotation that will contain an @Execution annotation with the value \emph{CONCURRENT}, thus guaranteeing parallel execution.
-We suggest calling such an annotation \emph{@ParallelSuite}.
+\subsection{@ParallelSuite}
+\label{05:parallelsuite}
+
+Additionally, we will have to design a mechanism for running multiple test suites in parallel.
+One way how to tackle this problem is to create an annotation that overrides configuration same as \emph{@ParallelTest}
+that will contain an \emph{@Execution} annotation with the value \emph{CONCURRENT} and thus guaranteeing parallel execution.
+Nevertheless, we would not be able to configure method-wide parallelisation with such an approach.
+So the final solution is to override configuration using system property\footnote{junit.jupiter.execution.parallel.mode.classes.default},
+when we need it.
+For instance, we left the default value system property for method-wide parallelisation (i.e., \emph{same\_thread}).
+By contrast, we set it to \emph{concurrent} if we need to execute test suites in parallel.
+At the same time, we supply metadata in the form of @ParallelSuite annotation to these classes, which can be run in parallel with other classes.

@@ -85,8 +85,8 @@ In other words, do a health check of nodes.
 There is also the \emph{Endpoint controller} for Service and Pod objects, \emph{Job controller} for Job objects, etc.
 All these controllers follow algorithm \ref{01:alg:controllerAlg}.
 \begin{algorithm}[H]
-    \label{01:alg:controllerAlg}
     \caption{Generic algorithm for each Kubernetes controller}
+    \label{01:alg:controllerAlg}
 
     \begin{algorithmic}[1]
         \State $desired\_state \gets controller.obtain\_desired\_state()$

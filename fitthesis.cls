@@ -1232,6 +1232,19 @@ Management}{\@fit@EN}%
   \usepackage{ae}
 \fi
 
+\lstset{
+tabsize = 4, %% set tab space width
+showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+% numbers = left, %% display line numbers on the left
+commentstyle = \color{green}, %% set comment color
+keywordstyle = \color{orange}, %% set keyword color
+% stringstyle = \color{green}, %% set string color
+rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+basicstyle = \small \ttfamily , %% set listing font and size
+breaklines = true, %% enable line breaking
+numberstyle = \tiny,
+}
+
 
 
 %--------------------------------------------------------
