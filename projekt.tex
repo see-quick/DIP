@@ -140,9 +140,21 @@
   supervisor.title.p={Doc. RNDr.},   %titul před jménem (nepovinné) / title before the name (optional)
   supervisor.title.a={Ph.D.},    %titul za jménem (nepovinné) / title after the name (optional)
   % Klíčová slova / keywords
-  keywords.cs={Sem budou zapsána jednotlivá klíčová slova v českém (slovenském) jazyce, oddělená čárkami.}, % klíčová slova v českém či slovenském jazyce / keywords in czech or slovak language
+  keywords.cs={Strimzi, Kubernetes, Orchestrácia, Klastering, Azure, Openstack, AWS, Apache Kafka, Distribuované systémy, middleware, systémové testy, paralelizmus, multi-vláknové vykonávanie, súbeh, sychronizácia, škálovateľnosť, operátory}, % klíčová slova v českém či slovenském jazyce / keywords in czech or slovak language
   % Abstrakt / Abstract
-  abstract.cs={Do tohoto odstavce bude zapsán výtah (abstrakt) práce v českém (slovenském) jazyce.}, % abstrakt v českém či slovenském jazyce / abstract in czech or slovak language
+  abstract.cs={
+        V posledných rokoch mnoho spoločností prijalo Kubernetes a architektúru mikroslužieb, ktorú umožňuje.
+        Táto technológia otvorila mnoho nových možností nielen pre veľké spoločnosti, ale aj pre malých vývojárov softvéru.
+        Kubernetes je systém riadenia kontajnerov a nedávno sa objavil nový koncept, ako efektívnejšie organizovať kontajnery \---\ vzor operátora.
+        Jeden takýto operátor je vyvinutý a udržiavaný v rámci open-source projektu s názvom Strimzi.
+        Projekt Strimzi spája niekoľko nástrojov, ktoré sa starajú o nasadenie Apache Kafka na Kubernetes.
+        Keďže Kafka je komplexný, horizontálne škálovateľný, distribuovaný systém, viete si predstaviť, že jeho inštalácia je pomerne zložitá akcia.
+        Preto jednou z najväčších výziev používania Kubernetes je, ako efektívne a rýchlo otestovať projekty ako Kafka a Strimzi a zároveň overiť integráciu s inými podobnými produktmi.
+        Zdroje, ktoré potrebuje Kubernetes, sú oveľa náročnejšie v porovnaní s nasadením Kafka na virtuálne stroje alebo typické inštancie kontajnerov.
+        Aby sme tento problém vyriešili, prijali sme princípy paralelného vykonávania a vytvorili mechanizmus v rámci systémových testov Strimzi, ktorý paralelne spúšťa testy iba proti jedinému klastri Kubernetes.
+        Okrem toho sme navrhli úplne novú architektúru pre end-to-end testy.
+        Vylepšenia sú zamerané na \textit{škálovateľnosť} a \textit{skrátenie času vykonávania}.
+        Prostredníctvom niekoľkých experimentov tento článok ukazuje, že navrhovaný mechanizmus s rôznymi konfiguráciami klastra Kubernetes (vrátane \textit{počet uzlov Kubernetes}, \textit{počet paralelne vykonávaných testov a sád}) výrazne urýchlil vykonávanie testov..}, % abstrakt v českém či slovenském jazyce / abstract in czech or slovak language
   abstract.en={
         In recent years, many companies have adopted Kubernetes and the microservices architecture it enables.
         This technology was opened up many new possibilities not just for large companies, but also for small software developers.
@@ -167,19 +179,60 @@
   keywords.en={Strimzi, Kubernetes, Orchestration, Clustering, Azure, Openstack, AWS, Apache Kafka, Distributed systems, middleware, end-to-end tests, paralelism, multi-threaded execution, race condition, synchronization, scalability, operators}, % abstrakt v anglickém jazyce / abstract in english
   %abstract.en={An abstract of the work in English will be written in this paragraph.},
   % Prohlášení (u anglicky psané práce anglicky, u slovensky psané práce slovensky) / Declaration (for thesis in english should be in english)
-  declaration={Prohlašuji, že jsem tuto bakalářskou práci vypracoval samostatně pod vedením pana X...
-Další informace mi poskytli...
-Uvedl jsem všechny literární prameny, publikace a další zdroje, ze kterých jsem čerpal.},
+  declaration={
+        Hereby I declare that this master’s thesis was prepared as an original author’s work under the supervision of Doc. Milan Česka,
+        further information was provided by Ing. Jakub Stejskal. All the relevant information sources used during this thesis’s preparation are appropriately cited and included in the reference list.},
   %declaration={I hereby declare that this Bachelor's thesis was prepared as an original work by the author under the supervision of Mr. X
 % The supplementary information was provided by Mr. Y
 % I have listed all the literary sources, publications and other sources, which were used during the preparation of this thesis.},
   % Poděkování (nepovinné, nejlépe v jazyce práce) / Acknowledgement (optional, ideally in the language of the thesis)
-  acknowledgment={V této sekci je možno uvést poděkování vedoucímu práce a těm, kteří poskytli odbornou pomoc
-(externí zadavatel, konzultant apod.).},
+  acknowledgment={
+        I would like to thank my supervisors, Ing. Jakub Stejskal, Doc. Milan Češka and Dr. Thomas Cooper for
+        their time. This thesis is realized in cooperation with Red Hat Czech, s.r.o.},
   %acknowledgment={Here it is possible to express thanks to the supervisor and to the people which provided professional help
 %(external submitter, consultant, etc.).},
   % Rozšířený abstrakt (cca 3 normostrany) - lze definovat zde nebo níže / Extended abstract (approximately 3 standard pages) - can be defined here or below
-  extendedabstract={Do tohoto odstavce bude zapsán rozšířený výtah (abstrakt) práce v českém (slovenském) jazyce.},
+  extendedabstract={
+        V dnešnej dobe sa čoraz častejšie stretávame s paralelnými programami.
+        Tucet programov, ktoré boli napísané typickým spôsobom pre jednojadrové systémy, nedokáže využiť prítomnosť počítačov s viacerými jadrami.
+        Keď sme chceli urýchliť riešenie problémov, chceli sme vytvoriť niečo, čo by eliminovalo náš čas na výpočty.
+        Tak sme vynašli počítač, ktorý na začiatku nevedel relatívne nič robiť.
+        To všetko sa však po pár rokoch zmenilo a počítač vyriešil problémy, ktoré človeku zabrali veľa dní.
+        V súčasnosti žijeme v dobe, kedy počítače výrazne skrátili čas vykonávania riešením rôznych problémov pomocou paralelizmu.
+
+        Pred niekoľkými rokmi \emph{Google} vydal technológiu, ktorá definovala a zmenila našu perspektívu nasadzovania a správy aplikácií.
+        Túto revolúciu spôsobil iteratívny sled malých krokov (t. j. fyzická, virtuálna a kontajnerová éra).
+        \emph{Kubernetes}~\cite{história, kubernetes, kubernetesBook} je systém na správu kontajnerov a v ďalšej miniiterácii priniesol nový koncept, ako efektívnejšie organizovať kontajnery \---\ \emph{vzor operátora }.
+        \emph{Vzor operátora} má za cieľ zachytiť, ako rozšíriť a implementovať úlohy automatizácie nad rámec \emph{Kubernetes}.
+        Jeden takýto operátor je vyvinutý a udržiavaný ako súčasť projektu s otvoreným zdrojom s názvom Strimzi~\cite{strimziDoc, strimziBlogPosts}.
+        Projekt \emph{Strimzi} spája niekoľko nástrojov, ktoré sa starajú o nasadenie Apache Kafka~\cite{apacheKafkaDefinitiveGuide, apacheKafkaDesignDistributedSystems, kafkaStreamsBook, kafkaDocumentation} na Kubernetes.
+        Komplexnosť, horizontálna škálovateľnosť a distribučný systém;
+        sú všetky atribúty \emph{Apache Kafka}.
+        Žiaľ, tieto atribúty robia systém mimoriadne zložitou entitou na overenie.
+        Preto je jednou z najväčších výziev používania \emph{Kubernetes} efektívne a rýchle testovanie projektov ako \emph{Kafka} a \emph{Strimzi} pri overovaní integrácie s podobnými produktmi (t.j.
+        \emph{Prometheus}\footnote{Prometheus \---\ open-source projekt založený na metrikách. Navyše poskytuje výstražný systém s neuveriteľnými funkciami, v prípade záujmu \url{https://prometheus.io/}},
+        Grafana\footnote{Grafana \---\ open-source projekt, ktorého primárnou zodpovednosťou je ukázať používateľovi interaktívnu vizualizáciu na sledovanie kľúčových častí systému prostredníctvom skvelého používateľského rozhrania. (\url{https://grafana.com/})},
+        Jaeger\footnote{Jaeger (Jaeger Tracing) \---\ je produkt, ktorý hľadá a pomáha pri riešení problémov v distribučných systémoch. (\url{https://www.jaegertracing.io/})},
+        Keycloak\footnote{Keycloak \---\ open-source projekt na zabezpečenie aplikácií (autentifikácia a autorizácia). (\url{https://www.keycloak.org/})}).
+        Čo sa týka zdrojov potrebných na nasadenie \emph{Kafka} na virtuálne stroje alebo kontajnery, je relatívne jednoduché porovnať nasadenie Kafku na \emph{Kubernetes}.
+        Napriek tomu to spôsobuje časové problémy pri testovaní nášho projektu \emph{Strimzi}.
+        Na vyriešenie tohto problému sme prijali princípy paralelného vykonávania a vytvorili mechanizmus v rámci \emph{Strimzi testov systému}, ktorý spúšťa testy paralelne iba proti jednému klastru \emph{Kubernetes}.
+
+        Súvisiaca práca sa zameriava na zlepšenie celkového času overenia produktu Strimzi.
+        Niekoľko vydaní Strimzi nám dáva empirické poznatky, že testovanie pomocou sekvenčného výpočtového modelu bolo extrémne pomalé.
+        Okrem toho produkt obsahuje asi pätnásť najkritickejších možných kombinácií nasadenia produktu, z ktorých každá trvá viac ako šesťdesiat hodín.
+        Tento sekvenčný výpočtový model nie je odporúčaným kandidátom na overenie takého množstva nasadení.
+        Pozorný čitateľ mohol vidieť celý čas testu blížiaci sa k tisícke hodín, čo je približne jeden a pol mesiaca.
+
+        Napriek tomu, ako súčasť tohto úsilia o hrubozrnný paralelizmus pri vykonávaní viacerých nasadení produktov, čiastočne urýchlil celkový výpočet.
+        Tento prístup však nie je horizontálne škálovateľný kvôli našim cloudovým službám, ktoré poskytujú zdroje (t. j. holé kovy, virtuálne stroje, kontajnery).
+        Dostali sme sa preto k poslednej príležitosti na zlepšenie výpočtov pomocou vertikálnej škálovateľnosti zdrojov (t.j. pamäte, centrálnych procesorových jednotiek), ktoré nám cloudové služby ponúkajú.
+        Tieto informácie nás motivovali navrhnúť a implementovať mechanizmus jemnozrnného paralelizmu v našom testovacom rámci.
+
+        Táto práca sa zaoberá paralelizáciou testov systému Kubernetes Strimzi.
+        Autor prispel daným kódom do open-source projektu Strimzi dostupného na Github\footnote{Strimzi Github repository \---\ \url{https://github.com/strimzi/strimzi-kafka-operator}}, ktorý tiež umožňuje inšpirovať ostatných \emph{kube-native}\footnote{Kube-native \---\ je to produkt, ktorý bol presunutý zo samostatného sveta do sveta Kubernetes. Okrem toho poskytuje komunikačné rozhranie (t. j. Kubernets REST API), pomocou ktorého spravuje jednotlivé komponenty (t. j. Apache Kafka je samostatná aplikácia a Strimzi je \emph{kube-native} produkt, pretože zahŕňa Apache Kafka a poskytuje komunikačné rozhranie pre používateľa.} produkty na implementáciu takýchto riešení.
+        Komplexným prínosom tejto práce je výrazné zrýchlenie procesu overovania.
+    },
   extabstract.odd={true}, % Začít rozšířený abstrakt na liché stránce? / Should extended abstract start on the odd page?
   %faculty={FIT}, % FIT/FEKT/FSI/FA/FCH/FP/FAST/FAVU/USI/DEF
   faculty.cs={Fakulta informačních technologií}, % Fakulta v češtině - pro využití této položky výše zvolte fakultu DEF / Faculty in Czech - for use of this entry select DEF above
@@ -264,6 +317,7 @@ Uvedl jsem všechny literární prameny, publikace a další zdroje, ze kterých
     \input{chapters/03-theory-of-paralellization}
     \input{chapters/04-proposal-of-parallel-approach}
     \input{chapters/05-implementation}
+    \input{chapters/06-experiments.tex}
   \else
     \input{chapters/projekt-01-kapitoly-chapters}
   \fi

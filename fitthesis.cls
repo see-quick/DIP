@@ -1370,6 +1370,14 @@ numberstyle = \tiny,
 \newcommand{\phony}[1]{\textcolor{gray}{#1}}
 \newcommand{\blind}[1]{\textcolor{gray}{\Blindtext[#1]}}
 
+% Majkl command
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\usepackage{fourier}
+
 % Sloupec zarovnaný vlevo s pevnou šířkou
 % Left aligned column with a fixed width
 \newcolumntype{L}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
