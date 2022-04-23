@@ -14,11 +14,11 @@ Specifically, these changes can be found in the \emph{systemtest} module\footnot
 Installation and configuration of individual parallelisation levels are described in Appendix~\ref{30:appendix:a}.
 Eventually, we move more complex and extensive code snippets into Appendix~\ref{30:appendix:b}.
 
-\section{Stage \---\ method-wide parallelisation}
+\section{Stage 1\---\ method-wide parallelisation}
 \label{05:sec:method:wide:parallelism}
 
 In this section, we describe the solutions of the individual steps proposed in Section~\ref{04:methodwideparalelisation},
-which were necessary to perform for adaptation to method-wide parallelisations.
+which were necessary to perform an adaptation to method-wide parallelisations.
 We start with an explanation of how to resolve the uniqueness of test resources in Section~\ref{05:sub:sec:unique}.
 Furthermore, we describe the core implementation, and the necessary reworking of test resources, as well as \emph{ResourceManager} in Section~\ref{05:sub:sec:resourcemanager}.
 Next, in Section~\ref{05:sub:sec:annotations} the author present a mechanism that determines whether a given test case has to be executed in parallel or isolation.
@@ -31,15 +31,17 @@ and in Section~\ref{05:sub:sec:applicability} we describe its usability within o
 Several sources (f.e., \emph{Kafka cluster}, \emph{KafkaConnect}, \emph{KafkaMirrorMaker}), which are used in test cases,
 are necessary to work with unique names to avoid conflict (f.e., replace existing or already created resource).
 That is why we created the class \emph{TestStorage}\footnote{TestStorage \---\ https://github.com/strimzi/strimzi-kafka-operator/pull/5446/},
-which will include unique generated name of the necessary resources (i.e., name of the \emph{Namespace}, \emph{Kafka cluster},
+which will include unique generated name of the necessary resources (f.e., name of the \emph{Namespace}, \emph{Kafka cluster},
 \emph{KafkaTopic}, \emph{Producer}, \emph{Consumer}).
-All this is possible thanks to \emph{ExtensionContext}, where each test case has a different \emph{ExtensionContext},
-and therefore it can be used as a map repository.
+All is possible thanks to \emph{ExtensionContext} object, where each test case has a different \emph{ExtensionContext},
+and therefore it can be used as a unique identifier between test cases.
+Eventually each test case has to instantiate \emph{TestStorage} class and then access resources (f.e., \emph{Namespace}, \emph{Kafka cluster},
+\emph{KafkaTopic}, \emph{Producer}, \emph{Consumer}).
 
 \subsection{Resource Manager re-work\protect\footnote{\url{https://github.com/strimzi/strimzi-kafka-operator/pull/4137}}}
 \label{05:sub:sec:resourcemanager}
 
-As described in Section~\ref{04:architecturechanges}, we created \emph{Interface ResourceType <T extends HasMetadata>}.
+As described in Section~\ref{04:architecturechanges}, we created Interface \emph{ResourceType <T extends HasMetadata>}.
 Where \emph{T} is a generic type and can take subtypes (f.e., Kafka, KafkaBridge, KafkaMirrorMaker).
 In other words, everything that contains the object \emph{HasMetadata}\footnote{HasMetadata \---\ is an interface of
 Kubernetes resources that contain metadata object}.
@@ -73,7 +75,7 @@ public class KafkaResource implements ResourceType<Kafka> {
 \end{lstlisting}
 
 Nevertheless, the most critical part of the entire Strimzi test framework is \emph{ResourceManager}.
-As described in the design~\ref{04:sub:sec:resourcemanager}, so instead of three stacks (i.e., pointer, class and method),
+As described in the design~\ref{04:sub:sec:resourcemanager}, instead of three stacks (i.e., pointer, class, and method),
 we had to adapt a solution with hash maps, which for each test case will keep each stack in which will contain the test resources.
 At the same time, thanks to the proposed algorithms (\ref{04:alg:creationofresource},~\ref{04:alg:deleteresources}),
 the algorithm for creating resources according to the generic type \emph{T}, finds out which method to invoke.
@@ -117,7 +119,7 @@ annotation will overwrite the given configuration from a sequential mode to para
 public @interface ParallelTest {  }
 \end{lstlisting}
 Another annotation (Listing~\ref{annotation:isolatedtest}) we have implemented to be responsible for the complete isolation of is \emph{@IsolatedTest}.
-At an initial glance, it is remarkably similar to the previous annotations.
+At an initial glance, it is remarkably similar to the previous annotation.
 However, there is one major difference when using \emph{@ResourceLock}.
 When \emph {@ParallelTest} uses a read lock, \emph{@IsolatedTest} uses a \emph{read\_write} lock.
 The idea is that \emph{read\_write} lock will completely isolate us from other tests.
@@ -134,7 +136,8 @@ public @interface IsolatedTest {
     String value() default ""; // reason why it needs isolation
 }
 \end{lstlisting}
-Eventually, we implemented the last annotation due to product requirements \emph{@ParallelNamespaceTest}.
+Finally, we implemented the last annotation due to product requirements \emph{@ParallelNamespaceTest} (i.e, each Kafka cluster
+has to be in its own namespace).
 This annotation is equivalent to \emph{@ParallelTest}, but there is a slight distinction.
 We create an additional namespace for each test case.
 Scenarios where we mainly used it is when multiple Kafka clusters are deployed for a given test or when we use
@@ -161,7 +164,7 @@ junit.jupiter.execution.parallel.config.strategy = fixed
 junit.jupiter.execution.parallel.config.fixed.parallelism = <n>
 \end{lstlisting}
 
-\subsection{Applicability}
+\subsection{Application}
 \label{05:sub:sec:applicability}
 
 Method-wide parallelization for our testing framework is most efficient for more diminutive infrastructures,
@@ -171,31 +174,31 @@ In the circumstances, we have less power available; it is necessary to count on 
 lead to poor test results and overall test timeouts. On the other hand, in the case of more powerful infrastructure
 (i.e., multi-node Kubernetes cluster), it is possible to use the following form of parallelism.
 
-\section{Stage \---\ class-wide parallelisation}
+\section{Stage 2 \---\ class-wide parallelisation}
 \label{05:sec:class:wide:parallelism}
 
 In this section, we explain the solutions of the individual steps proposed in Section~\ref{04:classwideparalelisation},
 which were necessary to perform for adaptation to class-wide parallelisations.
-We first describe complete re-work of Cluster Operator installation in Section~\ref{05:class:wide:shared:co}.
+At first we describe complete re-work of Cluster Operator installation in Section~\ref{05:class:wide:shared:co}.
 Next, in Section~\ref{05:sub:sec:isolation:of:test:suites} and Section~\ref{05:class:wide:suite:thread:controller}
-the author exemplify mechanism for isolation of test suites and describe common problems in relation of isolation.
+we exemplify mechanism for isolation of test suites and describe common problems in relation of isolation.
 Moreover, we present another component required for class-wide parallelisation
 and management of all \emph{Namespaces} in Section~\ref{05:class:wide:test:namespace:manager}.
 Finally, in Section~\ref{05:class:wide:config} we explain how such parallelisation can be configured, and
 in Section~\ref{05:class:wide:application} we describe its usability within our infrastructure.
 
-\subsection{Deployment of shared Cluster Operator across $\forall$ suites}
+\subsection{Deployment of shared Cluster Operator across all suites}
 \label{05:class:wide:shared:co}
 
 As we proposed in Section~\ref{05:sharedclusteroperator} for class-wide parallelisation,
 we want to create a shared Cluster Operator alongside all test classes.
 Such an approach is possible thanks to root \emph{ExtensionContext}, which guarantees that the Cluster Operator instance
 will be deleted only after the overall execution. We will describe the two primary phases of our proposed JUnit5 extension
-(i.e., \emph{BeforeAllOnce} setup phase - Listing~\ref{before:all:once}).
+(i.e., \emph{BeforeAllOnce} setup phase \---\ Listing~\ref{before:all:once}).
 The method must use synchronized to prevent multiple threads in a race condition.
 This situation would occur if two or more \emph{@ParallelSuite} threads passed the \emph{!BeforeAllOnce.systemReady}
-condition and then started to create a two times instance of the Cluster Operator.
-At the same time, we may notice that it is necessary to change the configuration of the given Cluster Operator for different configurations.
+condition and then started to create instance of CO twice.
+At the same time, we may notice that it is necessary to change the configuration of the given Cluster Operator to different configurations.
 
 \begin{lstlisting}[language= Java,label=before:all:once,caption=Setup phase of shared Cluster Operator,frame=tb]
 synchronized private static void systemSetup(
@@ -233,7 +236,7 @@ extension and thus implicitly call the \emph{close()} method.
 The class implements the \emph{Autocloseable} Interface, which ensures that such a method is called at the end of an instance's life.
 Inside the \emph{close()} method, we have to reset the flag counter and also call the
 \emph{Singleton}\footnote{Singleton pattern \---\ it is one of the creational design patterns, restricting instantiation of the class to only one instance.
-Thus invocation of the \emph{getInstanceHolder} method results always in the same instance.} instance of the shared Cluster Operator
+Thus invocation of \emph{getInstanceHolder} method results always in the same instance.} instance of the shared Cluster Operator
 to uninstall all components (Listing \ref{before:all:once:teardown}).
 
 
@@ -261,7 +264,7 @@ In such a situation, we trigger the \emph {Rollback} algorithm.
 \label{05:sub:sec:isolation:of:test:suites}
 
 The problem of isolating several classes that need different Cluster Operator configurations has been described and explained in Section~\ref{05:isolatedsuite}.
-So we implemented an annotation, which primarily serves as a label for that class.
+We implemented an annotation, which primarily serves as a label for that class.
 \begin{lstlisting}[language=Java,label=annotation:isolatedsuite,caption=Implementation of the @IsolatedSuite annotation,frame=tb]
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE })
@@ -341,7 +344,7 @@ In the fifth case, when we begin to execute @ParallelSuite, then several @Isolat
 The analogy for the sixth case is a combination of these two cases.
 
 The last case synchronisation is required when ForkJoinPool spawns multiple threads that exceed our configured parallelism limit.
-It does this because ForkJoinPool uses a worker-steal algorithm. Unfortunately, this technique spawns additional threads when
+It does this because \emph{ForkJoinPool} uses a \emph{worker-steal} algorithm. Unfortunately, this technique spawns additional threads when
 synchronisation primitive blocks thread (f.e., this can lead to a situation where the user sets a fixed value of parallelism
 to two when he expects to run at most two test classes with two test cases. However, in some borderline situations,
 it could be that ForkJoinPool will spawn five threads instead of two. Because of this, we have implemented an additional
@@ -379,7 +382,7 @@ public void waitUntilAllowedNumberTestSuitesInParallel(
 \subsection{TestNamespaceManager}
 \label{05:class:wide:test:namespace:manager}
 
-Another component that is required for class-wide parallelisation is TestNamespaceManager.
+Another component that is required for class-wide parallelisation is \emph{TestNamespaceManager}.
 Recall the @ParallelNamespaceTest annotation, creating its namespace for such a test case.
 Also, assume the situation of multiple test classes (i.e., @ParallelSuites) running in parallel.
 If we run more than one such class, it is necessary to ensure each test class operates with its namespace.
@@ -444,7 +447,7 @@ junit.jupiter.execution.parallel.config.strategy = fixed
 junit.jupiter.execution.parallel.config.fixed.parallelism = <n>
 \end{lstlisting}
 
-\subsection{Applicability}
+\subsection{Application}
 \label{05:class:wide:application}
 
 The class-wide parallelism for our testing framework is used mainly in the more extensive infrastructures we have at our disposal

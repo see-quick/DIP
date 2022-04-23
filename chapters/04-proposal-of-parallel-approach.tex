@@ -115,7 +115,7 @@ It is clear that if we write a new \emph{TestEngine}, we have to write our own a
 With this knowledge, even this approach does not meet our needs.
 
 
-\subsection{JUnit5 paralelisation}
+\subsection{JUnit5 parallelisation}
 
 The last alternative is the use of Junit5 \emph{TestEngine} parallelisation.
 This, almost 3-year-old, feature of the Junit5 platform (released 3rd September in 2018) has a lot to offer.
@@ -320,7 +320,7 @@ Moreover, we must realise that if the test suite theoretically contains all \emp
 Of course, if the computer on which the tests would run contained no more than two CPUs, then it is not possible to run multiple parallel threads with each other (it is possible, but the processor would then have to make many \textbf{context switches}, which would lead to a significant decrease in performance).
 Thus, the more CPUs a given computer/cluster will have available, the quickier the results.
 
-\section{Class wide paralelisation}
+\section{Class wide parallelisation}
 \label{04:classwideparalelisation}
 
 In this section, we will describe and suggest what steps are needed to support \emph{class-wide} parallelisation.
