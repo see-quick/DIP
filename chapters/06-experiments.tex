@@ -9,19 +9,19 @@ At the same time, we calculated Amhdal's law for each experiment and compared it
 \section{Experiments design}
 
 The overall design of the experiments is divided into three main categories;
-(a) preliminary experiments to prove that the parallelization we propose is capable of vertical scaling.
+(a) preliminary experiments to prove that the parallelisation we propose is capable of vertical scaling.
 These experiments will be performed for small Kubernetes instances (i.e., Minikube) and multi-node Kubernetes clusters.
-The expected results should be positive because parallelization will have the best possible implementation environment
-(f.e., for method-wide parallelization, it will be a test class containing only tests that are capable of parallel computation,
-similarly to class-wide parallelization.);
+The expected results should be positive because parallelisation will have the best possible implementation environment
+(f.e., for method-wide parallelisation, it will be a test class containing only tests that are capable of parallel computation,
+similarly to class-wide parallelisation.);
 (b) the next part will be acceptance production based experiments, which will primarily provide information on whether it is beneficial
-to use parallelization in a small subset of tests, where mostly half of the tests are capable of parallel execution.
+to use parallelisation in a small subset of tests, where mostly half of the tests are capable of parallel execution.
 Acceptance experiments will include a subset of our system of tests, where of course, there will also be tests and test classes,
 which are not capable of parallel execution, and thus synchronization will occur.
-Possibly the parallelization will not be suitable for acceptance experiments because most test suites consist of one or two test cases,
+Possibly the parallelisation will not be suitable for acceptance experiments because most test suites consist of one or two test cases,
 and the overall preparation phase of the test suite is long.;
 (c) last type of experiments so\-called regression, which will already include the entire test suite currently offered by the Strimzi project.
-It will tell us whether the given parallelization is eligible for the Strimzi.
+It will tell us whether the given parallelisation is eligible for the Strimzi.
 Moreover, a significant acceleration is expected because test classes often contain ten or more tests.
 On the other hand, we also have many tests that need total isolation, which potentially can slow down the whole performance.
 
@@ -57,10 +57,10 @@ On the other hand, $T_{new}$ describes the time after acceleration Equation~\eqr
 \end{equation}
 
 In the case of our experiment, we have the test class \textbf {SecurityST}, which includes twenty-one test cases.
-All these tests can be performed in parallel and are a perfect candidate to obtain information that parallelization is capable of vertical scaling.
+All these tests can be performed in parallel and are a perfect candidate to obtain information that parallelisation is capable of vertical scaling.
 What should be noted is the fact that the shared Cluster Operator is deployed before the execution tests,
 where usually this deployment lasts from one to six minutes (we choose a mean value of three minutes).
-So in our case, the part that can be parallelized will be equal to $p = \frac{171}{174}$.
+So in our case, the part that can be parallelised will be equal to $p = \frac{171}{174}$.
 The first instance we use is a multi-node Kubernetes cluster with 24 virtual cores and 48 GB of RAM.
 Empirically, we obtained data on how long it takes to complete a given test class sequentially, using such information in Amdahl's law.
 \begin{equation}
@@ -86,7 +86,7 @@ Additionally, we use the following notation in the tables:
 
 In the following Table~\ref{06:tab:01:securityst-ocp-multinode}, we can see the individual preliminary experiments performed over our implementation.
 For clarity, a sequential variant is also included.
-We slowly increased the threads used to determine if a given parallelization scales there (i.e., we started from two to sixteen).
+We slowly increased the threads used to determine if a given parallelisation scales there (i.e., we started from two to sixteen).
 As part of our experimentation, we found that up to twelve threads would be the best candidate for \textbf{SecurityST}.
 As shown in Table~\ref{06:tab:01:securityst-ocp-multinode}, when using sixteen threads, the given Kubernetes cluster was destroyed.
 The reason was mainly the capacity resources (i.e., we deploy Kafka cluster and many other resources for each test case).
