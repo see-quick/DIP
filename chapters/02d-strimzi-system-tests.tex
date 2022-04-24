@@ -141,10 +141,9 @@ Algorithm~\ref{02:alg:deletionalg} defines clean-up phase.
 
 By contrast, when creating any resources, the user has at his disposal, for example, KafkaResource, KafkaTopicResource, and the like.
 Each of these classes contains predefined templates that include specific configuration settings.
-A typical example is Kafka, which can be seen by~\ref{02:fig:kafkaresource:defaultmethod}.
+A typical example is Kafka, which can be seen in Listing~\ref{kafka:resource}.
 
-\begin{figure}[!ht]
-\begin{lstlisting}
+\begin{lstlisting}[language=Java,label=kafka:resource,caption=Default Kafka Custom Resource in KafkaResource\.class,frame=tb]
 private static KafkaBuilder defaultKafka(Kafka kafka,
             String name, int kafkaReplicas, int zookeeperReplicas) {
     return new KafkaBuilder(kafka)
@@ -175,9 +174,6 @@ private static KafkaBuilder defaultKafka(Kafka kafka,
         .endSpec();
 }
 \end{lstlisting}
-    \caption{Default Kafka Custom Resource in KafkaResource.class}
-    \label{02:fig:kafkaresource:defaultmethod}
-\end{figure}
 
 Another part of the Strimzi system tests is the wait for methods mechanism.
 It is used primarily in scenarios where it is necessary to wait for an event to occur.
