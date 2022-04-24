@@ -201,19 +201,15 @@
         V súčasnosti žijeme v dobe, kedy počítače výrazne skrátili čas vykonávania riešením rôznych problémov pomocou paralelizmu.
 
         Pred niekoľkými rokmi \emph{Google} vydal technológiu, ktorá definovala a zmenila našu perspektívu nasadzovania a správy aplikácií.
-        Túto revolúciu spôsobil iteratívny sled malých krokov (t. j. fyzická, virtuálna a kontajnerová éra).
-        \emph{Kubernetes}~\cite{história, kubernetes, kubernetesBook} je systém na správu kontajnerov a v ďalšej miniiterácii priniesol nový koncept, ako efektívnejšie organizovať kontajnery \---\ \emph{vzor operátora }.
+        Túto revolúciu spôsobil iteratívny sled malých krokov (t.j., fyzická, virtuálna a kontajnerová éra).
+        \emph{Kubernetes}~\cite{kubernetes, kubernetesBook} je systém na správu kontajnerov a v ďalšej mini iterácii priniesol nový koncept, ako efektívnejšie organizovať kontajnery \---\ \emph{vzor operátora }.
         \emph{Vzor operátora} má za cieľ zachytiť, ako rozšíriť a implementovať úlohy automatizácie nad rámec \emph{Kubernetes}.
         Jeden takýto operátor je vyvinutý a udržiavaný ako súčasť projektu s otvoreným zdrojom s názvom Strimzi~\cite{strimziDoc, strimziBlogPosts}.
         Projekt \emph{Strimzi} spája niekoľko nástrojov, ktoré sa starajú o nasadenie Apache Kafka~\cite{apacheKafkaDefinitiveGuide, apacheKafkaDesignDistributedSystems, kafkaStreamsBook, kafkaDocumentation} na Kubernetes.
         Komplexnosť, horizontálna škálovateľnosť a distribučný systém;
         sú všetky atribúty \emph{Apache Kafka}.
         Žiaľ, tieto atribúty robia systém mimoriadne zložitou entitou na overenie.
-        Preto je jednou z najväčších výziev používania \emph{Kubernetes} efektívne a rýchle testovanie projektov ako \emph{Kafka} a \emph{Strimzi} pri overovaní integrácie s podobnými produktmi (t.j.
-        \emph{Prometheus}\footnote{Prometheus \---\ open-source projekt založený na metrikách. Navyše poskytuje výstražný systém s neuveriteľnými funkciami, v prípade záujmu \url{https://prometheus.io/}},
-        Grafana\footnote{Grafana \---\ open-source projekt, ktorého primárnou zodpovednosťou je ukázať používateľovi interaktívnu vizualizáciu na sledovanie kľúčových častí systému prostredníctvom skvelého používateľského rozhrania. (\url{https://grafana.com/})},
-        Jaeger\footnote{Jaeger (Jaeger Tracing) \---\ je produkt, ktorý hľadá a pomáha pri riešení problémov v distribučných systémoch. (\url{https://www.jaegertracing.io/})},
-        Keycloak\footnote{Keycloak \---\ open-source projekt na zabezpečenie aplikácií (autentifikácia a autorizácia). (\url{https://www.keycloak.org/})}).
+        Preto je jednou z najväčších výziev používania \emph{Kubernetes} efektívne a rýchle testovanie projektov ako \emph{Kafka} a \emph{Strimzi} pri overovaní integrácie s podobnými produktmi.
         Čo sa týka zdrojov potrebných na nasadenie \emph{Kafka} na virtuálne stroje alebo kontajnery, je relatívne jednoduché porovnať nasadenie Kafku na \emph{Kubernetes}.
         Napriek tomu to spôsobuje časové problémy pri testovaní nášho projektu \emph{Strimzi}.
         Na vyriešenie tohto problému sme prijali princípy paralelného vykonávania a vytvorili mechanizmus v rámci \emph{Strimzi testov systému}, ktorý spúšťa testy paralelne iba proti jednému klastru \emph{Kubernetes}.
@@ -222,16 +218,18 @@
         Niekoľko vydaní Strimzi nám dáva empirické poznatky, že testovanie pomocou sekvenčného výpočtového modelu bolo extrémne pomalé.
         Okrem toho produkt obsahuje asi pätnásť najkritickejších možných kombinácií nasadenia produktu, z ktorých každá trvá viac ako šesťdesiat hodín.
         Tento sekvenčný výpočtový model nie je odporúčaným kandidátom na overenie takého množstva nasadení.
-        Pozorný čitateľ mohol vidieť celý čas testu blížiaci sa k tisícke hodín, čo je približne jeden a pol mesiaca.
 
-        Napriek tomu, ako súčasť tohto úsilia o hrubozrnný paralelizmus pri vykonávaní viacerých nasadení produktov, čiastočne urýchlil celkový výpočet.
-        Tento prístup však nie je horizontálne škálovateľný kvôli našim cloudovým službám, ktoré poskytujú zdroje (t. j. holé kovy, virtuálne stroje, kontajnery).
-        Dostali sme sa preto k poslednej príležitosti na zlepšenie výpočtov pomocou vertikálnej škálovateľnosti zdrojov (t.j. pamäte, centrálnych procesorových jednotiek), ktoré nám cloudové služby ponúkajú.
-        Tieto informácie nás motivovali navrhnúť a implementovať mechanizmus jemnozrnného paralelizmu v našom testovacom rámci.
+        Napriek tomu, ako súčasť tohto úsilia o coarse-grained paralelizmus pri vykonávaní viacerých nasadení produktov, čiastočne urýchlil celkový výpočet.
+        Tento prístup však nie je horizontálne škálovateľný kvôli našim cloudovým službám, ktoré poskytujú zdroje (t.j., bare metal, virtuálne stroje, kontajnery).
+        Dostali sme sa preto k poslednej príležitosti na zlepšenie výpočtov pomocou vertikálnej škálovateľnosti zdrojov (t.j., pamäte, centrálnych procesorových jednotiek), ktoré nám cloudové služby ponúkajú.
+        Tieto informácie nás motivovali navrhnúť a implementovať mechanizmus fine-grained paralelizmu v našom testovacom rámci.
 
-        Táto práca sa zaoberá paralelizáciou testov systému Kubernetes Strimzi.
-        Autor prispel daným kódom do open-source projektu Strimzi dostupného na Github\footnote{Strimzi Github repository \---\ \url{https://github.com/strimzi/strimzi-kafka-operator}}, ktorý tiež umožňuje inšpirovať ostatných \emph{kube-native}\footnote{Kube-native \---\ je to produkt, ktorý bol presunutý zo samostatného sveta do sveta Kubernetes. Okrem toho poskytuje komunikačné rozhranie (t. j. Kubernets REST API), pomocou ktorého spravuje jednotlivé komponenty (t. j. Apache Kafka je samostatná aplikácia a Strimzi je \emph{kube-native} produkt, pretože zahŕňa Apache Kafka a poskytuje komunikačné rozhranie pre používateľa.} produkty na implementáciu takýchto riešení.
-        Komplexným prínosom tejto práce je výrazné zrýchlenie procesu overovania.
+        Experimenty, ktoré sme vykonali nad danou implementáciou ukázali celkové zlepšenie výpočtového času na viacerých
+        podmnožínách testovacích prípadov.
+        Napríklad u method-wide paralelizácií sme mohli vidieť zrýchlenie z troch hodín na takmer dvadstať minút pri využití 12 vlákien
+        (jednalo sa však o podmnožinu testov, ktoré všetky podporovali parallelizmus).
+        Zároveň sme tak mohli vidieť zrýchlenie pri využítí reálnej produkčnej vzorky, ktorá obsahovala viac než tristo testov a viac než testovacích
+        tried sa musela vykonávať s izoláciou.
     },
   extabstract.odd={true}, % Začít rozšířený abstrakt na liché stránce? / Should extended abstract start on the odd page?
   %faculty={FIT}, % FIT/FEKT/FSI/FA/FCH/FP/FAST/FAVU/USI/DEF

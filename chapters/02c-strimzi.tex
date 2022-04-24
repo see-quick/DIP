@@ -90,7 +90,7 @@ Clients in Figure~\ref{03:fig:strimziKafkaArchitecture} are classically Producer
 On the other hand, HTTP clients communicate with the Kafka Bridge (a component provided by Strimzi) and thus connect the Kafka cluster and the clients themselves.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.75]{obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture (1)}
+    \includegraphics[scale=0.70]{obrazky-figures/02-preliminaries/03-strimzi/03-strimzi-kafka-architecture (1)}
     \caption{Strimzi Kafka architecture}
     \label{03:fig:strimziKafkaArchitecture}
 \end{figure}
@@ -108,11 +108,11 @@ In the beginning, we described what such an Operator does (reconciliation/contro
 Strimzi contains three Operators, where hierarchically the highest is Cluster Operator.
 This manages Kafka, Kafka Mirror Maker, Kafka Mirror Maker 2, Kafka Connect, Kafka Connector, Kafka Rebalance, and Kafka Bridge Custom Resources.
 Furthermore, since Kafka Custom Resource encapsulates the Entity Operator (Topic and User Operator running within the same Pod but in different containers) and Zookeeper, the Operators mentioned above are also deployed with each Kafka Custom Resource deployment.
-Figure \ref{03:fig:strimziOperatorsArchitecture} illustrates whole Strimzi ecosystem, for which the Cluster Operator is responsible.
+Figure~\ref{03:fig:strimziOperatorsArchitecture} illustrates whole Strimzi ecosystem, for which the Cluster Operator is responsible.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.60]{obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch}
+    \includegraphics[scale=0.55]{obrazky-figures/02-preliminaries/03-strimzi/04-stirmziOperatorsArch}
     \caption{Strimzi Operators architecture with Strimzi ecosystem}
     \label{03:fig:strimziOperatorsArchitecture}
 \end{figure}

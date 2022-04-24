@@ -10,10 +10,9 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: projekt-20-literatura-bibliography.bib
-Warning--I didn't find a database entry for "história"
 You've used 19 entries,
             3721 wiz_defined-function locations,
-            877 strings with 7711 characters,
+            876 strings with 7703 characters,
 and the built_in function-call counts, 7535 in all, are:
 = -- 607
 > -- 191
@@ -52,4 +51,3 @@ warning$ -- 0
 while$ -- 41
 width$ -- 21
 write$ -- 257
-(There was 1 warning)

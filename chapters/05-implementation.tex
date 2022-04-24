@@ -14,7 +14,7 @@ Specifically, these changes can be found in the \emph{systemtest} module\footnot
 Installation and configuration of individual parallelisation levels are described in Appendix~\ref{30:appendix:a}.
 Eventually, we move more complex and extensive code snippets into Appendix~\ref{30:appendix:b}.
 
-\section{Stage 1\---\ method-wide parallelisation}
+\section{Stage 1 \---\ method-wide parallelisation}
 \label{05:sec:method:wide:parallelism}
 
 In this section, we describe the solutions of the individual steps proposed in Section~\ref{04:methodwideparalelisation},
@@ -324,10 +324,8 @@ public void waitUntilZeroParallelSuites(
     ExtensionContext extensionContext) {
     // until more that 0 parallel suites running in parallel 'active waiting'
     boolean preCondition = true;
-
     while (preCondition) {
         Thread.sleep(...);
-
         // runningTestSuitesInParallelCount variable is
         // changed by other threads (i.e., @ParalleSuites)
         preCondition = runningTestSuitesInParallelCount.get() > 0;
@@ -416,9 +414,7 @@ class TracingST {
     private final String namespace =
         testSuiteNamespaceManager.getMapOfAdditionalNamespaces()
             .get(TracingST.class.getSimpleName())
-            .stream()
-            .findFirst()
-            .get();
+            .stream().findFirst().get();
     // other attributes ommited for brevity...
 }
 \end{lstlisting}
