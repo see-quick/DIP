@@ -348,9 +348,21 @@ cluster using three master and six workers nodes for larger instances.
 \label{08:chapter:title}
 
 The thesis began with a description of the basic principles of \emph{Kubernetes} and \emph{Kafka}.
-Furthermore, we described a project that encapsulates the Kafka system and replaces it with the Kubernetes system (i.e., Strimzi).
-We further described the architecture and principles in the system tests of the Strimzi project.
-We also gained knowledge about parallel execution, which we successfully used in this thesis.
-We identified the challenges of the current system test architecture and created and implemented it to solve these problems for us.
-Finally, we experimented with showing that parallelisation can scale vertically for different test samples.
+Furthermore, we described a project that encapsulates Kafka and uses it on top of the Kubernetes (i.e., Strimzi).
+We further explained the architecture and principles in the system tests of the Strimzi project.
+In addition, we gained knowledge about parallel execution, which we successfully used in this thesis.
+Moreover, we identified the challenges of the current system test architecture.
+Therefore we designed and implemented a solution to solve these problems (i.e., using multiple pipelines and creating sub-sets of
+tests is not horizontally scalable due to our cloud services that provide resources).
+Thus, this information motivated us to design and implement a mechanism of fine-grained parallelism in our test framework (i.e., using memory and central processing units) that the cloud services offer us.
+Finally, our experiments showed that parallelisation could scale vertically for different test samples.
+
+We contributed the given code to the open-sourced project Strimzi, available on
+Github\footnote{Strimzi Github repository \---\ \url{https://github.com/strimzi/strimzi-kafka-operator}},
+which also makes it viable to inspire other \emph{kube-native} products to enforce such solutions.
+Making parallel execution possible started from 0.23.0 (released in May 2021) to the 0.29.0 Strimzi version.
+Whether a method or class-wide parallelisation, both steps have been completed and merged into the main branch of
+the Strimzi project, where this implementation will be available from version 0.29.0.
+Our parallelism model of system tests is used in continuous integration systems (i.e., Jenkins),
+where the overall computational time is much faster than in sequential computational computation (proved by experiments).
 
