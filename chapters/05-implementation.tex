@@ -22,7 +22,7 @@ which were necessary to perform an adaptation to method-wide parallelisations.
 We start with an explanation of how to resolve the uniqueness of test resources in Section~\ref{05:sub:sec:unique}.
 Furthermore, we describe the core implementation, and the necessary reworking of test resources, as well as \emph{ResourceManager} in Section~\ref{05:sub:sec:resourcemanager}.
 Next, in Section~\ref{05:sub:sec:annotations} the author present a mechanism that determines whether a given test case has to be executed in parallel or isolation.
-Finally, in Section~\ref{05:sub:sec:configuration} we explain how such parallelization can be configured,
+Finally, in Section~\ref{05:sub:sec:configuration} we explain how such parallelisation can be configured,
 and in Section~\ref{05:sub:sec:applicability} we describe its usability within our infrastructure.
 
 \subsection{Unique Naming for each resource\protect\footnote{\url{https://github.com/strimzi/strimzi-kafka-operator/pull/4092}}}
@@ -146,7 +146,7 @@ Scenarios where we mainly used it is when multiple Kafka clusters are deployed f
 \subsection{Configuration}
 \label{05:sub:sec:configuration}
 
-The method-wide parallelization configuration can be set up in several ways (a) using system properties (Listing~\ref{config:system:property}),
+The method-wide parallelisation configuration can be set up in several ways (a) using system properties (Listing~\ref{config:system:property}),
 (b) using the junit-platform.properties configuration file (Listing~\ref{config:file}).
 \begin{lstlisting}[language= Java,label=config:system:property,caption=(a) Configuration via system properties,frame=tb]
 -Djunit.jupiter.execution.parallel.enabled = true
@@ -167,7 +167,7 @@ junit.jupiter.execution.parallel.config.fixed.parallelism = <n>
 \subsection{Application}
 \label{05:sub:sec:applicability}
 
-Method-wide parallelization for our testing framework is most efficient for more diminutive infrastructures,
+Method-wide parallelisation for our testing framework is most efficient for more diminutive infrastructures,
 typically with parameters f.e., 24GB RAM and eight cores. We use such infrastructure as part of nightly testing.
 In the circumstances, we have less power available; it is necessary to count on it that in more demanding test cases
 (i.e., a test case using \emph{KafkaMirrorMaker} or several Kafka clusters), the cluster will be unstable, which will

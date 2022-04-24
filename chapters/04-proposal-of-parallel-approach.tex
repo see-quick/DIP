@@ -22,7 +22,7 @@ Once it does not contain any variable, we can declare the test as parallelisable
 If a given test contains such a shared variable, it implies that it will have to run in an isolated environment.
 The manual analysis we performed found that 250 tests could be run in parallel, and 115 must be isolated.
 So if we apply Equation~\eqref{eqn:einstein}, (which we learned in Section~\ref{04:amdalhlaw}), the total number of tests is 365.
-The parallelizable part is \emph{p = 250/365}.
+The parallelisable part is \emph{p = 250/365}.
 The sequence part will be equal to \emph{seq = 1 - p = 115/365}.
 For only four-core CPUs, we get the following acceleration~\eqref{eqn:amdalhinpractice}.
 \begin{equation}
@@ -126,7 +126,7 @@ Thread A completes the execution of Test 1, it will be assigned another test imm
 The main advantage of such an approach is that it is not necessary to rewrite a complete perform of the tests.
 Moreover, it is unnecessary to implement TestDiscovery and TestExecution because JUnit5 TestEngine already offers them.
 Related to this is keeping all the annotations mentioned in the previous subsection.
-Another advantage is the possibility of configuration where we can enable parallelization using the following commands:
+Another advantage is the possibility of configuration where we can enable parallelisation using the following commands:
 \begin{verbatim}
 junit.jupiter.execution.parallel.enabled = true
 junit.jupiter.execution.parallel.mode.default = same_thread
@@ -428,7 +428,7 @@ This issue will be resolved in the following Section~\ref{05:isolatedsuite}.
 \label{05:isolatedsuite}
 
 One way to solve the problem is when we have different configurations of Cluster Operator, it is necessary to supply some form of synchronisation.
-Recall \emph{@IsolatedTest} from \emph{method-wide} parallelization.
+Recall \emph{@IsolatedTest} from \emph{method-wide} parallelisation.
 In this case, we suggest making a different approach because in the \emph{@IsolatedTest} we used \emph{@ResourceLock}.
 \emph{@ResourceLock} locks the overall computation, and no other threads can proceed with its execution.
 In the scope of method-wide parallelisation, this approach is applicable.
