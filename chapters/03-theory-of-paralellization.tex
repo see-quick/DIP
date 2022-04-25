@@ -19,22 +19,22 @@ Thus, if we combine all the elements, we will have a model called \emph{Sequenti
 Most of today's programming languages use this model.
 Hence, the sequential programming model is intuitive, and it creates a sequence of operations that follow each other, thus making the expected result.
 However, it has limitations on performance and time consumption on specific tasks.
-During the twentieth century, technological advances brought a regular increase in the processors's clock speed, so that the speed of operations ``accelerated'' itself over time.
+During the twentieth century, technological advances brought a regular increase in the processors's clock speed so that the speed of operations ``accelerated'' itself over time.
 Nevertheless, this scenario is not repeated in the twenty-first century.
-Today's advances in technology bring about a regular increase in parallelism, but only a slight increase in clock speeds.
+Today's advances in technology bring about a regular increase in parallelism but only a slight increase in clock speeds.
 The use of parallelism is one of the significant challenges of modern software engineering.
 
 \section{Amdahl's law}
 \label{04:amdalhlaw}
 
-If we imagine ourselves as a user that would like to migrate from a single-processor program to a multi-processor program, it would be useful to know that if we begin with the parallelisation of such a system, it will eventually pay off.
+If we imagine ourselves as a user that would like to migrate from a single-processor program to a multi-processor program, it would be helpful to know that if we begin with the parallelisation of such a system, it will eventually pay off.
 Moreover, many people often believe that if we build a multi-processor program from a one-processor program and run it on 3-cores, the overall acceleration will be three times.
 This is an illusion, and we will never get such a result.
-The main problem is due to the division of labour which is not uniform for all parts.
+The main problem is the division of labour which is not uniform for all parts.
 For clarity, we will illustrate with an example.
 Imagine that one has to construct a table.
 In this case, it is a sequential approach.
-Adding four identical tables (so there will be five) will take five times time than one.
+Adding four identical tables (so there will be five) will take five times more time than one.
 Suppose four friends come to help (we assume they are just as skilled and start simultaneously).
 The acceleration for such identical tables will be five times.
 Nevertheless, everything gets complicated if the tables are not the same.
@@ -50,7 +50,7 @@ It is called Amdahl's law, which can be seen in Equation~\eqref{eqn:einstein}.
 \end{equation}
 The formula defines the acceleration \emph{S}, which depends on the quantities \emph{n} and \emph{p}. \emph{n} is a non-zero positive number that represents the number of concurrent processors performing the same job. \emph{p} is a non-zero positive number that defines how much work is done in parallel.
 The sequential part that cannot be parallelised is defined as the difference between the total work and the work that can be parallelised (\emph{1 - p)}. The parallel component is expressed as the ratio of the parallel part and the number of competitors by the processor (\emph{p / n}).
-So if we sum up these two parts, we get the total time performed by parallel computation ({1 - p + p / n}). Finally, we have to put the ratio between the sequential (single-processor) time and the parallel time, and we get already mentioned Equation \ref{eqn:einstein}.
+So if we sum up these two parts, we get the total time performed by parallel computation ({1 - p + p / n}). Then, finally, we have to put the ratio between the sequential (single-processor) time and the parallel time, and we get the already mentioned Equation \ref{eqn:einstein}.
 If we apply this formula to the previous example with five friends who want to build five tables, we get such an Equation \eqref{eqn:amdalhinpractice}.
 
 \begin{equation}
@@ -59,28 +59,28 @@ If we apply this formula to the previous example with five friends who want to b
     \tag{2}
 \end{equation}
 
-Before we dive into the overall terminology and discuss the \emph{Critical section}, \emph{Mutual exclusion}, etc., it is necessary to know the program's correctness.
+Before we dive into the overall terminology and discuss the \emph{Critical section}, \emph{Mutual exclusion}, it is necessary to know the program's correctness.
 The correctness of the program consists of two essential properties.
-The first is the safety property, which states: "\emph{Bad thing never happens}". To illustrate, imagine the concurrent program never end up in a deadlock\footnote{\textbf{Deadlock} \---\ is one of the possible situations that occur in an environment where two or more threads/processes operate with shared memory. Specifically, this situation occurs when Process/Thread A and Process/Thread B enter a wait state because a given shared resource is held by another Process/Thread that is waiting for another resource held by another waiting Process/Thread.}.
-The second is the liveness property, which tells us: "\emph{An excellent thing will happen eventually}". For instance, the program always terminates.
-Thus, if we combine these two properties, then we say that the program is correct.
+The first is the safety property, which states: "\emph{Bad thing never happens}". To illustrate, imagine the concurrent program never ends up in a deadlock\footnote{\textbf{Deadlock} \---\ is one of the possible situations that occur in an environment where two or more threads/processes operate with shared memory. Specifically, this situation occurs when Process/Thread A and Process/Thread B enter a wait state because a given shared resource is held by another Process/Thread that is waiting for another resource held by another waiting Process/Thread.}.
+The second is the liveness property, which tells us: "\emph{An excellent thing will happen eventually}". So, for instance, the program always terminates.
+Thus, if we combine these two properties, we say that the program is correct.
 
 \section{Shared memory}
 \label{04:sharedmemory}
 
 One needs to understand how memory is organised and how a computer accesses individual data.
 The speed of memory in a computer is usually much slower than the speed at which the processor operates, and if one processor overwrites data in memory, the others must wait.
-In this type of memory, all processors access the same memory in the global address space.
+All processors access the same memory in the global address space in this type of memory.
 \begin{definition}
-    \textbf{Shared memory} \---\ is a type of memory, where all CPUs has access to the same address space.
+    \textbf{Shared memory} \---\ is a type of memory where all CPUs has access to the same address space.
 \end{definition}
 So if one processor makes a change to the data, all the other processors will know about it.
 The shared memory architecture is classified as UMA (Uniform Memory Access) and NUMA (Non-uniform Memory Access).
 This classification tells us how the individual processors are connected to the memory and how fast the data can be accessed.
 The wise reader might realise that memory access will be the same for all processors in Uniform memory access architecture.
 While at Non-uniform Memory Access, the time will be different.
-In the Uniform Memory Access architecture, each processor has its cache memory, storing the most frequent data.
-However, if the processor uses cache memory, there is a very high risk for cache coherence\footnote {\textbf{Cache coherence} \---\ this is a situation where one of the processors obtains a value from shared memory and tries to make a change in its cache memory but fails to do so. Update to shared memory (while the other processor reads a value that has not yet been updated and will therefore work with the wrong value)}. Fortunately, this cache coherence is handled by hardware in multicore processors.
+Each processor has its cache memory in the Uniform Memory Access, storing the most frequent data.
+However, if the processor uses cache memory, there is a very high risk for cache coherence\footnote {\textbf{Cache coherence} \---\ this is a situation where one of the processors obtains a value from shared memory and tries to make a change in its cache memory but fails to do so. For example, update to shared memory (while the other processor reads a value that has not yet been updated and will work with the wrong value)}. Fortunately, this cache coherence is handled by hardware in multicore processors.
 
 \section{Processes and Threads}
 \label{04:processesandthreads}
@@ -90,7 +90,7 @@ If one imagines a shell script with a predefined set of instructions (bash comma
     \textbf{Process} \---\ is a dynamic entity, which has its own global address space (set of instruction and data).
 \end{definition}
 We can also imagine it as a static entity (written shell script) and a dynamic entity (shell script execution).
-In general, the Process contains program code, its data, and status information.
+The Process contains program code, its data, and status information.
 Each Process is independent of the other and has its own address space in memory.
 On the other hand, there is also a subset of the Process, and it is a thread.
 \begin{definition}
@@ -101,7 +101,7 @@ Thus, the data we work with is shared with all threads inside the Process.
 Furthermore, each thread has an independent path of program execution.
 Therefore, one can imagine a thread as a lightweight variant of the Process.
 It is well known that threads take up less memory.
-Moreover, the operating system can switch faster between individual threads than between processes (context switching\footnote {\textbf{Context switching} \---\ it is a situation where the Process scheduler finds out that some processes have spent a fair share of its time on the processor and swap it with the different Process. When this happens, the Operating system stores the state of Process or thread and then load the state of a different process.}). In general, threads can be in one of four states:
+Moreover, the operating system can switch faster between individual threads than between processes (context switching\footnote {\textbf{Context switching} \---\ it is a situation where the Process scheduler finds out that some processes have spent a fair share of their time on the processor and swap it with the different Process. When this happens, the Operating system stores the state of the Process or thread and then loads the state of a different process.}). In general, threads can be in one of four states:
 \begin{enumerate}[itemsep=1mm, parsep=0pt]
     \item \textbf{New} \---\ If the main thread spawns a new thread, that thread will be in the \emph{New} state.
     Moreover, the descendants of the main thread can further create a tree hierarchy of new threads.
@@ -116,7 +116,7 @@ Moreover, the operating system can switch faster between individual threads than
 \label{dependenciesandprotection}
 
 One of the main challenges in parallel programming is detecting dependencies between threads.
-Imagine a situation where two threads access the shared variable \emph{x}. \emph{Thread A} reads a value from the shared variable \emph{x} and starts execution.
+Imagine a situation where two threads access the shared variable \emph{x}. Then, \emph{Thread A} reads a value from the shared variable \emph{x} and starts execution.
 Subsequently, the scheduler switches the context, and \emph{Thread B} reads the value of the shared variable \emph{x}. Then \emph{Thread B} modifies the value of \emph{x = 10}.
 The scheduler switches the context again, and \emph{Thread A} is currently operating with the wrong value.
 This is one of the possible faults that can occur in parallel programming.
@@ -129,7 +129,7 @@ Fortunately, as programmers, we can eliminate such errors.
 The process begins with the detection of critical sections in the code.
 \begin{definition}
     \label{04:criticalsection}
-    \textbf{Critical section} \---\ section of code, where two or more concurrent threads have write-access (simultaneously) and at least one of them can write to it and can produce erroneous behaviour.
+    \textbf{Critical section} \---\ section of code, where two or more concurrent threads have write-access (simultaneously), and at least one of them can write to it and can produce erroneous behaviour.
 \end{definition}
 As can be seen from Definition~\ref{04:criticalsection}, the programmer must look for such places.
 It can be a simple increment of a shared variable or a complex structure or object change.
@@ -138,22 +138,22 @@ If these places are detected, it is necessary to perform the next step \---\ use
     \textbf{Mutual exclusion} \---\ two threads are excluded from being in the critical section at the same time.
 \end {definition}
 By using a mutex, we guarantee that only one thread will access the shared resource at a time.
-One will have to aquire a lock whenever one wants to modify a thread or read from a shared resource.
-Then one modifies the source and finally release the lock.
-Acquiring a lock is an atomic operation performed as a single action and cannot be interrupted by other threads.
+One will have to acquire a lock whenever one wants to modify a thread or read from a shared resource.
+Then one modifies the source and finally releases the lock.
+Acquiring a lock is an atomic operation performed as single action and cannot be interrupted by other threads.
 
-We know several implementations of lock, but not all of them guarantee us the liveness property.
-As a reminder, the liveness property tells us that: \emph{"A particular good thing will happen eventually"}.
+We know several lock implementations, but not all of them guarantee us the liveness property.
+As a reminder, the liveness property tells us that: \emph{"A particularly good thing will happen eventually"}.
 For example, a program never "hangs".
 However, they usually guarantee the safety property, and the attentive reader would undoubtedly notice that Mutual Exclusion has a safety property.
 Some of the leading implementations of lock are the following:
 \begin {itemize}
     \item \textbf{Reentrant lock} \---\ This type of lock can be locked unlimited times.
-    Nevertheless, the important thing is that if we want to unlock the lock, we have to do the same number of times.
-    The use of this type of lock can be seen, for example, in recursive functions, when we lock the lock several times and unlock the same amount of times.
+    Nevertheless, the important thing is that if we want to unlock the lock, we have to do it the same number of times.
+    The use of this type of lock can be seen, for example, in recursive functions, when we lock the lock several times and unlock it the same amount of times.
     \item \textbf{Try lock} \---\ Non-blocking version of the classic lock, if the Mutex is available, it acquires the lock and returns instantly true at the same time.
     Otherwise, it returns false.
-    This behaviour is beneficial if the thread can do other things than in the critical section.
+    This behaviour is beneficial if the thread can do other things than the critical section.
     Therefore, it will not be blocked as a classic lock.
     \item \textbf{Read-write lock} \---\ Multiple readers can read from a shared resource.
     However, once a thread is locked in ReaderLock, it is not possible to get a thread that wants to modify the value of the shared resource.
@@ -169,7 +169,7 @@ The main problems posed by mutexes are, for example, \emph {busy-waiting}, deadl
 
 \begin{definition}
     \textbf{Busy waiting} \---\ waiting until thread, which is in the critical section, release lock or flag.
-    The mutual exclusion problem requires waiting, and there is no way how to avoid it.
+    The mutual exclusion problem requires waiting, and there is no way to avoid it.
 \end{definition}
 Elimination of busy-waiting is possible using another synchronisation primitive such as \emph{Semaphore} or \emph{Condition variable}.
 The \emph{Condition variable} represents a queue of threads waiting for a specific event and associated with a Mutex.
@@ -184,9 +184,9 @@ Noteworthy is the fact that the \emph{Condition variable} involves three operati
 \end{itemize}
 Another synchronisation mechanism is a Semaphore.
 Sometimes also referred to as a superset of a mutex.
-This is because if we imagine the simplest Semaphore, we get a mutex.
+If we imagine the simplest Semaphore, we get a mutex.
 The main difference between a mutex and a semaphore is that the Semaphore allows access to a critical section to more than one thread simultaneously.
-The amount added to such a section is conditioned by the number that one initialises in the Semaphore.
+The amount added to such a section is conditioned by the number one initialises in the Semaphore.
 The basic principle is that if a thread wants to access a critical section, it must increment this number.
 If the number reaches zero at that moment, no other thread can access the critical section.
 If the thread wants to exit the critical section, it decrements the counter.
@@ -209,12 +209,12 @@ Therefore, it is better to use \emph{ThreadPool} to create a new thread for each
 
 \emph{ThreadPool} is an object that creates and manages several threads, also called worker threads.
 If one thread completes its task, \emph{ThreadPool} immediately assigns a new job to the free thread.
- This eliminates the creation process and thus relieving the load on resources.
- However, if we want to submit one asynchronous task, then in the main thread, we want the future result.
- Thus, we use the \emph{Future} mechanism.
+This eliminates the creation process and thus relieving the load on resources.
+However, if we want to submit one asynchronous task, then in the main thread, we want the future result.
+Thus, we use the \emph{Future} mechanism.
 
 \emph{Future} is another object that creates one asynchronous task.
-According to intuition, we could deduce that the name was given to this mechanism because we do not know the value initially, but it will be available sometime in the near future.
+According to intuition, we could deduce that the name was given to this mechanism because we do not know the value initially, but it will be available soon.
 It also provides access to asynchronous operations, so most implementations have the \emph{get()} method.
 This operation is blocking and will usually be called if one is at a point where one needs a given result from the asynchronous task.
 The result will be available as soon as the task is completed.

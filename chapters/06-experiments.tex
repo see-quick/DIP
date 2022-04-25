@@ -4,7 +4,6 @@
 This chapter is devoted to testing and experimentally evaluating of proposed parallel execution designed and implemented in
 Chapters~\ref{04:chapter:title},~\ref{05:chapter:title}.
 In addition, we designed experiments to prove the parallelism we created scales (i.e., method or class-wide).
-At the same time, we calculated Amhdal's law for almost each experiment and compared it with the achieved result.
 
 \section{Experiments design}
 
@@ -14,13 +13,13 @@ These experiments will be performed for small Kubernetes instances (i.e., Miniku
 The expected results should be positive because parallelisation will have the best possible implementation environment
 (f.e., for method-wide parallelisation, it will be a test class containing only tests that are capable of parallel computation,
 similarly to class-wide parallelisation.);
-(b) the next part will be acceptance production based experiments, which will primarily provide information on whether it is beneficial
+(b) the next part will be the acceptance of production-based experiments, which will primarily provide information on whether it is beneficial
 to use parallelisation in a small subset of tests, where mostly half of the tests are capable of parallel execution.
 Acceptance experiments will include a subset of our system of tests, where of course, there will also be tests and test classes,
-which are not capable of parallel execution, and thus synchronization will occur.
+which are not capable of parallel execution, and thus synchronisation will occur.
 Possibly the parallelisation will not be suitable for acceptance experiments because most test suites consist of one or two test cases,
 and the overall preparation phase of the test suite is long.;
-(c) last type of experiments so\-called regression, which will already include the entire test suite currently offered by the Strimzi project.
+(c) the last type of experiment, so\-called regression, will already include the entire test suite currently offered by the Strimzi project.
 It will tell us whether the given parallelisation is eligible for the Strimzi.
 Moreover, a significant acceleration is expected because test classes often contain ten or more tests.
 On the other hand, we also have many tests that need total isolation, which potentially can slow down the whole performance.
@@ -58,8 +57,7 @@ On the other hand, $T_{new}$ describes the time after acceleration Equation~\eqr
 
 In the case of our experiment, we have the test class \textbf {SecurityST}, which includes twenty-one test cases.
 All these tests can be performed in parallel and are a perfect candidate to obtain information that parallelisation is capable of vertical scaling.
-What should be noted is the fact that the shared Cluster Operator is deployed before the execution tests,
-where usually this deployment lasts from one to six minutes (we choose a mean value of three minutes).
+What should be noted is the fact that the shared Cluster Operator is deployed before the execution tests, where usually this deployment lasts from one to six minutes (we choose a mean value of three minutes).
 So in our case, the part that can be parallelised will be equal to $p = \frac{171}{174}$.
 The first instance we use is a multi-node Kubernetes cluster with 24 virtual cores and 48 GB of RAM.
 Empirically, we obtained data on how long it takes to complete a given test class sequentially, using such information in Amdahl's law.
@@ -92,7 +90,7 @@ As shown in Table~\ref{06:tab:01:securityst-ocp-multinode}, when using sixteen t
 The reason was mainly the capacity resources (i.e., we deploy Kafka cluster and many other resources for each test case).
 At the same time, we can notice that we did not reach the theoretical acceleration that we calculated in Equation~\eqref{eqn:security-st-time-ocp}.
 However, this is due to several factors (f.e., tests do not take the same time or slower deployment volumes within Kafka clusters).
-Nevertheless, one needs to realize that if we had hypothetically unlimited resources (i.e., cores, RAM), we would not be able to overcome
+Nevertheless, one needs to realise that if we had hypothetically unlimited resources (i.e., cores, RAM), we would not be able to overcome
 the acceleration we calculated (i.e., Equation~\eqref{eqn:amdalh-limit}).
 \begin{table}[ht!]
     \centering
@@ -111,7 +109,7 @@ the acceleration we calculated (i.e., Equation~\eqref{eqn:amdalh-limit}).
 \end{equation}
 Our acquired acceleration in a perfect environment is less than $S _{\max} = 58x$ and at the same time $S_{teo} = 17.4x$.
 However, this is confirmed by the fact that we will never be better than $S_{\max}$ and also, we will never achieve a
-possible theoretical acceleration (i.e., $S_{teo}$) because such results are entirely typical for this kind of experiments.
+possible theoretical acceleration (i.e., $S_{teo}$) because such results are entirely typical for this kind of experiment.
 Overall, our acceleration is $S_{practical} = \frac{174}{24.5} = 7.1x$, which proves following relation $S_{practical} < S_{teo} < S_{\max}$.
 
 %---------------------------------------------------------
@@ -127,7 +125,7 @@ So the theoretical acceleration of the instance could be $S_{new\_teo\_medium} =
 Nevertheless, as we can see in Table~\ref{06:tab:01:securityst-minikube}, we did not accomplish such a same acceleration.
 However, we have come close enough, and the practical acceleration is $S_{new\_practical\_medium} = \frac{185}{79} = 2.34x$.
 We could use a maximum of three cores because, in the case of four cores, the virtual machine crashes due to a lack of memory.
-CPU utilization was approximately 80\% during the use of the four cores.
+CPU utilisation was approximately 80\% during the use of the four cores.
 \begin{table}[ht!]
     \centering
     \includegraphics[scale=0.8]{obrazky-figures/08-experiments/preliminary/06-exp-preliminary-minikube-b}
@@ -147,7 +145,7 @@ Specifically, these will be classes containing the @ParallelSuite annotation, an
 ThrottlingQuotaST, TopicST, UserST, ReconciliationST and CruiseControlConfigurationST.
 Together they contain thirty test cases where twenty-nine do not need any form of synchronisation, and only one test case needs isolation from other tests.
 More precisely, we have ten @ParallelNamespaceTest, for repetition;
-these are tests that deploy the Kafka cluster and thus rank among more resource-intensive.
+these are tests that deploy the Kafka cluster and thus rank among the more resource-intensive.
 Next, we have 19 @ParallelTest can also be said to be lightweight variants on the need for total resources, and finally, one @IsolatedTest
 guaranteeing isolation from other parallel tests.
 In case we would like to calculate a possible theoretical acceleration, it is necessary to know the sequence time and, at the same time, the time of one @IsolatedTest.
@@ -165,14 +163,11 @@ and by this outcome, we can compute theoretical speed up which is $S_{teo} = \fr
 and $\lim_{s\to\infty} S_{\max} = \frac{1}{1-p} = \frac{1}{1-\frac{101.5}{107}} =~19x$.
 
 What should be noted is that for class-wide parallelisation, the best possible scenario is to have a consistent test distribution.
-Ideally, such distribution where most test cases support parallel execution and in each test class are enough tests
-(i.e., have test classes, each containing more minor parallel test cases than configured parallelism).
+Ideally, such distribution where most test cases support parallel execution and in each test class are enough tests.
+(i.e., have test classes containing more minor parallel test cases than configured parallelism).
 This gives us the most out of the given type of parallelisation.
 For instance, suppose that we have five test classes, and each of them will have two tests (these tests will be capable of parallel execution).
-The best possible scenario would be to run such a set of tests with ten threads,
-which would guarantee that all threads will be busy and at the same time, the overall calculation will end the same,
-of course, provided that the tests last the same.
-However, the test classes generally do not provide such an even distribution, which is almost impossible in practice
+The best possible scenario would be to run such a set of tests with ten threads, guaranteeing that all threads will be busy. However, the test classes generally do not provide such an even distribution, which is almost impossible in practice
 (i.e., have the same number of tests for each test class).
 
 \begin{table}[ht!]
@@ -215,16 +210,16 @@ thus significantly increasing the total time.
 In this section, we will include two different experiments.
 First, in Section~\ref{06:subsec:acceptance-experiments} they will be described as shown experiments on a small production set of system tests.
 Moreover, these experiments provide information on whether parallelisation is applicable even for a small production-based set of tests.
-In the next Section (i.e., Section~\ref{06:subsec:regression-experiments}), we get a different view of the extensive set
+In the next section (i.e., Section~\ref{06:subsec:regression-experiments}), we get a different view of the extensive set
 of system tests that are currently available in the Strimzi.
 
 \subsection{Subset of our Strimzi system test}
 \label{06:subsec:acceptance-experiments}
 
 This type of experiment will enclose our genuine subset of tests.
-These tests also give us whether it is beneficial for performing them in parallel.
+These tests also give us whether it is beneficial to perform them parallel.
 Since we know that the profile also contains enough test cases for which isolation is necessary (i.e., @IsolatedTest) and test classes (i.e., @IsolatedSuite).
-Therefore, a significantly weaker acceleration is expected compared to the preliminary experiments, which have the best possible parallelisation environment.
+Therefore, a significantly weaker acceleration is expected than the preliminary experiments, which have the best possible parallelisation environment.
 Furthermore, since we found out that flavour \emph{2CPUs and 8GB RAM} is not able to perform even two parallel tests, it is thus unnecessary for this type of experiment.
 
 So if we look at a more detailed way in our production-based tests, we find out precisely that it contains 13 test classes and 35 tests.
@@ -250,7 +245,7 @@ However, we do not think we will see an intense acceleration.
 % 8x IT, 6PNT, 21x PT
 
 The experiments we performed on a given test sample do not differ much from the previous ones.
-We started with typical sequential execution and gradually started to increase the number of threads (see Table~\ref{06:tab:02:minikube-accepatance-experiments}).
+We started with typical sequential execution and gradually increased the number of threads (see Table~\ref{06:tab:02:minikube-accepatance-experiments}).
 We found out that during the use of method-wide parallelisation, there was no acceleration at all.
 Thus, a scenario where this form of parallelisation is not very suitable due to the small number of tests in the given test classes.
 However, where we could potentially succeed was by using class-wide parallelisation.
@@ -285,7 +280,7 @@ In other words, a very robust set of test cases contains everything (i.e., @Isol
 Currently, this test sample contains approximately 65 test classes, and more than half of them are classes
 requiring synchronisation (i.e., @IsolatedSuite).
 Specifically, these are 37 isolated classes, and with the use of the add-on, we find that there are classes that
-can perform them at the same time exactly 28.
+can perform them at the same time precisely 28.
 This quantification can give us an approximate possible result of the experiments.
 Given that sequential execution takes almost twenty-one hours, the ideal scenario would be to get below half
 (i.e., ten hours) of execution time.
@@ -363,6 +358,4 @@ which also makes it viable to inspire other \emph{kube-native} products to enfor
 Making parallel execution possible started from 0.23.0 (released in May 2021) to the 0.29.0 Strimzi version.
 Whether a method or class-wide parallelisation, both steps have been completed and merged into the main branch of
 the Strimzi project, where this implementation will be available from version 0.29.0.
-Our parallelism model of system tests is used in continuous integration systems (i.e., Jenkins),
-where the overall computational time is much faster than in sequential computational computation (proved by experiments).
-
+Our parallelism model of system tests is used in continuous integration systems (i.e., Jenkins), where the overall computational time is much faster than in sequential computational computation (proved by experiments).
