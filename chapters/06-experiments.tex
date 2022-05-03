@@ -11,7 +11,7 @@ The overall design of the experiments is divided into three main categories;
 (a) preliminary experiments to prove that the parallelisation we propose is capable of vertical scaling.
 These experiments will be performed for small Kubernetes instances (i.e., Minikube) and multi-node Kubernetes clusters.
 The expected results should be positive because parallelisation will have the best possible implementation environment
-(f.e., for method-wide parallelisation, it will be a test class containing only tests that are capable of parallel computation,
+(e.g, for method-wide parallelisation, it will be a test class containing only tests that are capable of parallel computation,
 similarly to class-wide parallelisation.);
 (b) the next part will be the acceptance of production-based experiments, which will primarily provide information on whether it is beneficial
 to use parallelisation in a small subset of tests, where mostly half of the tests are capable of parallel execution.
@@ -77,8 +77,8 @@ we can solely get nearer to it.
 \end{equation}
 Additionally, we use the following notation in the tables:
 \begin{itemize}[itemsep=1mm, parsep=0pt]
-    \item {\xmark} \---\ disabled parallelism (f.e., method or class-wide), or test execution containing errors (f.e., cluster crashed, because of out of memory problem)
-    \item {\cmark} \---\ enabled parallelism (f.e., method or class-wide), or test execution without any issues
+    \item {\xmark} \---\ disabled parallelism (e.g, method or class-wide), or test execution containing errors (e.g, cluster crashed, because of out of memory problem)
+    \item {\cmark} \---\ enabled parallelism (e.g, method or class-wide), or test execution without any issues
     \item {\fontencoding{U}\fontfamily{futs}\selectfont\char 66\relax} \---\ test execution with flaky tests because of resource capacity
 \end{itemize}
 
@@ -89,7 +89,7 @@ As part of our experimentation, we found that up to twelve threads would be the 
 As shown in Table~\ref{06:tab:01:securityst-ocp-multinode}, when using sixteen threads, the given Kubernetes cluster was destroyed.
 The reason was mainly the capacity resources (i.e., we deploy Kafka cluster and many other resources for each test case).
 At the same time, we can notice that we did not reach the theoretical acceleration that we calculated in Equation~\eqref{eqn:security-st-time-ocp}.
-However, this is due to several factors (f.e., tests do not take the same time or slower deployment volumes within Kafka clusters).
+However, this is due to several factors (e.g, tests do not take the same time or slower deployment volumes within Kafka clusters).
 Nevertheless, one needs to realise that if we had hypothetically unlimited resources (i.e., cores, RAM), we would not be able to overcome
 the acceleration we calculated (i.e., Equation~\eqref{eqn:amdalh-limit}).
 \begin{table}[ht!]
@@ -122,7 +122,7 @@ Therefore, Amdalh's law will also contain a much lower theoretical acceleration.
 For a machine containing four virtual cores, the estimated theoretical time is $T_{new\_teo\_medium}$, which is equal to
 $T_{new\_teo\_medium} = (1 - \frac{182}{185}) * 185 + \frac{\frac{182}{185}} {4} * 185 = $ approximately 49~minutes.
 So the theoretical acceleration of the instance could be $S_{new\_teo\_medium} = \frac{185}{49} = 3.8x$.
-Nevertheless, as we can see in Table~\ref{06:tab:01:securityst-minikube}, we did not accomplish such a same acceleration.
+Nevertheless, as we can see in Table~\ref{06:tab:01:security-st-minikube}, we did not accomplish such a same acceleration.
 However, we have come close enough, and the practical acceleration is $S_{new\_practical\_medium} = \frac{185}{79} = 2.34x$.
 We could use a maximum of three cores because, in the case of four cores, the virtual machine crashes due to a lack of memory.
 CPU utilisation was approximately 80\% during the use of the four cores.
@@ -329,7 +329,7 @@ Therefore, we expected better results.
 \end{table}
 For the Kubernetes cluster using three master and three worker nodes, we got the best results using five threads and were
 we can get from 21h to 11h, as can be seen in Table~\ref{06:tab:02:ocp-regression-experiments}.
-When we used more threads, the result was worse, or the test cases fell due to a lack of memory (f.e., using
+When we used more threads, the result was worse, or the test cases fell due to a lack of memory (e.g, using
 ten threads, we got 32 error tests).
 
 The results were much better for the Kubernetes cluster using three master and six worker nodes.

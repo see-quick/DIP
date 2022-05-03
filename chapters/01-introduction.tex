@@ -26,9 +26,11 @@ Keycloak\footnote{Keycloak \---\ open-source project for securing applications (
 Regarding the resources required to deploy \emph{Kafka} on virtual machines or containers, it is relatively simple to compare Kafka's Deployment on \emph{Kubernetes}.
 Nevertheless, this causes time problems for our \emph{Strimzi} project testing.
 To solve this problem, we have adopted the principles of parallel execution and created a mechanism within the \emph{Strimzi system tests}, which runs tests in parallel against only one cluster of \emph{Kubernetes}.
-% 3) related work
 
-Related work focuses on improving the overall verification time of a Strimzi product.
+\bigskip
+% 4) prínosy tejto práce
+
+\textbf{Key Contributions} \quad Related work focuses on improving the overall verification time of a Strimzi product.
 Several releases of Strimzi give us empirical insights that testing using a sequential computational model has been extremely slow.
 Furthermore, the product contains about fifteen of the most critical possible combinations of product deployment, each of which lasts over sixty hours.
 This sequential computational model is not a recommended candidate for verifying such numerous deployments.
@@ -44,12 +46,11 @@ However, this approach is not horizontally scalable due to our cloud services th
 Therefore, we got to the last opportunity to improve the computation using the vertical scalability of the resources (i.e., memory, central processing units) that the cloud services offer us.
 This information motivated us to design and implement a mechanism of fine-grained parallelism in our test framework.
 Figure~\ref{00:fig:evolution} shows the overall evolution of our test framework and summarises the previously mentioned sentences.
-\bigskip
-% 4) prínosy tejto práce
-
-\textbf{Acquisition of this work} \quad This work deals with the parallelisation of Kubernetes Strimzi system tests.
+The experiments on the implementation show that the given parallelization can significantly improve the execution time.
+% tak celkovú verifikáciu zlepšiť z 1000h na viac ako polovicu (i.e., ~350h).
 The author contributed the given code to the open-sourced project Strimzi, available on Github\footnote{Strimzi Github repository \---\ \url{https://github.com/strimzi/strimzi-kafka-operator}}, which also makes it possible to inspire other \emph{kube-native}\footnote{Kube-native \---\ it is a product that has been moved from the standalone world to the Kubernetes world. Moreover, it provides a communication interface (i.e., Kubernetes REST API) with which it manages individual components (i.e., Apache Kafka is a standalone application, and Strimzi is a \emph{kube-native} product because it encapsulates Apache Kafka and provides a communication interface for the user.} products to implement such solutions.
-The comprehensive benefit of this work is the significant acceleration of the verification process.
+The comprehensive benefit of this work is the acceleration of the verification process.
+
 \bigskip
 % 5) štruktúra práce
 
