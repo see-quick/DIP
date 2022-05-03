@@ -334,7 +334,24 @@ ten threads, we got 32 error tests).
 
 The results were much better for the Kubernetes cluster using three master and six worker nodes.
 We could use up to 25 threads, which resulted in a decrease in computing time.
+Interestingly, almost half of the test classes that support class-wide parallelization (i.e., @ParallelSuites)
+improved its total exercise time from about eight hours to one hour, which results in up to 8-fold acceleration.
+On the other hand, we could not fully use the strength within the remaining 37 test classes that need isolation (i.e., @IsolatedSuite).
+Of course, tests are performed in parallel in a given class, but sometimes there are five or fewer tests in a given class, which
+will prolong the entire execution time.
 From the flood 21h we got to 8h (Table~\ref{06:tab:02:ocp-regression-experiments}).
+For instance, if we were to re-structure the test suite, where we would be test classes (mainly @IsolatedSuite)
+added tests that require the same \emph{Cluster Operator} configuration and will contain a maximum of twenty-five test cases,
+so we would significantly improve overall time.
+This can be very friendly at first glance.
+Unfortunately, we would also sacrifice readability (e.g., tests that should belong to a separate test class we combine
+into some most similar and thus reduce scenario where we can possibly have @IsolatedSuite with less than five test cases.
+But on the other hand we could end up in scenario, where this test cases in one @IsolatedSuite will not have any common features.).
+From a performance point of view, this can also be summarized by the following quote said by Donald Ervin Knuth.
+\begin{quote}
+    \textit{Premature optimization is the root of all evil (or at least most of it) in programming.}
+\end{quote}
+
 In the case of using 30 threads, we got to the problem of OOM and Kubernetes cluster crashing.
 We can evaluate that Kubernetes for a given test sample is the optimal candidate
 cluster using three master and six workers nodes for larger instances.
