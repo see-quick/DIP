@@ -24,7 +24,7 @@ Furthermore, we describe the core implementation and the necessary reworking of 
 Next, in Section~\ref{05:sub:sec:annotations} the author present a mechanism that determines whether a given test case has to be executed in parallel or in isolation.
 Finally, in Section~\ref{05:sub:sec:configuration} we explain how such parallelisation can be configured, and in Section~\ref{05:sub:sec:applicability} we describe its usability within our infrastructure.
 
-\subsection{Unique Naming for each resource\protect\footnote{\url{https://github.com/strimzi/strimzi-kafka-operator/pull/4092}}}
+\subsection{Unique Naming for each resource\protect\footnote{Upstream pull request \---\ \url{https://github.com/strimzi/strimzi-kafka-operator/pull/4092}}}
 \label{05:sub:sec:unique}
 
 Several sources (e.g, \emph{Kafka cluster}, \emph{KafkaConnect}, \emph{KafkaMirrorMaker}), which are used in test cases,
@@ -205,7 +205,6 @@ synchronized private static void systemSetup(
         sharedExtensionContext = extensionContext.getRoot();
         if (StUtils.isParallelSuite(extensionContext)) {
             BeforeAllOnce.systemReady = true;
-
             if (Environment.isNamespaceRbacScope() &&
                 !Environment.isHelmInstall()) {
             clusterOperator = new SetupClusterOperator

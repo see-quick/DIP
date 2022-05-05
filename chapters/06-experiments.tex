@@ -28,9 +28,9 @@ We mainly use the Openstack and Amazon Web Services infrastructures to perform a
 Furthermore, for preliminary experiments, we use four types of instances:
 \begin{itemize}
     \item \textbf{Kubernetes cluster} \---\ multi-node, where this instance will provide 24 virtual cores and 48 GB RAM (without taking into account master nodes)
-    \item \textbf{Small minikube} \---\ single-node, where this instance will provide two virtual cores and 8GB RAM
-    \item \textbf{Medium minikube} \---\ single-node, where this instance will provide four virtual cores and 16GB RAM
-    \item \textbf{Large minikube} \---\ single-node, where this instance will provide eight virtual cores and 32GB of RAM
+    \item \textbf{Minor instance of minikube} \---\ single-node, where this instance will provide two virtual cores and 8GB RAM
+    \item \textbf{Typical instance of minikube} \---\ single-node, where this instance will provide four virtual cores and 16GB RAM
+    \item \textbf{Comprehensive instance of minikube} \---\ single-node, where this instance will provide eight virtual cores and 32GB of RAM
 \end{itemize}
 
 \section{Preliminary experiments}
@@ -333,20 +333,21 @@ When we used more threads, the result was worse, or the test cases fell due to a
 ten threads, we got 32 error tests).
 
 The results were much better for the Kubernetes cluster using three master and six worker nodes.
-We could use up to 25 threads, which resulted in a decrease in computing time.
+We could use up to twenty-five threads, which resulted in a decrease in computing time.
 Interestingly, almost half of the test classes that support class-wide parallelization (i.e., @ParallelSuites)
 improved its total exercise time from about eight hours to one hour, which results in up to 8-fold acceleration.
-On the other hand, we could not fully use the strength within the remaining 37 test classes that need isolation (i.e., @IsolatedSuite).
-Of course, tests are performed in parallel in a given class, but sometimes there are five or fewer tests in a given class, which
-will prolong the entire execution time.
-From the flood 21h we got to 8h (Table~\ref{06:tab:02:ocp-regression-experiments}).
-For instance, if we were to re-structure the test suite, where we would be test classes (mainly @IsolatedSuite)
-added tests that require the same \emph{Cluster Operator} configuration and will contain a maximum of twenty-five test cases,
-so we would significantly improve overall time.
-This can be very friendly at first glance.
-Unfortunately, we would also sacrifice readability (e.g., tests that should belong to a separate test class we combine
-into some most similar and thus reduce scenario where we can possibly have @IsolatedSuite with less than five test cases.
-But on the other hand we could end up in scenario, where this test cases in one @IsolatedSuite will not have any common features.).
+On the other hand, we could not fully use the strength within the remaining thirty-seven test classes that need an isolation environment (i.e., @IsolatedSuite).
+It is evident that tests are performed in parallel in a given class, but occasionally there are five or fewer tests in a given class, which
+prolongs the entire execution time.
+From the sequential execution time (i.e., twenty-one hours), we got to eight hours (Table~\ref{06:tab:02:ocp-regression-experiments}).
+Moreover, one hypothesis would undoubtedly improve the overall performance, but it would also worsen the overall readability of the test sample.
+For instance, if we were to re-structure the test suites, where we would be test classes (mainly @IsolatedSuite).
+Then we add test cases that require the same \emph{Cluster Operator} configuration, and these test suites would contain a maximum of twenty-five test cases.
+It would significantly improve overall time because test classes will not contain less than five test cases, resulting in a situation where most threads are working.
+Therefore, we eliminate scenarios where we configure twenty-five threads running in parallel, and some test classes have only three or fewer test cases, meaning that the seventeenth threads are sleeping.
+Re-structuring our test classes can be very friendly at first glance.
+Unfortunately, we would sacrifice readability (e.g., tests that should belong to a separate test class we combine into some most similar), thus reducing scenarios where we can have @IsolatedSuite with less than five test cases.
+Nevertheless, we could end up in a scenario where these test cases in one @IsolatedSuite will not have any standard features.
 From a performance point of view, this can also be summarized by the following quote said by Donald Ervin Knuth.
 \begin{quote}
     \textit{Premature optimization is the root of all evil (or at least most of it) in programming.}
@@ -364,10 +365,17 @@ Furthermore, we described a project that encapsulates Kafka and uses it on top o
 We further explained the architecture and principles in the system tests of the Strimzi project.
 In addition, we gained knowledge about parallel execution, which we successfully used in this thesis.
 Moreover, we identified the challenges of the current system test architecture.
-Therefore we designed and implemented a solution to solve these problems (i.e., using multiple pipelines and creating sub-sets of
+Therefore, we designed and implemented a solution to solve these problems (i.e., using multiple pipelines and creating sub-sets of
 tests is not horizontally scalable due to our cloud services that provide resources).
 Thus, this information motivated us to design and implement a mechanism of fine-grained parallelism in our test framework (i.e., using memory and central processing units) that the cloud services offer us.
 Finally, our experiments showed that parallelisation could scale vertically for different test samples.
+
+Based on the performed experiments, we found that within the environment that fully supports parallelisation, there were results
+the acceleration within factor 8.
+We obtained the identical factor in the case of production experiments (i.e., from eight to one hour) when performing only classes that support class-wide parallelisation (i.e., @ParallelSuite).
+By contrast, overall production experiments (i.e., together with @IsolatedSuite) showed partially more inadequate results (i.e., a factor of 2.5).
+We reach such a factor mainly due to the structure of the test classes and their content (i.e., the number of tests within the test class; meaning a @IsolatedSuite with fewer than five test cases when twenty-five threads in parallel are configured and thus twenty threads sleep).
+Furthermore, more than half of the classes require to perform in complete isolation (i.e., @IsolatedSuite).
 
 We contributed the given code to the open-sourced project Strimzi, available on
 Github\footnote{Strimzi Github repository \---\ \url{https://github.com/strimzi/strimzi-kafka-operator}},
@@ -375,4 +383,4 @@ which also makes it viable to inspire other \emph{kube-native} products to enfor
 Making parallel execution possible started from 0.23.0 (released in May 2021) to the 0.29.0 Strimzi version.
 Whether a method or class-wide parallelisation, both steps have been completed and merged into the main branch of
 the Strimzi project, where this implementation will be available from version 0.29.0.
-Our parallelism model of system tests is used in continuous integration systems (i.e., Jenkins), where the overall computational time is much faster than in sequential computational computation (proved by experiments).
+Our parallelism model of system tests is used in continuous integration systems (i.e., Jenkins, Azure Pipelines), where the overall computational time is much faster than in sequential computational computation (proved by experiments).
