@@ -11,7 +11,7 @@ The overall design of the experiments is divided into three main categories;
 (a) preliminary experiments to prove that the parallelisation we propose is capable of vertical scaling.
 These experiments will be performed for small Kubernetes instances (i.e., Minikube) and multi-node Kubernetes clusters.
 The expected results should be positive because parallelisation will have the best possible implementation environment
-(f.e., for method-wide parallelisation, it will be a test class containing only tests that are capable of parallel computation,
+(e.g, for method-wide parallelisation, it will be a test class containing only tests that are capable of parallel computation,
 similarly to class-wide parallelisation.);
 (b) the next part will be the acceptance of production-based experiments, which will primarily provide information on whether it is beneficial
 to use parallelisation in a small subset of tests, where mostly half of the tests are capable of parallel execution.
@@ -28,9 +28,9 @@ We mainly use the Openstack and Amazon Web Services infrastructures to perform a
 Furthermore, for preliminary experiments, we use four types of instances:
 \begin{itemize}
     \item \textbf{Kubernetes cluster} \---\ multi-node, where this instance will provide 24 virtual cores and 48 GB RAM (without taking into account master nodes)
-    \item \textbf{Small minikube} \---\ single-node, where this instance will provide two virtual cores and 8GB RAM
-    \item \textbf{Medium minikube} \---\ single-node, where this instance will provide four virtual cores and 16GB RAM
-    \item \textbf{Large minikube} \---\ single-node, where this instance will provide eight virtual cores and 32GB of RAM
+    \item \textbf{Minor instance of minikube} \---\ single-node, where this instance will provide two virtual cores and 8GB RAM
+    \item \textbf{Typical instance of minikube} \---\ single-node, where this instance will provide four virtual cores and 16GB RAM
+    \item \textbf{Comprehensive instance of minikube} \---\ single-node, where this instance will provide eight virtual cores and 32GB of RAM
 \end{itemize}
 
 \section{Preliminary experiments}
@@ -77,8 +77,8 @@ we can solely get nearer to it.
 \end{equation}
 Additionally, we use the following notation in the tables:
 \begin{itemize}[itemsep=1mm, parsep=0pt]
-    \item {\xmark} \---\ disabled parallelism (f.e., method or class-wide), or test execution containing errors (f.e., cluster crashed, because of out of memory problem)
-    \item {\cmark} \---\ enabled parallelism (f.e., method or class-wide), or test execution without any issues
+    \item {\xmark} \---\ disabled parallelism (e.g, method or class-wide), or test execution containing errors (e.g, cluster crashed, because of out of memory problem)
+    \item {\cmark} \---\ enabled parallelism (e.g, method or class-wide), or test execution without any issues
     \item {\fontencoding{U}\fontfamily{futs}\selectfont\char 66\relax} \---\ test execution with flaky tests because of resource capacity
 \end{itemize}
 
@@ -89,7 +89,7 @@ As part of our experimentation, we found that up to twelve threads would be the 
 As shown in Table~\ref{06:tab:01:securityst-ocp-multinode}, when using sixteen threads, the given Kubernetes cluster was destroyed.
 The reason was mainly the capacity resources (i.e., we deploy Kafka cluster and many other resources for each test case).
 At the same time, we can notice that we did not reach the theoretical acceleration that we calculated in Equation~\eqref{eqn:security-st-time-ocp}.
-However, this is due to several factors (f.e., tests do not take the same time or slower deployment volumes within Kafka clusters).
+However, this is due to several factors (e.g, tests do not take the same time or slower deployment volumes within Kafka clusters).
 Nevertheless, one needs to realise that if we had hypothetically unlimited resources (i.e., cores, RAM), we would not be able to overcome
 the acceleration we calculated (i.e., Equation~\eqref{eqn:amdalh-limit}).
 \begin{table}[ht!]
@@ -122,7 +122,7 @@ Therefore, Amdalh's law will also contain a much lower theoretical acceleration.
 For a machine containing four virtual cores, the estimated theoretical time is $T_{new\_teo\_medium}$, which is equal to
 $T_{new\_teo\_medium} = (1 - \frac{182}{185}) * 185 + \frac{\frac{182}{185}} {4} * 185 = $ approximately 49~minutes.
 So the theoretical acceleration of the instance could be $S_{new\_teo\_medium} = \frac{185}{49} = 3.8x$.
-Nevertheless, as we can see in Table~\ref{06:tab:01:securityst-minikube}, we did not accomplish such a same acceleration.
+Nevertheless, as we can see in Table~\ref{06:tab:01:security-st-minikube}, we did not accomplish such a same acceleration.
 However, we have come close enough, and the practical acceleration is $S_{new\_practical\_medium} = \frac{185}{79} = 2.34x$.
 We could use a maximum of three cores because, in the case of four cores, the virtual machine crashes due to a lack of memory.
 CPU utilisation was approximately 80\% during the use of the four cores.
@@ -329,12 +329,30 @@ Therefore, we expected better results.
 \end{table}
 For the Kubernetes cluster using three master and three worker nodes, we got the best results using five threads and were
 we can get from 21h to 11h, as can be seen in Table~\ref{06:tab:02:ocp-regression-experiments}.
-When we used more threads, the result was worse, or the test cases fell due to a lack of memory (f.e., using
+When we used more threads, the result was worse, or the test cases fell due to a lack of memory (e.g, using
 ten threads, we got 32 error tests).
 
 The results were much better for the Kubernetes cluster using three master and six worker nodes.
-We could use up to 25 threads, which resulted in a decrease in computing time.
-From the flood 21h we got to 8h (Table~\ref{06:tab:02:ocp-regression-experiments}).
+We could use up to twenty-five threads, which resulted in a decrease in computing time.
+Interestingly, almost half of the test classes that support class-wide parallelization (i.e., @ParallelSuites)
+improved its total exercise time from about eight hours to one hour, which results in up to 8-fold acceleration.
+On the other hand, we could not fully use the strength within the remaining thirty-seven test classes that need an isolation environment (i.e., @IsolatedSuite).
+It is evident that tests are performed in parallel in a given class, but occasionally there are five or fewer tests in a given class, which
+prolongs the entire execution time.
+From the sequential execution time (i.e., twenty-one hours), we got to eight hours (Table~\ref{06:tab:02:ocp-regression-experiments}).
+Moreover, one hypothesis would undoubtedly improve the overall performance, but it would also worsen the overall readability of the test sample.
+For instance, if we were to re-structure the test suites, where we would be test classes (mainly @IsolatedSuite).
+Then we add test cases that require the same \emph{Cluster Operator} configuration, and these test suites would contain a maximum of twenty-five test cases.
+It would significantly improve overall time because test classes will not contain less than five test cases, resulting in a situation where most threads are working.
+Therefore, we eliminate scenarios where we configure twenty-five threads running in parallel, and some test classes have only three or fewer test cases, meaning that the seventeenth threads are sleeping.
+Re-structuring our test classes can be very friendly at first glance.
+Unfortunately, we would sacrifice readability (e.g., tests that should belong to a separate test class we combine into some most similar), thus reducing scenarios where we can have @IsolatedSuite with less than five test cases.
+Nevertheless, we could end up in a scenario where these test cases in one @IsolatedSuite will not have any standard features.
+From a performance point of view, this can also be summarized by the following quote said by Donald Ervin Knuth.
+\begin{quote}
+    \textit{Premature optimization is the root of all evil (or at least most of it) in programming.}
+\end{quote}
+
 In the case of using 30 threads, we got to the problem of OOM and Kubernetes cluster crashing.
 We can evaluate that Kubernetes for a given test sample is the optimal candidate
 cluster using three master and six workers nodes for larger instances.
@@ -347,10 +365,17 @@ Furthermore, we described a project that encapsulates Kafka and uses it on top o
 We further explained the architecture and principles in the system tests of the Strimzi project.
 In addition, we gained knowledge about parallel execution, which we successfully used in this thesis.
 Moreover, we identified the challenges of the current system test architecture.
-Therefore we designed and implemented a solution to solve these problems (i.e., using multiple pipelines and creating sub-sets of
+Therefore, we designed and implemented a solution to solve these problems (i.e., using multiple pipelines and creating sub-sets of
 tests is not horizontally scalable due to our cloud services that provide resources).
 Thus, this information motivated us to design and implement a mechanism of fine-grained parallelism in our test framework (i.e., using memory and central processing units) that the cloud services offer us.
 Finally, our experiments showed that parallelisation could scale vertically for different test samples.
+
+Based on the performed experiments, we found that within the environment that fully supports parallelisation, there were results
+the acceleration within factor 8.
+We obtained the identical factor in the case of production experiments (i.e., from eight to one hour) when performing only classes that support class-wide parallelisation (i.e., @ParallelSuite).
+By contrast, overall production experiments (i.e., together with @IsolatedSuite) showed partially more inadequate results (i.e., a factor of 2.5).
+We reach such a factor mainly due to the structure of the test classes and their content (i.e., the number of tests within the test class; meaning a @IsolatedSuite with fewer than five test cases when twenty-five threads in parallel are configured and thus twenty threads sleep).
+Furthermore, more than half of the classes require to perform in complete isolation (i.e., @IsolatedSuite).
 
 We contributed the given code to the open-sourced project Strimzi, available on
 Github\footnote{Strimzi Github repository \---\ \url{https://github.com/strimzi/strimzi-kafka-operator}},
@@ -358,4 +383,4 @@ which also makes it viable to inspire other \emph{kube-native} products to enfor
 Making parallel execution possible started from 0.23.0 (released in May 2021) to the 0.29.0 Strimzi version.
 Whether a method or class-wide parallelisation, both steps have been completed and merged into the main branch of
 the Strimzi project, where this implementation will be available from version 0.29.0.
-Our parallelism model of system tests is used in continuous integration systems (i.e., Jenkins), where the overall computational time is much faster than in sequential computational computation (proved by experiments).
+Our parallelism model of system tests is used in continuous integration systems (i.e., Jenkins, Azure Pipelines), where the overall computational time is much faster than in sequential computational computation (proved by experiments).

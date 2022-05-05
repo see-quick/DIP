@@ -1384,5 +1384,18 @@ numberstyle = \tiny,
 
 
 \endinput
+
+
+\let\oldquote\quote
+\let\endoldquote\endquote
+\renewenvironment{quote}[2][]
+{\if\relax\detokenize{#1}\relax
+\def\quoteauthor{#2}%
+\else
+\def\quoteauthor{#2~---~#1}%
+\fi
+\oldquote}
+{\par\nobreak\smallskip\hfill(\quoteauthor)%
+\endoldquote\addvspace{\bigskipamount}}
 %%
 %% End of file `fitthesis.cls'.

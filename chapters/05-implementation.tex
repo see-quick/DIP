@@ -2,7 +2,7 @@
 \label{05:chapter:title}
 
 This chapter is devoted to the implementation of additional functionality (i.e., parallelism) into the test framework within the Strimzi project.
-Implementation Listings (f.e.,~\ref{interface:resourcetype},~\ref{interface:implementation:kafka}\dots) are presented in Java programming language.
+Implementation Listings (e.g,~\ref{interface:resourcetype},~\ref{interface:implementation:kafka}\dots) are presented in Java programming language.
 Moreover, in Section~\ref{05:sec:method:wide:parallelism} we describe an implementation of the first possible level of
 parallelism for more minor instances of the Kubernetes cluster.
 Finally, for more comprehensive instances (i.e., multi-node Kubernetes clusters),
@@ -24,23 +24,23 @@ Furthermore, we describe the core implementation and the necessary reworking of 
 Next, in Section~\ref{05:sub:sec:annotations} the author present a mechanism that determines whether a given test case has to be executed in parallel or in isolation.
 Finally, in Section~\ref{05:sub:sec:configuration} we explain how such parallelisation can be configured, and in Section~\ref{05:sub:sec:applicability} we describe its usability within our infrastructure.
 
-\subsection{Unique Naming for each resource\protect\footnote{\url{https://github.com/strimzi/strimzi-kafka-operator/pull/4092}}}
+\subsection{Unique Naming for each resource\protect\footnote{Upstream pull request \---\ \url{https://github.com/strimzi/strimzi-kafka-operator/pull/4092}}}
 \label{05:sub:sec:unique}
 
-Several sources (f.e., \emph{Kafka cluster}, \emph{KafkaConnect}, \emph{KafkaMirrorMaker}), which are used in test cases,
-are necessary to work with unique names to avoid conflict (f.e., replace existing or already created resources).
+Several sources (e.g, \emph{Kafka cluster}, \emph{KafkaConnect}, \emph{KafkaMirrorMaker}), which are used in test cases,
+are necessary to work with unique names to avoid conflict (e.g, replace existing or already created resources).
 That is why we created the class \emph{TestStorage}\footnote{TestStorage \---\ https://github.com/strimzi/strimzi-kafka-operator/pull/5446/},
-which will include unique generated name of the necessary resources (f.e., name of the \emph{Namespace}, \emph{Kafka cluster},
+which will include unique generated name of the necessary resources (e.g, name of the \emph{Namespace}, \emph{Kafka cluster},
 \emph{KafkaTopic}, \emph{Producer}, \emph{Consumer}).
 All is possible thanks to \emph{ExtensionContext} object, where each test case has a different \emph{ExtensionContext}, and therefore it can be used as a unique identifier between test cases.
-Eventually each test case has to instantiate \emph{TestStorage} class and then access resources (f.e., \emph{Namespace}, \emph{Kafka cluster},
+Eventually each test case has to instantiate \emph{TestStorage} class and then access resources (e.g, \emph{Namespace}, \emph{Kafka cluster},
 \emph{KafkaTopic}, \emph{Producer}, \emph{Consumer}).
 
 \subsection{Resource Manager re-work\protect\footnote{\url{https://github.com/strimzi/strimzi-kafka-operator/pull/4137}}}
 \label{05:sub:sec:resourcemanager}
 
 As described in Section~\ref{04:architecturechanges}, we created Interface \emph{ResourceType <T extends HasMetadata>}.
-Where \emph{T} is a generic type and can take subtypes (f.e., Kafka, KafkaBridge, KafkaMirrorMaker).
+Where \emph{T} is a generic type and can take subtypes (e.g, Kafka, KafkaBridge, KafkaMirrorMaker).
 In other words, everything that contains the object \emph{HasMetadata}\footnote{HasMetadata \---\ is an interface of
 Kubernetes resources that contain metadata object}.
 Listing~\ref{interface:resourcetype} shows the individual method signatures in the given interface.
@@ -166,7 +166,7 @@ junit.jupiter.execution.parallel.config.fixed.parallelism = <n>
 \label{05:sub:sec:applicability}
 
 Method-wide parallelisation for our testing framework is most efficient for more diminutive infrastructures,
-typically with parameters f.e., 24GB RAM and eight cores. We use such infrastructure as part of nightly testing.
+typically with parameters e.g, 24GB RAM and eight cores. We use such infrastructure as part of nightly testing.
 In the circumstances, we have less power available; it is necessary to count on it that in more demanding test cases
 (i.e., a test case using \emph{KafkaMirrorMaker} or several Kafka clusters), the cluster will be unstable, which will
 lead to poor test results and overall test timeouts. On the other hand, in the case of more powerful infrastructure
@@ -205,7 +205,6 @@ synchronized private static void systemSetup(
         sharedExtensionContext = extensionContext.getRoot();
         if (StUtils.isParallelSuite(extensionContext)) {
             BeforeAllOnce.systemReady = true;
-
             if (Environment.isNamespaceRbacScope() &&
                 !Environment.isHelmInstall()) {
             clusterOperator = new SetupClusterOperator
@@ -252,7 +251,7 @@ Due to the numerous factory methods already becoming difficult to manage, it was
 The overall implementation without auxiliary methods (omitted for brevity) can be found in Listing~\ref{cluster:operator:builder:pattern}.
 
 The last part we proposed in Section~\ref{05:sharedclusteroperator} was the \emph{Rollback} algorithm (\ref{05:alg:rollback}).
-This is necessary if we have a situation of two classes that require a distinct configuration of the Cluster Operator f.e.,
+This is necessary if we have a situation of two classes that require a distinct configuration of the Cluster Operator e.g,
 Thread A terminates the execution of test class \emph{X} and thread B will start the execution of test class \emph{Y},
 which needs a default configuration\footnote{Default configuration \---\ Such configuration is used alongside with \emph{@ParallelSuite}.
 Thus if @IsolatedSuite ends its execution and starts @ParallelSuite, it always comes with triggering \emph{Rollback} algorithm.} that differs from the current.
@@ -340,7 +339,7 @@ The analogy for the sixth case is a combination of these two cases.
 
 In the last case, synchronisation is required when ForkJoinPool spawns multiple threads that exceed our configured parallelism limit.
 It does this because \emph{ForkJoinPool} uses a \emph{worker-steal} algorithm. Unfortunately, this technique spawns additional threads when
-synchronisation primitive blocks thread (f.e., this can lead to a situation where the user sets a fixed value of parallelism
+synchronisation primitive blocks thread (e.g, this can lead to a situation where the user sets a fixed value of parallelism
 to two when he expects to run at most two test classes with two test cases. However, in some borderline situations,
 it could be that ForkJoinPool will spawn five threads instead of two. Because of this, we have implemented an additional
 mechanism that will make such threads sleep if they exceed the value of parallelism (Listing~\ref{parallel:suite:sync}).
@@ -402,7 +401,7 @@ private void retrieveAllSystemTestsNames(File stFiles) {
 }
 \end{lstlisting}
 Subsequently, we will make a namespace for each of these classes and store it in a hash map where the key will be the class name
-(f.e., \emph{TracingST.getClass().getName()}), and if the given test class wants to get this namespace it will do so simply as
+(e.g, \emph{TracingST.getClass().getName()}), and if the given test class wants to get this namespace it will do so simply as
 illustrated in Listing \ref{test:namespace:manager:get:namespace}.
 
 \begin{lstlisting}[language=Java,label=test:namespace:manager:get:namespace,caption=@ParallelSuite query generated (dynamically) namespace,frame=tb]
