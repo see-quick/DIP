@@ -96,7 +96,6 @@ The description is based on the \emph{Real-Time Data and StreamProcessing at Sca
     Imagine the following scenario \---\ we have a Kafka cluster with three Kafka brokers.
     We create a new topic with a unique name using an administration client. (In Section~\ref{03:title}, we will talk about alternative ways of creating resources.) The question can be \emph{what happens if we set higher replication factor then we have available Kafka brokers}.
     We are notified that the Topic can not be created because we do not have enough accessible Kafka brokers.
-    More about this in~\ref{subSec:strimzi:topicOperator}.
     Partitions are entities that split \emph{KafkaTopic} into separate parts.
     It means that in each partition, we have different data; using this feature, we allow the consumer to fetch data in a concurrent\footnote{Consumes more than one message at the specific period.} way.
     A partition contains offsets, which serve as ids for the specific messages.
@@ -131,7 +130,7 @@ Kafka streams also support two crucial operating characteristics:
     Practically speaking, one uses the Kafka Streams API to deploy multiple instances of an application, each of which will handle a subset of the work.
     For illustration, one \emph{KafkaTopic} has sixteen partitions, and it is up to us how we scale it.
     One scenario could be to deploy two instances, and each of them would trade eight partitions.
-    Figure \ref{fig:kafkaStreams} shows example with three partitions.
+    Figure~\ref{fig:kafkaStreams} shows example with three partitions.
 
     \begin{figure}[!h]
         \centering
